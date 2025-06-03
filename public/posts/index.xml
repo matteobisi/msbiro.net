@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Aug 2022 10:26:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CyberArk Conjur, authenticators and integrations</title>
+      <link>http://localhost:1313/posts/cyberark-conjur-authenticators-integrations/</link>
+      <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/cyberark-conjur-authenticators-integrations/</guid>
+      <description>&lt;p&gt;During the past few weeks, I have described what a secrets manager is and provided an overview of the architecture and system requirements of CyberArk Conjur.&lt;/p&gt;
+&lt;p&gt;A secrets manager can&amp;rsquo;t do its job if it can&amp;rsquo;t communicate with those who need to request  secrets, and that&amp;rsquo;s where Conjur&amp;rsquo;s magic comes in!&lt;/p&gt;
+&lt;p&gt;The &amp;ldquo;authenticators&amp;rdquo; are responsible for the authentication process in Conjur and are specialized to do this in the most secure way, depending on the service.&lt;br&gt;
+Here is the list of authenticators currently supported:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CyberArk Conjur: A Quick Overview of Architecture and System Requirements</title>
+      <link>http://localhost:1313/posts/cyberark-conjur-architecture-system-requirements/</link>
+      <pubDate>Sun, 24 Jul 2022 11:40:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/cyberark-conjur-architecture-system-requirements/</guid>
+      <description>&lt;p&gt;As I wrote in &lt;a href=&#34;http://localhost:1313/posts/why-you-need-kubernetes-secrets-manager/&#34;&gt;my last post&lt;/a&gt;, CyberArk Conjur is an enterprise secrets manager.
+, CyberArk Conjur is an enterprise secrets manager.&lt;/p&gt;
+&lt;p&gt;In this post, I’ll provide an architecture overview along with the main system requirements.&lt;br&gt;
+Conjur is currently available in two versions: Enterprise and open source (known as OSS).&lt;br&gt;
+A &amp;ldquo;cloud&amp;rdquo; version will be available soon, offered as a SaaS solution.&lt;/p&gt;
+&lt;p&gt;This post focuses on the Enterprise version, which is similar but not identical to the OSS version.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CyberArk Conjur - why you (probably) need an enterprise secrets manager</title>
+      <link>http://localhost:1313/posts/why-you-need-kubernetes-secrets-manager/</link>
+      <pubDate>Tue, 19 Jul 2022 16:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/why-you-need-kubernetes-secrets-manager/</guid>
+      <description>&lt;p&gt;Security is always a complex topic to address, as an error or omission in processes can lead to serious economic or reputational damage for a company.&lt;br&gt;
+When we talk about &amp;ldquo;secrets,&amp;rdquo; consider the following examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Usernames&lt;/li&gt;
+&lt;li&gt;Database passwords&lt;/li&gt;
+&lt;li&gt;SSL certificates and keys&lt;/li&gt;
+&lt;li&gt;SSH keys&lt;/li&gt;
+&lt;li&gt;Cloud credentials&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Simply reading through this list helps to explain why this topic needs to be considered and handled carefully.&lt;br&gt;
+Some common bad practices or risks include:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>I&#39;ve started a new journey as DevSecOps Team Leader</title>
+      <link>http://localhost:1313/posts/new-job-devsecops-teamleader/</link>
+      <pubDate>Wed, 25 May 2022 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/new-job-devsecops-teamleader/</guid>
+      <description>A new beginning</description>
+    </item>
+  </channel>
+</rss>
