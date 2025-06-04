@@ -18,7 +18,12 @@
       <link>http://localhost:1313/posts/cyberark-conjur-architecture-system-requirements/</link>
       <pubDate>Sun, 24 Jul 2022 11:40:03 +0000</pubDate>
       <guid>http://localhost:1313/posts/cyberark-conjur-architecture-system-requirements/</guid>
-      <description>Desc Text.</description>
+      <description>&lt;p&gt;As I wrote in &lt;a href=&#34;http://localhost:1313/posts/why-you-need-kubernetes-secrets-manager/&#34;&gt;my last post&lt;/a&gt;, CyberArk Conjur is an enterprise secrets manager.
+, CyberArk Conjur is an enterprise secrets manager.&lt;/p&gt;
+&lt;p&gt;In this post, I’ll provide an architecture overview along with the main system requirements.&lt;br&gt;
+Conjur is currently available in two versions: Enterprise and open source (known as OSS).&lt;br&gt;
+A &amp;ldquo;cloud&amp;rdquo; version will be available soon, offered as a SaaS solution.&lt;/p&gt;
+&lt;p&gt;This post focuses on the Enterprise version, which is similar but not identical to the OSS version.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

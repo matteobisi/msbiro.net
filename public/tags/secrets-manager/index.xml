@@ -18,14 +18,29 @@
       <link>http://localhost:1313/posts/cyberark-conjur-architecture-system-requirements/</link>
       <pubDate>Sun, 24 Jul 2022 11:40:03 +0000</pubDate>
       <guid>http://localhost:1313/posts/cyberark-conjur-architecture-system-requirements/</guid>
-      <description>Desc Text.</description>
+      <description>&lt;p&gt;As I wrote in &lt;a href=&#34;http://localhost:1313/posts/why-you-need-kubernetes-secrets-manager/&#34;&gt;my last post&lt;/a&gt;, CyberArk Conjur is an enterprise secrets manager.
+, CyberArk Conjur is an enterprise secrets manager.&lt;/p&gt;
+&lt;p&gt;In this post, I’ll provide an architecture overview along with the main system requirements.&lt;br&gt;
+Conjur is currently available in two versions: Enterprise and open source (known as OSS).&lt;br&gt;
+A &amp;ldquo;cloud&amp;rdquo; version will be available soon, offered as a SaaS solution.&lt;/p&gt;
+&lt;p&gt;This post focuses on the Enterprise version, which is similar but not identical to the OSS version.&lt;/p&gt;</description>
     </item>
     <item>
       <title>CyberArk Conjur - why you (probably) need an enterprise secrets manager</title>
       <link>http://localhost:1313/posts/why-you-need-kubernetes-secrets-manager/</link>
       <pubDate>Tue, 19 Jul 2022 16:30:03 +0000</pubDate>
       <guid>http://localhost:1313/posts/why-you-need-kubernetes-secrets-manager/</guid>
-      <description>Desc Text.</description>
+      <description>&lt;p&gt;Security is always a complex topic to address, as an error or omission in processes can lead to serious economic or reputational damage for a company.&lt;br&gt;
+When we talk about &amp;ldquo;secrets,&amp;rdquo; consider the following examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Usernames&lt;/li&gt;
+&lt;li&gt;Database passwords&lt;/li&gt;
+&lt;li&gt;SSL certificates and keys&lt;/li&gt;
+&lt;li&gt;SSH keys&lt;/li&gt;
+&lt;li&gt;Cloud credentials&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Simply reading through this list helps to explain why this topic needs to be considered and handled carefully.&lt;br&gt;
+Some common bad practices or risks include:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

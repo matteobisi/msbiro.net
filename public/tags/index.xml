@@ -21,10 +21,31 @@
       <description></description>
     </item>
     <item>
+      <title>Authenticators</title>
+      <link>http://localhost:1313/tags/authenticators/</link>
+      <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/authenticators/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Conjur</title>
       <link>http://localhost:1313/tags/conjur/</link>
-      <pubDate>Sun, 24 Jul 2022 11:40:03 +0000</pubDate>
+      <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
       <guid>http://localhost:1313/tags/conjur/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Integrations</title>
+      <link>http://localhost:1313/tags/integrations/</link>
+      <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/integrations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spiffe</title>
+      <link>http://localhost:1313/tags/spiffe/</link>
+      <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/spiffe/</guid>
       <description></description>
     </item>
     <item>

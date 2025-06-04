@@ -15,10 +15,10 @@
     <atom:link href="http://localhost:1313/tags/first/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My 1st post</title>
-      <link>http://localhost:1313/posts/cyberark-conjur-authenticators-integrations/</link>
+      <link>http://localhost:1313/posts/cyberark-impact-world-tour-2022/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/cyberark-conjur-authenticators-integrations/</guid>
-      <description>Desc Text.</description>
+      <guid>http://localhost:1313/posts/cyberark-impact-world-tour-2022/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

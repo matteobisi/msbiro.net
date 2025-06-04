@@ -14,16 +14,28 @@
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-06-02T11:30:03+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/authenticators/</loc>
+    <lastmod>2022-08-22T10:26:03+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/conjur/</loc>
-    <lastmod>2022-07-24T11:40:03+00:00</lastmod>
+    <lastmod>2022-08-22T10:26:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/cyberark-conjur-authenticators-integrations/</loc>
+    <lastmod>2022-08-22T10:26:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/integrations/</loc>
+    <lastmod>2022-08-22T10:26:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2022-08-22T10:26:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/spiffe/</loc>
+    <lastmod>2022-08-22T10:26:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/cyberark/</loc>
     <lastmod>2022-07-24T11:40:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/cyberark-conjur-architecture-system-requirements/</loc>
-    <lastmod>2022-07-24T11:40:03+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2022-07-24T11:40:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/secrets-manager/</loc>
