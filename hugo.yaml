@@ -96,7 +96,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
@@ -114,17 +114,21 @@ params:
 menu:
   main:
     - identifier: Search
-      name: search
+      name: Search
       url: /search/
       weight: 10
     - identifier: tags
-      name: tags
+      name: Tags
       url: /tags/
       weight: 20
     - identifier: About Me
       name: About Me
       url: /AboutMe/
       weight: 30
+    - identifier: Privacy Policy
+      name: Privacy Policy
+      url: /privacy-policy/
+      weight: 40
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:

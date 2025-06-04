@@ -9,7 +9,7 @@
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.147.6</generator>
+    <generator>Hugo -- 0.147.7</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 02 Jun 2025 11:30:03 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -21,17 +21,101 @@
       <description></description>
     </item>
     <item>
-      <title>Authenticators</title>
-      <link>http://localhost:1313/tags/authenticators/</link>
-      <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/authenticators/</guid>
+      <title>Sast</title>
+      <link>http://localhost:1313/tags/sast/</link>
+      <pubDate>Fri, 13 Jan 2023 16:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sast/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sca</title>
+      <link>http://localhost:1313/tags/sca/</link>
+      <pubDate>Fri, 13 Jan 2023 16:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sca/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Snyk</title>
+      <link>http://localhost:1313/tags/snyk/</link>
+      <pubDate>Fri, 13 Jan 2023 16:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/snyk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Supply-Chain</title>
+      <link>http://localhost:1313/tags/supply-chain/</link>
+      <pubDate>Fri, 13 Jan 2023 16:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/supply-chain/</guid>
       <description></description>
     </item>
     <item>
       <title>Conjur</title>
       <link>http://localhost:1313/tags/conjur/</link>
-      <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
+      <pubDate>Mon, 21 Nov 2022 11:23:03 +0000</pubDate>
       <guid>http://localhost:1313/tags/conjur/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Follower</title>
+      <link>http://localhost:1313/tags/follower/</link>
+      <pubDate>Mon, 21 Nov 2022 11:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/follower/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Postgres</title>
+      <link>http://localhost:1313/tags/postgres/</link>
+      <pubDate>Mon, 21 Nov 2022 11:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/postgres/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Troubleshooting</title>
+      <link>http://localhost:1313/tags/troubleshooting/</link>
+      <pubDate>Mon, 21 Nov 2022 11:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/troubleshooting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CASVM035E</title>
+      <link>http://localhost:1313/tags/casvm035e/</link>
+      <pubDate>Fri, 30 Sep 2022 07:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/casvm035e/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cyberark</title>
+      <link>http://localhost:1313/tags/cyberark/</link>
+      <pubDate>Fri, 30 Sep 2022 07:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cyberark/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Synchronizer</title>
+      <link>http://localhost:1313/tags/synchronizer/</link>
+      <pubDate>Fri, 30 Sep 2022 07:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/synchronizer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Conference</title>
+      <link>http://localhost:1313/tags/conference/</link>
+      <pubDate>Wed, 21 Sep 2022 19:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/conference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Impact</title>
+      <link>http://localhost:1313/tags/impact/</link>
+      <pubDate>Wed, 21 Sep 2022 19:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/impact/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Authenticators</title>
+      <link>http://localhost:1313/tags/authenticators/</link>
+      <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/authenticators/</guid>
       <description></description>
     </item>
     <item>
@@ -46,13 +130,6 @@
       <link>http://localhost:1313/tags/spiffe/</link>
       <pubDate>Mon, 22 Aug 2022 10:26:03 +0000</pubDate>
       <guid>http://localhost:1313/tags/spiffe/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cyberark</title>
-      <link>http://localhost:1313/tags/cyberark/</link>
-      <pubDate>Sun, 24 Jul 2022 11:40:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cyberark/</guid>
       <description></description>
     </item>
     <item>
@@ -95,6 +172,13 @@
       <link>http://localhost:1313/tags/security/</link>
       <pubDate>Wed, 25 May 2022 11:30:03 +0000</pubDate>
       <guid>http://localhost:1313/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Privacy-Policy</title>
+      <link>http://localhost:1313/tags/privacy-policy/</link>
+      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/tags/privacy-policy/</guid>
       <description></description>
     </item>
   </channel>

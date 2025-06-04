@@ -9,10 +9,20 @@
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.147.6</generator>
+    <generator>Hugo -- 0.147.7</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Aug 2022 10:26:03 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Nov 2022 11:23:03 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/conjur/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Troubleshooting CyberArk Conjur Follower Setup and Postgres Connectivity</title>
+      <link>http://localhost:1313/posts/troubleshooting-conjur-follower-setup-postgres-connectivity/</link>
+      <pubDate>Mon, 21 Nov 2022 11:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/troubleshooting-conjur-follower-setup-postgres-connectivity/</guid>
+      <description>&lt;p&gt;During our work with a CyberArk Conjur environment, we encountered strange behavior during the Conjur follower setup.&lt;/p&gt;
+&lt;p&gt;The setup process on the follower would start, the seed was received, imported, and expanded, but after a few more steps, the process would hang and end with a generic &amp;ldquo;System Error.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;After displaying the error message, the Conjur follower would restart.&lt;/p&gt;
+&lt;p&gt;We performed troubleshooting inside the Conjur Follower pod and verified that the follower could connect to the Conjur API leader successfully, but it was unable to connect to the Postgres database and complete the initial replication.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>CyberArk Conjur, authenticators and integrations</title>
       <link>http://localhost:1313/posts/cyberark-conjur-authenticators-integrations/</link>

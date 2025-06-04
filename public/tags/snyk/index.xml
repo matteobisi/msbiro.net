@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Snyk on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/tags/snyk/</link>
+    <description>Recent content in Snyk on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Jan 2023 16:23:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/snyk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Is It Possible to Make Both Developers and Security Officers Happy? Try Snyk!</title>
+      <link>http://localhost:1313/posts/how-make-developers-and-security-officers-happy-with-snyk/</link>
+      <pubDate>Fri, 13 Jan 2023 16:23:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-make-developers-and-security-officers-happy-with-snyk/</guid>
+      <description>&lt;p&gt;Being able to work safely in cybersecurity requires knowledge, attention to detail, and a solid portfolio of reliable software.&lt;br&gt;
+One of the tools I have learned about and used in recent months is Snyk.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;snyk certification&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/how-make-developers-and-security-officers-happy-with-snyk/snyk-pro.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Calling Snyk a “tool” isn’t quite accurate—it’s a security platform that offers a suite of tools capable of operating on any codebase, including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://snyk.io/product/snyk-code/&#34;&gt;Code (SAST)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://snyk.io/product/open-source-security-management/&#34;&gt;Open Source (SCA)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://snyk.io/product/container-vulnerability-management/&#34;&gt;Containers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://snyk.io/product/infrastructure-as-code-security/&#34;&gt;Infrastructure as Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://snyk.io/product/infrastructure-as-code-security/&#34;&gt;Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In recent years, the amount of code produced has grown exponentially. The availability of countless open-source libraries and containers has accelerated development, but how can we be sure that all these resources are secure?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

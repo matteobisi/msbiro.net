@@ -9,18 +9,18 @@
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.147.6</generator>
+    <generator>Hugo -- 0.147.7</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Oct 2022 07:30:03 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Sep 2022 07:30:03 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/synchronizer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CyberArk Vault Synchronizer – CASVM035E Vault Name Is Missing: How to Fix It</title>
       <link>http://localhost:1313/posts/cyberark-vault-synchronizer-casvm035e-fix/</link>
-      <pubDate>Sat, 01 Oct 2022 07:30:03 +0000</pubDate>
+      <pubDate>Fri, 30 Sep 2022 07:30:03 +0000</pubDate>
       <guid>http://localhost:1313/posts/cyberark-vault-synchronizer-casvm035e-fix/</guid>
-      <description>&lt;p&gt;As you may know, one of the key components of the CyberArk Conjur architecture is the Synchronizer, which is required to receive secrets from the Vault.&lt;/p&gt;
+      <description>&lt;p&gt;As you may know, one of the key components of the CyberArk Conjur architecture is the &lt;a href=&#34;https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-DAP/Latest/en/Content/Conjur/cv_Synchronizer-lp.htm&#34;&gt;Synchronizer&lt;/a&gt;, which is required to receive secrets from the Vault.&lt;/p&gt;
 &lt;p&gt;Last week, I took charge of an abandoned Synchronizer version 11.7 that had not been working for some time and also needed to be upgraded to the latest 12.7 release.&lt;/p&gt;
-&lt;p&gt;After completing the upgrade (check this link for the steps), the Windows service failed to start, and the log contained the following error:&lt;/p&gt;</description>
+&lt;p&gt;After completing the upgrade (check &lt;a href=&#34;https://docs.cyberark.com/conjur-enterprise/latest/en/content/conjur/cv_upgrade.htm?tocpath=Integrations%7CCyberArk%20Vault%20Synchronizer%7C_____11&#34;&gt;this link&lt;/a&gt; for the steps), the Windows service failed to start, and the log contained the following error:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
