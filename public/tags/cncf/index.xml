@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cncf on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/tags/cncf/</link>
+    <description>Recent content in Cncf on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cncf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Value of Community Contributions: Exploring CNCF and OpenSSF</title>
+      <link>http://localhost:1313/posts/the-value-of-community-contributions-exploring-cncf-openssf/</link>
+      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/the-value-of-community-contributions-exploring-cncf-openssf/</guid>
+      <description>&lt;p&gt;I’ll start with a premise for those who may not already be familiar: the open-source software ecosystem often revolves around foundations, with the most famous probably being the &lt;a href=&#34;https://www.linuxfoundation.org/&#34;&gt;Linux Foundation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the cloud-native domain, the reference foundation is the Cloud Native Computing Foundation, commonly known as CNCF.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cncf.io/about/who-we-are/&#34;&gt;CNCF&lt;/a&gt; is a foundation created by the Linux Foundation in 2015, specifically to manage projects in the cloud-native domain. In simple terms, it can be defined as a third-party, vendor-neutral entity that oversees the development and activities related to major projects involving containerized technologies like Kubernetes.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
