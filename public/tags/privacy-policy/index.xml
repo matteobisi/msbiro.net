@@ -11,19 +11,22 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jun 2025 11:30:03 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/privacy-policy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Privacy Policy</title>
       <link>http://localhost:1313/privacy-policy/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <pubDate>Wed, 04 Jun 2025 11:30:03 +0000</pubDate>
       <guid>http://localhost:1313/privacy-policy/</guid>
       <description>&lt;p&gt;Privacy Notice&lt;/p&gt;
-&lt;p&gt;Last updated: [Insert Date]
-Who We Are&lt;/p&gt;
-&lt;p&gt;This website ([your blog URL]) is a personal blog operated by [Your Name/Handle]. You can contact me at [your email address] for any privacy-related inquiries.
-What Information We Collect&lt;/p&gt;
-&lt;p&gt;This website itself does not collect personal data from visitors. However, when you visit this site, certain technical information (such as your IP address, browser type, and device information) is automatically collected and processed by our hosting provider, Cloudflare, to deliver the website securely and efficiently&lt;/p&gt;</description>
+&lt;p&gt;Last updated: June 04, 2025&lt;/p&gt;
+&lt;h2 id=&#34;who-we-are&#34;&gt;Who We Are&lt;/h2&gt;
+&lt;p&gt;This website &lt;a href=&#34;https://www.msbiro.net&#34;&gt;www.msbiro.net&lt;/a&gt; is a personal blog operated by Matteo Bisi.&lt;br&gt;
+For any privacy-related inquiries, you can contact me at &lt;a href=&#34;mailto:mbisi@msbiro.net&#34;&gt;mbisi@msbiro.net&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;what-information-we-collect&#34;&gt;What Information We Collect&lt;/h2&gt;
+&lt;p&gt;This website itself does not collect personal data from visitors.&lt;br&gt;
+However, when you visit this site, certain technical information (such as your IP address, browser type, and device information)&lt;br&gt;
+is automatically collected and processed by our hosting provider, Cloudflare, to deliver the website securely and efficiently.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

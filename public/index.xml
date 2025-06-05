@@ -36,6 +36,42 @@ is automatically collected and processed by our hosting provider, Cloudflare, to
       <description>Who am I?</description>
     </item>
     <item>
+      <title>CyberArk Conjur 13 has been released.</title>
+      <link>http://localhost:1313/posts/conjur-13-is-available/</link>
+      <pubDate>Tue, 06 Jun 2023 18:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/conjur-13-is-available/</guid>
+      <description>&lt;p&gt;During the previous days, CyberArk has released version 13.0 of Conjur Enterprise.&lt;br&gt;
+What’s new? Who should consider upgrading, and why?&lt;/p&gt;
+&lt;p&gt;I’ve published an &lt;a href=&#34;https://blog.sighup.io/cyberark-conjur-13-0-has-been-released-whats-new/&#34;&gt;article on these topics here&lt;/a&gt; on the SIGHUP blog.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Resolving Podman Log Rotation Issues in CyberArk Conjur Container 12.9 Deployments</title>
+      <link>http://localhost:1313/posts/resolving-podman-log-rotation-issue-conjur-enterprise-129/</link>
+      <pubDate>Wed, 24 May 2023 17:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/resolving-podman-log-rotation-issue-conjur-enterprise-129/</guid>
+      <description>&lt;p&gt;CyberArk Conjur is released as an appliance and distributed as container images to enable fast, error-free setup.&lt;/p&gt;
+&lt;p&gt;The supported container runtimes include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker 20.10 or later&lt;/li&gt;
+&lt;li&gt;Mirantis Container Runtime 20.10&lt;/li&gt;
+&lt;li&gt;Podman 3.x, 4.x&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While working with multiple Conjur environments in our labs and at customer sites, we noticed that log rotation (for Conjur, Nginx, cluster, etc.) did not function correctly on Podman, although it worked as expected on Docker.&lt;/p&gt;
+&lt;p&gt;After some investigation with the excellent CyberArk support team, we identified the solution:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SIGHUP Secure Containers: how do you choose the oci base image for your workload?</title>
+      <link>http://localhost:1313/posts/sighup-secure-container-how-choose-base-image-security/</link>
+      <pubDate>Thu, 13 Apr 2023 12:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sighup-secure-container-how-choose-base-image-security/</guid>
+      <description>&lt;p&gt;I believe it’s important to start with a premise:&lt;br&gt;
+In this article, I’ll talk about a product/service built and offered by my current employer, &lt;a href=&#34;https://sighup.io&#34;&gt;SIGHUP&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;SIGHUP SSC logo&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/sighup-secure-container-how-choose-base-image-security/sighup-ssc.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;No one from my company has asked me to publish this blog post here; these are my honest opinions about &lt;a href=&#34;https://sighup.io/secure-containers/&#34;&gt;Secure Containers&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Secure Containers is a paid service built by SIGHUP that provides secure, hardened, and updated &lt;a href=&#34;https://opensource.com/article/21/8/container-image&#34;&gt;container base images&lt;/a&gt;.&lt;br&gt;
+Developers working with containers and images now enjoy several advantages compared to the past, such as standardization, automation, and faster release times.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>How Is It Possible to Make Both Developers and Security Officers Happy? Try Snyk!</title>
       <link>http://localhost:1313/posts/how-make-developers-and-security-officers-happy-with-snyk/</link>
       <pubDate>Fri, 13 Jan 2023 16:23:03 +0000</pubDate>

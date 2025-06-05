@@ -1,7 +1,7 @@
 :root {
-    --theme: #f7f8fa; /* Very light gray-blue background */
+    --theme: #c5c9d0; /* Very light gray-blue background */
     --entry: #e9eaf3; /* Slightly darker for entries */
-    --primary: rgba(16, 28, 122, 0.92); /* Deep blue (inverted from gold) */
+    --primary: rgba(13, 23, 98, 0.92); /* Deep blue (inverted from gold) */
     --secondary: rgba(32, 32, 98, 0.78); /* Muted blue */
     --tertiary: rgba(16, 28, 122, 0.16); /* Faint blue */
     --content: rgba(20, 20, 28, 0.92); /* Very dark text for readability */
