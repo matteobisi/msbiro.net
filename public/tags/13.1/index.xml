@@ -11,14 +11,16 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Dec 2023 08:30:03 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/13.1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CyberArk Conjur 13.1 Released</title>
       <link>http://localhost:1313/posts/cyberark-conjur-131-released/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <pubDate>Thu, 07 Dec 2023 08:30:03 +0000</pubDate>
       <guid>http://localhost:1313/posts/cyberark-conjur-131-released/</guid>
-      <description></description>
+      <description>&lt;p&gt;A couple of weeks ago, CyberArk released a new and interesting version of Conjur: 13.1.&lt;/p&gt;
+&lt;p&gt;This point release is really interesting because it brings important under-the-hood updates that aim to increase the resiliency of followers.&lt;br&gt;
+If you want to read more about this release, please &lt;a href=&#34;https://blog.sighup.io/cyberark-conjur-13-1-has-been-relased-with-interesting-updates-under-the-hood/&#34;&gt;check out the article&lt;/a&gt; I wrote on the SIGHUP blog.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

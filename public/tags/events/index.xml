@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Events on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/tags/events/</link>
+    <description>Recent content in Events on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Feb 2025 09:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/events/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KubeCon EU 2025 London</title>
+      <link>http://localhost:1313/posts/kubecon-2025-london/</link>
+      <pubDate>Fri, 21 Feb 2025 09:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubecon-2025-london/</guid>
+      <description>&lt;p&gt;The countdown to KubeCon EU (London) has begun, and I couldn’t be more thrilled to announce that, for the third year in a row, I’ll have the incredible privilege of attending!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;kubecon london EU&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/kubecon-2025-london/kubecon-london-logo.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This year is extra special because, for the second time, I’ll be managing a booth alongside my amazing colleagues.&lt;br&gt;
+Why? Because &lt;a href=&#34;https://www.reevo.it/en/&#34;&gt;ReeVo&lt;/a&gt;, the company that SIGHUP has now joined, will proudly be a sponsor of this major event!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KCD Italy Will Return in 2025 with a New Name</title>
+      <link>http://localhost:1313/posts/kcd-italy-return-2025-as-cloud-native-days/</link>
+      <pubDate>Thu, 05 Dec 2024 18:33:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kcd-italy-return-2025-as-cloud-native-days/</guid>
+      <description>&lt;p&gt;Yesterday, the organizers of &lt;a href=&#34;https://www.linkedin.com/company/cloudnativedaysitaly/posts/?feedView=all&#34;&gt;KCD Italy announced&lt;/a&gt; that the conference will return in 2025, once again in Bologna, in June!&lt;/p&gt;
+&lt;p&gt;For various organizational reasons, the conference will be rebranded as Cloud Native Days Italy, &lt;strong&gt;but the quality will remain just as high.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;At the moment, no further details are available. Start marking your calendar—see you in Bologna!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Security Conference – BSides Galway, February 22nd, 2025</title>
+      <link>http://localhost:1313/posts/bsides-galway-february-22-2025/</link>
+      <pubDate>Sun, 17 Nov 2024 13:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bsides-galway-february-22-2025/</guid>
+      <description>&lt;p&gt;It’s been a couple of years since I moved to Galway, and I’m still absolutely thrilled with my decision!&lt;/p&gt;
+&lt;p&gt;Over the past few months, I’ve had the chance to meet some awesome people at a local security meetup called &lt;a href=&#34;https://x.com/burbsecgalway&#34;&gt;BurbSec&lt;/a&gt;. It was a fantastic experience—sharing ideas, meeting new faces, and of course, enjoying a few beers! ;-)&lt;/p&gt;
+&lt;p&gt;Now, some of these folks are organizing a security conference called BSIDES Galway, happening on February 22nd, 2025!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KubeCon 2024: Why Attending a Conference Is Important and Some Useful Resources</title>
+      <link>http://localhost:1313/posts/kubecon-eu-2024-why-attending-a-conference-is-important/</link>
+      <pubDate>Fri, 15 Mar 2024 05:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubecon-eu-2024-why-attending-a-conference-is-important/</guid>
+      <description>&lt;p&gt;Last week, I had the pleasure of attending KubeCon 2024 EU in Paris.
+I must begin by &lt;strong&gt;thanking &lt;a href=&#34;https://sighup.io/&#34;&gt;SIGHUP&lt;/a&gt;&lt;/strong&gt; for giving me the opportunity to participate in my second consecutive KubeCon, &lt;strong&gt;THANK YOU!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I decided to write this post to encourage those who have never attended a large-scale event to give it a try!&lt;/p&gt;
+&lt;h2 id=&#34;in-this-case-size-matters&#34;&gt;In this case, size matters!&lt;/h2&gt;
+&lt;p&gt;If you’re involved in the cloud native world as a client, developer, consultant, or major vendor you can’t miss it!&lt;br&gt;
+Colleagues, clients, partners, competitors, maintainers of small projects, volunteer committees, and big corporations—they’re all there!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KCD 2024 Italy Announced – Bologna, 20 June 2024</title>
+      <link>http://localhost:1313/posts/kcd-italy-2024-bologna/</link>
+      <pubDate>Wed, 17 Jan 2024 11:44:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kcd-italy-2024-bologna/</guid>
+      <description>&lt;p&gt;Hello there! Just a quick post to share that &lt;a href=&#34;https://kcd.pizza/&#34;&gt;KCD Italy&lt;/a&gt; has been announced and will take place in Bologna on 20 June 2024!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;kcd call for paper&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/kcd-italy-2024-bologna/kcd-cfp.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I’m not directly involved in organizing this event, &lt;a href=&#34;https://www.sighup.io/&#34;&gt;but my company is&lt;/a&gt;, so I’m publishing this post to help spread the word!&lt;/p&gt;
+&lt;p&gt;The CFP (Call for Proposals) is open and available at this link. English sessions are welcome!&lt;br&gt;
+We are also still looking for new sponsors. If you’re interested, please contact one of the organizers or reach out to me, and I’ll put you in touch with them.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

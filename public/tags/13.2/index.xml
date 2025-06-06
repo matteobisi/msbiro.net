@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>13.2 on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/tags/13.2/</link>
+    <description>Recent content in 13.2 on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Feb 2024 12:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/13.2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CyberArk Conjur 13.2 Released: Another Step in the Right Direction</title>
+      <link>http://localhost:1313/posts/cyberark-conjur-132-released/</link>
+      <pubDate>Thu, 01 Feb 2024 12:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/cyberark-conjur-132-released/</guid>
+      <description>&lt;p&gt;One week ago, CyberArk released another update for Conjur Enterprise, which has now reached version 13.2—definitely another step in the right direction!&lt;/p&gt;
+&lt;p&gt;This release includes the usual bug fixes, expands Conjur’s integrations (for example, OpenShift 4.14 is now supported), and, most importantly, adds two exciting new features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CyberArk Vault Synchronizer high availability support&lt;/li&gt;
+&lt;li&gt;Enhanced Conjur support for the Container Storage Interface (CSI) driver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Synchronizer high availability enhances Conjur’s disaster recovery (DR) strategy.&lt;br&gt;
+It is now possible to set up a &amp;ldquo;passive&amp;rdquo; Synchronizer in a DR site that is aware of the status of the primary Synchronizer and can take over in case of a failure.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

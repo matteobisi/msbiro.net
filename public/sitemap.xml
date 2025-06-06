@@ -20,10 +20,76 @@
     <loc>http://localhost:1313/tags/biography/</loc>
     <lastmod>2025-06-02T11:30:03+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/how-make-developers-and-security-officers-happy-with-snyk/</loc>
-    <lastmod>2023-01-13T16:23:03+00:00</lastmod>
+    <loc>http://localhost:1313/tags/13.1/</loc>
+    <lastmod>2023-12-07T08:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/conjur/</loc>
+    <lastmod>2023-12-07T08:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cyberark/</loc>
+    <lastmod>2023-12-07T08:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/cyberark-conjur-131-released/</loc>
+    <lastmod>2023-12-07T08:30:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2023-12-07T08:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/kubecon/</loc>
+    <lastmod>2023-11-10T06:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/kubecon-eu-2024-paris-kubetrain/</loc>
+    <lastmod>2023-11-10T06:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/kubetrain/</loc>
+    <lastmod>2023-11-10T06:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cncf/</loc>
+    <lastmod>2023-11-01T16:44:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/community/</loc>
+    <lastmod>2023-11-01T16:44:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/contribution/</loc>
+    <lastmod>2023-11-01T16:44:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/openssf/</loc>
+    <lastmod>2023-11-01T16:44:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/the-value-of-community-contributions-exploring-cncf-openssf/</loc>
+    <lastmod>2023-11-01T16:44:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/13.0/</loc>
+    <lastmod>2023-06-06T18:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/conjur-13-is-available/</loc>
+    <lastmod>2023-06-06T18:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/12.9/</loc>
+    <lastmod>2023-05-24T17:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/podman/</loc>
+    <lastmod>2023-05-24T17:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/resolving-podman-log-rotation-issue-conjur-enterprise-129/</loc>
+    <lastmod>2023-05-24T17:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/secure-containers/</loc>
+    <lastmod>2023-04-13T12:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/security/</loc>
+    <lastmod>2023-04-13T12:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/sighup-secure-container-how-choose-base-image-security/</loc>
+    <lastmod>2023-04-13T12:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ssc/</loc>
+    <lastmod>2023-04-13T12:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/supply-chain/</loc>
+    <lastmod>2023-04-13T12:30:03+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/how-make-developers-and-security-officers-happy-with-snyk/</loc>
     <lastmod>2023-01-13T16:23:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/sast/</loc>
@@ -34,12 +100,6 @@
   </url><url>
     <loc>http://localhost:1313/tags/snyk/</loc>
     <lastmod>2023-01-13T16:23:03+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/supply-chain/</loc>
-    <lastmod>2023-01-13T16:23:03+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/conjur/</loc>
-    <lastmod>2022-11-21T11:23:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/follower/</loc>
     <lastmod>2022-11-21T11:23:03+00:00</lastmod>
@@ -54,9 +114,6 @@
     <lastmod>2022-11-21T11:23:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/casvm035e/</loc>
-    <lastmod>2022-09-30T07:30:03+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/cyberark/</loc>
     <lastmod>2022-09-30T07:30:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/cyberark-vault-synchronizer-casvm035e-fix/</loc>
@@ -108,9 +165,6 @@
     <lastmod>2022-05-25T11:30:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/newjob/</loc>
-    <lastmod>2022-05-25T11:30:03+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/security/</loc>
     <lastmod>2022-05-25T11:30:03+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>

@@ -36,6 +36,165 @@ is automatically collected and processed by our hosting provider, Cloudflare, to
       <description>Who am I?</description>
     </item>
     <item>
+      <title>Securing Kubernetes 1.33 Pods: The Impact of User Namespace Isolation and hostUsers: false</title>
+      <link>http://localhost:1313/posts/kubernetes-133-user-namespace-isolation-security-matters/</link>
+      <pubDate>Fri, 16 May 2025 09:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubernetes-133-user-namespace-isolation-security-matters/</guid>
+      <description>&lt;p&gt;Kubernetes 1.33 was released on April 23, 2025, and, as usual, introduces a host of fixes and new features. Be sure to check out &lt;a href=&#34;https://kubernetes.io/blog/2025/04/23/kubernetes-v1-33-release/&#34;&gt;the release notes&lt;/a&gt;; I assure you, you won’t be disappointed!&lt;/p&gt;
+&lt;p&gt;As the Team Leader of a DevSecOps group, I tend to focus on security features. In this article, I want to highlight the new pod support for user namespaces.&lt;/p&gt;
+&lt;p&gt;This feature isn’t entirely new—it was first introduced as an Alpha feature (&lt;code&gt;UserNamespacesSupport&lt;/code&gt;) in Kubernetes 1.28. However, as of version 1.33, it is enabled by default, and there’s no longer any need to set a Kubernetes feature flag.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>From Manual to GitOps: Simplifying Grafana Dashboard Configuration with Git Sync</title>
+      <link>http://localhost:1313/posts/grafana-dashboard-configuration-with-gitops/</link>
+      <pubDate>Mon, 12 May 2025 11:34:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/grafana-dashboard-configuration-with-gitops/</guid>
+      <description>&lt;p&gt;Starting with version 12, Grafana introduces the ability to configure dashboards using a GitOps approach through an experimental feature called &lt;strong&gt;Git Sync&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This is a particularly interesting capability that can help manage dashboards in large and complex environments.&lt;/p&gt;
+&lt;p&gt;Git Sync is available as an experimental feature in both Grafana OSS and Enterprise editions. Activation can also be requested for the Cloud version (currently available as a private preview).&lt;/p&gt;
+&lt;p&gt;You can find the relevant documentation &lt;a href=&#34;https://grafana.com/docs/grafana/latest/observability-as-code/provision-resources/intro-git-sync/&#34;&gt;in this page&lt;/a&gt;, and below I am including a demo video.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenSSF - Open Source Project Security Baseline</title>
+      <link>http://localhost:1313/posts/openssf-opensource-project-security-baseline/</link>
+      <pubDate>Wed, 26 Feb 2025 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/openssf-opensource-project-security-baseline/</guid>
+      <description>&lt;p&gt;Today, I want to share with you a new initiative by OpenSSF called the Open Source Project Security Baseline.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;openssf logo&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/openssf-opensource-project-security-baseline/openssf_logo.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The TL;DR: This initiative consists of a series of checks that project maintainers must have in place in their software repositories to demonstrate a strong security posture.&lt;/p&gt;
+&lt;p&gt;The baseline is divided into three well defined levels. I find this to be an interesting and practical initiative, easy to apply for improving and certifying a project&amp;rsquo;s security level.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KubeCon EU 2025 London</title>
+      <link>http://localhost:1313/posts/kubecon-2025-london/</link>
+      <pubDate>Fri, 21 Feb 2025 09:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubecon-2025-london/</guid>
+      <description>&lt;p&gt;The countdown to KubeCon EU (London) has begun, and I couldn’t be more thrilled to announce that, for the third year in a row, I’ll have the incredible privilege of attending!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;kubecon london EU&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/kubecon-2025-london/kubecon-london-logo.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This year is extra special because, for the second time, I’ll be managing a booth alongside my amazing colleagues.&lt;br&gt;
+Why? Because &lt;a href=&#34;https://www.reevo.it/en/&#34;&gt;ReeVo&lt;/a&gt;, the company that SIGHUP has now joined, will proudly be a sponsor of this major event!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Resolving &#39;Operation Not Permitted&#39; for CyberArk Conjur Cloud CLI on macOS</title>
+      <link>http://localhost:1313/posts/resolving-operation-not-permitted-cyberark-conjur-cloud-cli-macos/</link>
+      <pubDate>Fri, 17 Jan 2025 16:20:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/resolving-operation-not-permitted-cyberark-conjur-cloud-cli-macos/</guid>
+      <description>&lt;p&gt;As a consultant, it&amp;rsquo;s always a pleasure to explore new tools, and since the end of 2024, we have been experimenting with CyberArk&amp;rsquo;s SaaS offering.&lt;/p&gt;
+&lt;p&gt;The first component we started working with is Conjur Cloud, the SaaS version of Conjur Enterprise, which we are already very familiar with.
+Conjur Cloud features an impressive UI that allows users to configure and manage most settings seamlessly.&lt;/p&gt;
+&lt;p&gt;Like Conjur Enterprise, it also has its own dedicated CLI, available for download on the CyberArk Marketplace. After installing the Conjur Cloud CLI on macOS 15.2, I encountered the following error when attempting to execute it:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>macOS, Podman Desktop and the Podman Machine: Pay Close Attention to the Podman Version</title>
+      <link>http://localhost:1313/posts/podman-desktop-and-podman-machine-on-macos-pay-attention-to-podman-version/</link>
+      <pubDate>Fri, 10 Jan 2025 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podman-desktop-and-podman-machine-on-macos-pay-attention-to-podman-version/</guid>
+      <description>&lt;p&gt;Using &lt;a href=&#34;http://www.podman.io/&#34;&gt;Podman&lt;/a&gt; as the standard tool requested by clients for running local containers outside of a Kubernetes environment, I decided to start the year by installing Podman Desktop on my company MacBook.&lt;/p&gt;
+&lt;p&gt;Podman Desktop features a user interface (UI) similar to Docker Desktop, making it easier to manage containers and images.&lt;br&gt;
+It also includes plugin management to extend its functionality, such as deploying containers on Kubernetes.&lt;/p&gt;
+&lt;p&gt;After installing Podman Desktop version 1.15.0, I proceeded with the setup but encountered issues with the Podman machine (the virtual machine dedicated to running containers) which failed to start. There were no errors; it just hung during startup.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Confirmed as KubeWeekly Editor: Giving Back to the Cloud-Native Community in 2025</title>
+      <link>http://localhost:1313/posts/confirmed-as-kubeweekly-editor-2025-giving-back-to-cloud-native-community-2025/</link>
+      <pubDate>Thu, 09 Jan 2025 08:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/confirmed-as-kubeweekly-editor-2025-giving-back-to-cloud-native-community-2025/</guid>
+      <description>&lt;p&gt;One of the pleasures of working with open-source software (OSS) and community-driven initiatives is the endless opportunities they offer.&lt;br&gt;
+If you ever find yourself with “not enough” to do at work (yes, that’s ironic!), there’s always an easy way to take on something extra and meaningful.&lt;/p&gt;
+&lt;p&gt;Contributing back to the community you’re part of is a wonderful way to express gratitude. &lt;strong&gt;After all, how could anyone be luckier than to give back to something they love?&lt;/strong&gt; 😊&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KCD Italy Will Return in 2025 with a New Name</title>
+      <link>http://localhost:1313/posts/kcd-italy-return-2025-as-cloud-native-days/</link>
+      <pubDate>Thu, 05 Dec 2024 18:33:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kcd-italy-return-2025-as-cloud-native-days/</guid>
+      <description>&lt;p&gt;Yesterday, the organizers of &lt;a href=&#34;https://www.linkedin.com/company/cloudnativedaysitaly/posts/?feedView=all&#34;&gt;KCD Italy announced&lt;/a&gt; that the conference will return in 2025, once again in Bologna, in June!&lt;/p&gt;
+&lt;p&gt;For various organizational reasons, the conference will be rebranded as Cloud Native Days Italy, &lt;strong&gt;but the quality will remain just as high.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;At the moment, no further details are available. Start marking your calendar—see you in Bologna!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Security Conference – BSides Galway, February 22nd, 2025</title>
+      <link>http://localhost:1313/posts/bsides-galway-february-22-2025/</link>
+      <pubDate>Sun, 17 Nov 2024 13:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bsides-galway-february-22-2025/</guid>
+      <description>&lt;p&gt;It’s been a couple of years since I moved to Galway, and I’m still absolutely thrilled with my decision!&lt;/p&gt;
+&lt;p&gt;Over the past few months, I’ve had the chance to meet some awesome people at a local security meetup called &lt;a href=&#34;https://x.com/burbsecgalway&#34;&gt;BurbSec&lt;/a&gt;. It was a fantastic experience—sharing ideas, meeting new faces, and of course, enjoying a few beers! ;-)&lt;/p&gt;
+&lt;p&gt;Now, some of these folks are organizing a security conference called BSIDES Galway, happening on February 22nd, 2025!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CyberArk Conjur 13.4 – The Evolution Continues</title>
+      <link>http://localhost:1313/posts/cyberark-conjur-134-evolution-continues/</link>
+      <pubDate>Wed, 09 Oct 2024 07:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/cyberark-conjur-134-evolution-continues/</guid>
+      <description>&lt;p&gt;About a month ago, a new release of Conjur Enterprise was launched—now at version 13.4, bringing exciting new features to the product!&lt;/p&gt;
+&lt;p&gt;Here are my top three favorites, though there are many more updates, which you can find &lt;a href=&#34;https://docs.cyberark.com/conjur-enterprise/13.4/en/content/enterprise/whatsnew.htm?TocPath=Get%20started%7C_____2&#34;&gt;here&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sync of empty safes from Vault: This is essential for managing policy creation through automation.&lt;/li&gt;
+&lt;li&gt;Dynamic application configuration: It is now possible to modify various Conjur configuration parameters that previously had to be set when creating the container. Now, they are all included in the usual conjur.yml.&lt;/li&gt;
+&lt;li&gt;Extended ESO support: The External Secrets Operator can now use regex in findByName and findByTags.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As has been the case for several releases, I’d like to reiterate that CyberArk’s development of Conjur is moving quickly, and with each release, the product becomes more and more complete.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>cryptsetup: How to Protect Entire Disks or USB Keys – Notes on technical_notebook</title>
+      <link>http://localhost:1313/posts/cryptsetup-protect-entire-disk-or-usb-key-notes-technical-notebook/</link>
+      <pubDate>Mon, 15 Jul 2024 18:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/cryptsetup-protect-entire-disk-or-usb-key-notes-technical-notebook/</guid>
+      <description>&lt;p&gt;I have been using an encrypted USB drive for several years, which unlocks with biometric access.&lt;br&gt;
+Recently, I started wondering how to achieve the same level of protection with other disks or USB keys.&lt;/p&gt;
+&lt;p&gt;The answer is cryptsetup, a utility included in most Linux distributions.&lt;br&gt;
+I’ve done some tests and documented how to use it in a &lt;a href=&#34;https://github.com/matteobisi/technical_notebook&#34;&gt;repository I’ve named technical_notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I’ll use technical_notebook as a personal notebook—it will contain commands, concepts, and useful links.&lt;br&gt;
+The purpose of the repo is to help me remember these details, keep them easily accessible, and perhaps assist others who have similar needs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KubeCon 2024: Why Attending a Conference Is Important and Some Useful Resources</title>
+      <link>http://localhost:1313/posts/kubecon-eu-2024-why-attending-a-conference-is-important/</link>
+      <pubDate>Fri, 15 Mar 2024 05:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubecon-eu-2024-why-attending-a-conference-is-important/</guid>
+      <description>&lt;p&gt;Last week, I had the pleasure of attending KubeCon 2024 EU in Paris.
+I must begin by &lt;strong&gt;thanking &lt;a href=&#34;https://sighup.io/&#34;&gt;SIGHUP&lt;/a&gt;&lt;/strong&gt; for giving me the opportunity to participate in my second consecutive KubeCon, &lt;strong&gt;THANK YOU!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I decided to write this post to encourage those who have never attended a large-scale event to give it a try!&lt;/p&gt;
+&lt;h2 id=&#34;in-this-case-size-matters&#34;&gt;In this case, size matters!&lt;/h2&gt;
+&lt;p&gt;If you’re involved in the cloud native world as a client, developer, consultant, or major vendor you can’t miss it!&lt;br&gt;
+Colleagues, clients, partners, competitors, maintainers of small projects, volunteer committees, and big corporations—they’re all there!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CyberArk Conjur 13.2 Released: Another Step in the Right Direction</title>
+      <link>http://localhost:1313/posts/cyberark-conjur-132-released/</link>
+      <pubDate>Thu, 01 Feb 2024 12:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/cyberark-conjur-132-released/</guid>
+      <description>&lt;p&gt;One week ago, CyberArk released another update for Conjur Enterprise, which has now reached version 13.2—definitely another step in the right direction!&lt;/p&gt;
+&lt;p&gt;This release includes the usual bug fixes, expands Conjur’s integrations (for example, OpenShift 4.14 is now supported), and, most importantly, adds two exciting new features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CyberArk Vault Synchronizer high availability support&lt;/li&gt;
+&lt;li&gt;Enhanced Conjur support for the Container Storage Interface (CSI) driver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Synchronizer high availability enhances Conjur’s disaster recovery (DR) strategy.&lt;br&gt;
+It is now possible to set up a &amp;ldquo;passive&amp;rdquo; Synchronizer in a DR site that is aware of the status of the primary Synchronizer and can take over in case of a failure.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KubeWeekly – Get Weekly Kubernetes News in Your Inbox</title>
+      <link>http://localhost:1313/posts/kubeweekly-k8s-newsletter/</link>
+      <pubDate>Thu, 25 Jan 2024 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubeweekly-k8s-newsletter/</guid>
+      <description>&lt;p&gt;Hello there! As I mentioned before, &lt;a href=&#34;http://localhost:1313/posts/the-value-of-community-contributions-exploring-cncf-openssf/&#34;&gt;I’ve always been&lt;/a&gt; a community person, and I’ve found a new way to contribute:&lt;br&gt;
+during the first half of 2024, I’ll be one of the editors helping to curate content for KubeWeekly.&lt;/p&gt;
+&lt;p&gt;KubeWeekly is a newsletter that delivers a curated selection of news, tweets, articles, and videos about Kubernetes and the &lt;a href=&#34;https://landscape.cncf.io/&#34;&gt;CNCF landscape&lt;/a&gt; straight to your inbox.&lt;/p&gt;
+&lt;p&gt;If you’d like to see what we’re working on or join the mailing list, &lt;a href=&#34;https://www.cncf.io/kubeweekly/&#34;&gt;please check out this page&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KCD 2024 Italy Announced – Bologna, 20 June 2024</title>
+      <link>http://localhost:1313/posts/kcd-italy-2024-bologna/</link>
+      <pubDate>Wed, 17 Jan 2024 11:44:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kcd-italy-2024-bologna/</guid>
+      <description>&lt;p&gt;Hello there! Just a quick post to share that &lt;a href=&#34;https://kcd.pizza/&#34;&gt;KCD Italy&lt;/a&gt; has been announced and will take place in Bologna on 20 June 2024!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;kcd call for paper&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/kcd-italy-2024-bologna/kcd-cfp.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I’m not directly involved in organizing this event, &lt;a href=&#34;https://www.sighup.io/&#34;&gt;but my company is&lt;/a&gt;, so I’m publishing this post to help spread the word!&lt;/p&gt;
+&lt;p&gt;The CFP (Call for Proposals) is open and available at this link. English sessions are welcome!&lt;br&gt;
+We are also still looking for new sponsors. If you’re interested, please contact one of the organizers or reach out to me, and I’ll put you in touch with them.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>CyberArk Conjur 13.1 Released</title>
       <link>http://localhost:1313/posts/cyberark-conjur-131-released/</link>
       <pubDate>Thu, 07 Dec 2023 08:30:03 +0000</pubDate>

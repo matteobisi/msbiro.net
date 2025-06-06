@@ -11,8 +11,41 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Nov 2022 11:23:03 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Dec 2023 08:30:03 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/conjur/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CyberArk Conjur 13.1 Released</title>
+      <link>http://localhost:1313/posts/cyberark-conjur-131-released/</link>
+      <pubDate>Thu, 07 Dec 2023 08:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/cyberark-conjur-131-released/</guid>
+      <description>&lt;p&gt;A couple of weeks ago, CyberArk released a new and interesting version of Conjur: 13.1.&lt;/p&gt;
+&lt;p&gt;This point release is really interesting because it brings important under-the-hood updates that aim to increase the resiliency of followers.&lt;br&gt;
+If you want to read more about this release, please &lt;a href=&#34;https://blog.sighup.io/cyberark-conjur-13-1-has-been-relased-with-interesting-updates-under-the-hood/&#34;&gt;check out the article&lt;/a&gt; I wrote on the SIGHUP blog.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CyberArk Conjur 13 has been released.</title>
+      <link>http://localhost:1313/posts/conjur-13-is-available/</link>
+      <pubDate>Tue, 06 Jun 2023 18:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/conjur-13-is-available/</guid>
+      <description>&lt;p&gt;During the previous days, CyberArk has released version 13.0 of Conjur Enterprise.&lt;br&gt;
+What’s new? Who should consider upgrading, and why?&lt;/p&gt;
+&lt;p&gt;I’ve published an &lt;a href=&#34;https://blog.sighup.io/cyberark-conjur-13-0-has-been-released-whats-new/&#34;&gt;article on these topics here&lt;/a&gt; on the SIGHUP blog.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Resolving Podman Log Rotation Issues in CyberArk Conjur Container 12.9 Deployments</title>
+      <link>http://localhost:1313/posts/resolving-podman-log-rotation-issue-conjur-enterprise-129/</link>
+      <pubDate>Wed, 24 May 2023 17:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/resolving-podman-log-rotation-issue-conjur-enterprise-129/</guid>
+      <description>&lt;p&gt;CyberArk Conjur is released as an appliance and distributed as container images to enable fast, error-free setup.&lt;/p&gt;
+&lt;p&gt;The supported container runtimes include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker 20.10 or later&lt;/li&gt;
+&lt;li&gt;Mirantis Container Runtime 20.10&lt;/li&gt;
+&lt;li&gt;Podman 3.x, 4.x&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While working with multiple Conjur environments in our labs and at customer sites, we noticed that log rotation (for Conjur, Nginx, cluster, etc.) did not function correctly on Podman, although it worked as expected on Docker.&lt;/p&gt;
+&lt;p&gt;After some investigation with the excellent CyberArk support team, we identified the solution:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Troubleshooting CyberArk Conjur Follower Setup and Postgres Connectivity</title>
       <link>http://localhost:1313/posts/troubleshooting-conjur-follower-setup-postgres-connectivity/</link>

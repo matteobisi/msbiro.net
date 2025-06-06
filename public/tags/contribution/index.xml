@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Nov 2023 16:44:03 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/contribution/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Value of Community Contributions: Exploring CNCF and OpenSSF</title>
       <link>http://localhost:1313/posts/the-value-of-community-contributions-exploring-cncf-openssf/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <pubDate>Wed, 01 Nov 2023 16:44:03 +0000</pubDate>
       <guid>http://localhost:1313/posts/the-value-of-community-contributions-exploring-cncf-openssf/</guid>
       <description>&lt;p&gt;I’ll start with a premise for those who may not already be familiar: the open-source software ecosystem often revolves around foundations, with the most famous probably being the &lt;a href=&#34;https://www.linuxfoundation.org/&#34;&gt;Linux Foundation&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In the cloud-native domain, the reference foundation is the Cloud Native Computing Foundation, commonly known as CNCF.&lt;/p&gt;

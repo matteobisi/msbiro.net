@@ -20,7 +20,7 @@
       <guid>http://localhost:1313/posts/kubecon-eu-2024-paris-kubetrain/</guid>
       <description>&lt;p&gt;Yesterday, KubeCon NA in Chicago came to a close, so now we can start looking forward to KubeCon EU 2024,&lt;br&gt;
 which will take place in Paris from March 19th to 22nd, 2024 😊.&lt;/p&gt;
-&lt;p&gt;For Paris, early bird registrations are open until November 28th, and it’s still possible to submit proposals for the call for papers.&lt;/p&gt;
+&lt;p&gt;For Paris, &lt;a href=&#34;https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/register/&#34;&gt;early bird registrations&lt;/a&gt; are open until November 28th, and it’s still possible to &lt;a href=&#34;https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/program/cfp/&#34;&gt;submit proposals for the call for papers&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I wanted to share an interesting initiative called Kubetrain, which aims to help attendees reach Paris in a more environmentally sustainable way by choosing trains over planes.&lt;/p&gt;</description>
     </item>
   </channel>

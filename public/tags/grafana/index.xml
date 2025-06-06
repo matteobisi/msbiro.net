@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Grafana on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/tags/grafana/</link>
+    <description>Recent content in Grafana on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 May 2025 11:34:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Manual to GitOps: Simplifying Grafana Dashboard Configuration with Git Sync</title>
+      <link>http://localhost:1313/posts/grafana-dashboard-configuration-with-gitops/</link>
+      <pubDate>Mon, 12 May 2025 11:34:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/grafana-dashboard-configuration-with-gitops/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

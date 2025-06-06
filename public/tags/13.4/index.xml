@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>13.4 on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/tags/13.4/</link>
+    <description>Recent content in 13.4 on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/13.4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CyberArk Conjur 13.4 – The Evolution Continues</title>
+      <link>http://localhost:1313/posts/cyberark-conjur-134-evolution-continues/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/cyberark-conjur-134-evolution-continues/</guid>
+      <description>&lt;p&gt;About a month ago, a new release of Conjur Enterprise was launched—now at version 13.4—bringing exciting new features to the product!&lt;/p&gt;
+&lt;p&gt;Here are my top three favorites, though there are many more updates, which you can find &lt;a href=&#34;https://docs.cyberark.com/conjur-enterprise/13.4/en/content/enterprise/whatsnew.htm?TocPath=Get%20started%7C_____2&#34;&gt;here&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sync of empty safes from Vault: This is essential for managing policy creation through automation.&lt;/li&gt;
+&lt;li&gt;Dynamic application configuration: It is now possible to modify various Conjur configuration parameters that previously had to be set when creating the container. Now, they are all included in the usual conjur.yml.&lt;/li&gt;
+&lt;li&gt;Extended ESO support: The External Secrets Operator can now use regex in findByName and findByTags.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As has been the case for several releases, I’d like to reiterate that CyberArk’s development of Conjur is moving quickly, and with each release, the product becomes more and more complete.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

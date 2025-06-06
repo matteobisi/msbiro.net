@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HostUsers on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/tags/hostusers/</link>
+    <description>Recent content in HostUsers on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 May 2025 09:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hostusers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Securing Kubernetes 1.33 Pods: The Impact of User Namespace Isolation and hostUsers: false</title>
+      <link>http://localhost:1313/posts/kubernetes-133-user-namespace-isolation-security-matters/</link>
+      <pubDate>Fri, 16 May 2025 09:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubernetes-133-user-namespace-isolation-security-matters/</guid>
+      <description>&lt;p&gt;Kubernetes 1.33 was released on April 23, 2025, and, as usual, introduces a host of fixes and new features. Be sure to check out the release notes; I assure you, you won’t be disappointed!&lt;/p&gt;
+&lt;p&gt;As the Team Leader of a DevSecOps group, I tend to focus on security features. In this article, I want to highlight the new pod support for user namespaces.&lt;/p&gt;
+&lt;p&gt;This feature isn’t entirely new—it was first introduced as an Alpha feature (&lt;code&gt;UserNamespacesSupport&lt;/code&gt;) in Kubernetes 1.28. However, as of version 1.33, it is enabled by default, and there’s no longer any need to set a Kubernetes feature flag.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

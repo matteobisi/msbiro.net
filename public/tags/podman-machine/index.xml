@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Podman Machine on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+    <link>http://localhost:1313/tags/podman-machine/</link>
+    <description>Recent content in Podman Machine on Cloud Native &amp; Open Source: A Team Lead’s Working Journal</description>
+    <image>
+      <title>Cloud Native &amp; Open Source: A Team Lead’s Working Journal</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Jan 2025 11:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/podman-machine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS, Podman Desktop and the Podman Machine: Pay Close Attention to the Podman Version</title>
+      <link>http://localhost:1313/posts/podman-desktop-and-podman-machine-on-macos-pay-attention-to-podman-version/</link>
+      <pubDate>Fri, 10 Jan 2025 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podman-desktop-and-podman-machine-on-macos-pay-attention-to-podman-version/</guid>
+      <description>&lt;p&gt;Using Podman as the standard tool requested by clients for running local containers outside of a Kubernetes environment,&lt;br&gt;
+I decided to start the year by installing Podman Desktop on my company MacBook.&lt;/p&gt;
+&lt;p&gt;Podman Desktop features a user interface (UI) similar to Docker Desktop, making it easier to manage containers and images.&lt;br&gt;
+It also includes plugin management to extend its functionality, such as deploying containers on Kubernetes.&lt;/p&gt;
+&lt;p&gt;After installing Podman Desktop version 1.15.0, I proceeded with the setup but encountered issues with the Podman machine—the virtual machine dedicated to running containers—which failed to start. There were no errors; it just hung during startup.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
