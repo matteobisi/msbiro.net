@@ -1,2 +1,8 @@
-# macOS Finder settings files
+# macOS files
 .DS_Store
+.idea/
+# Hugo build outputs
+/public/
+/resources/
+# Hugo build lock file
+.hugo_build.lock
