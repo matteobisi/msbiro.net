@@ -41,7 +41,8 @@ I’m a DevSecOps Team Leader currently living in Galway, Ireland, but originall
 With a passion for both technology and teamwork, I lead my team in building and securing cloud-native infrastructures using both open source   and enterprise tools.  
 
 My journey has taken me across different roles, giving me a unique perspective on how diverse teams collaborate and innovate.  
-I’m particularly interested in automating security practices, managing secrets at scale, and empowering development teams to deliver secure software efficiently.  
+I'm passionate about empowering my teams to achieve excellence, guiding them through complex projects while ensuring security remains at the forefront of everything we deliver. My focus is on building high-performing teams that can navigate technical challenges with confidence and deliver exceptional results.  
+
 
 Outside of work, I enjoy exploring the beautiful Irish countryside, planning my next family trip, and cooking some Italian recipes.   
 
