@@ -1,6 +1,6 @@
 ---
 title: "About Me - Matteo Bisi"
-date: 2025-06-02T11:30:03+00:00
+date: 2025-06-07T14:03:03+00:00
 # weight: 1
 # aliases: ["/first"]
 tags: ["biography"]
@@ -45,7 +45,7 @@ I'm passionate about empowering my teams to achieve excellence, guiding them thr
 
 Outside of work, I enjoy exploring the beautiful Irish countryside, planning my next family trip, and cooking Italian recipes.
 
-Through this blog, I hope to share insights, best practices, and lessons learned from my experiences leading DevSecOps teams. You can find more information about my working activities on my [LinkedIn profile](www.linkedin.com/in/matteobisi).
+Through this blog, I hope to share insights, best practices, and lessons learned from my experiences leading DevSecOps teams. You can find more information about my working activities on my [LinkedIn profile](https://www.linkedin.com/in/matteobisi).
 
 My previous blogs about collaboration solutions are available here:
 
