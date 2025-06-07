@@ -35,21 +35,19 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
-Hello, I’m Matteo Bisi.
+Hello, I'm Matteo Bisi.
 
-I’m a DevSecOps Team Leader currently living in Galway, Ireland, but originally from Italy.   
-With a passion for both technology and teamwork, I lead my team in building and securing cloud-native infrastructures using both open source   and enterprise tools.  
+I'm a DevSecOps Team Leader currently living in Galway, Ireland, but originally from Italy.  
+With a passion for both technology and teamwork, I lead my team in building and securing cloud-native infrastructures using both open source and enterprise tools.  
 
 My journey has taken me across different roles, giving me a unique perspective on how diverse teams collaborate and innovate.  
 I'm passionate about empowering my teams to achieve excellence, guiding them through complex projects while ensuring security remains at the forefront of everything we deliver. My focus is on building high-performing teams that can navigate technical challenges with confidence and deliver exceptional results.  
 
+Outside of work, I enjoy exploring the beautiful Irish countryside, planning my next family trip, and cooking Italian recipes.
 
-Outside of work, I enjoy exploring the beautiful Irish countryside, planning my next family trip, and cooking some Italian recipes.   
+Through this blog, I hope to share insights, best practices, and lessons learned from my experiences leading DevSecOps teams. You can find more information about my working activities on my [LinkedIn profile](www.linkedin.com/in/matteobisi).
 
-Through this blog, I hope to share insights, best practices, and lessons learned from my experiences leading DevSecOps teams.  
-You can find more information about my CV on my [LinkedIn profile](www.linkedin.com/in/matteobisi).  
+My previous blogs about collaboration solutions are available here:
 
-My preavious blogs about Collaboration solutions are available here:
-   - [italian blog](https://www.msbiro.net)
-   - [english blog](https://blog.msbiro.net)
-
+- [Italian blog](https://archive-it.msbiro.net)
+- [English blog](https://archive-en.msbiro.net)
