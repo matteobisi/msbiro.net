@@ -51,6 +51,6 @@ I’m beyond excited and absolutely energized to dive into this experience once 
 
 So, see you in London! If you’re attending the conference, don’t miss out—come by our booth and say hi!
 
-![ReeVo logo kubecon 2025](revo-kubecon-london.jpeg)
+![ReeVo logo kubecon 2025](reevo-kubecon-london.jpeg)
 
 Let’s make this KubeCon one to remember! 🚀🚀🚀
