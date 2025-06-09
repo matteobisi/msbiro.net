@@ -14,9 +14,22 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
+  title: www.msbiro.net
   description: "A journal by Matteo Bisi, DevSecOps team leader, sharing insights on cloud native security, open-source software, and modern infrastructure"
-  keywords: "Matteo Bisi, DevSecOps, cloud native, cloud native security, open-source software, Kubernetes, infrastructure, security best practices, team leadership, site reliability, CI/CD, cloud computing, CNCF"
+  keywords:
+  - "Matteo Bisi"
+  - "DevSecOps"
+  - "cloud native"
+  - "cloud native security"
+  - "open-source software"
+  - "Kubernetes"
+  - "infrastructure"
+  - "security best practices"
+  - "team leadership"
+  - "site reliability"
+  - "CI/CD"
+  - "cloud computing"
+  - "CNCF"
   author: Matteo Bisi
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
