@@ -3,7 +3,7 @@ title: "macOS, Podman Desktop and the Podman Machine: Pay Close Attention to the
 date: 2025-01-10T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["podman","podman desktop","podman machine"]
+tags: ["podman","podman desktop","podman machine","container","container runtime"]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
