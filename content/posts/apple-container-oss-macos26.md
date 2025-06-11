@@ -50,7 +50,8 @@ Among these, aside from the OS updates, Apple announced "container" and containe
 - Spawn and interact with containerized processes
 - Use Rosetta 2 for executing x86_64 processes on Apple silicon
 
-In fact, the "container" client will be able to spawn a lightweight VM with an **optimized Linux kernel and small rootFS**, where you can run Linux containers—everything using Rosetta 2 for executing x86 instructions.  
+In fact, the "container" client will be able to spawn a lightweight VM with an **optimized Linux kernel and small rootFS**, where you can run Linux containers using Rosetta 2 for executing x86 instructions.   
+The interesting part from a security perspective is that every container will run isolated inside its own lightweight VM.  
   
 This announcement is **interesting** and could be a **valuable alternative** for developers compared to the usual Docker Desktop (which is free only for personal use) and Podman/Podman Desktop (free and open source).
 
