@@ -1,5 +1,5 @@
 ---
-title: "Securing Kubernetes 1.33 Pods: The Impact of User Namespace Isolation and hostUsers: false"
+title: "Securing Kubernetes 1.33 Pods: The Impact of User Namespace Isolation"
 date: 2025-05-16T09:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
