@@ -1,6 +1,6 @@
 ---
 title: "From Senior System Engineer to Team Leader: My Journey and Key Leadership Principles"
-date: 2025-07-15T23:28:03+00:00
+date: 2025-07-16T06:34:03+00:00
 # weight: 1
 # aliases: ["/first"]
 tags: ["working journey","team leader","leadeship","team"]
