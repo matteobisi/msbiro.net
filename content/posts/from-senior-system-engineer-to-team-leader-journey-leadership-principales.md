@@ -3,7 +3,23 @@ title: "From Senior System Engineer to Team Leader: My Journey and Key Leadershi
 date: 2025-07-16T06:34:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["working journey","team leader","leadeship","team"]
+tags: [
+  "working journey",
+  "team leader",
+  "leadership",
+  "team",
+  "career development",
+  "engineering management",
+  "remote leadership",
+  "tech leadership",
+  "people management",
+  "personal growth",
+  "team culture",
+  "remote work",
+  "engineering teams",
+  "servant leadership",
+  "career journey"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +27,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Discover my personal journey from senior system engineer to team leader. I share key leadership lessons, remote management principles, and advice for engineers moving into people management—all focused on fostering team growth and a positive, collaborative culture."
 canonicalURL: "https://www.msbiro.net/posts/from-senior-system-engineer-to-team-leader-journey-leadership-principales/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
