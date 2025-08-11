@@ -1,6 +1,6 @@
 ---
 title: "Urgent: Zero-Day CVEs Found in Two Major Secrets Managers — Have You Updated Yet?"
-date: 2020-09-15T11:30:03+00:00
+date: 2025-08-11T12:39:03+00:00
 # weight: 1
 # aliases: ["/first"]
 tags: ["cybersecurity", "zero-day", "CVE", "secrets manager", "CyberArk", "HashiCorp", "software update", "vulnerability management"]
@@ -35,7 +35,7 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
-Today, my manager forwarded me this [article](https://www.darkreading.com/cybersecurity-operations/critical-zero-day-bugs-cyberark-hashicorp-password-vaults?utm_campaign=16543270-Minimus%20Weekly&utm_medium=email&_hsenc=p2ANqtz-8cp_mhmbyhxW0NhltnmD5c81JFTQ0ai1xnrE-jZNzZ-yY4l2jBN-ijlJgFbORNLIzQqEyGvFaaYC5lrasY1hi_aaOg0mD0m-EIVg1NiBj8EeCaMNw&_hsmi=375244214&utm_content=375244214&utm_source=hs_email) about several zero-day CVEs discovered in CyberArk and HashiCorp products. After some time spent researching online, I confirmed that both brands have fixed these CVEs by releasing updated versions.
+Today, my manager forwarded me this [article](https://www.darkreading.com/cybersecurity-operations/critical-zero-day-bugs-cyberark-hashicorp-password-vaults?utm_campaign=16543270-Minimus%20Weekly&utm_medium=email&_hsenc=p2ANqtz-8cp_mhmbyhxW0NhltnmD5c81JFTQ0ai1xnrE-jZNzZ-yY4l2jBN-ijlJgFbORNLIzQqEyGvFaaYC5lrasY1hi_aaOg0mD0m-EIVg1NiBj8EeCaMNw&_hsmi=375244214&utm_content=375244214&utm_source=hs_email) about several zero-day CVEs discovered in CyberArk and HashiCorp products. After some time spent researching online, ***I confirmed that both brands have fixed these CVEs by releasing updated versions*** .
 
 I'm not surprised that these two big corporations acted quickly and fixed the vulnerabilities; both are well-known and reliable!   
 This event gave me an excuse to write this article and respond to one of the most common questions I get from my customers whenever I share news about a new release of a secrets manager:
