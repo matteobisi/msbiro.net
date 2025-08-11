@@ -3,7 +3,11 @@ title: "The Value of Community Contributions: Exploring CNCF and OpenSSF"
 date: 2023-11-01T16:44:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["community","cncf","openssf","contribution"]
+tags: [
+  "community", "cncf", "openssf", "contribution",
+  "open-source", "cloud-native", "security",
+  "ecosystem", "volunteer", "professional-growth", "linux-foundation"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "This post explores the importance and impact of contributing to open-source community foundations, focusing on the Cloud Native Computing Foundation (CNCF) and the Open Source Security Foundation (OpenSSF). It shares personal experiences of involvement, the benefits of stepping outside one’s comfort zone, and practical links to join projects, events, and working groups. Gain insights into how participation fosters ecosystem growth and professional development."
 canonicalURL: "https://www.msbiro.net/posts/the-value-of-community-contributions-exploring-cncf-openssf/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

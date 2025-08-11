@@ -3,7 +3,11 @@ title: "Securing Kubernetes 1.33 Pods: The Impact of User Namespace Isolation"
 date: 2025-05-16T09:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["kubernetes","hostUsers","security","isolation"]
+tags: [
+  "kubernetes", "hostUsers", "security", "isolation",
+  "user-namespaces", "pod-security", "container-security",
+  "devsecops", "linux-kernel", "container-runtime", "namespace-isolation"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Kubernetes 1.33 enables user namespace isolation by default for pods, greatly enhancing security by mapping container root users to unprivileged host UIDs. This post explores the feature’s security benefits including process isolation and lateral movement prevention, infrastructure requirements like Linux kernel 6.3 and compatible container runtimes, and how to enable user namespaces in your pod specifications. Learn why this advancement is crucial for securing Kubernetes workloads in modern environments."
 canonicalURL: "https://www.msbiro.net/posts/kubernetes-133-user-namespace-isolation-security-matters/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

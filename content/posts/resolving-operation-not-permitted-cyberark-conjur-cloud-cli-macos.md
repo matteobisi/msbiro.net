@@ -3,7 +3,11 @@ title: "Resolving 'Operation Not Permitted' for CyberArk Conjur Cloud CLI on mac
 date: 2025-01-17T16:20:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["conjur cloud","conjur cli","macos"]
+tags: [
+  "conjur cloud", "conjur cli", "macos",
+  "cybersecurity", "saas", "cli-tools",
+  "macos-security", "troubleshooting", "devops"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "This post details a troubleshooting journey resolving the 'Operation Not Permitted' error when running the CyberArk Conjur Cloud CLI on macOS 15.2. The issue stems from macOS quarantining the binary, which can be fixed by removing the quarantine attribute via the xattr command. Follow this step-by-step guide to get your Conjur Cloud CLI up and running smoothly on macOS."
 canonicalURL: "https://www.msbiro.net/posts/page"
 disableHLJS: true # to disable highlightjs
 disableShare: true

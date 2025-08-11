@@ -3,7 +3,11 @@ title: "I've started a new journey as DevSecOps Team Leader"
 date: 2022-05-25T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["cloudnative", "newjob", "devsecops", "security"]
+tags: [
+  "cloudnative", "newjob", "devsecops", "security",
+  "leadership", "team-lead", "cloud-native-security",
+  "infrastructure-security", "secrets-management", "cyberark", "container-security"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "A new beginning"
+description: "Starting May 16, 2022, I embarked on a new journey as Senior DevSecOps Engineer at SIGHUP. This post marks the beginning of a shift towards cloud-native infrastructure security topics, including tools like CyberArk Conjur. While previous content remains available, expect fresh insights into securing modern cloud environments. My role as organizer of the LetsConnect user group continues, and I look forward to connecting at upcoming events."
 canonicalURL: "https://www.msbiro.net/posts/new-job-devsecops-teamleader/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

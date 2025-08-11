@@ -3,7 +3,11 @@ title: "Troubleshooting CyberArk Conjur Follower Setup and Postgres Connectivity
 date: 2022-11-21T11:23:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["conjur","follower","postgres","troubleshooting"]
+tags: [
+  "conjur", "follower", "postgres", "troubleshooting",
+  "cyberark", "database-connection", "replication",
+  "network-issues", "container-debugging", "ssl-certificates", "devops"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "This post covers troubleshooting a CyberArk Conjur follower setup issue where the follower pod could connect to the Conjur API leader but failed to connect to the Postgres database, causing replication to stall and system errors. The solution involved verifying Postgres connectivity using openssl s_client with TLS, revealing a network load balancer misconfiguration that was subsequently corrected. Learn how to use this simple openssl command for effective container and network diagnostics."
 canonicalURL: "https://www.msbiro.net/posts/pagetroubleshooting-conjur-follower-setup-postgres-connectivity/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

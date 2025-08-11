@@ -3,7 +3,11 @@ title: "KCD Italy Will Return in 2025 with a New Name"
 date: 2024-12-05T18:33:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["kcd","italy","community","events"]
+tags: [
+  "kcd", "italy", "community", "events",
+  "cloud-native", "cncf", "kubernetes",
+  "conference", "bologna", "cloud-native-days", "tech-community"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "KCD Italy is coming back in June 2025 in Bologna, rebranded as Cloud Native Days Italy. While the name is changing, the event will continue its tradition of high-quality sessions and community engagement, bringing together developers, architects, and cloud-native enthusiasts from across Italy and beyond."
 canonicalURL: "https://www.msbiro.net/posts/page"
 disableHLJS: true # to disable highlightjs
 disableShare: true

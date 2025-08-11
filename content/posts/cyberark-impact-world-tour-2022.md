@@ -3,7 +3,10 @@ title: "CyberArk Impact 2022 World Tour – Will You Be There?"
 date: 2022-09-21T19:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["cyberark","impact","conference"]
+tags: [
+  "cyberark", "impact", "conference",
+  "event", "world-tour", "infosec", "security-conference", "networking", "milan"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +14,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "CyberArk announces the Impact World Tour, a series of global cybersecurity events featuring expert sessions and networking opportunities. This post shares details on tour locations, agenda, and registration, along with a personal note on attending the Milan event in October 2022."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-impact-world-tour-2022/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

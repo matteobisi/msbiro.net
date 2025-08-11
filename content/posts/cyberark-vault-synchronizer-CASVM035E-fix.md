@@ -3,7 +3,11 @@ title: "CyberArk Vault Synchronizer – CASVM035E Vault Name Is Missing: How to 
 date: 2022-09-30T07:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["cyberark","synchronizer","CASVM035E"]
+tags: [
+  "cyberark", "synchronizer", "CASVM035E",
+  "vault-synchronizer", "secrets-management", "troubleshooting",
+  "error-fix", "conjur-integration", "windows-service", "cybersecurity"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "This post addresses the CyberArk Vault Synchronizer error 'CASVM035E Vault name is missing' encountered during upgrade from version 11.7 to 12.7. It guides users through the straightforward fix by updating the INTEGRATION_VAULT_NAME value in the VaultConjurSynchronizer.exe.config file, restoring secrets synchronization functionality on Windows."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-vault-synchronizer-CASVM035E-fix/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

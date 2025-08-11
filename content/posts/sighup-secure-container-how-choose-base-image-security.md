@@ -3,7 +3,11 @@ title: "SIGHUP Secure Containers: how do you choose the oci base image for your 
 date: 2023-04-13T12:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["ssc","secure containers","security","supply-chain"]
+tags: [
+  "ssc", "secure containers", "security", "supply-chain",
+  "container security", "container base images", "devsecops",
+  "vulnerability management", "container catalog", "linux containers", "slas"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "This post discusses how to choose the right OCI base image for your workloads, emphasizing the importance of security, vulnerability management, and timely updates. It showcases SIGHUP’s Secure Containers service, which offers a curated, proactively patched container catalog with support, SLAs, and automation benefits to help teams maintain secure, compliant container supply chains."
 canonicalURL: "https://www.msbiro.net/posts/sighup-secure-container-how-choose-base-image-security/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

@@ -3,7 +3,11 @@ title: "From Manual to GitOps: Simplifying Grafana Dashboard Configuration with 
 date: 2025-05-12T11:34:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["grafana","dashboard","gitops"]
+tags: [
+  "grafana", "dashboard", "gitops",
+  "git-sync", "observability-as-code", "ci-cd",
+  "version-control", "grafana-12", "monitoring", "devops"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Starting with version 12, Grafana introduces the experimental Git Sync feature, enabling users to manage dashboards using a GitOps approach. This feature connects Grafana to a GitHub repository to synchronize dashboard JSON files, allowing version control, collaboration through pull requests, and seamless automated deployment of dashboards. Git Sync offers a scalable way to manage dashboards in complex environments, enhancing traceability, auditing, and consistency across multiple instances."
 canonicalURL: "https://www.msbiro.net/posts/grafana-dashboard-configuration-with-gitops/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

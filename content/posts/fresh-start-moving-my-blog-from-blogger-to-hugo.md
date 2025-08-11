@@ -3,7 +3,11 @@ title: "Fresh Start: Moving My Blog from Blogger to Hugo"
 date: 2025-06-07T09:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["announcement","blog","hugo"]
+tags: [
+  "announcement", "blog", "hugo",
+  "papermod", "migration", "cloudflare-pages",
+  "github-pages", "static-site-generator", "blogging"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "After years on Blogger, I’ve migrated my blog to Hugo with the PaperMod theme, hosted on Cloudflare Pages and backed by GitHub. In this post, I share the reasons for the change, the migration process, and where to find the archives of my previous English and Italian blogs."
 canonicalURL: "https://www.msbiro.net/posts/fresh-start-moving-my-blog-from-blogger-to-hugo/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

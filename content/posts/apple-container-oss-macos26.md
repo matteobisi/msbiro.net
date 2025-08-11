@@ -3,7 +3,7 @@ title: "Apple container announced"
 date: 2025-06-10T14:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["apple","container","container runtime","macos26"]
+tags: ["apple", "container", "container runtime", "macos26", "virtualization", "developer tools", "rosetta2", "oci-compliant", "apple-silicon"]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +11,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Apple announced its new open-source container runtime for macOS 26, enabling developers to run OCI-compliant Linux containers natively on Apple silicon with enhanced isolation, security, and Rosetta 2 support. This post explores the features, requirements, and how this solution compares to Docker and Podman for macOS developers."
 canonicalURL: "https://www.msbiro.net/posts/apple-container-oss-macos26/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

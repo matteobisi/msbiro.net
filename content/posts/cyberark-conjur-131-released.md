@@ -3,7 +3,10 @@ title: "CyberArk Conjur 13.1 Released"
 date: 2023-12-07T08:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["cyberark","conjur","13.1"]
+tags: [
+  "cyberark", "conjur", "13.1",
+  "secrets-management", "release", "resiliency", "security", "vault-synchronizer", "kubernetes"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +14,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "CyberArk has released Conjur 13.1, a point update focusing on under-the-hood improvements that enhance the resiliency of Conjur followers. Key changes include major upgrades to the underlying container base image, PostgreSQL, and etcd versions, as well as enhanced flexibility in vault synchronization and secret segregation. This release is recommended for all Conjur Enterprise users seeking improved performance and stability."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-131-released/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

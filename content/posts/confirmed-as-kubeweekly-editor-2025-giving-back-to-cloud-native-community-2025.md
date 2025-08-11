@@ -3,7 +3,10 @@ title: "Confirmed as KubeWeekly Editor: Giving Back to the Cloud-Native Communit
 date: 2025-01-09T08:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["kubeweekly","community","cncf"]
+tags: [
+  "kubeweekly", "community", "cncf",
+  "kubernetes", "cloud-native", "newsletter", "open-source", "editorial", "k8s"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +14,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Confirmed as KubeWeekly editor for 2025, continuing a community-driven role that curates the latest news and insights across Kubernetes and the cloud-native ecosystem. Learn what goes into KubeWeekly editorial, why this newsletter matters to the CNCF community, and how to get involved as a contributor or reader."
 canonicalURL: "https://www.msbiro.net/posts/confirmed-as-kubeweekly-editor-2025-giving-back-to-cloud-native-community-2025/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

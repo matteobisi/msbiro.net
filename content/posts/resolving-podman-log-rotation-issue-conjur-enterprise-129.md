@@ -3,7 +3,11 @@ title: "Resolving Podman Log Rotation Issues in CyberArk Conjur Container 12.9 D
 date: 2023-05-24T17:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["conjur","cyberark","podman","12.9"]
+tags: [
+  "conjur", "cyberark", "podman", "12.9",
+  "container-runtime", "log-rotation", "security",
+  "container-management", "troubleshooting", "devops"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "This post addresses a log rotation issue seen in CyberArk Conjur 12.9 container deployments running on Podman. Unlike Docker, Podman requires the container to be recreated with the AUDIT_WRITE capability added and a specific permission set on the Nginx log directory for proper log rotation. The resolution was developed collaboratively with CyberArk support and is now documented for future updates. Essential guidance for operators using Podman with Conjur containers."
 canonicalURL: "https://www.msbiro.net/posts/resolving-podman-log-rotation-issue-conjur-enterprise-129/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

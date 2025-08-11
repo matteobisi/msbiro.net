@@ -3,7 +3,12 @@ title: "OpenSSF - Open Source Project Security Baseline"
 date: 2025-02-26T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["openssf","security","posture"]
+tags: [
+  "openssf", "security", "posture",
+  "open-source-security", "software-security",
+  "project-security", "security-baseline",
+  "cybersecurity", "software-maintainers"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +16,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "The OpenSSF Open Source Project Security Baseline is a new initiative providing a structured set of security checks across three levels that open-source projects can implement to demonstrate a strong security posture. This practical framework helps maintainers improve software security and certification, fostering safer open-source ecosystems. Learn about the baseline, its levels, and how to get involved."
 canonicalURL: "https://www.msbiro.net/posts/openssf-opensource-project-security-baseline/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

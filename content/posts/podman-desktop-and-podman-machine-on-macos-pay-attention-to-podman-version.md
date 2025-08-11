@@ -3,7 +3,12 @@ title: "macOS, Podman Desktop and the Podman Machine: Pay Close Attention to the
 date: 2025-01-10T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["podman","podman desktop","podman machine","container","container runtime"]
+tags: [
+  "podman", "podman desktop", "podman machine",
+  "container", "container runtime", "macos",
+  "virtualization", "container management",
+  "compatibility", "troubleshooting", "developer tools"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +16,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "This post explores compatibility issues when using Podman Desktop on macOS, particularly the Podman machine failing to start due to legacy Podman installations. It shares practical troubleshooting steps including identifying version conflicts, removing unsupported Podman machines, and successfully recreating them for smooth container management. Essential reading for developers managing container runtimes on macOS."
 canonicalURL: "https://www.msbiro.net/posts/podman-desktop-and-podman-machine-on-macos-pay-attention-to-podman-version/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

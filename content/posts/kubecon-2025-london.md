@@ -3,7 +3,11 @@ title: "KubeCon EU 2025 London"
 date: 2025-02-21T09:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["kubecon","community","events","london"]
+tags: [
+  "kubecon", "community", "events", "london",
+  "kubernetes", "cloud-native", "cncf",
+  "conference", "sponsorship", "networking", "tech-community"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,8 +15,8 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
-canonicalURL: "https://www.msbiro.net/posts/page"
+description: "Heading to KubeCon EU 2025 in London for the third year in a row—this time representing ReeVo as a proud sponsor! I’ll be managing our booth, connecting with cloud-native professionals, partners, and contributors from across the globe. Join me in celebrating the power of community, collaboration, and innovation in the Kubernetes ecosystem—see you in London!"
+canonicalURL: "https://www.msbiro.net/kubecon-2025-london/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
 disableHLJS: false

@@ -3,7 +3,11 @@ title: "KubeWeekly – Get Weekly Kubernetes News in Your Inbox"
 date: 2024-01-25T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["kubeweekly","cncf","newsletter","community"]
+tags: [
+  "kubeweekly", "cncf", "newsletter", "community",
+  "kubernetes", "cloud-native", "open-source",
+  "ecosystem", "devops", "tech-newsletter"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "KubeWeekly is a curated newsletter delivering the latest Kubernetes and CNCF community news, articles, and videos straight to your inbox. As an editor during early 2024, I help select and share valuable content to keep the cloud-native community informed and connected. Discover how to subscribe and join this vibrant ecosystem of Kubernetes enthusiasts and professionals."
 canonicalURL: "https://www.msbiro.net/posts/kubeweekly-k8s-newsletter/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

@@ -3,7 +3,10 @@ title: "CyberArk Conjur 13 has been released."
 date: 2023-06-06T18:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["conjur","cyberark","13.0"]
+tags: [
+  "conjur", "cyberark", "13.0",
+  "secrets-management", "release", "oidc", "data-segregation", "observability", "kubernetes"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +14,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "CyberArk has released Conjur 13.0, bringing notable enhancements like OIDC login support, secret data segregation for followers, optimized password management, and faster Vault synchronization for enterprise environments. This post covers the highlights of version 13, why you should consider upgrading, and how these improvements impact admins, security teams, and Kubernetes users."
 canonicalURL: "https://www.msbiro.net/posts/conjur-13-is-available/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

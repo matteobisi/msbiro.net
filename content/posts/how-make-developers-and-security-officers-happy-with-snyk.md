@@ -3,7 +3,11 @@ title: "How Is It Possible to Make Both Developers and Security Officers Happy? 
 date: 2023-01-13T16:23:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["snyk","sast","sca","supply-chain"]
+tags: [
+  "snyk", "sast", "sca", "supply-chain",
+  "application-security", "devsecops", "vulnerability-management",
+  "secure-development", "code-quality", "ci-cd", "security-automation"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Snyk is a powerful security platform offering tools for static analysis (SAST), software composition analysis (SCA), container security, infrastructure as code, and cloud security. This post explains how Snyk helps developers maintain secure codebases while enabling security officers to oversee vulnerabilities without slowing development. Learn about Snyk’s integrations in IDEs, CI/CD, and Git workflows, customizable dashboards for security teams, and its open-source vulnerability database. A free plan makes testing easy for anyone interested in improving software security."
 canonicalURL: "https://www.msbiro.net/posts/how-make-developers-and-security-officers-happy-with-snyk/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

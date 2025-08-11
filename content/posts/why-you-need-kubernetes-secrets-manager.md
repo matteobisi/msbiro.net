@@ -3,7 +3,11 @@ title: "CyberArk Conjur - why you (probably) need an enterprise secrets manager"
 date: 2022-07-19T16:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["conjur","introduction","secrets manager"]
+tags: [
+  "conjur", "introduction", "secrets manager",
+  "enterprise-security", "cloud-native", "secrets-management",
+  "cybersecurity", "devsecops", "password-management"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Secrets management is critical to securing modern infrastructures, guarding sensitive information such as passwords, certificates, and keys from exposure and misuse. This post introduces CyberArk Conjur, an enterprise-grade secrets manager that protects secrets using programmable REST APIs, centralized security policies, and integration with CyberArk’s broader ecosystem. Learn why avoiding common mistakes like hardcoding secrets or pushing them to public repositories is vital, and how Conjur offers scalable, secure, and automated secrets management for cloud-native environments."
 canonicalURL: "https://www.msbiro.net/why-you-need-kubernetes-secrets-manager"
 disableHLJS: true # to disable highlightjs
 disableShare: true

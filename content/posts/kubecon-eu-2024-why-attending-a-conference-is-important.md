@@ -3,7 +3,11 @@ title: "KubeCon 2024: Why Attending a Conference Is Important and Some Useful Re
 date: 2024-03-15T05:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["kubecon","community","events"]
+tags: [
+  "kubecon", "community", "events",
+  "kubernetes", "cloud-native", "cncf",
+  "conference", "networking", "professional-development", "open-source"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Insights from attending KubeCon EU 2024 in Paris—why large-scale conferences matter for networking, learning, and community engagement in the cloud-native world. This post explores the unique opportunities to meet peers, vendors, and open-source contributors, attend top technical sessions, and access session recordings and resources provided by the CNCF."
 canonicalURL: "https://www.msbiro.net/posts/kubecon-eu-2024-why-attending-a-conference-is-important/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

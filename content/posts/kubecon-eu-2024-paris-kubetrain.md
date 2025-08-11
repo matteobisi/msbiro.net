@@ -3,7 +3,11 @@ title: "KubeCon EU 2024 Paris – Exploring the Kubetrain Initiative"
 date: 2023-11-10T06:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["kubecon","kubetrain"]
+tags: [
+  "kubecon", "kubetrain", "kubecon-eu", "paris",
+  "cloud-native", "sustainability", "green-travel",
+  "community", "networking", "linux-foundation"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "KubeCon EU 2024 will be held in Paris from March 19-22, featuring an innovative sustainability initiative called Kubetrain. This program encourages attendees to travel by train from major European cities like Amsterdam, Berlin, London, Lyon, Milan, and Zurich to reduce their carbon footprint while enjoying networking opportunities onboard. Early bird registration and CFP submissions are open, making it an exciting time to prepare for this premier cloud-native community event."
 canonicalURL: "https://www.msbiro.net/posts/kubecon-eu-2024-paris-kubetrain/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

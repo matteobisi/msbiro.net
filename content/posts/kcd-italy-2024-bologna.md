@@ -3,7 +3,11 @@ title: "KCD 2024 Italy Announced – Bologna, 20 June 2024"
 date: 2024-01-17T11:44:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["kcd","italy","community","events"]
+tags: [
+  "kcd", "italy", "community", "events",
+  "kubernetes", "cloud-native", "conference",
+  "bologna", "cncf", "developer community"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "KCD Italy 2024 is announced for June 20, 2024, in Bologna at the Savoia Regency Hotel. This Kubernetes Community Day event, supported by CNCF and organized by the Italian Kubernetes community, welcomes developers, architects, and enthusiasts to share knowledge and experiences. The CFP is open with English sessions welcome, and sponsorship opportunities are available to engage with the vibrant cloud-native community."
 canonicalURL: "https://www.msbiro.net/posts/kcd-italy-2024-bologna/"
 disableHLJS: true # to disable highlightjs
 disableShare: true

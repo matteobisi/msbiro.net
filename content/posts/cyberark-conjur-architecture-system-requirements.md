@@ -3,7 +3,11 @@ title: "CyberArk Conjur: A Quick Overview of Architecture and System Requirement
 date: 2022-07-24T11:40:03+00:00
 # weight: 1
 # aliases: ["/first"]
-tags: ["conjur","cyberark","secrets manager"]
+tags: [
+  "conjur", "cyberark", "secrets manager",
+  "enterprise-security", "architecture", "system-requirements",
+  "high-availability", "kubernetes", "docker", "podman", "container-runtime"
+]
 author: "Matteo Bisi"
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -11,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "This post provides a comprehensive overview of CyberArk Conjur Enterprise architecture, detailing its multi-node cluster design with auto-failover capabilities, follower deployment for scaling, and essential system requirements for production and test environments. Essential reading for anyone planning to deploy Conjur as an enterprise-grade secrets manager."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-architecture-system-requirements/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
