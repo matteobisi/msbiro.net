@@ -16,7 +16,7 @@ draft: false
 hidemeta: false
 comments: false
 description: "Heading to KubeCon EU 2025 in London for the third year in a row—this time representing ReeVo as a proud sponsor! I’ll be managing our booth, connecting with cloud-native professionals, partners, and contributors from across the globe. Join me in celebrating the power of community, collaboration, and innovation in the Kubernetes ecosystem—see you in London!"
-canonicalURL: "https://www.msbiro.net/kubecon-2025-london/"
+canonicalURL: "https://www.msbiro.net/posts/kubecon-2025-london/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
 disableHLJS: false
