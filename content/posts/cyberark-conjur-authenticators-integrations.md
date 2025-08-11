@@ -15,7 +15,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-detailing the variety of authenticators such as host/user API key, OIDC, AWS IAM, Kubernetes with SPIFFE-compliant mutual TLS, and more. Learn how these authenticators enable secure secrets retrieval and integrations with popular DevOps tools and cloud platforms, enhancing security and flexibility for dynamic environments."
+description: "detailing the variety of authenticators such as host/user API key, OIDC, AWS IAM, Kubernetes with SPIFFE-compliant mutual TLS, and more. Learn how these authenticators enable secure secrets retrieval and integrations with popular DevOps tools and cloud platforms, enhancing security and flexibility for dynamic environments."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-authenticators-integrations/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
