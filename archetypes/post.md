@@ -11,7 +11,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-#description: "Desc Text."
+description: "Desc Text."
 canonicalURL: "https://www.msbiro.net/posts/page"
 disableHLJS: true # to disable highlightjs
 disableShare: true
