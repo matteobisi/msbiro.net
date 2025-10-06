@@ -38,13 +38,13 @@ editPost:
 [OpenSSF](https://openssf.org/), the Open Source Security Foundation, is an influential collaborative initiative under the [Linux Foundation](https://www.linuxfoundation.org/) dedicated to improving open source software security. Bringing together industry leaders, security experts, and developers, OpenSSF drives broad community efforts to address vulnerabilities, foster best practices, and enhance transparency across software supply chains. Among its standout contributions is the advocacy and tooling development around Software Bill of Materials (SBOMs), which have rapidly become indispensable for managing security risks in modern software ecosystems.
 
 A Software Bill of Materials (SBOM) is a detailed, machine-readable inventory that lists all the components, libraries, and dependencies comprising a software product. Although the concept traces back several decades, modern SBOM standardization gained momentum in the 2010s, particularly with the introduction of SPDX in 2010 and CycloneDX in 2017.  
-The importance of SBOMs reached broader coordinated attention around 2018, notably through initiatives like the NTIA’s Software Component Transparency effort. SBOMs provide critical visibility by documenting component names, versions, licensing information, and links to known vulnerabilities—making them indispensable tools for software security, compliance, and supply chain risk management.
+The importance of SBOMs reached broader coordinated attention around 2018, notably through initiatives like the NTIA’s Software Component Transparency effort. SBOMs provide critical visibility by documenting component names, versions, licensing information, and links to known vulnerabilities, making them indispensable tools for software security, compliance, and supply chain risk management.
 
 The recent [OpenSSF white paper](https://openssf.org/blog/2025/09/18/improving-risk-management-decisions-with-sbom-data-a-new-whitepaper-from-the-openssf-sbom-everywhere-sig/), *Improving Risk Management Decisions with SBOM Data*, co-authored by a community of SBOM experts and facilitated by CISA, provides an in-depth view of how organizations can effectively leverage SBOMs throughout their lifecycle to enhance security posture and operational resilience.
 
 ### Highlights from the White Paper
 
-This white paper goes far beyond the concept of simply generating SBOMs. It breaks down the entire SBOM lifecycle — from creation, distribution, to consumption — and classifies SBOM processes into maturity levels ranging from basic generation and verification to sophisticated enrichment and continuous monitoring.
+This white paper goes far beyond the concept of simply generating SBOMs. It breaks down the entire SBOM lifecycle (from creation, distribution, to consumption) and classifies SBOM processes into maturity levels ranging from basic generation and verification to sophisticated enrichment and continuous monitoring.
 
 The paper details thirteen practical use cases illustrating how the enriched use of SBOM data transforms security and compliance strategies. Below is the table describing the use cases:
 
@@ -64,7 +64,7 @@ The paper details thirteen practical use cases illustrating how the enriched use
 | 12 | Integrity and Threat Management for Operational Technology (OT) and Isolated Networks | Manage risks in software used in critical infrastructure or isolated networks with limited update capability. | Least Mature | Focused | Producer, Consumer |
 | 13 | Field Servicing of Software-enabled Devices | Support maintenance by comparing device SBOMs with deployed software inventory to detect unauthorized changes. | Least Mature | Focused | Producer, Consumer |
 
-The paper emphasizes that SBOMs reach their full potential when integrated and enriched with external intelligence—vulnerability databases like NVD, license registries, and threat feeds—making them dynamic tools that bridge security, legal, procurement, and engineering functions.
+The paper emphasizes that SBOMs reach their full potential when integrated and enriched with external intelligence/vulnerability databases like NVD, license registries, and threat feeds—making them dynamic tools that bridge security, legal, procurement, and engineering functions.
 
 ### SBOMs in Cloud-Native Environments
 
