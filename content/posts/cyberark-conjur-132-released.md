@@ -18,7 +18,6 @@ description: "CyberArk released Conjur 13.2 with important bug fixes, support fo
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-132-released/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

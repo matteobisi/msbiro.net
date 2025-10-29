@@ -19,7 +19,6 @@ description: "KCD Italy 2024 is announced for June 20, 2024, in Bologna at the S
 canonicalURL: "https://www.msbiro.net/posts/kcd-italy-2024-bologna/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

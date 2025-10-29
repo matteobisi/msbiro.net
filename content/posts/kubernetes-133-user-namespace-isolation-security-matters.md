@@ -19,7 +19,6 @@ description: "Kubernetes 1.33 enables user namespace isolation by default for po
 canonicalURL: "https://www.msbiro.net/posts/kubernetes-133-user-namespace-isolation-security-matters/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

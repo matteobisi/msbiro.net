@@ -19,7 +19,6 @@ description: "Starting with version 12, Grafana introduces the experimental Git 
 canonicalURL: "https://www.msbiro.net/posts/grafana-dashboard-configuration-with-gitops/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

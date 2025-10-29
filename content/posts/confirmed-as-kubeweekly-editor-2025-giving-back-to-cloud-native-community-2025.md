@@ -18,7 +18,6 @@ description: "Confirmed as KubeWeekly editor for 2025, continuing a community-dr
 canonicalURL: "https://www.msbiro.net/posts/confirmed-as-kubeweekly-editor-2025-giving-back-to-cloud-native-community-2025/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

@@ -15,7 +15,6 @@ description: "This article explores the OpenSSF white paper 'Improving Risk Mana
 canonicalURL: "https://www.msbiro.net/posts/openssf-whitepaper-sbom-improving-risk-management/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

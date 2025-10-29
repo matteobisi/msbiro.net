@@ -15,7 +15,6 @@ description: "Apple announced its new open-source container runtime for macOS 26
 canonicalURL: "https://www.msbiro.net/posts/apple-container-oss-macos26/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

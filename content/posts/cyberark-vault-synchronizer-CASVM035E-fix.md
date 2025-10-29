@@ -19,7 +19,6 @@ description: "This post addresses the CyberArk Vault Synchronizer error 'CASVM03
 canonicalURL: "https://www.msbiro.net/posts/cyberark-vault-synchronizer-CASVM035E-fix/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

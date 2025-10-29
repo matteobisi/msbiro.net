@@ -31,7 +31,6 @@ description: "Discover my personal journey from senior system engineer to team l
 canonicalURL: "https://www.msbiro.net/posts/from-senior-system-engineer-to-team-leader-journey-leadership-principales/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

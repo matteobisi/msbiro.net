@@ -19,7 +19,6 @@ description: "KubeCon EU 2024 will be held in Paris from March 19-22, featuring 
 canonicalURL: "https://www.msbiro.net/posts/kubecon-eu-2024-paris-kubetrain/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

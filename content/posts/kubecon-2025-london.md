@@ -19,7 +19,6 @@ description: "Heading to KubeCon EU 2025 in London for the third year in a rowâ€
 canonicalURL: "https://www.msbiro.net/posts/kubecon-2025-london/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

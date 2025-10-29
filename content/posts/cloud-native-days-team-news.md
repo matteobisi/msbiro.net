@@ -15,7 +15,6 @@ description: "Exciting personal update: Joining Cloud Native Days Italy as organ
 canonicalURL: "https://www.msbiro.net/posts/my-new-role-with-cloud-native-days-italy/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

@@ -19,7 +19,6 @@ description: "Insights from attending KubeCon EU 2024 in Paris—why large-scale
 canonicalURL: "https://www.msbiro.net/posts/kubecon-eu-2024-why-attending-a-conference-is-important/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

@@ -19,7 +19,6 @@ description: "This post covers troubleshooting a CyberArk Conjur follower setup 
 canonicalURL: "https://www.msbiro.net/posts/pagetroubleshooting-conjur-follower-setup-postgres-connectivity/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

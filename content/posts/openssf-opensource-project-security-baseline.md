@@ -20,7 +20,6 @@ description: "The OpenSSF Open Source Project Security Baseline is a new initiat
 canonicalURL: "https://www.msbiro.net/posts/openssf-opensource-project-security-baseline/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

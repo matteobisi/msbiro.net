@@ -19,7 +19,6 @@ description: "This post details a troubleshooting journey resolving the 'Operati
 canonicalURL: "https://www.msbiro.net/posts/resolving-operation-not-permitted-cyberark-conjur-cloud-cli-macos/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

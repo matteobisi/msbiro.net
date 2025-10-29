@@ -18,7 +18,6 @@ description: "CyberArk Conjur 13.4 introduces exciting new features including sy
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-134-evolution-continues/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

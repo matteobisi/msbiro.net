@@ -19,7 +19,6 @@ description: "This post addresses a log rotation issue seen in CyberArk Conjur 1
 canonicalURL: "https://www.msbiro.net/posts/resolving-podman-log-rotation-issue-conjur-enterprise-129/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

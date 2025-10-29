@@ -20,7 +20,6 @@ description: "This post explores compatibility issues when using Podman Desktop 
 canonicalURL: "https://www.msbiro.net/posts/podman-desktop-and-podman-machine-on-macos-pay-attention-to-podman-version/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

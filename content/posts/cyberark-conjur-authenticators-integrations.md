@@ -19,7 +19,6 @@ description: "detailing the variety of authenticators such as host/user API key,
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-authenticators-integrations/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

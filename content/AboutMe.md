@@ -15,7 +15,6 @@ description: "Who am I?"
 canonicalURL: "https://www.msbiro.net/aboutme/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

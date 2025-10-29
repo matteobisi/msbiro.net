@@ -15,7 +15,6 @@ description: "The External Secrets Operator project faces challenges with long-t
 canonicalURL: "https://www.msbiro.net/posts/external-secrets-operator-team-needs-help/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

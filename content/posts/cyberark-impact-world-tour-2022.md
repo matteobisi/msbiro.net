@@ -18,7 +18,6 @@ description: "CyberArk announces the Impact World Tour, a series of global cyber
 canonicalURL: "https://www.msbiro.net/posts/cyberark-impact-world-tour-2022/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

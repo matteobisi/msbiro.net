@@ -19,7 +19,6 @@ description: "Starting May 16, 2022, I embarked on a new journey as Senior DevSe
 canonicalURL: "https://www.msbiro.net/posts/new-job-devsecops-teamleader/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

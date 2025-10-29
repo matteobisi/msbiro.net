@@ -15,7 +15,6 @@ comments: false
 canonicalURL: "https://www.msbiro.net/privacy-policy/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

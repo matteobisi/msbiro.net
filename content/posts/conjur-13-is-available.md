@@ -18,7 +18,6 @@ description: "CyberArk has released Conjur 13.0, bringing notable enhancements l
 canonicalURL: "https://www.msbiro.net/posts/conjur-13-is-available/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

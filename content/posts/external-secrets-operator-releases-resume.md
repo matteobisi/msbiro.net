@@ -28,7 +28,6 @@ description: "External Secrets Operator resumes releases on September 22 with cl
 canonicalURL: "https://www.msbiro.net/posts/external-secrets-operator-releases-resume/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

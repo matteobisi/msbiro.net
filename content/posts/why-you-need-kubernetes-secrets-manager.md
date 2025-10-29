@@ -19,7 +19,6 @@ description: "Secrets management is critical to securing modern infrastructures,
 canonicalURL: "https://www.msbiro.net/why-you-need-kubernetes-secrets-manager"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

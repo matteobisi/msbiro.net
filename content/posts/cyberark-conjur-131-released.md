@@ -18,7 +18,6 @@ description: "CyberArk has released Conjur 13.1, a point update focusing on unde
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-131-released/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

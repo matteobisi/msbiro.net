@@ -19,7 +19,6 @@ description: "This post provides a comprehensive overview of CyberArk Conjur Ent
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-architecture-system-requirements/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

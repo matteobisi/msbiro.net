@@ -19,7 +19,6 @@ description: "This post discusses how to choose the right OCI base image for you
 canonicalURL: "https://www.msbiro.net/posts/sighup-secure-container-how-choose-base-image-security/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

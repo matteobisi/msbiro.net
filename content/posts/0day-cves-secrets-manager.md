@@ -15,7 +15,6 @@ description: "This article highlights recent zero-day vulnerabilities discovered
 canonicalURL: "https://www.msbiro.net/posts/page"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

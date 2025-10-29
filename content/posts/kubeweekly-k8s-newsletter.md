@@ -19,7 +19,6 @@ description: "KubeWeekly is a curated newsletter delivering the latest Kubernete
 canonicalURL: "https://www.msbiro.net/posts/kubeweekly-k8s-newsletter/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

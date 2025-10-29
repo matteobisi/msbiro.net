@@ -18,7 +18,6 @@ description: "BSides Galway debuts its first-ever local security conference on F
 canonicalURL: "https://www.msbiro.net/posts/bsides-galway-february-22-2025/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

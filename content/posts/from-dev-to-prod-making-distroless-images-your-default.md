@@ -18,7 +18,6 @@ description: "Explore the importance of using distroless container images to red
 canonicalURL: "https://www.msbiro.net/posts/from-dev-to-prod-making-distroless-images-your-default/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

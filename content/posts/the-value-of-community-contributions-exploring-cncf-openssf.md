@@ -19,7 +19,6 @@ description: "This post explores the importance and impact of contributing to op
 canonicalURL: "https://www.msbiro.net/posts/the-value-of-community-contributions-exploring-cncf-openssf/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

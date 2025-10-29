@@ -19,7 +19,6 @@ description: "Snyk is a powerful security platform offering tools for static ana
 canonicalURL: "https://www.msbiro.net/posts/how-make-developers-and-security-officers-happy-with-snyk/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

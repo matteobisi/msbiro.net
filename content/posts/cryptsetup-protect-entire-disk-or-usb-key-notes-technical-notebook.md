@@ -18,7 +18,6 @@ description: "A hands-on guide using cryptsetup to encrypt entire disks and USB 
 canonicalURL: "https://www.msbiro.net/posts/cryptsetup-protect-entire-disk-or-usb-key-notes-technical-notebook/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

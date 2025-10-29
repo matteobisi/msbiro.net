@@ -19,7 +19,6 @@ description: "After years on Blogger, I’ve migrated my blog to Hugo with the P
 canonicalURL: "https://www.msbiro.net/posts/fresh-start-moving-my-blog-from-blogger-to-hugo/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true
