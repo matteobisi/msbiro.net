@@ -32,7 +32,7 @@ canonicalURL: "https://www.msbiro.net/posts/from-senior-system-engineer-to-team-
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

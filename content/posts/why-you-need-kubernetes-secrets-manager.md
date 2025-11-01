@@ -20,7 +20,7 @@ canonicalURL: "https://www.msbiro.net/why-you-need-kubernetes-secrets-manager"
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

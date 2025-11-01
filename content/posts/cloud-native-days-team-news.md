@@ -16,7 +16,7 @@ canonicalURL: "https://www.msbiro.net/posts/my-new-role-with-cloud-native-days-i
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

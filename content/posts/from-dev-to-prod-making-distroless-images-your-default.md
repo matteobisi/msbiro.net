@@ -19,7 +19,7 @@ canonicalURL: "https://www.msbiro.net/posts/from-dev-to-prod-making-distroless-i
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

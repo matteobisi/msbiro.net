@@ -19,7 +19,7 @@ canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-134-evolution-contin
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

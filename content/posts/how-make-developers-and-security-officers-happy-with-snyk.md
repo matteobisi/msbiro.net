@@ -20,7 +20,7 @@ canonicalURL: "https://www.msbiro.net/posts/how-make-developers-and-security-off
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

@@ -12,7 +12,7 @@ description: "A Halloween-themed recap of my first year at ReeVo, the exciting t
 canonicalURL: "https://www.msbiro.net/posts/halloween-tech-recap-2025/"
 isableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

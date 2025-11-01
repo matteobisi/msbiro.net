@@ -20,7 +20,7 @@ canonicalURL: "https://www.msbiro.net/posts/kubeweekly-k8s-newsletter/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

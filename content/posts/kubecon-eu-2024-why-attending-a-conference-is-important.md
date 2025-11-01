@@ -20,7 +20,7 @@ canonicalURL: "https://www.msbiro.net/posts/kubecon-eu-2024-why-attending-a-conf
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

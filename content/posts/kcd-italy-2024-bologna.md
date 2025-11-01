@@ -20,7 +20,7 @@ canonicalURL: "https://www.msbiro.net/posts/kcd-italy-2024-bologna/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true

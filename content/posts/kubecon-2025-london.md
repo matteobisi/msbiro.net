@@ -20,7 +20,7 @@ canonicalURL: "https://www.msbiro.net/posts/kubecon-2025-london/"
 disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
