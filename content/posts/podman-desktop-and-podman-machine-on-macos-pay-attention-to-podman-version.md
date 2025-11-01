@@ -1,8 +1,6 @@
 ---
 title: "macOS, Podman Desktop and the Podman Machine: Pay Close Attention to the Podman Version"
 date: 2025-01-10T11:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "podman", "podman desktop", "podman machine",
   "container", "container runtime", "macos",
@@ -10,7 +8,6 @@ tags: [
   "compatibility", "troubleshooting", "developer tools"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -18,7 +15,6 @@ hidemeta: false
 comments: false
 description: "This post explores compatibility issues when using Podman Desktop on macOS, particularly the Podman machine failing to start due to legacy Podman installations. It shares practical troubleshooting steps including identifying version conflicts, removing unsupported Podman machines, and successfully recreating them for smooth container management. Essential reading for developers managing container runtimes on macOS."
 canonicalURL: "https://www.msbiro.net/posts/podman-desktop-and-podman-machine-on-macos-pay-attention-to-podman-version/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -29,15 +25,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Using [Podman](http://www.podman.io/) as the standard tool requested by clients for running local containers outside of a Kubernetes environment, I decided to start the year by installing Podman Desktop on my company MacBook.
 

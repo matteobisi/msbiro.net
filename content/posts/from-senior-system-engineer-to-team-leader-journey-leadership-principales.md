@@ -1,8 +1,6 @@
 ---
 title: "From Senior System Engineer to Team Leader: My Journey and Key Leadership Principles"
 date: 2025-07-16T06:34:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "working journey",
   "team leader",
@@ -21,7 +19,6 @@ tags: [
   "career journey"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -29,7 +26,6 @@ hidemeta: false
 comments: false
 description: "Discover my personal journey from senior system engineer to team leader. I share key leadership lessons, remote management principles, and advice for engineers moving into people management—all focused on fostering team growth and a positive, collaborative culture."
 canonicalURL: "https://www.msbiro.net/posts/from-senior-system-engineer-to-team-leader-journey-leadership-principales/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -40,15 +36,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 It's summertime in Europe. I'm just back from my summer holidays, and I want to restart the blog with a different kind of post: my journey from Senior System Engineer to Team Leader. I'll share how I transitioned between these roles and outline my leadership principles for the team, focusing on delivering the highest level of service to our customers while maintaining a positive working environment. This includes balancing high standards, thorough documentation, continuous learning and improvement, and, importantly, having fun, all in a fully remote environment. There's a lot to explain, so let's start from the beginning!
 

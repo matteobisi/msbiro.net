@@ -1,14 +1,11 @@
 ---
 title: "From Dev to Prod: Making Distroless Images Your Default "
 date: 2025-06-17T10:10:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "distroless", "containers", "cdebug", "docker debug", "container security",
   "devsecops", "kubernetes debugging", "ephemeral containers", "multi-stage builds", "container runtime"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -16,7 +13,6 @@ hidemeta: false
 comments: false
 description: "Explore the importance of using distroless container images to reduce security vulnerabilities in production. This post covers practical advice on adopting distroless images using multi-stage builds, along with comprehensive debugging techniques including the open-source cdebug tool, Docker Debug, and Kubernetes' kubectl debug with ephemeral containers. Learn how strategic container image choices improve security, efficiency, and maintainability from development through production."
 canonicalURL: "https://www.msbiro.net/posts/from-dev-to-prod-making-distroless-images-your-default/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -27,15 +23,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 **Security should be a primary driver in IT!**   
    

@@ -1,15 +1,12 @@
 ---
 title: "I've started a new journey as DevSecOps Team Leader"
 date: 2022-05-25T11:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "cloudnative", "newjob", "devsecops", "security",
   "leadership", "team-lead", "cloud-native-security",
   "infrastructure-security", "secrets-management", "cyberark", "container-security"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "Starting May 16, 2022, I embarked on a new journey as Senior DevSecOps Engineer at SIGHUP. This post marks the beginning of a shift towards cloud-native infrastructure security topics, including tools like CyberArk Conjur. While previous content remains available, expect fresh insights into securing modern cloud environments. My role as organizer of the LetsConnect user group continues, and I look forward to connecting at upcoming events."
 canonicalURL: "https://www.msbiro.net/posts/new-job-devsecops-teamleader/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Hello there! How are you?  
 

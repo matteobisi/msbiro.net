@@ -1,15 +1,12 @@
 ---
 title: "KCD 2024 Italy Announced – Bologna, 20 June 2024"
 date: 2024-01-17T11:44:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "kcd", "italy", "community", "events",
   "kubernetes", "cloud-native", "conference",
   "bologna", "cncf", "developer community"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "KCD Italy 2024 is announced for June 20, 2024, in Bologna at the Savoia Regency Hotel. This Kubernetes Community Day event, supported by CNCF and organized by the Italian Kubernetes community, welcomes developers, architects, and enthusiasts to share knowledge and experiences. The CFP is open with English sessions welcome, and sponsorship opportunities are available to engage with the vibrant cloud-native community."
 canonicalURL: "https://www.msbiro.net/posts/kcd-italy-2024-bologna/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Hello there! Just a quick post to share that [KCD Italy](https://kcd.pizza/) has been announced and will take place in Bologna on 20 June 2024!  
 

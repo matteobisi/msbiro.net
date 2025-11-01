@@ -1,15 +1,12 @@
 ---
 title: "CyberArk Conjur, authenticators and integrations"
 date: 2022-08-22T10:26:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "conjur", "authenticators", "spiffe", "integrations",
   "cybersecurity", "secrets-management", "kubernetes", "cloud-native",
   "mtls", "identity", "devops", "open-source"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "detailing the variety of authenticators such as host/user API key, OIDC, AWS IAM, Kubernetes with SPIFFE-compliant mutual TLS, and more. Learn how these authenticators enable secure secrets retrieval and integrations with popular DevOps tools and cloud platforms, enhancing security and flexibility for dynamic environments."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-authenticators-integrations/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 During the past few weeks, I have described what a secrets manager is and provided an overview of the architecture and system requirements of CyberArk Conjur.  
 

@@ -1,14 +1,11 @@
 ---
 title: "Security Conference – BSides Galway, February 22nd, 2025"
 date: 2024-11-17T13:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "bsides", "galway", "events", "community", "security",
   "cybersecurity", "conference", "infosec", "networking", "university-of-galway"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -16,7 +13,6 @@ hidemeta: false
 comments: false
 description: "BSides Galway debuts its first-ever local security conference on February 22nd, 2025, at the University of Galway. Bringing together cybersecurity professionals, enthusiasts, and students, the event fosters learning, networking, and community—all in the globally renowned BSides format. Learn about tickets, CFP, and opportunities to get involved in Ireland’s newest infosec event."
 canonicalURL: "https://www.msbiro.net/posts/bsides-galway-february-22-2025/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -27,15 +23,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 It’s been a couple of years since I moved to Galway, and I’m still absolutely thrilled with my decision!
 

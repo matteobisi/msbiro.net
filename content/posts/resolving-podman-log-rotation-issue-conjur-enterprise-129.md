@@ -1,15 +1,12 @@
 ---
 title: "Resolving Podman Log Rotation Issues in CyberArk Conjur Container 12.9 Deployments"
 date: 2023-05-24T17:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "conjur", "cyberark", "podman", "12.9",
   "container-runtime", "log-rotation", "security",
   "container-management", "troubleshooting", "devops"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "This post addresses a log rotation issue seen in CyberArk Conjur 12.9 container deployments running on Podman. Unlike Docker, Podman requires the container to be recreated with the AUDIT_WRITE capability added and a specific permission set on the Nginx log directory for proper log rotation. The resolution was developed collaboratively with CyberArk support and is now documented for future updates. Essential guidance for operators using Podman with Conjur containers."
 canonicalURL: "https://www.msbiro.net/posts/resolving-podman-log-rotation-issue-conjur-enterprise-129/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 CyberArk Conjur is released as an appliance and distributed as container images to enable fast, error-free setup.
 

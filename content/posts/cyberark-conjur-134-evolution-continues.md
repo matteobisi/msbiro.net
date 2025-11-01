@@ -1,14 +1,11 @@
 ---
 title: "CyberArk Conjur 13.4 – The Evolution Continues"
 date: 2024-10-09T07:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "cyberark", "conjur", "13.4",
   "secrets-management", "release", "automation", "dynamic-configuration", "external-secrets-operator", "enterprise-security"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -16,7 +13,6 @@ hidemeta: false
 comments: false
 description: "CyberArk Conjur 13.4 introduces exciting new features including syncing empty safes from Vault for improved policy automation, dynamic application configuration through the conjur.yml file, and extended support for regex queries in the External Secrets Operator. This release marks another step in the continuous enhancement of Conjur Enterprise, making it more powerful and flexible for enterprise secrets management."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-134-evolution-continues/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -27,15 +23,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 About a month ago, a new release of Conjur Enterprise was launched—now at version 13.4, bringing exciting new features to the product!
 

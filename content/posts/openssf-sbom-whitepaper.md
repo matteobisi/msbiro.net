@@ -1,11 +1,8 @@
 ---
 title: "Understanding the Power of SBOMs: Insights from OpenSSF's White Paper"
 date: 2025-10-03T16:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: ["OpenSSF", "Software Bill of Materials", "SBOM", "Software Supply Chain Security", "Cloud Native Security", "DevSecOps", "Vulnerability Management", "Open Source Security", "SBOM Use Cases", "Security Tooling", "SPDX", "CycloneDX", "SBOM Tooling", "Cloud Native"]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -13,7 +10,6 @@ hidemeta: false
 comments: false
 description: "This article explores the OpenSSF white paper 'Improving Risk Management Decisions with SBOM Data,' highlighting how Software Bill of Materials (SBOMs) provide critical visibility into software components, vulnerabilities, and licensing. It covers 13 practical SBOM use cases, the SBOM lifecycle from creation to consumption, and key OpenSSF tooling for managing SBOMs in cloud-native environments to enhance security, compliance, and supply chain risk management."
 canonicalURL: "https://www.msbiro.net/posts/openssf-whitepaper-sbom-improving-risk-management/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -24,15 +20,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "https://www.msbiro.net/social-image.png" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 [OpenSSF](https://openssf.org/), the Open Source Security Foundation, is an influential collaborative initiative under the [Linux Foundation](https://www.linuxfoundation.org/) dedicated to improving open source software security. Bringing together industry leaders, security experts, and developers, OpenSSF drives broad community efforts to address vulnerabilities, foster best practices, and enhance transparency across software supply chains. Among its standout contributions is the advocacy and tooling development around Software Bill of Materials (SBOMs), which have rapidly become indispensable for managing security risks in modern software ecosystems.
 

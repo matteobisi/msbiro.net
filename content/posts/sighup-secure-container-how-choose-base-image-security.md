@@ -1,15 +1,12 @@
 ---
 title: "SIGHUP Secure Containers: how do you choose the oci base image for your workload?"
 date: 2023-04-13T12:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "ssc", "secure containers", "security", "supply-chain",
   "container security", "container base images", "devsecops",
   "vulnerability management", "container catalog", "linux containers", "slas"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "This post discusses how to choose the right OCI base image for your workloads, emphasizing the importance of security, vulnerability management, and timely updates. It showcases SIGHUP’s Secure Containers service, which offers a curated, proactively patched container catalog with support, SLAs, and automation benefits to help teams maintain secure, compliant container supply chains."
 canonicalURL: "https://www.msbiro.net/posts/sighup-secure-container-how-choose-base-image-security/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 I believe it’s important to start with a premise:  
 In this article, I’ll talk about a product/service built and offered by my current employer, [SIGHUP](https://sighup.io).  

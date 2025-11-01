@@ -1,15 +1,12 @@
 ---
 title: "How Is It Possible to Make Both Developers and Security Officers Happy? Try Snyk!"
 date: 2023-01-13T16:23:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "snyk", "sast", "sca", "supply-chain",
   "application-security", "devsecops", "vulnerability-management",
   "secure-development", "code-quality", "ci-cd", "security-automation"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "Snyk is a powerful security platform offering tools for static analysis (SAST), software composition analysis (SCA), container security, infrastructure as code, and cloud security. This post explains how Snyk helps developers maintain secure codebases while enabling security officers to oversee vulnerabilities without slowing development. Learn about Snyk’s integrations in IDEs, CI/CD, and Git workflows, customizable dashboards for security teams, and its open-source vulnerability database. A free plan makes testing easy for anyone interested in improving software security."
 canonicalURL: "https://www.msbiro.net/posts/how-make-developers-and-security-officers-happy-with-snyk/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Being able to work safely in cybersecurity requires knowledge, attention to detail, and a solid portfolio of reliable software.  
 One of the tools I have learned about and used in recent months is Snyk.  

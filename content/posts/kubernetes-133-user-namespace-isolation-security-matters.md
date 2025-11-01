@@ -1,15 +1,12 @@
 ---
 title: "Securing Kubernetes 1.33 Pods: The Impact of User Namespace Isolation"
 date: 2025-05-16T09:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "kubernetes", "hostUsers", "security", "isolation",
   "user-namespaces", "pod-security", "container-security",
   "devsecops", "linux-kernel", "container-runtime", "namespace-isolation"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "Kubernetes 1.33 enables user namespace isolation by default for pods, greatly enhancing security by mapping container root users to unprivileged host UIDs. This post explores the feature’s security benefits including process isolation and lateral movement prevention, infrastructure requirements like Linux kernel 6.3 and compatible container runtimes, and how to enable user namespaces in your pod specifications. Learn why this advancement is crucial for securing Kubernetes workloads in modern environments."
 canonicalURL: "https://www.msbiro.net/posts/kubernetes-133-user-namespace-isolation-security-matters/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Kubernetes 1.33 was released on April 23, 2025, and, as usual, introduces a host of fixes and new features. Be sure to check out [the release notes](https://kubernetes.io/blog/2025/04/23/kubernetes-v1-33-release/); I assure you, you won’t be disappointed!
 

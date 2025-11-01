@@ -1,15 +1,12 @@
 ---
 title: "From Manual to GitOps: Simplifying Grafana Dashboard Configuration with Git Sync"
 date: 2025-05-12T11:34:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "grafana", "dashboard", "gitops",
   "git-sync", "observability-as-code", "ci-cd",
   "version-control", "grafana-12", "monitoring", "devops"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "Starting with version 12, Grafana introduces the experimental Git Sync feature, enabling users to manage dashboards using a GitOps approach. This feature connects Grafana to a GitHub repository to synchronize dashboard JSON files, allowing version control, collaboration through pull requests, and seamless automated deployment of dashboards. Git Sync offers a scalable way to manage dashboards in complex environments, enhancing traceability, auditing, and consistency across multiple instances."
 canonicalURL: "https://www.msbiro.net/posts/grafana-dashboard-configuration-with-gitops/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Starting with version 12, Grafana introduces the ability to configure dashboards using a GitOps approach through an experimental feature called **Git Sync**.
 

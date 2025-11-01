@@ -1,8 +1,6 @@
 ---
 title: "External Secrets Operator: Releases Resume and Governance Matures"
 date: 2025-09-14T22:51:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "external-secrets-operator",
   "kubernetes",
@@ -18,7 +16,6 @@ tags: [
   "cncf"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -26,7 +23,6 @@ hidemeta: false
 comments: false
 description: "External Secrets Operator resumes releases on September 22 with clearer governance and a new contribution ladder—see what changed and how to get involved"
 canonicalURL: "https://www.msbiro.net/posts/external-secrets-operator-releases-resume/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -37,15 +33,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "https://www.msbiro.net/social-image.png" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 This article is a follow-up to my [previous post](https://www.msbiro.net/posts/external-secrets-operator-team-needs-help/) about the state of the External Secrets Operator project.  
 Let’s start with the most important news: **External Secrets Operator is set to resume releases on September 22!!!**

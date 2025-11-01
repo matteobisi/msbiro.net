@@ -1,15 +1,12 @@
 ---
 title: "Troubleshooting CyberArk Conjur Follower Setup and Postgres Connectivity"
 date: 2022-11-21T11:23:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "conjur", "follower", "postgres", "troubleshooting",
   "cyberark", "database-connection", "replication",
   "network-issues", "container-debugging", "ssl-certificates", "devops"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "This post covers troubleshooting a CyberArk Conjur follower setup issue where the follower pod could connect to the Conjur API leader but failed to connect to the Postgres database, causing replication to stall and system errors. The solution involved verifying Postgres connectivity using openssl s_client with TLS, revealing a network load balancer misconfiguration that was subsequently corrected. Learn how to use this simple openssl command for effective container and network diagnostics."
 canonicalURL: "https://www.msbiro.net/posts/pagetroubleshooting-conjur-follower-setup-postgres-connectivity/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 During our work with a CyberArk Conjur environment, we encountered strange behavior during the Conjur follower setup.
 

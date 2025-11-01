@@ -1,15 +1,12 @@
 ---
 title: "KubeWeekly – Get Weekly Kubernetes News in Your Inbox"
 date: 2024-01-25T11:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "kubeweekly", "cncf", "newsletter", "community",
   "kubernetes", "cloud-native", "open-source",
   "ecosystem", "devops", "tech-newsletter"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "KubeWeekly is a curated newsletter delivering the latest Kubernetes and CNCF community news, articles, and videos straight to your inbox. As an editor during early 2024, I help select and share valuable content to keep the cloud-native community informed and connected. Discover how to subscribe and join this vibrant ecosystem of Kubernetes enthusiasts and professionals."
 canonicalURL: "https://www.msbiro.net/posts/kubeweekly-k8s-newsletter/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Hello there! As I mentioned before, [I’ve always been](/posts/the-value-of-community-contributions-exploring-cncf-openssf/) a community person, and I’ve found a new way to contribute:   
 during the first half of 2024, I’ll be one of the editors helping to curate content for KubeWeekly.

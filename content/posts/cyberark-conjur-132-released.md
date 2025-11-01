@@ -1,14 +1,11 @@
 ---
 title: "CyberArk Conjur 13.2 Released: Another Step in the Right Direction"
 date: 2024-02-01T12:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "cyberark", "conjur", "13.2",
   "secrets-management", "release", "resiliency", "csi-driver", "vault-synchronizer", "kubernetes", "openshift"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -16,7 +13,6 @@ hidemeta: false
 comments: false
 description: "CyberArk released Conjur 13.2 with important bug fixes, support for OpenShift 4.14, and new key features including high availability for the Vault Synchronizer and enhanced support for the Container Storage Interface (CSI) driver. This release improves disaster recovery strategies and optimizes secret injection into Kubernetes pods, representing another solid step in Conjur’s ongoing evolution."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-conjur-132-released/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -27,15 +23,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 One week ago, CyberArk released another update for Conjur Enterprise, which has now reached version 13.2—definitely another step in the right direction!  
 

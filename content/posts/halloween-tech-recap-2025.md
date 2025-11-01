@@ -10,7 +10,7 @@ hidemeta: false
 comments: false
 description: "A Halloween-themed recap of my first year at ReeVo, the exciting technical projects I'm working on, and my involvement in the cloud-native community as we head into the final months of 2025."
 canonicalURL: "https://www.msbiro.net/posts/halloween-tech-recap-2025/"
-isableShare: true
+disableShare: true
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true
@@ -20,15 +20,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "https://www.msbiro.net/social-image.png" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 
 As Halloween approaches and the days grow shorter, it’s the perfect time for a spooky story… or, in my case, a recap of what’s been brewing in my professional life! With the end of the year lurking around the corner, it’s time to take stock of the exciting changes, challenging projects, and community efforts that have made 2025 a year to remember. So, grab your pumpkin-spiced latte, and let’s dive into the cauldron of the last few months.

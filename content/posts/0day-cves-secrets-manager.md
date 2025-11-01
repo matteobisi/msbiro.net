@@ -1,11 +1,8 @@
 ---
 title: "Urgent: Zero-Day CVEs Found in Two Major Secrets Managers — Have You Updated Yet?"
 date: 2025-08-11T12:39:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: ["cybersecurity", "zero-day", "CVE", "secrets manager", "CyberArk", "HashiCorp", "software update", "vulnerability management"]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -13,7 +10,6 @@ hidemeta: false
 comments: false
 description: "This article highlights recent zero-day vulnerabilities discovered in CyberArk and HashiCorp secrets managers, emphasizes the importance of timely software updates, and offers practical advice for staying proactive about security patches."
 canonicalURL: "https://www.msbiro.net/posts/page"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -24,15 +20,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Today, my manager forwarded me this [article](https://www.darkreading.com/cybersecurity-operations/critical-zero-day-bugs-cyberark-hashicorp-password-vaults?utm_campaign=16543270-Minimus%20Weekly&utm_medium=email&_hsenc=p2ANqtz-8cp_mhmbyhxW0NhltnmD5c81JFTQ0ai1xnrE-jZNzZ-yY4l2jBN-ijlJgFbORNLIzQqEyGvFaaYC5lrasY1hi_aaOg0mD0m-EIVg1NiBj8EeCaMNw&_hsmi=375244214&utm_content=375244214&utm_source=hs_email) about several zero-day CVEs discovered in CyberArk and HashiCorp products. After some time spent researching online, ***I confirmed that both brands have fixed these CVEs by releasing updated versions!!*** 
 

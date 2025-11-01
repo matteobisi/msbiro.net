@@ -1,14 +1,11 @@
 ---
 title: "CyberArk Impact 2022 World Tour – Will You Be There?"
 date: 2022-09-21T19:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "cyberark", "impact", "conference",
   "event", "world-tour", "infosec", "security-conference", "networking", "milan"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -16,7 +13,6 @@ hidemeta: false
 comments: false
 description: "CyberArk announces the Impact World Tour, a series of global cybersecurity events featuring expert sessions and networking opportunities. This post shares details on tour locations, agenda, and registration, along with a personal note on attending the Milan event in October 2022."
 canonicalURL: "https://www.msbiro.net/posts/cyberark-impact-world-tour-2022/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -27,15 +23,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 As you probably know, CyberArk hosts a major annual event called Impact, which this year took place in Boston.  
 In recent weeks, CyberArk has announced an exciting initiative: the CyberArk Impact World Tour, which will be hosted in several cities around the globe.  

@@ -1,11 +1,8 @@
 ---
 title: "Apple container announced"
 date: 2025-06-10T14:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: ["apple", "container", "container runtime", "macos26", "virtualization", "developer tools", "rosetta2", "oci-compliant", "apple-silicon"]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -13,7 +10,6 @@ hidemeta: false
 comments: false
 description: "Apple announced its new open-source container runtime for macOS 26, enabling developers to run OCI-compliant Linux containers natively on Apple silicon with enhanced isolation, security, and Rosetta 2 support. This post explores the features, requirements, and how this solution compares to Docker and Podman for macOS developers."
 canonicalURL: "https://www.msbiro.net/posts/apple-container-oss-macos26/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -24,15 +20,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 As you probably know, [Apple is running WWDC 25](https://developer.apple.com/wwdc25/), and yesterday there were a lot of exciting announcements.
 Among these, aside from the OS updates, Apple announced "container" and containerization support for macOS 26.

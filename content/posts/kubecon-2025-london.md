@@ -1,15 +1,12 @@
 ---
 title: "KubeCon EU 2025 London"
 date: 2025-02-21T09:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "kubecon", "community", "events", "london",
   "kubernetes", "cloud-native", "cncf",
   "conference", "sponsorship", "networking", "tech-community"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "Heading to KubeCon EU 2025 in London for the third year in a row—this time representing ReeVo as a proud sponsor! I’ll be managing our booth, connecting with cloud-native professionals, partners, and contributors from across the globe. Join me in celebrating the power of community, collaboration, and innovation in the Kubernetes ecosystem—see you in London!"
 canonicalURL: "https://www.msbiro.net/posts/kubecon-2025-london/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 
 The countdown to KubeCon EU (London) has begun, and I couldn’t be more thrilled to announce that, for the third year in a row, I’ll have the incredible privilege of attending!

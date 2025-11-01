@@ -1,15 +1,12 @@
 ---
 title: "CyberArk Conjur - why you (probably) need an enterprise secrets manager"
 date: 2022-07-19T16:30:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "conjur", "introduction", "secrets manager",
   "enterprise-security", "cloud-native", "secrets-management",
   "cybersecurity", "devsecops", "password-management"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "Secrets management is critical to securing modern infrastructures, guarding sensitive information such as passwords, certificates, and keys from exposure and misuse. This post introduces CyberArk Conjur, an enterprise-grade secrets manager that protects secrets using programmable REST APIs, centralized security policies, and integration with CyberArk’s broader ecosystem. Learn why avoiding common mistakes like hardcoding secrets or pushing them to public repositories is vital, and how Conjur offers scalable, secure, and automated secrets management for cloud-native environments."
 canonicalURL: "https://www.msbiro.net/why-you-need-kubernetes-secrets-manager"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 Security is always a complex topic to address, as an error or omission in processes can lead to serious economic or reputational damage for a company.  
 When we talk about "secrets," consider the following examples:  

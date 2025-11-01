@@ -1,15 +1,12 @@
 ---
 title: "The Value of Community Contributions: Exploring CNCF and OpenSSF"
 date: 2023-11-01T16:44:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "community", "cncf", "openssf", "contribution",
   "open-source", "cloud-native", "security",
   "ecosystem", "volunteer", "professional-growth", "linux-foundation"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "This post explores the importance and impact of contributing to open-source community foundations, focusing on the Cloud Native Computing Foundation (CNCF) and the Open Source Security Foundation (OpenSSF). It shares personal experiences of involvement, the benefits of stepping outside one’s comfort zone, and practical links to join projects, events, and working groups. Gain insights into how participation fosters ecosystem growth and professional development."
 canonicalURL: "https://www.msbiro.net/posts/the-value-of-community-contributions-exploring-cncf-openssf/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 I’ll start with a premise for those who may not already be familiar: the open-source software ecosystem often revolves around foundations, with the most famous probably being the [Linux Foundation](https://www.linuxfoundation.org/).
 

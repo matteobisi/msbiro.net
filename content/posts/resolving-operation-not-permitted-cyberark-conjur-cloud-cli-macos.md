@@ -1,15 +1,12 @@
 ---
 title: "Resolving 'Operation Not Permitted' for CyberArk Conjur Cloud CLI on macOS"
 date: 2025-01-17T16:20:03+00:00
-# weight: 1
-# aliases: ["/first"]
 tags: [
   "conjur cloud", "conjur cli", "macos",
   "cybersecurity", "saas", "cli-tools",
   "macos-security", "troubleshooting", "devops"
 ]
 author: "Matteo Bisi"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +14,6 @@ hidemeta: false
 comments: false
 description: "This post details a troubleshooting journey resolving the 'Operation Not Permitted' error when running the CyberArk Conjur Cloud CLI on macOS 15.2. The issue stems from macOS quarantining the binary, which can be fixed by removing the quarantine attribute via the xattr command. Follow this step-by-step guide to get your Conjur Cloud CLI up and running smoothly on macOS."
 canonicalURL: "https://www.msbiro.net/posts/resolving-operation-not-permitted-cyberark-conjur-cloud-cli-macos/"
-disableHLJS: true # to disable highlightjs
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -28,15 +24,15 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 As a consultant, it's always a pleasure to explore new tools, and since the end of 2024, we have been experimenting with CyberArk's SaaS offering.
 
