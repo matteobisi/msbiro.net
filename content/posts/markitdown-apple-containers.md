@@ -69,7 +69,7 @@ Install the recommended default kernel from [https://github.com/kata-containers/
 Installing kernel...
 ```
 
-This is a significant departure from Docker Desktop or Podman on macOS, which rely on a microVM to run Linux containers. Apple Containers, on the other hand, runs containers in a lightweight VM that shares the same kernel, which promises better performance and a more native experience.
+This marks a significant architectural shift compared to Docker Desktop and Podman on macOS, which run Linux containers inside a single shared lightweight virtual machine. In contrast, Apple Containers employs a security-first design by running each container within its own dedicated, lightweight virtual machine, each with an independent Linux kernel instance. This approach significantly improves isolation by containing potential kernel vulnerabilities within individual VMs, thereby reducing the attack surface and providing stronger security guarantees. Additionally, it offers a more native Linux experience optimized for Apple silicon, combining enhanced performance with robust container isolation.
 
 ## Building and Running the MarkItDown Container
 
