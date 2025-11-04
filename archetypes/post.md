@@ -23,7 +23,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>"
+    image: "https://www.msbiro.net/social-image.png"
     alt: "<alt text>"
     caption: "<text>"
     relative: false
