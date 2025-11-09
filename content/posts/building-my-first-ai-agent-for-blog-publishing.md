@@ -235,23 +235,23 @@ The entire process takes seconds instead of minutes.
 
 Building this agent taught me several things:
 
-### 1. AI Agents Are Different from Chatbots
+### AI Agents Are Different from Chatbots
 
 **Chatbots answer questions. Agents execute workflows. The mental model shift is important!** You're not asking for advice; you're delegating tasks to an autonomous system that can read files, run commands, and make decisions within defined boundaries.
 
-### 2. Context Matters More Than Code
+### Context Matters More Than Code
 
 The agent instructions (stored in `ai-publish-agent.md`) are more important than the bash script. The AI reads these instructions and follows them intelligently. You're teaching the agent **how to think about the problem**, not just what commands to run.
 
-### 3. Verification Before Action
+### Verification Before Action
 
 The Hugo syntax check is non-negotiable. The agent never pushes code without verifying it builds correctly. This single check has saved me from multiple broken deployments.
 
-### 4. Human Approval Is Essential
+### Human Approval Is Essential
 
 The agent proposes changes but doesn't apply them automatically. I review every suggestion. This keeps me in control while still benefiting from automation.
 
-### 5. Documentation Is the Agent
+### Documentation Is the Agent
 
 By documenting the workflow clearly in `ai-publish-agent.md`, I essentially created the agent. The AI reads those instructions and executes them. If I want to change the workflow, I just update the documentation.
 
@@ -310,21 +310,6 @@ If you're thinking about building your own AI agent:
 5. **Use existing tools**: Bash, git, and markdown are enough for powerful automation
 
 AI agents aren't magic. They're well-documented workflows executed by AI that can read, understand, and act on those instructions.
-
----
-
-## Try It Yourself
-
-If you want to build something similar:
-
-1. Map out your current manual workflow
-2. Identify repetitive, error-prone steps
-3. Write clear instructions for what the agent should do
-4. Add verification steps (syntax checks, tests, etc.)
-5. Include visual feedback for success/failure
-6. Keep humans in control of critical decisions
-
-The technology is there. The CLI tools are ready. You just need to think through the workflow.
 
 ---
 
