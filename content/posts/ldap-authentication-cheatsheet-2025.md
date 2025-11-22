@@ -6,8 +6,29 @@ tags: ["ldap", "authentication", "iam", "activedirectory", "devsecops", "2025"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
+hidemeta: false
+comments: false
 description: "A trip down memory lane to the world of LDAP. This post is a cheatsheet for modern engineers on how to configure application authentication with LDAP and why this technology is still relevant today."
 canonicalURL: "https://msbiro.net/posts/ldap-authentication-cheatsheet-2025/"
+disableShare: true
+hideSummary: false
+searchHidden: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
+cover:
+    image: "https://www.msbiro.net/social-image.png"
+    alt: "<alt text>"
+    caption: "<text>"
+    relative: false
+    hidden: true
+editPost:
+    URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
+    Text: "Suggest Changes"
+    appendFilePath: true
 ---
 
 Even in the cloud-native era, where everything is an API call away, some technologies from the past refuse to fade away. Recently, I found myself helping my team of talented engineers configure HashiCorp Boundary for Microsoft Active Directory authentication.  
