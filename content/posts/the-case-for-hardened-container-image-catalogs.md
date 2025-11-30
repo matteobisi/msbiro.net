@@ -182,5 +182,5 @@ Adopting a hardened image catalog is the first step. Enforcing its use is the se
 
 ### Conclusion
 
-The endless cycle of scanning and patching is a battle we can't win with reactive measures alone. By shifting our focus to the software supply chain and starting with a secure foundation, we can dramatically reduce the noise and focus on the risks that truly matter. In today's cloud-native landscape, adopting a hardened image catalog isn't a luxury—it's a fundamental requirement for any enterprise that's serious about security and regulatory compliance.  
+The endless cycle of scanning and patching is a battle we can't win with reactive measures alone. By shifting our focus to the software supply chain and starting with a secure foundation, we can dramatically reduce the noise and focus on the risks that truly matter. In today's cloud-native landscape, adopting a hardened image catalog isn't a luxury, it's a fundamental requirement for any enterprise that's serious about security and regulatory compliance.  
 It’s time to stop chasing CVEs and start preventing them!!
