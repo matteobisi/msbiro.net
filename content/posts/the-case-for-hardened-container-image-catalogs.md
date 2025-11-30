@@ -34,7 +34,7 @@ editPost:
     appendFilePath: true
 ---
 
-In my last few years as a DevSecOps engineer, I've spent a significant amount of time helping customers, mostly in the financial sector, navigate the complexities of cloud-native security. I have seen companies invest heavily in state-of-the-art runtime protection, CNAPPs, and sophisticated CI/CD security gates. Yet, a familiar pattern emerges time and again: the moment security teams start looking at vulnerability reports, chaos ensues. The numbers are just too high to handle, creating a paralyzing sense of alert fatigue.
+In my last few years as a Team Leader DevSecOps, I've spent a significant amount of time helping customers, mostly in the financial sector, navigate the complexities of cloud-native security. I have seen companies invest heavily in state-of-the-art runtime protection, CNAPPs, and sophisticated CI/CD security gates. Yet, a familiar pattern emerges time and again: the moment security teams start looking at vulnerability reports, chaos ensues. The numbers are just too high to handle, creating a paralyzing sense of alert fatigue.
 
 This isn't a theoretical problem. We see it in real-world events, like the recent retirement of the community-maintained Ingress-NGINX project, which left countless users scrambling to migrate away from a critical piece of infrastructure that would no longer receive security patches. It’s a stark reminder that unmanaged dependencies are ticking time bombs.
 
