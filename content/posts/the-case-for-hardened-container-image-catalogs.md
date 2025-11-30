@@ -72,7 +72,7 @@ The image above from [Chainguard Academy](https://edu.chainguard.dev/chainguard/
 
 
 
-A better approach is not just needed—it's essential. This is where a **hardened container image catalog** comes in.
+A better approach is not just needed, it's essential! This is where a **hardened container image catalog** comes in.
 
 ---
 
@@ -119,11 +119,11 @@ Commercial providers of hardened images have made this their core business. They
 
 The market for hardened images is growing, but three main players stand out:
 
-1.  **Docker Official Images & Hardened Images:** Docker provides a set of curated official images that are a good starting point. Their newer "Docker Hardened Images" offering takes this a step further, providing images built with a SLSA Level 3 build system, continuous patching SLAs, and VEX/SBOM support. This is a strong choice for teams already heavily invested in the Docker ecosystem, offering a seamless transition.
+**Docker Official Images & Hardened Images:** Docker provides a set of curated official images that are a good starting point. Their newer "Docker Hardened Images" offering takes this a step further, providing images built with a SLSA Level 3 build system, continuous patching SLAs, and VEX/SBOM support. This is a strong choice for teams already heavily invested in the Docker ecosystem, offering a seamless transition.
 
-2.  **Minimus:** Founded by the team that created Twistlock, Minimus focuses on creating minimal, secure images with a strong emphasis on compliance. They build from their own minimal Linux distribution (MinimOS) and claim to reduce CVEs by over 95%. Their key differentiator is a deep focus on government and highly regulated sectors, with built-in conformance to standards like **FedRAMP** and support for air-gapped environments. They also integrate threat intelligence to help prioritize any remaining risks.
+**Minimus:** Founded by the team that created Twistlock, Minimus focuses on creating minimal, secure images with a strong emphasis on compliance. They build from their own minimal Linux distribution (MinimOS) and claim to reduce CVEs by over 95%. Their key differentiator is a deep focus on government and highly regulated sectors, with built-in conformance to standards like **FedRAMP** and support for air-gapped environments. They also integrate threat intelligence to help prioritize any remaining risks.
 
-3.  **Chainguard:** Chainguard has quickly emerged as a leader in this space, with a relentless focus on achieving zero-vulnerability images. They maintain their own "un-distro" called Wolfi, build everything from source, and provide SLSA-compliant builds with full SBOMs and attestations. Their catalog is extensive, covering not just applications but also common libraries and even hardened VM images. Their approach appears to be the most comprehensive, aiming to secure every layer of the stack from the ground up.
+**Chainguard:** Chainguard has quickly emerged as a leader in this space, with a relentless focus on achieving zero-vulnerability images. They maintain their own "un-distro" called Wolfi, build everything from source, and provide SLSA-compliant builds with full SBOMs and attestations. Their catalog is extensive, covering not just applications but also common libraries and even hardened VM images. Their approach appears to be the most comprehensive, aiming to secure every layer of the stack from the ground up.
 
 | Feature                 | Docker Hardened Images | Minimus                                   | Chainguard Images     |
 | ----------------------- | :--------------------: | :---------------------------------------: | :-------------------: |
@@ -150,7 +150,7 @@ Looking forward, as new workloads like AI/ML become mainstream on Kubernetes, th
 
 Adopting a hardened image catalog is the first step. Enforcing its use is the second. Here are some practical ways to do it:
 
-1.  **Enforce Image Provenance with Policy Engines:** Use a Kubernetes policy engine like **Kyverno** or **Gatekeeper** to create rules that only allow images to be pulled from your trusted, hardened catalog. You can write policies that validate the image registry, repository, and even check for valid signatures or attestations.
+**Enforce Image Provenance with Policy Engines:** Use a Kubernetes policy engine like **Kyverno** or **Gatekeeper** to create rules that only allow images to be pulled from your trusted, hardened catalog. You can write policies that validate the image registry, repository, and even check for valid signatures or attestations.
 
     *Example Kyverno ClusterPolicy:*
     ```yaml
@@ -176,7 +176,7 @@ Adopting a hardened image catalog is the first step. Enforcing its use is the se
     ```
 (The snippet above is just an example for clarity. In practice, images should always be pulled from an internally approved and controlled OCI registry.)
 
-2.  **Monitor for Threats at Runtime:** Complement policy enforcement with runtime security monitoring. Tools like **Falco** or **Sysdig Secure** can detect suspicious behavior within running containers, such as unexpected network connections, file system modifications, or process executions (e.g., a shell being spawned in a "distroless" container). This provides a critical safety net to catch any threats that might slip through preventative controls.
+**Monitor for Threats at Runtime:** Complement policy enforcement with runtime security monitoring. Tools like **Falco** or **Sysdig Secure** can detect suspicious behavior within running containers, such as unexpected network connections, file system modifications, or process executions (e.g., a shell being spawned in a "distroless" container). This provides a critical safety net to catch any threats that might slip through preventative controls.
 
 ---
 
