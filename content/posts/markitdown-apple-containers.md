@@ -1,7 +1,7 @@
 ---
 title: "MarkItDown: An AI-Boosting Tool Tested on Apple Containers"
 date: 2025-11-04T01:30:00+01:00
-tags: ["MarkItDown", "Apple", "Containers", "AI", "Podman"]
+tags: ["MarkItDown", "Apple", "Containers", "AI", "Podman", "Microsoft"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
