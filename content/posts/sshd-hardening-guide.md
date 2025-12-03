@@ -35,9 +35,15 @@ editPost:
 
 In today's fast-paced tech landscape, it's common to find incredibly talented engineers mastering complex orchestrators like Kubernetes or crafting intricate Infrastructure as Code solutions. We're living in an era of high-level abstractions, which is fantastic for productivity. However, this focus on the 'new and shiny' can sometimes lead us to overlook the foundational bedrock upon which everything is built.
 
+![sshd hardening](ssh-hardening.jpeg)
+
+
 It might seem a bit old-school to write a blog post about hardening SSH in 2025. Yet, these 'basic' skills are more critical than ever. In a world of ephemeral infrastructure and complex supply chains, securing the front door to our systems remains a non-negotiable first step.
 
-That's why I've decided to occasionally mix in some foundational content like this among my usual posts on DevSecOps, compliance, and AI. Consider this a back-to-basics guide—a chance to give some love to one of the most critical services we all manage: the SSH daemon. Let's step away from the YAML for a moment and ensure our systems are secure from the ground up.
+That's why I've decided to occasionally mix in some foundational content like this among my usual posts on DevSecOps, compliance, and AI.  
+Consider this a back-to-basics guide, a chance to give some love to one of the most critical services we all manage: the SSH daemon.  
+
+Let's step away from the YAML for a moment and ensure our systems are secure from the ground up.
 
 ---
 
@@ -57,7 +63,7 @@ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
 
 Let's dive into the essential parameters to create a robust and secure SSH configuration.
 
-### 1. Disable Root Login
+### Disable Root Login
 
 This is non-negotiable. Allowing direct login as the `root` user is a massive security risk, as it gives an attacker a known, all-powerful username to target.
 
@@ -67,7 +73,7 @@ PermitRootLogin no
 
 Users should log in with their unprivileged accounts and elevate their privileges using `sudo` when necessary. This creates an audit trail and enforces accountability.
 
-### 2. Disable Password-Based Authentication
+### Disable Password-Based Authentication
 
 Passwords can be weak, stolen, or brute-forced. Public key authentication is significantly more secure. Ensure password-based authentication is turned off and rely solely on SSH keys.
 
@@ -79,7 +85,7 @@ ChallengeResponseAuthentication no
 
 This configuration makes it so the only way to log in is by using a cryptographic key pair.
 
-### 3. Use Modern Cryptographic Algorithms
+### Use Modern Cryptographic Algorithms
 
 Older cryptographic algorithms can be vulnerable to attacks. We need to enforce the use of modern, strong ciphers, key exchange algorithms (Kex), and message authentication codes (MACs).
 
@@ -98,7 +104,7 @@ MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@op
 
 **Note:** The available algorithms depend on your OpenSSH version and the libraries it was compiled with. You can check supported algorithms with `ssh -Q kex`, `ssh -Q cipher`, and `ssh -Q mac`.
 
-### 4. Limit User Access
+### Limit User Access
 
 If you know exactly which users or groups need SSH access, explicitly allow them. This follows the principle of least privilege.
 
@@ -112,7 +118,7 @@ AllowGroup sshusers
 
 This is much more secure than leaving access open to all user accounts on the system.
 
-### 5. Configure Sensible Timeouts and Limits
+### Configure Sensible Timeouts and Limits
 
 Protect your server from brute-force attacks and hanging sessions.
 
@@ -241,7 +247,8 @@ LogLevel VERBOSE
     *   Check firewall rules on the server (e.g., `firewalld` on RHEL, `ufw` on Ubuntu) and any network firewalls in between. Ensure TCP port 22 (or your custom SSH port) is open.
 
 ## Conclusion
-Hardening your SSH server is a foundational step in securing any Linux system. Security is a process of continuous improvement—regularly review your configurations, stay informed about new threats, and master the fundamentals.
+Hardening your SSH server is a foundational step in securing any Linux system. Security is a process of continuous improvement/regularly review your configurations, stay informed about new threats, and master the fundamentals.  
+
 As a follow-up to this article, I will explore in a future one how HashiCorp Vault can centralize SSH secret management, automate credential rotation, and implement fine-grained access policies.
 
-Keep these configurations in place and remember: the strongest security chain is built on solid fundamentals.
+Keep these configurations in place and remember: the strongest security chain is built on solid fundamentals!
