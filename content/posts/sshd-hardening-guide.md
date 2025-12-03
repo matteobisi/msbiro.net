@@ -1,17 +1,17 @@
 ---
-title: "A Comprehensive Guide to SSHD Hardening"
-date: 2025-12-02T16:03:07Z
+title: "Back to Basics: My Opinionated 2025 sshd_config Hardening"
+date: 2025-12-03T16:03:07Z
 tags: [
-  "cybersecurity", "devops", "linux", "open-source", "tutorial"
+  "cybersecurity", "devops", "linux", "open-source", "tutorial", "ssh_config", "devsecops", "openssh"
 ]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
-description: "A practical guide to hardening your SSH server. Learn how to secure sshd_config on RHEL and Ubuntu systems to protect against common threats."
-canonicalURL: "https://www.msbiro.net/posts/sshd-hardening-guide/"
+description: "Back-to-basics sshd_config hardening for 2025: opinionated settings to disable root login, enforce key auth, modern ciphers, and timeouts. Secure your Linux servers from the ground up—no Kubernetes required"
+canonicalURL: "https://www.msbiro.net/posts/back-to-basics-sshd-hardening/"
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -241,4 +241,7 @@ LogLevel VERBOSE
     *   Check firewall rules on the server (e.g., `firewalld` on RHEL, `ufw` on Ubuntu) and any network firewalls in between. Ensure TCP port 22 (or your custom SSH port) is open.
 
 ## Conclusion
-Hardening your SSH server is a foundational step in securing any Linux system. While we've covered essential settings for standalone servers and explored complex enterprise solutions, the core principle remains the same: security is a process of continuous improvement. Regularly review your configurations, stay informed about new threats, and never underestimate the importance of mastering the fundamentals.
+Hardening your SSH server is a foundational step in securing any Linux system. Security is a process of continuous improvement—regularly review your configurations, stay informed about new threats, and master the fundamentals.
+As a follow-up to this article, I will explore in a future one how HashiCorp Vault can centralize SSH secret management, automate credential rotation, and implement fine-grained access policies.
+
+Keep these configurations in place and remember: the strongest security chain is built on solid fundamentals.
