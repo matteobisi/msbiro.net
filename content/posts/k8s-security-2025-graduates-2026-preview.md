@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes Security 2025: Stable Features & 2026 preview"
+title: "Kubernetes Security: 2025 Stable Features & 2026 preview"
 date: 2025-12-08T10:05:05Z
 tags: [
   "kubernetes", "cybersecurity", "devops", "devSecOps",
