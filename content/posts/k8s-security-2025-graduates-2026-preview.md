@@ -34,7 +34,7 @@ editPost:
     appendFilePath: true
 ---
 
-Like your favorite music streaming service's 2025 Wrapped®, here's my recap of Kubernetes security highlights from 2025—plus predictions for features likely graduating to stable in early 2026.
+Like your favorite music streaming service's 2025 Wrapped®, here's my recap of Kubernetes security highlights from 2025, plus predictions for features likely graduating to stable in early 2026.
 As a DevSecOps Team Leader, I bridge development speed with security rigor daily. Kubernetes and cloud-native security are my passion, especially hardening workloads for production.
 With Kubernetes v1.35 releasing December 17, now's the perfect time to review 2025's security wins and plan for 2026.
 
