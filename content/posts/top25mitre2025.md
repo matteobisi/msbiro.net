@@ -1,11 +1,11 @@
 ---
 title: "2025 CWE Top 25: Mitre's Critical Software Weakness Rankings and Trends"
-date: 2025-12-16T08:19:07Z
+date: 2025-12-17T05:19:07Z
 tags: ["cybersecurity", "devsecops", "cwe", "cve", "mitre", "cloud-native", "kubernetes-security", "vulnerability-management"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Mitre's 2025 CWE Top 25 reveals persistent threats like XSS and SQL Injection atop the list, with rising authorization flaws and memory bugs signaling DevSecOps priorities for cloud-native apps. Explore the top 10 changes from 2024, key trends, and how CWE root causes differ from CVEs."
