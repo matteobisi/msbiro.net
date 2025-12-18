@@ -77,12 +77,10 @@ There is also an **Extended Lifecycle Support (ELS)** add-on, which provides up 
 
 ## Why This is a Good Move
 
-This approach benefits everyone.
+This approach benefits everyone:
 
-For **Developers**, it removes friction. You don't need procurement approval to start using a secure Redis or Nginx image. You just pull it. This increases adoption, which in turn leads to more eyes on the code and a stronger ecosystem.
-
-For **Docker**, it cements their position as the standard-bearer for container security. By becoming the default choice for secure base images, they funnel successful startups and growing companies into their Enterprise funnel when those companies eventually need FIPS compliance or SLA guarantees.
-
-For **competitors**, what will their move be now? There are alternative vendors out there with strong solutions, will they react in some way?
+- for **Developers**, it removes friction. You don't need procurement approval to start using a secure Redis or Nginx image. You just pull it. This increases adoption, which in turn leads to more eyes on the code and a stronger ecosystem.
+- for **Docker**, it cements their position as the standard-bearer for container security. By becoming the default choice for secure base images, they funnel successful startups and growing companies into their Enterprise funnel when those companies eventually need FIPS compliance or SLA guarantees.
+- for **competitors**, what will their move be now? There are alternative vendors out there with strong solutions, will they react in some way?
 
 If you haven't looked at your base images recently, now is the time to swap them out for something hardened.
