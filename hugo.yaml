@@ -90,6 +90,8 @@ params:
   socialIcons:
     - name: x
       url: "https://x.com/IamMatteoBisi"
+    - name: bluesky
+      url: "https://bsky.app/profile/msbiro.net"
     - name: linkedIn
       url: "https://www.linkedin.com/in/matteobisi"
     - name: github
