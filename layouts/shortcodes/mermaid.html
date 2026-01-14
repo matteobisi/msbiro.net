@@ -1,0 +1,28 @@
+<div class="mermaid">
+    {{ .Inner }}
+</div>
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    
+    // Check if the user prefers dark mode or if the body has a dark class (common in PaperMod)
+    // For now, we prioritize the user's request for dark theme visibility and larger font.
+    var config = {
+        startOnLoad: true,
+        theme: 'dark',
+        themeVariables: {
+            fontSize: '20px',
+            fontFamily: 'sans-serif',
+            primaryColor: '#bb2528',
+            primaryTextColor: '#fff',
+            primaryBorderColor: '#fff',
+            lineColor: '#81B1DB',
+            secondaryColor: '#006100',
+            tertiaryColor: '#fff'
+        },
+        flowchart: {
+            useMaxWidth: false,
+            htmlLabels: true
+        }
+    };
+    mermaid.initialize(config);
+</script>
