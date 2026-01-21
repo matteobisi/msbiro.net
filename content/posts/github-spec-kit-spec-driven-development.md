@@ -88,7 +88,7 @@ For more details, check out:
 - [GitHub Spec-Kit Repository](https://github.com/github/spec-kit)
 - [Official Documentation](https://github.github.com/spec-kit/)
 - [GitHub Blog Announcement](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/)
-- [Den Delimarsky](https://www.youtube.com/@DenDev/videos/)
+- [Den Delimarsky youtube channel](https://www.youtube.com/@DenDev/videos/)
 
 ## Why I Like Spec-Kit for My DevSecOps Team
 
