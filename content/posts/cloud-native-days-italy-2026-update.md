@@ -71,13 +71,6 @@ Whether you're a seasoned cloud-native practitioner, a newcomer to the ecosystem
 
 Events like Cloud Native Days Italy aren't just about the two days in May—they're about building a **vibrant, ongoing community** of people who care about cloud-native technologies, open source, and collaboration.
 
-Here's how you can get involved:
-
-- **Submit a talk** if you haven't already: [Sessionize CFP](https://sessionize.com/cloud-native-days-italy-2026)
-- **Join the Telegram channel** for updates: [https://t.me/cloudnativedaysitaly](https://t.me/cloudnativedaysitaly)
-- **Share the word** with your colleagues, friends, and networks
-- **Explore sponsorship opportunities**: [Sponsorship Prospectus](https://cloudnativedaysitaly.org/prospectus/cloudnativedays-italy-2026-sponsorship-prospectus.pdf)
-
 I'm genuinely excited about what we're building with Cloud Native Days Italy 2026. The journey has just begun, and while there's still plenty of work ahead, I can already see this event becoming something truly special.
 
 If you're passionate about cloud-native technologies, if you want to connect with like-minded professionals, or if you just want to experience the best of the Italian tech community, **come join us in Bologna on May 18-19, 2026**.
