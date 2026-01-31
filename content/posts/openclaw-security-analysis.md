@@ -76,7 +76,12 @@ However, the same analysis highlighted some **inherent risks** that come with th
 - Exported activities in the Android app
 - Configuration patterns that needed review
 
-**Snyk Code** found primarily **LOW severity issues**, mostly hardcoded secrets in test files (acceptable practice for unit tests).
+**Snyk Code** found primarily **LOW severity issues**, mostly hardcoded secrets in test files. Specifically, it detected three types of embedded secrets:
+- **API Keys and Authentication Tokens**: Hardcoded values in test files for mocking external service authentication (found in `models-config`, `tts`, `qwen-portal-oauth`, and `embeddings` test files)
+- **HMAC/Cipher Keys**: Hardcoded cryptographic keys used with `crypto.createHmac()` for testing webhook signature validation (particularly for LINE messaging platform integration tests)
+- **Test Credentials**: Hardcoded passwords and private keys for authentication testing scenarios
+
+All findings were in `.test.ts` files and represent **acceptable practice for unit tests**, as these are test fixtures used to verify code behavior in isolated environments and never reach production or connect to real services.
 
 The tools confirmed what the architecture review suggested: the code itself is reasonably well-written, but the **operational security risk is significant** due to the nature of what this tool does.
 
