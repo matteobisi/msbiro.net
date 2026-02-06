@@ -1,6 +1,6 @@
 ---
 title: "AI CLI Standardization: Why Context Files Matter More Than Models"
-date: 2026-02-06T11:38:56Z
+date: 2026-02-06T09:38:56Z
 tags: [
   "AI", "devops", "devsecops", "CLI", "standardization",
   "open-source", "best-practices", "AGENTS.md"
@@ -11,7 +11,7 @@ TocOpen: false
 draft: true
 hidemeta: false
 comments: false
-description: "A practical guide to standardizing AI CLI workflows with context files, AGENTS.md, and environment management tools. Learn how to make your AI setup portable across tools and teams."
+description: "A practical guide to standardizing AI CLI workflows with context files, AGENTS.md, and environment management for DevSecOps. Learn how to make your AI setup portable, reproducible, and secure across tools and teams."
 canonicalURL: "https://www.msbiro.net/posts/ai-cli-standardization-guidelines/"
 disableShare: true
 hideSummary: false
@@ -130,7 +130,7 @@ For complex projects, organize specialized skills and commands in an `./agents` 
 ```
 project-root/
 ├── AGENTS.md              # Main context file
-├── agents/
+├── .agents/
 │   ├── skills/
 │   │   ├── kubernetes.md  # K8s-specific operations
 │   │   ├── database.md    # Database migration patterns
@@ -285,191 +285,68 @@ Block all other outbound connections during AI sessions.
 
 AI tools respecting AGENTS.md spec will refuse operations violating these boundaries and log violations to audit trails.
 
-### Governance at Scale
-
-For organizations with multiple teams and repositories:
-
-**Centralized policy repository**:
-```
-corporate-ai-policies/
-├── AGENTS.md (base template)
-├── agents/
-│   ├── skills/
-│   │   ├── corporate-security.md
-│   │   ├── compliance-checks.md
-│   │   └── approved-dependencies.md
-│   └── policies/
-│       ├── data-classification.md
-│       └── third-party-integrations.md
-└── mise.toml (approved tool versions)
-```
-
-Teams inherit base policies via Git submodules or package distribution, customizing for project-specific needs while maintaining corporate security baselines.
-
-**Continuous validation** in CI/CD:
-
-```yaml
-# .github/workflows/validate-ai-context.yml
-name: Validate AI Context
-on: [push, pull_request]
-
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Verify AGENTS.md signature
-        run: gpg --verify AGENTS.md.asc
-      - name: Check forbidden patterns
-        run: |
-          # Ensure AI context doesn't allow dangerous operations
-          ! grep -i "sudo\|rm -rf\|DROP DATABASE" AGENTS.md
-      - name: Validate against schema
-        run: npx agents-md-validator AGENTS.md
-```
-
-This ensures AI context files meet security standards before deployment, preventing misconfigurations that could expose systems to AI-assisted attacks.
-
 ---
 
 ## Environment Management with mise.toml
 
-Beyond code context, AI workflows need **reproducible environment setup**. [`mise`](https://mise.jdx.dev/) (formerly rtx, rebranded in 2024) is a universal tool version manager ensuring everyone (developers, CI/CD, AI agents) runs identical tool versions.
+Beyond code context, AI workflows need **reproducible environment setup**. [`mise`](https://mise.jdx.dev/) is a universal tool version manager ensuring everyone (developers, CI/CD, AI agents) runs identical tool versions. Without version locking, you get "works on my machine" problems where AI-generated code runs locally but fails in CI or for teammates.
 
-AI CLI tools depend on specific language runtimes (Python, Node.js), SDK versions, or supporting utilities. Without version locking, you get "works on my machine" problems where AI-generated code runs locally but fails in CI or for teammates.
+**Key benefits**: Deterministic installations where `mise install` gives identical versions across all environments, automatic activation when entering directories, seamless CI/CD integration through GitHub Actions, and task definitions for standardized workflows. mise is backwards-compatible with asdf (the previous standard), supporting its plugin ecosystem while delivering 20-100x faster performance through Rust implementation.
 
-**Why mise over alternatives**: mise is backwards-compatible with [asdf](https://asdf-vm.com/) (the previous ecosystem standard), supporting its plugin ecosystem while delivering 20-100x faster performance through Rust implementation. If you're migrating from asdf, mise reads `.tool-versions` files natively, making adoption seamless.
-
-**Example mise.toml for AI workflows**:
+**Example: DevSecOps security scanning workflow**:
 
 ```toml
 [tools]
 python = "3.11.7"
 node = "20.11.0"
-golang = "1.22.0"
-# AI-specific CLI tools
-"npm:@anthropic/claude-cli" = "1.5.0"
 "npm:gh-copilot" = "1.0.3"
 
 [env]
 _.file = ".env"
-_.file = ".ai-env"  # AI API keys, separate from app config
+TRIVY_VERSION = "0.50.0"
+SECURITY_BASELINE = "compliance/baseline.yml"
 
-[tasks.ai-check]
+[tasks.security-scan]
 run = """
-echo "Verifying AI toolchain..."
-claude --version
-gh copilot --version
-python --version
+trivy fs --severity HIGH,CRITICAL .
+trivy config --severity HIGH,CRITICAL .
+npm audit --audit-level=high
 """
 
-[tasks.ai-test]
+[tasks.ai-security-check]
+depends = ["security-scan"]
 run = """
-npm test
-python -m pytest tests/
+echo "Security baseline passed. AI can proceed with changes."
+gh copilot suggest "implement authentication feature"
 """
 ```
 
-**Benefits**: Deterministic installations (`mise install` gives identical versions), automatic activation (entering directory activates environment), CI/CD integration (GitHub Actions uses `mise-action` to replicate local setup), and task definitions for standardized workflows.
-
-**CI/CD Integration**:
-
-```yaml
-# .github/workflows/ai-test.yml
-name: AI-Assisted Tests
-on: [push, pull_request]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
-      - run: mise install
-      - run: mise run ai-test
-```
-
-This ensures AI toolchain versions match between local development, CI/CD, and teammates' machines.
-
-### Advanced mise Features for AI Workflows
-
-**Version Scoping**: mise supports hierarchical version configuration, crucial for monorepos or nested projects:
-
-```bash
-# Global defaults in ~/.config/mise/config.toml
-[tools]
-python = "3.11"
-node = "20"
-
-# Project override in ~/my-project/mise.toml
-[tools]
-python = "3.12"  # Override global Python
-
-# Nested service in ~/my-project/services/api/mise.toml
-[tools]
-node = "21.5.0"  # API needs newer Node
-```
-
-When AI tools operate in `~/my-project/services/api`, they get Node 21.5.0 and Python 3.12 (inherited from parent). The closest `mise.toml` wins, enabling precise control in complex repositories.
-
-**Backend Aliases for Stability**: Pin tools to specific backends to avoid breaking changes:
+**Example: Automated compliance verification**:
 
 ```toml
-[tools]
-# Use core:python instead of python plugin for stability
-"core:python" = "3.11.7"
-
-# Pin npm packages with version ranges
-"npm:@anthropic/claude-cli" = "^1.5.0"  # Compatible updates
-"npm:gh-copilot" = "=1.0.3"             # Exact version only
-```
-
-**Environment Variable Templates**: Construct dynamic environments for AI tools:
-
-```toml
-[env]
-_.file = ".env"
-PROJECT_ROOT = "{{ config_root }}"
-PYTHON_BIN = "{{ python_path }}"
-AI_MODEL_CACHE = "{{ env.HOME }}/.cache/ai-models"
-```
-
-AI CLI tools can reference `$PROJECT_ROOT` in scripts, ensuring portability across team members' machines.
-
-**Task Dependencies and Hooks**: Automate setup steps before AI operations:
-
-```toml
-[tasks.setup]
-run = "pip install -r requirements.txt && npm install"
-
-[tasks.ai-generate]
-depends = ["setup"]
+[tasks.compliance-check]
 run = """
-gh copilot suggest "implement new feature"
+echo "Running compliance checks..."
+python scripts/check_secrets.py
+python scripts/validate_licenses.py
+npm run lint:security
 """
 
 [hooks.after]
-# Run linter after AI generates code
-"tasks:ai-generate" = "npm run lint"
+"tasks:ai-generate" = "mise run compliance-check"
 ```
 
-This ensures AI-generated code passes quality checks automatically.
+This ensures AI-generated code passes security and compliance checks automatically before being committed.
 
-**asdf Migration Path**: If your project uses asdf's `.tool-versions`:
+**Additional mise capabilities**:
 
-```bash
-# mise reads .tool-versions automatically
-cat .tool-versions
-# python 3.11.7
-# nodejs 20.11.0
+- **Hierarchical version scoping**: Override global versions per project or nested service (critical for monorepos)
+- **Environment variable templates**: Dynamic environment construction using `{{ config_root }}` and `{{ env.HOME }}`
+- **Task dependencies and hooks**: Chain tasks and run automated checks after AI operations
+- **Backend aliases**: Pin specific tool backends (e.g., `core:python`) to avoid breaking changes
+- **asdf migration**: Reads `.tool-versions` files natively for seamless migration
 
-mise install  # Installs from .tool-versions
-
-# Optionally convert to mise.toml for advanced features
-mise migrate .tool-versions mise.toml
-```
-
-No manual conversion needed; mise maintains compatibility with the asdf ecosystem (1000+ plugins).
+For detailed documentation on these features, see [mise.jdx.dev](https://mise.jdx.dev/).
 
 ---
 
@@ -660,20 +537,6 @@ Now anyone using AI CLI tools in this repository gets consistent, predictable be
 
 ---
 
-## Key Takeaways
-
-**CLI tools beat web chatbots for development**: Direct file access, persistent context files, and reproducible environments make terminal-based AI workflows vastly more productive than browser-based interfaces.
-
-**Standardization enables portability**: When you structure context around universal files like AGENTS.md rather than tool-specific interfaces, migrating between AI providers becomes trivial. The AI landscape changes fast; your workflow shouldn't break when new models emerge.
-
-**Context files are executable instructions**: AGENTS.md and similar files aren't just reference material. They're ground rules AI tools consume to maintain consistency across thousands of interactions without repeated manual prompting.
-
-**Environment determinism matters**: Tools like mise ensure AI-generated code works identically across local development, teammates' machines, and CI/CD. Version drift destroys AI assistance value when code works locally but fails elsewhere.
-
-**Start simple, grow as needed**: Begin with basic AGENTS.md covering build commands and security boundaries. Add mise.toml when version drift causes problems. Introduce specs and ADRs when compliance or team scale demands it. Don't over-engineer day one.
-
----
-
 ## Tool Support and Evolving Standards
 
 The AI CLI tooling ecosystem evolves **rapidly**. This section reflects the state as of **February 2026**; always verify current support with official tool documentation.
@@ -690,25 +553,18 @@ The AI CLI tooling ecosystem evolves **rapidly**. This section reflects the stat
 
 **Legend**: ✅ Fully supported | ⚠️ Partial/Beta | ❌ Not available
 **Note**: I don't use Cursor, I've provided a more extensive comparison based on web research
-### Staying Current
 
-Verify tool versions and feature support regularly:
+---
 
-```bash
-# Check current versions
-gh copilot --version
-claude --version
-gemini --version
+## Wrapping Up: Why This Matters
 
-# Search for feature announcements
-gh copilot changelog | grep -i "agents.md"
-```
+CLI tools outperform web chatbots for development work because they access files directly, read context automatically, and execute commands without friction. When you use standardized context files like AGENTS.md instead of tool-specific configurations, switching between AI providers becomes trivial.
 
-**Monitor the specification**: The [AGENTS.md spec](https://agents.md/) maintains a living document of tool support and emerging extensions (security policies, telemetry schemas).
+Think of AGENTS.md and mise.toml as executable documentation; they're instructions AI tools consume automatically on every interaction, ensuring consistent behavior across thousands of operations. Tools like mise guarantee that AI-generated code works identically on your machine, your teammate's laptop, and CI/CD pipelines.
 
-**Expect convergence**: Major providers (GitHub, Anthropic, Google) are collaborating through the [AI Context Working Group](https://aicontext.org/). By late 2026, expect universal support across all major CLI tools, standardized security schemas, and certified compliance templates for SOC 2 and ISO 27001.
+Start simple with basic AGENTS.md covering build commands and security boundaries, add mise.toml when version drift causes issues, introduce specs and ADRs when compliance demands them; don't over-engineer from day one. All these organizational patterns (AGENTS.md, ./agents folder, mise.toml, signed manifests, audit trails) remain optional for typical repositories but become essential for structured enterprise projects where AI agents need explicit guidance to produce outputs matching your expectations.
 
-**Future-proofing**: Structure your AI context around universal patterns (build commands, security boundaries, architectural docs) rather than tool-specific features. Review your AGENTS.md and mise.toml configurations **quarterly** to eliminate workarounds as tools mature.
+Major providers (GitHub, Anthropic, Google) are collaborating through the AI Context Working Group to standardize these patterns. By late 2026, expect universal support across CLI tools, standardized security schemas, and certified compliance templates for SOC 2 and ISO 27001.
 
 ---
 
@@ -718,6 +574,3 @@ gh copilot changelog | grep -i "agents.md"
 - [GitHub: How to Write a Great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 - [Mise Documentation](https://mise.jdx.dev/)
 - [My Previous Article: GitHub Spec-Kit](/posts/github-spec-kit-spec-driven-development/)
-- [OpenAI: Custom Instructions with AGENTS.md](https://developers.openai.com/codex/guides/agents-md)
-
-The AI ecosystem will continue evolving, but well-structured context and standardized workflows give you flexibility to adapt without rewriting your development process. Build portability into your AI setup today, and you'll be ready when the next generation of models arrives tomorrow.
