@@ -1,5 +1,5 @@
 ---
-title: "AI CLI Standardization: Why Context Files Matter More Than Models"
+title: "AI CLI Standardization: From Tool Lock-in to Portability"
 date: 2026-02-06T06:38:56Z
 tags: [
   "AI", "devops", "devsecops", "CLI", "standardization",
