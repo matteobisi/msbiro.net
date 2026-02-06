@@ -1,6 +1,6 @@
 ---
 title: "AI CLI Standardization: Why Context Files Matter More Than Models"
-date: 2026-02-06T09:38:56Z
+date: 2026-02-06T06:38:56Z
 tags: [
   "AI", "devops", "devsecops", "CLI", "standardization",
   "open-source", "best-practices", "AGENTS.md"
@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "A practical guide to standardizing AI CLI workflows with context files, AGENTS.md, and environment management for DevSecOps. Learn how to make your AI setup portable, reproducible, and secure across tools and teams."
