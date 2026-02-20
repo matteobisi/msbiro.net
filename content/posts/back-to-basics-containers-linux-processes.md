@@ -347,7 +347,7 @@ chroot /mnt/host
 
 Never use `privileged: true` in production. It breaks all isolation.
 
-Real-world examples of what happens when root-in-container meets kernel bugs or misconfigurations: **CVE-2019-5736** (runc container escape via `/proc/self/exe`) and **CVE-2022-0492** (cgroups v1 escape via `notify_on_release`) both allowed full host root access. Both would have been mitigated by `runAsNonRoot: true` combined with `allowPrivilegeEscalation: false`; the container would have been running as an unprivileged UID, making the privilege escalation path either impossible or harmless.
+Real-world examples of what happens when root-in-container meets kernel bugs or misconfigurations: **CVE-2019-5736** (runc container escape via `/proc/self/exe`) and **CVE-2022-0492** (cgroups v1 escape via `notify_on_release`) both allowed full host root access. Both would have been mitigated by `runAsNonRoot: true` combined with `allowPrivilegeEscalation: false`; the container would have been running as an unprivileged UID, making the privilege escalation path either impossible or harmless. The pattern is not new. I covered three more recent runc CVEs with the same escape potential (all disclosed in November 2025) in [this article](https://www.msbiro.net/posts/runc-container-breakout-vulnerabilities-2025/).
 
 **HostPath Mounts**
 
@@ -463,7 +463,7 @@ podman run nginx
 
 The container has UID 0 inside its namespace, but maps to your regular UID on the host. If the container escapes, it has no host privileges.
 
-In Kubernetes 1.33+, user namespace support is enabled by default — no feature gate needed — but pods must still opt in with `spec.hostUsers: false`. I previously covered how [user namespaces remap container root to unprivileged host users](/posts/kubernetes-133-user-namespace-isolation-security-matters/). Instead of preventing escapes, user namespaces make them harmless.
+In Kubernetes 1.33+, user namespace support is enabled by default (no feature gate needed) but pods must still opt in with `spec.hostUsers: false`. I previously covered how [user namespaces remap container root to unprivileged host users](/posts/kubernetes-133-user-namespace-isolation-security-matters/). Instead of preventing escapes, user namespaces make them harmless.
 
 ---
 
