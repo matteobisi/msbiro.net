@@ -1,18 +1,19 @@
 ---
 title: "Back to Basics: Why Containers Are Just Fancy Linux Processes"
-date: 2026-02-18T17:31:29Z
+date: 2026-02-20T06:31:29Z
 tags: [
   "cloud-native", "kubernetes", "cybersecurity",
-  "open-source", "devops", "containers", "linux", 
-  "processes", "permissions", "security-context"
+  "open-source", "devops", "containers", "linux",
+  "processes", "permissions", "security-context",
+  "namespaces", "cgroups"
 ]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
-description: "Demystifying containers by understanding Linux processes, user permissions, and security contexts. Learn what Kubernetes securityContext actually does under the hood and why container escape vulnerabilities stem from forgotten Unix fundamentals."
+description: "Containers are Linux processes with namespaces and cgroups, nothing more. This article breaks down what Kubernetes securityContext, resource limits, and container escapes actually do at the kernel level, and shows you how to debug containers using standard Unix tools like nsenter and /proc."
 canonicalURL: "https://www.msbiro.net/posts/back-to-basics-containers-linux-processes/"
 disableShare: true
 hideSummary: false
@@ -25,7 +26,7 @@ ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
     image: "https://www.msbiro.net/social-image.png"
-    alt: "Linux process tree showing container isolation"
+    alt: "Linux namespaces and cgroups visualized as process isolation layers"
     caption: ""
     relative: false
     hidden: true
@@ -35,15 +36,17 @@ editPost:
     appendFilePath: true
 ---
 
-With Kubernetes everywhere, it is easy to forget what is actually happening under the hood. We write YAML manifests with `securityContext` blocks, set `runAsUser: 1000`, and move on. But what does that actually mean? What is a container, really?
+The path into platform engineering has changed. Many engineers today start their careers working directly with Kubernetes, writing YAML and managing Helm charts before they ever spend extended time at a Linux terminal. The tooling is so well-abstracted that you can be genuinely productive for months before the underlying system ever becomes relevant. That is a real achievement for the ecosystem.
 
-This article is the second in my "Back to Basics" series. In December, I wrote about [SSH hardening configuration](https://www.msbiro.net/posts/back-to-basics-sshd-hardening/). This piece continues that journey.
+The gap shows up at the worst moments, though: a container crashes with a permission error, a security team flags a pod running as root, a privilege escalation CVE lands and it is not clear whether the cluster is exposed. These are Linux problems, and they are much easier to reason about once you understand what the YAML actually maps to at the kernel level. I have been in those conversations many times, and I always come back to the same set of fundamentals.
 
-**Containers are just Linux processes with extra isolation.** Everything Kubernetes does with permissions, users, and security contexts is built on top of concepts that have existed in Unix systems for decades. Understanding these basics makes container security much less mysterious.
+This article is the second in my "Back to Basics" series. In December, I wrote about [SSH hardening configuration](https://www.msbiro.net/posts/back-to-basics-sshd-hardening/). This piece continues that journey, away from the YAML and back to the Linux fundamentals that make everything else possible.
+
+**Containers are just Linux processes with extra isolation.** Everything Kubernetes does with permissions, users, and security contexts is built on top of concepts that have existed in Unix systems for decades. Understanding these basics makes container security much less mysterious, and debugging much faster.
 
 ---
 
-## Part 1: The Unix Foundation
+## The Unix Foundation
 
 This section covers the three fundamental concepts that underpin all Linux security: file permissions, process identity, and special permission bits.
 
@@ -132,7 +135,7 @@ The `t` prevents users from deleting others' files in `/tmp`.
 
 ---
 
-## Part 2: Applying These Concepts to Containers and Kubernetes
+## From Processes to Containers
 
 Now that we understand Unix permissions and process identity, let us see how containers use these features and how Kubernetes `securityContext` maps directly to them.
 
@@ -140,59 +143,127 @@ Now that we understand Unix permissions and process identity, let us see how con
 
 A container is a process (or process group) with Linux kernel isolation features:
 
-1. **Namespaces**: Isolate what processes see (PID, network, filesystem)
+1. **Namespaces**: Isolate what processes see (PID, network, filesystem, hostname, IPC, UIDs)
 2. **Cgroups**: Limit resource usage (CPU, memory, I/O)
 3. **Capabilities**: Fine-grained privileges instead of all-or-nothing root
 4. **Seccomp**: Filter system calls
 5. **AppArmor/SELinux**: Mandatory access controls
 
-It is still just a process.
+It is still just a process. The kernel does not have a concept of "container"; only namespaces and cgroups applied to processes.
 
-On the host, containers appear as regular processes:
+### Prove It: See the Container as a Process
 
-```bash
-$ ps aux | grep nginx
-root      12345  0.0  0.1  12345  6789 ?  Ss  10:00 nginx: master process
-www-data  12346  0.0  0.0  12346  6790 ?  S   10:00 nginx: worker process
-```
-
-That nginx container is PID 12345 on the host. It appears as PID 1 inside the container because of PID namespace isolation.
-
-When `kubectl exec` fails, inspect containers using standard Linux tools:
+The fastest way to understand this is to observe it directly. Start a container and immediately find it on the host:
 
 ```bash
-# View namespaces
-ls -la /proc/12345/ns/
+# Start a container in the background
+docker run -d --name demo nginx
 
-# Check cgroups
-cat /proc/12345/cgroup
+# Find it on the host process table — it's just a process
+ps aux | grep nginx
+# root  18423  nginx: master process
+# nginx 18424  nginx: worker process
 
-# View UIDs
-cat /proc/12345/status | grep Uid
+# Get the exact PID from Docker
+docker inspect demo --format '{{.State.Pid}}'
+# 18423
+
+# Inspect its identity and capabilities directly from /proc
+cat /proc/18423/status | grep -E 'Uid|Gid|Cap'
+# Uid:  0  0  0  0       <- root inside and outside (dangerous)
+# CapEff: 00000000a80425fb  <- capabilities bitmask
+
+# See its namespaces — each is a different file descriptor
+ls -la /proc/18423/ns/
+# lrwxrwxrwx ... net -> net:[4026532345]
+# lrwxrwxrwx ... pid -> pid:[4026532347]
+# lrwxrwxrwx ... mnt -> mnt:[4026532346]
 ```
+
+That nginx running as UID 0 inside the container is UID 0 on the host. No magic, no VM boundary; the same kernel, the same user table.
+
+### Namespaces: What Each One Isolates
+
+Linux has eight namespace types. Each one limits what a process can see, not what the host can see:
+
+| Namespace | Isolates | Kubernetes Example |
+|-----------|----------|--------------------|
+| `pid` | Process tree | Pod sees PID 1; host sees PID 18423 |
+| `net` | Network stack, interfaces, ports | Each pod gets its own `eth0` |
+| `mnt` | Filesystem mounts | Container sees its own rootfs |
+| `uts` | Hostname and domain name | `hostname` returns the pod name |
+| `ipc` | IPC, shared memory segments | Pods cannot share memory by default |
+| `cgroup` | Cgroup hierarchy view | Pod sees only its own resource limits |
+| `user` | UID/GID mappings | Rootless containers (Kubernetes 1.33+) |
+| `time` | System time offsets (CLOCK_MONOTONIC / CLOCK_BOOTTIME) | Added in Linux 5.6 |
+
+You can create namespaces manually with `unshare`; there is no container runtime needed:
+
+```bash
+# Create a new PID namespace: this bash process becomes PID 1
+sudo unshare --pid --fork --mount-proc bash
+echo $$
+# 1   <- you are "PID 1" inside this namespace
+
+# The host still sees it as its real PID
+# Open another terminal: ps aux | grep bash -> real PID, e.g. 19001
+```
+
+This is what a container runtime does: wrap a process in multiple namespaces simultaneously.
+
+### Cgroups: Resource Limits Are Kernel Enforced
+
+When you write this in a Kubernetes manifest:
+
+```yaml
+resources:
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+```
+
+Kubernetes translates it into cgroup entries that the kernel enforces directly:
+
+```bash
+# Find the container's cgroup path
+cat /proc/18423/cgroup
+# 0::/kubepods/burstable/pod<uid>/<container-id>
+
+# The kernel enforces the memory limit here
+cat /sys/fs/cgroup/kubepods/burstable/pod<uid>/<container-id>/memory.max
+# 536870912   <- 512Mi in bytes
+
+# CPU quota (500m = 50% of one core = 50000 microseconds per 100ms period)
+cat /sys/fs/cgroup/kubepods/burstable/pod<uid>/<container-id>/cpu.max
+# 50000 100000
+```
+
+When Kubernetes OOMKills a pod, it is not Kubernetes that kills it; it is the kernel's cgroup memory controller sending `SIGKILL` when the process exceeds `memory.max`. Understanding this makes OOMKill events much easier to diagnose.
 
 ### Kubernetes securityContext Decoded
 
 Every Kubernetes `securityContext` field maps to a Linux feature.
 
-**runAsUser: Setting the UID**
+**runAsUser and runAsGroup: Setting Process Identity**
 
 ```yaml
 securityContext:
   runAsUser: 1000
+  runAsGroup: 3000
 ```
 
 Equivalent to:
 ```bash
 su -c "myapp" -s /bin/sh user1000
+# The process gets UID 1000 and primary GID 3000
 ```
 
 Or in Dockerfile:
 ```dockerfile
-USER 1000
+USER 1000:3000
 ```
 
-Regular users start at UID 1000. Using non-zero UIDs prevents accidental host user mapping.
+Regular users start at UID 1000. Using non-zero UIDs prevents accidental host user mapping. Setting `runAsGroup` explicitly controls the primary GID, which affects file creation permissions inside the container.
 
 **runAsNonRoot: Prevent Root Execution**
 
@@ -243,13 +314,13 @@ securityContext:
   fsGroup: 2000
 ```
 
-Kubernetes runs `chown -R 2000:2000` on the volume mount point. This lets the container user (UID 1000) access files via group ownership (GID 2000).
+Kubernetes runs `chown -R :2000` (group-only) on the volume mount point. This lets the container user (UID 1000) access files via group ownership (GID 2000).
 
 **Limitation**: Only works on volumes supporting ownership changes (emptyDir, configMap, secret). HostPath and NFS may ignore this.
 
 ### Container Escape Risks
 
-Understanding Unix helps you understand container escapes.
+The Unix concepts from the first section are exactly what attackers exploit. A container running as root with excessive capabilities is not isolated; it is a root shell with extra steps.
 
 **Privileged Mode**
 
@@ -275,6 +346,8 @@ chroot /mnt/host
 ```
 
 Never use `privileged: true` in production. It breaks all isolation.
+
+Real-world examples of what happens when root-in-container meets kernel bugs or misconfigurations: **CVE-2019-5736** (runc container escape via `/proc/self/exe`) and **CVE-2022-0492** (cgroups v1 escape via `notify_on_release`) both allowed full host root access. Both would have been mitigated by `runAsNonRoot: true` combined with `allowPrivilegeEscalation: false`; the container would have been running as an unprivileged UID, making the privilege escalation path either impossible or harmless.
 
 **HostPath Mounts**
 
@@ -311,13 +384,11 @@ FROM gcr.io/distroless/static-debian12:nonroot
 
 **Running as Root**
 
-When a container runs as UID 0 and escapes (via kernel bugs, misconfigured volumes, or privileged mode), it becomes root on the host.
-
-**Rule**: Never run containers as root. Use `runAsUser: 1000` everywhere.
+Running containers as root is one of the most common configurations seen in early Kubernetes deployments. When a container running as UID 0 escapes (via kernel bugs, misconfigured volumes, or privileged mode), it becomes root on the host. Setting `runAsUser: 1000` is a straightforward step that removes that risk entirely.
 
 ### Debugging Containers Using Unix Tools
 
-When troubleshooting, use Linux fundamentals.
+All the tools you need already exist on the host. No special container tooling required.
 
 **Inside Containers**
 
@@ -350,6 +421,23 @@ pstree -p <pid>
 cat /proc/<pid>/status | grep Cap
 ```
 
+**Enter a Container's Namespaces Without kubectl exec**
+
+When `kubectl exec` is unavailable (no shell in the image, exec disabled by policy, or the container has crashed), `nsenter` lets you enter any combination of the container's namespaces from the host:
+
+```bash
+# Full shell inside all container namespaces
+nsenter -t <pid> --mount --uts --ipc --net --pid -- bash
+
+# Enter only the network namespace — useful for tcpdump or ss
+nsenter -t <pid> --net -- ss -tlnp
+
+# Run a command in the container's mount namespace to inspect its filesystem
+nsenter -t <pid> --mount -- ls -la /app/
+```
+
+`nsenter` is particularly useful on nodes where `kubectl exec` is rate-limited, on distroless containers with no shell, or when debugging what a container actually sees vs. what the host sees.
+
 **Decoding Capabilities**
 
 Capability values in `/proc/<pid>/status` are hex bitmaps:
@@ -375,7 +463,7 @@ podman run nginx
 
 The container has UID 0 inside its namespace, but maps to your regular UID on the host. If the container escapes, it has no host privileges.
 
-Kubernetes 1.33+ enables user namespace isolation by default. I previously covered how [user namespaces remap container root to unprivileged host users](/posts/kubernetes-133-user-namespace-isolation-security-matters/). Instead of preventing escapes, user namespaces make them harmless.
+In Kubernetes 1.33+, user namespace support is enabled by default — no feature gate needed — but pods must still opt in with `spec.hostUsers: false`. I previously covered how [user namespaces remap container root to unprivileged host users](/posts/kubernetes-133-user-namespace-isolation-security-matters/). Instead of preventing escapes, user namespaces make them harmless.
 
 ---
 
@@ -388,14 +476,18 @@ Kubernetes security settings map directly to Unix features:
 | Kubernetes | Linux Equivalent |
 |------------|------------------|
 | `runAsUser: 1000` | Process UID |
-| `allowPrivilegeEscalation: false` | Blocks setuid |
+| `runAsGroup: 3000` | Process primary GID |
+| `allowPrivilegeEscalation: false` | `no_new_privs` flag (blocks setuid) |
 | `readOnlyRootFilesystem: true` | Read-only mount |
 | `capabilities` | Fine-grained privileges |
+| `seccompProfile` | Syscall filter (seccomp BPF) |
 | `privileged: true` | Broken isolation |
 
 When YAML abstractions fail, debug at the Linux level. Understanding these foundations helps you understand attack vectors and build secure systems.
 
 Master the basics: keep containers unprivileged, minimize setuid binaries, remember it is all just processes, users, and permissions.
+
+In the next article in this series, I plan to go deeper on Linux cgroups: how resource limits are enforced at the kernel level, what actually happens during a Kubernetes OOMKill, and how to read cgroup v2 hierarchies to diagnose resource contention.
 
 ---
 
