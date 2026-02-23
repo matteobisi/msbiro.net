@@ -36,7 +36,7 @@ editPost:
 
 ## Introduction: Reaching an Enterprise Grade of Security
 
-Every day, as a DevSecOps Team Leader, I wake up with the same exciting challenge: how do we maintain an \"enterprise grade\" of work in a landscape shifting beneath the feet of AI? For me, this isn't just about checking boxes; it’s about the daily discipline of ensuring that every tool we introduce into our workflow meets the same rigorous standards we apply to our production code.
+Every day, as a **Security Team Leader**, I wake up with the same exciting challenge: how do we maintain an \"enterprise grade\" of work in a landscape shifting beneath the feet of AI? For me, this isn't just about checking boxes; it’s about the daily discipline of ensuring that every tool we introduce into our workflow meets the same rigorous standards we apply to our production code.
 
 In my previous articles, I’ve advocated for **Spec-Driven Development (SDD)** using tools like [GitHub Spec-Kit](/posts/github-spec-kit-spec-driven-development/) and OpenSpec. We discussed how structured specifications serve as a "Constitution" for our projects—providing embedded documentation, clear guardrails, and the vital audit trails necessary for accountability and compliance (especially under frameworks like NIS2 or ISO 27001). 
 
@@ -154,7 +154,7 @@ Anthropic allows administrators to deploy "Managed Settings" that act as the hig
 Once deployed (typically via MDM like Jamf or Ansible), these settings override any local `.claude/settings.json` or `~/.claude/settings.json` files.
 
 ### 2. Gemini CLI: System-Level Overrides
-Similar to Claude, the **Gemini CLI** supports a system-wide `settings.json` that takes absolute precedence. This is the primary tool for DevSecOps teams to enforce "Strict Mode" or restrict the use of specific MCP servers across the entire organization.
+Similar to Claude, the **Gemini CLI** supports a system-wide `settings.json` that takes absolute precedence. This is the primary tool for **Security teams** to enforce "Strict Mode" or restrict the use of specific MCP servers across the entire organization.
 
 *   **macOS:** `/Library/Application Support/GeminiCli/settings.json`
 *   **Linux:** `/etc/gemini-cli/settings.json`
@@ -173,15 +173,25 @@ Unlike Claude and Gemini, which rely heavily on local system files for managemen
 
 ## Conclusion: Security Enables Innovation
 
-As I've said before, the goal of DevSecOps is not to say "no" to new tools. It is to find the "yes" that doesn't put the company at risk. By moving from "Vibe Coding" to **Spec-Driven Development** and then further to **Hardened Agentic Workflows**, we can finally harness the full speed of AI without losing our sleep—or our credentials.
+As I've said before, the goal of the **Security team** is not to say \"no\" to new tools. It is to find the \"yes\" that doesn't put the company at risk. By moving from \"Vibe Coding\" to **Spec-Driven Development** and then further to **Hardened Agentic Workflows**, we can finally harness the full speed of AI without losing our sleep—or our credentials.
+
+Please understand that you don't need to go out of this article and force every developer to build code in an isolated container without any tools integrated. The message of this article is to understand that hardening on this kind of tool is possible and must be done. It's about providing a good balance between \"vibe coding in yolo mode\" and enforcing security rules that help developers work in a secure way—allowing them to continue doing their job while demanding the security side to us.
 
 By implementing these multi-layered defenses—from **Seatbelt** sandboxing on macOS to **GEMINI.md** constitutions and **Enterprise Policies** in Copilot—we reach an enterprise grade of work that is ready for production.
 
 Special thanks to the team at **Trail of Bits** for their pioneering work in this space. Their research on `claude-code-config` is a must-read for anyone serious about the future of AI in the enterprise.
 
-**Next Steps:**
-*   **Audit Your Configs:** Check `~/.gemini/settings.json` and `~/.copilot/config.json` for auto-approve settings.
-*   **Create Your Constitution:** Add a `GEMINI.md` or `CLAUDE.md` to your project root with your coding and security guidelines.
-*   **Explore Native Sandboxing:** Test running your AI sessions with macOS Seatbelt or Docker isolation.
-
 Stay secure, stay automated!
+
+---
+
+## References
+
+- [Trail of Bits Official Website](https://www.trailofbits.com/)
+- [claude-code-config (Trail of Bits)](https://github.com/trailofbits/claude-code-config)
+- [claude-code-devcontainer (Trail of Bits)](https://github.com/trailofbits/claude-code-devcontainer)
+- [Claude Code settings.json blueprint](https://github.com/trailofbits/claude-code-config/blob/main/settings.json)
+- [Claude Code: Securely deploying AI agents](https://platform.claude.com/docs/en/agent-sdk/secure-deployment)
+- [Gemini CLI: Configuration Guide](https://geminicli.com/docs/reference/configuration/)
+- [GitHub Trust Center](https://github.com/trust-center)
+- [GitHub Spec-Kit: Spec-Driven Development](/posts/github-spec-kit-spec-driven-development/)
