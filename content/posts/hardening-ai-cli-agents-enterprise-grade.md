@@ -85,7 +85,7 @@ The **Trail of Bits** repository for [claude-code-config](https://github.com/tra
 *   **Forced Operations:** `git push --force`.
 
 By treating the AI agent's configuration as a security policy, they ensure that even if the agent is "convinced" to act maliciously, the underlying toolchain will block the action.
-*   **Ref:** [Claude Code Security Documentation](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/security)
+*   **Ref:** [Claude Code Securely deploying AI agents](https://platform.claude.com/docs/en/agent-sdk/secure-deployment)
 
 #### Gemini CLI (The Enterprise Contender)
 Following a similar philosophy, the **Gemini CLI** uses its own `~/.gemini/settings.json` (or project-level `.gemini/settings.json`) to enforce boundaries.
