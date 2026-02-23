@@ -140,6 +140,37 @@ For **GitHub Copilot**, the hardening moves from the individual file to the **En
 
 ---
 
+## Governance at Scale: Centralized Enterprise Management
+
+Hardening a single machine is a great start, but in an enterprise environment, you need to enforce these policies across hundreds or thousands of developer workstations simultaneously. Fortunately, all three tools provide mechanisms for centralized governance that cannot be overridden by local users.
+
+### 1. Claude Code: `managed-settings.json`
+Anthropic allows administrators to deploy "Managed Settings" that act as the highest authority in the configuration hierarchy. By placing a `managed-settings.json` file in system-protected directories, you can ensure that security boundaries are enforced globally.
+
+*   **macOS:** `/Library/Application Support/ClaudeCode/managed-settings.json`
+*   **Linux:** `/etc/claude-code/managed-settings.json`
+*   **Windows:** `C:\Program Files\ClaudeCode\managed-settings.json`
+
+Once deployed (typically via MDM like Jamf or Ansible), these settings override any local `.claude/settings.json` or `~/.claude/settings.json` files.
+
+### 2. Gemini CLI: System-Level Overrides
+Similar to Claude, the **Gemini CLI** supports a system-wide `settings.json` that takes absolute precedence. This is the primary tool for DevSecOps teams to enforce "Strict Mode" or restrict the use of specific MCP servers across the entire organization.
+
+*   **macOS:** `/Library/Application Support/GeminiCli/settings.json`
+*   **Linux:** `/etc/gemini-cli/settings.json`
+*   **Windows:** `C:\ProgramData\gemini-cli\settings.json`
+
+Administrators can also use the `GEMINI_CLI_SYSTEM_SETTINGS_PATH` environment variable to point to a managed network share or a configuration synchronized via corporate policies.
+
+### 3. GitHub Copilot: Cloud-First Policy Engine
+Unlike Claude and Gemini, which rely heavily on local system files for management, **GitHub Copilot** centralizes governance in the **GitHub Enterprise Cloud**. 
+
+*   **AI Controls:** Enterprise owners can navigate to `Settings > AI controls > Copilot` to enforce policies that automatically trickle down to every developer's CLI and IDE.
+*   **Immutable Policies:** If an enterprise owner disables "Public Code Suggestions" or "Terminal Auto-Approve" at the top level, organization owners and individual developers cannot re-enable them.
+*   **Auditability:** Centralized management also means centralized logging. Every interaction is captured in the Enterprise Audit Log, providing the traceability required for NIS2 and ISO 27001 compliance.
+
+---
+
 ## Conclusion: Security Enables Innovation
 
 As I've said before, the goal of DevSecOps is not to say "no" to new tools. It is to find the "yes" that doesn't put the company at risk. By moving from "Vibe Coding" to **Spec-Driven Development** and then further to **Hardened Agentic Workflows**, we can finally harness the full speed of AI without losing our sleep—or our credentials.
