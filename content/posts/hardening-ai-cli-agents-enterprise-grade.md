@@ -91,13 +91,13 @@ By treating the AI agent's configuration as a security policy, they ensure that 
 Following a similar philosophy, the **Gemini CLI** uses its own `~/.gemini/settings.json` (or project-level `.gemini/settings.json`) to enforce boundaries.
 *   **Tool Filtering:** Use `excludeTools` to block high-risk capabilities like `run_shell_command` or `write_file` in sensitive contexts.
 *   **Seatbelt Integration:** On macOS, Gemini can leverage native **Seatbelt** profiles to sandbox the process at the kernel level.
-*   **Ref:** [Gemini CLI Configuration Guide](https://geminicli.com/docs/configuration/)
+*   **Ref:** [Gemini CLI Configuration Guide](https://geminicli.com/docs/reference/configuration/)
 
 #### GitHub Copilot (The Managed Approach)
 For **GitHub Copilot**, the hardening shift is managed at the organizational level through **GitHub Enterprise Policies**.
 *   **Terminal Auto-Approve:** Ensure `terminal_auto_approve` is disabled in `~/.copilot/config.json`.
 *   **Code Referencing:** Enable filters to detect and suppress suggestions matching public code.
-*   **Ref:** [GitHub Copilot Enterprise Trust Center](https://resources.github.com/copilot-trust-center/)
+*   **Ref:** [GitHub Trust Center](https://github.com/trust-center)
 
 ### Layer 3: The Role of the 'Constitution'
 Connecting back to my work with **AGENTS.md** and **Spec-Kit**, we must treat security as a specification. 
