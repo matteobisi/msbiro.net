@@ -1,6 +1,6 @@
 ---
 title: "ACTUI Follow-Up: Submenus and Image Management"
-date: 2026-02-18T00:00:00Z
+date: 2026-02-27T06:00:00Z
 tags: [
   "devops", "AI", "spec-driven-development",
   "golang", "tui", "apple-container", "spec-kit"
@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Follow-up on Apple Container Terminal UI: new submenus, dedicated image management, and iterative improvements driven by real usage."
@@ -54,6 +54,8 @@ The original flat menu worked for a demo but felt cluttered with more features. 
 
 Navigation now uses a state stack: enter a submenu, do your work, go back. Cleaner organization, room to grow.
 
+![container-main-menu](container-main-menu.png#center)
+
 ### Image Management
 
 The original implementation only pulled images. Now there's a complete image management interface:
@@ -65,6 +67,8 @@ The original implementation only pulled images. Now there's a complete image man
 - Filter and sort by name, size, or date
 
 This was the most requested addition. Container workflows inevitably involve image housekeeping.
+
+![images-sub-menu](images-menu.png#center)
 
 ### Polish
 
