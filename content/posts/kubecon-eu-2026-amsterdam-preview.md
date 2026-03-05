@@ -68,5 +68,4 @@ However, this year there is a massive surge in **AI/ML** content that is impossi
 ### Fun Fact & A Small Celebration
 On a side note, March 25th happens to be my birthday! I can’t think of a better way to celebrate than being surrounded by the incredible energy of KubeCon. If you see me around the venue or at the booth, feel free to stop by and say hello—maybe we can toast with a coffee!
 
-Are you heading to Amsterdam? Drop me a message or stop by **Booth 893**—let’s talk shop, grab a coffee, and build the future of cloud-native together! 🚀🇳🇱
----
+Are you heading to Amsterdam? Drop me a message or stop by **Booth 893**, let’s talk shop, grab a coffee, and build the future of cloud-native together! 🚀🇳🇱
