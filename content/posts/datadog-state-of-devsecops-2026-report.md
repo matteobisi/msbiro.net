@@ -27,7 +27,7 @@ cover:
     caption: "The evolving landscape of DevSecOps in 2026"
     relative: false
     hidden: false
-    hiddenInList: false
+    hiddenInList: true
     hiddenInSingle: false
 editPost:
     URL: "https://github.com/matteobisi/msbiro.net/tree/main/content"
