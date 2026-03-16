@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "With the EU AI Act's full enforcement approaching in August 2026, it's time to shift from manual compliance to automated, platform-level governance in Kubernetes. This post outlines the technical requirements and DevSecOps strategies for ensuring your AI workloads are ready."
