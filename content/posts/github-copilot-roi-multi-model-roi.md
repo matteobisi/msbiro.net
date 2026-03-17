@@ -11,7 +11,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Why GitHub Copilot Pro is currently the best value for developers, offering instant access to SOTA models like Claude 4.6 Sonnet and GPT 5.4, plus a look at Enterprise administration."
+description: "Why GitHub Copilot Pro is currently the best value for developers, offering instant access to SOTA models like Claude 4.6 Sonnet and GPT-5.4, plus a look at Enterprise administration."
 canonicalURL: "https://www.msbiro.net/posts/github-copilot-roi-multi-model-roi/"
 disableShare: true
 hideSummary: false
