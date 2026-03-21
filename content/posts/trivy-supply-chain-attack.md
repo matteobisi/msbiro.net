@@ -1,6 +1,6 @@
 ---
 title: "The Trivy Supply Chain Attack: A Breakdown of Credential Theft and the CanisterWorm Escalation"
-date: 2026-03-19T10:32:37Z
+date: 2026-03-21T07:32:37Z
 tags: ["trivy", "supply-chain", "github-actions", "cloud-native", "kubernetes", "cybersecurity", "open-source", "devops", "containers"]
 author: "Matteo Bisi"
 showToc: true
