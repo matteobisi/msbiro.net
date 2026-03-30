@@ -30,6 +30,11 @@ AI usage policy
 - AI assistance is allowed for technical maintenance, content editing, and future customization of pages, theme, and site structure.
 - All AI-generated changes must be reviewed by a human before merging; include rationale and any tests/build checks in the PR.
 
+Content style rules
+-------------------
+- Do not use `-` or `—` (em dash) or `–` (en dash) as inline text separators in prose. Use commas (,), semicolons (;), periods (.), or parentheses () instead.
+- Bullet points (`-`) are acceptable only for technical lists, code examples, and procedural steps — never in narrative prose, key takeaways, or conclusions.
+
 Practical notes
 ---------------
 - To preview locally, run Hugo using the configuration in `hugo.yaml` (ensure Hugo is installed on your machine).
