@@ -1,6 +1,6 @@
 ---
 title: "Testing GSD: From a Docs-Only Repo to Working Go Code in One Session"
-date: 2026-04-13T07:32:00Z
+date: 2026-04-13T05:32:00Z
 tags: [
   "devops", "devsecops", "AI", "spec-driven-development",
   "golang", "sbom", "supply-chain-security", "open-source", "github-copilot"
