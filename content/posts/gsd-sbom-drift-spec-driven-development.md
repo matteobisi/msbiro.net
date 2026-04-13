@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Another SDD experiment: using GSD (Get Shit Done) v1.34.2 with GitHub Copilot and GPT-5.4 to bootstrap sbom-drift from a docs-only repo to working Go code. Installation, project initialization, Phase 1 execution, and honest lessons from the session."
