@@ -8,7 +8,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Kubernetes 1.36 releases tomorrow with a significant security focus: the end of Ingress NGINX, SELinux volume labeling reaching GA, and a set of long-overdue removals that tighten the security posture of every cluster."
+description: "Kubernetes 1.36 releases tomorrow with a significant security focus: user namespace isolation and SELinux volume labeling reaching GA, the end of Ingress NGINX, and a set of long-overdue removals that tighten the security posture of every cluster."
 canonicalURL: "https://www.msbiro.net/posts/kubernetes-1-36-security-release/"
 disableShare: true
 hideSummary: false
@@ -35,7 +35,7 @@ editPost:
 
 Tomorrow, April 22, 2026, Kubernetes 1.36 will be officially released. As a team leader working in security, part of my job is reading release notes to understand what is coming and, more importantly, to track the direction the developers are moving in. Some releases are routine progress; others signal a shift in priorities. This is one of those.
 
-Kubernetes 1.36 will be remembered as the release that formalized the end of Ingress NGINX. That alone would make it memorable; Ingress NGINX is too big and too deeply embedded in the ecosystem to ignore, and I will dedicate a section to it. But the focus of this post is security: alongside the NGINX retirement, 1.36 delivers meaningful hardening through the graduation of faster SELinux volume labeling to GA, the stable release of external ServiceAccount token signing, and the permanent removal of features that have been known security liabilities for years.
+Kubernetes 1.36 will be remembered as the release that formalized the end of Ingress NGINX. That alone would make it memorable; Ingress NGINX is too big and too deeply embedded in the ecosystem to ignore, and I will dedicate a section to it. But the focus of this post is security: alongside the NGINX retirement, 1.36 delivers meaningful hardening through the graduation of user namespace isolation to GA, faster SELinux volume labeling reaching GA, the stable release of external ServiceAccount token signing, and the permanent removal of features that have been known security liabilities for years.
 
 If security posture is part of your job, this is the release to read carefully.
 
@@ -77,6 +77,16 @@ The important caveat here is that this feature shifts responsibility to Pod auth
 
 For security-conscious operators running SELinux-enforcing nodes (common in regulated industries and government environments), this is the most operationally meaningful change in 1.36.
 
+### User Namespace Isolation Is Now Stable
+
+Another important milestone in Kubernetes 1.36 is that support for user namespaces in Pods graduates to stable ([KEP-127](https://kep.k8s.io/127)).
+
+I already wrote in detail about this feature when Kubernetes 1.33 made it enabled by default for Pods that opt in with `hostUsers: false`, in [Kubernetes 1.33: User Namespace Isolation, Security Matters](https://www.msbiro.net/posts/kubernetes-133-user-namespace-isolation-security-matters/). The security value has not changed: root inside the container is mapped to an unprivileged user on the host, so even if a container escape happens, the process does not land on the node with host-level administrative power.
+
+What changes in 1.36 is the maturity signal. In 1.33, the message was: this is ready to start using broadly, and the feature gate friction is gone. In 1.36, the message is stronger: user namespace isolation is now a stable part of Kubernetes, with the long-term API guarantees and production confidence that come with GA. For multi-tenant clusters, CI workloads, and environments where container breakout risk is part of the threat model, that matters.
+
+This does not remove the operational prerequisites. You still need a Linux environment with the right kernel and runtime support, and the filesystems involved in Pod volumes must support idmapped mounts. But if those requirements are already met, Kubernetes 1.36 removes the last maturity caveat. This is no longer a promising security feature; it is a supported platform capability.
+
 ### External Signing of ServiceAccount Tokens (GA)
 
 Kubernetes 1.36 also brings the graduation to stable of external signing for ServiceAccount tokens ([KEP-740](https://kep.k8s.io/740)).
@@ -117,19 +127,24 @@ kubectl get services --all-namespaces -o json | \
 
 **SELinux operators: review your Pod security contexts before rolling out 1.36.** The new `seLinuxChangePolicy` behavior is the default for all volumes; misconfigured contexts on Pods sharing volumes can cause failures. Set it explicitly rather than relying on implicit behavior.
 
+**Teams planning to use user namespaces: confirm the prerequisites before treating GA as an automatic win.** The feature is now stable, but you still need compatible kernels, runtimes, and filesystems that support idmapped mounts. Then you need to opt Pods in with `hostUsers: false`; GA does not mean every Pod starts using it automatically.
+
 ## Final Thoughts
 
-Kubernetes 1.36 is not a flashy release full of exciting new alpha features. It is a release that made hard decisions: retiring a beloved but unmaintainable project, removing a feature that has been a CVE vector for fifteen years, and promoting security improvements that benefit real-world production environments running SELinux. This kind of release is what a mature, security-aware project looks like.
+Kubernetes 1.36 is not a flashy release full of exciting new alpha features. It is a release that made hard decisions: retiring a beloved but unmaintainable project, removing a feature that has been a CVE vector for fifteen years, and promoting security improvements that benefit real-world production environments running SELinux and hardened container workloads. This kind of release is what a mature, security-aware project looks like.
 
-The retirement of Ingress NGINX is the moment the Kubernetes community chose ecosystem health over backward compatibility theater. The SELinux GA graduation is the kind of unglamorous, high-impact improvement that operators on regulated infrastructure have been waiting for. Together, they tell a consistent story: Kubernetes 1.36 prioritized security and long-term maintainability over feature count.
+The retirement of Ingress NGINX is the moment the Kubernetes community chose ecosystem health over backward compatibility theater. The GA graduation of user namespace isolation closes an important maturity loop that started long before 1.33 enabled it by default. The SELinux GA graduation is the kind of unglamorous, high-impact improvement that operators on regulated infrastructure have been waiting for. Together, they tell a consistent story: Kubernetes 1.36 prioritized security and long-term maintainability over feature count.
 
 That is, honestly, exactly what you want from a platform you run in production.
 
 ### References
 
 - [Kubernetes v1.36 Sneak Peek — kubernetes.io blog](https://kubernetes.io/blog/2026/03/30/kubernetes-v1-36-sneak-peek/)
+- [Kubernetes v1.36 Release — kubernetes.io blog](https://kubernetes.io/blog/2026/04/22/kubernetes-v1-36-release/)
 - [Kubernetes 1.36 CHANGELOG — GitHub](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md)
 - [Ingress NGINX Retirement Announcement — kubernetes.io blog](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/)
+- [Kubernetes 1.33: User Namespace Isolation, Security Matters — msbiro.net](https://www.msbiro.net/posts/kubernetes-133-user-namespace-isolation-security-matters/)
+- [KEP-127: Support User Namespaces in Pods](https://kep.k8s.io/127)
 - [KEP-1710: Speed up recursive SELinux label change](https://kep.k8s.io/1710)
 - [KEP-740: External signing of ServiceAccount tokens](https://kep.k8s.io/740)
 - [KEP-5040: Remove gitRepo volume driver](https://kep.k8s.io/5040)
