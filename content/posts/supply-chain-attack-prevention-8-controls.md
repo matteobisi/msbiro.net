@@ -1,5 +1,5 @@
 ---
-title: "Supply Chain Attacks Keep Working: A Practical Survival Guide"
+title: "Supply Chain Attacks Won't Stop: 8 Controls to Reduce Your Exposure"
 date: 2026-04-26T12:00:00+01:00
 tags: [
   "cybersecurity", "supply-chain-security", "devsecops",
@@ -8,11 +8,11 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
-description: "Bitwarden CLI, Trivy, Axios, Notepad++: supply chain attacks are becoming routine. This is not another incident report. It is a set of practical ground rules to minimize the blast radius when your luck runs out."
-canonicalURL: "https://www.msbiro.net/posts/supply-chain-attacks-survival-guide/"
+description: "Bitwarden CLI, Trivy, and Axios compromised in three weeks. Your EDR won't catch postinstall scripts. 8 practical controls to reduce the blast radius."
+canonicalURL: "https://www.msbiro.net/posts/supply-chain-attack-prevention-8-controls/"
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -64,13 +64,13 @@ The pattern across all of these runs the same way: trusted update channels, legi
 
 ---
 
-## EDR Is Not Enough at the Package Layer — But It Is Not Irrelevant Either
+## EDR Is Not Enough at the Package Layer, But It Is Not Irrelevant Either
 
-This is the uncomfortable part. Most organisations run endpoint detection and response platforms: CrowdStrike, SentinelOne, Microsoft Defender, and similar tools. They are well-funded, well-marketed, and genuinely effective at what they were built to do.
+Most organisations run endpoint detection and response platforms: CrowdStrike, SentinelOne, Microsoft Defender, and similar tools. They are well-funded, well-marketed, and genuinely effective at what they were built to do.
 
 The problem is that they were not built for the package installation layer.
 
-I came across an interview on [Laterstack](https://laterstack.com/edr-open-source-malware-paul-mccarty-interview/) with Paul McCarty, a supply chain security researcher who was part of the group that caught the Trivy compromise before the major vendors published anything. His explanation of why EDR misses interpreted malware is worth reading in full, but the short version is this:
+I came across an interview on [Laterstack](https://laterstack.com/edr-open-source-malware-paul-mccarty-interview/) with [Paul McCarty](https://www.linkedin.com/in/mccartypaul/), a supply chain security researcher who was part of the group that caught the Trivy compromise before the major vendors published anything. His explanation of why EDR misses interpreted malware is worth reading in full, but the short version is this:
 
 EDR platforms are built around two detection primitives. The first is file hashes of known bad binaries: if they have seen a bad `.exe` or `.dll` before, they will catch it again. The second is anomalous behaviour signatures like mass file encryption. Both are irrelevant when the attacker ships a malicious `.js` or `.py` postinstall script. There is no binary to hash: a threat actor can push twenty new versions of a malicious JavaScript payload in a single day, and each one will have a different hash. The behaviour of an infostealer does not look like ransomware: it reads a few files in well-known browser or credential directories, serialises them into a JSON blob, and POSTs them over HTTPS. That is exactly what legitimate apps do constantly.
 
@@ -78,17 +78,17 @@ McCarty ran thousands of interpreted payloads through VirusTotal and the major s
 
 If you are running `npm install` or `pip install` in a developer environment or a CI/CD pipeline, your EDR vendor is not meaningfully protecting that operation. The assumption that it is protected is the assumption that gets organisations into headlines.
 
-The Axios compromise shows where EDR can still contribute. The attack did not stop at a JavaScript package: it chained into a cross-platform binary RAT (WAVESHAPER.V2), deployed via a renamed PowerShell executable on Windows. That binary stage is exactly what behavioural EDR was built for. SentinelOne's Lunar engine caught the renamed binary execution technique regardless of payload hash, and their Wayfinder team ran proactive hunts across all MDR regions using specific IOCs within hours of the attack being confirmed.
+The Axios compromise shows where EDR can still contribute. The attack did not stop at a JavaScript package: it chained into a cross-platform binary RAT (WAVESHAPER.V2), deployed via a renamed PowerShell executable on Windows. That binary stage is exactly what behavioural EDR was built for. [SentinelOne's Lunar engine](https://www.sentinelone.com/blog/securing-the-supply-chain-how-sentinelones-ai-edr-stops-the-axios-attack-autonomously/) caught the renamed binary execution technique regardless of payload hash, and their Wayfinder team ran proactive hunts across all MDR regions using specific IOCs within hours of the attack being confirmed.
 
-The lesson is architectural: EDR provides no meaningful protection at the interpreted-package stage, but it can intercept the binary payload stage that follows — if the attack chain includes one, and if the EDR is configured to act autonomously at machine speed rather than waiting for a human analyst. The gap is still real. It is just not the entire picture.
+In short, EDR provides no meaningful protection at the interpreted-package stage, but it can intercept the binary payload stage that follows, if the attack chain includes one and if the EDR is configured to act autonomously at machine speed rather than waiting for a human analyst. The gap is still real. It is just not the entire picture.
 
 ---
 
 ## Ground Rules for When Your Luck Runs Out
 
-I want to be direct: there is no configuration that makes you immune. The Bitwarden attack abused a legitimate publishing mechanism. The Axios attack used a compromised maintainer account. The Trivy attack spoofed a release tag. Each of these vectors looks legitimate at the moment it fires.
+There is no configuration that makes you immune. The Bitwarden attack abused a legitimate publishing mechanism. The Axios attack used a compromised maintainer account. The Trivy attack spoofed a release tag. Each of these vectors looks legitimate at the moment it fires.
 
-What you can do is reduce the blast radius and speed up detection. Here is what I consider the practical baseline.
+You can reduce the blast radius and speed up detection. Here is what I'd actually put in place.
 
 ### 1. Pin GitHub Actions to a Commit SHA
 
@@ -100,7 +100,7 @@ The correct form is:
 uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 ```
 
-The comment preserves readability; the hash enforces integrity. This is not theoretical hygiene: it is the specific control that would have raised a red flag in the Bitwarden case. Tools like [Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot) and [StepSecurity Harden-Runner](https://github.com/step-security/harden-runner) can automate the pinning and keep the hashes current.
+The comment preserves readability; the hash enforces integrity. In the Bitwarden case, this is the specific control that would have raised a red flag. Tools like [Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot) and [StepSecurity Harden-Runner](https://github.com/step-security/harden-runner) can automate the pinning and keep the hashes current.
 
 ### 2. Enforce Least-Privilege Token Permissions on Every Workflow
 
@@ -122,13 +122,15 @@ Workflow permissions that are not explicitly granted cannot be abused.
 
 npm, PyPI, Docker Hub, and every other package registry account should have multi-factor authentication enabled and enforced. The Axios attack started with a compromised maintainer account; MFA would not have made that impossible, but it raises the cost significantly. npm has supported hardware key and TOTP MFA for years, and for accounts with publish access it can be made mandatory at the organisation level.
 
-This is table-stakes hygiene that still gets skipped.
+It still gets skipped.
 
 ### 4. Treat Postinstall Scripts as Hostile Until Proven Otherwise
 
 The Bitwarden malware ran before a single CLI command was issued, through npm's `preinstall` lifecycle hook. Every package that ships install-time scripts deserves a question: does this package actually need to run code during installation?
 
 For dependencies you own or control, remove postinstall scripts unless they are strictly necessary. For third-party dependencies, `npm install --ignore-scripts` prevents lifecycle hooks from executing. This is not always practical for complex toolchains, but in CI/CD environments where you are installing a known, locked dependency set, it is a reasonable default to consider.
+
+The LiteLLM attack, documented in SentinelOne's [analysis of the three March 2026 supply chain attacks](https://www.sentinelone.com/blog/hypersonic-supply-chain-attacks-one-solution-that-didnt-need-to-know-the-payload/), introduced a sharper edge to this problem. In one confirmed incident, an AI coding agent running with unrestricted permissions (`claude --dangerously-skip-permissions`) auto-updated to the infected version without any human review. The human friction that might have caught something off (a maintainer pausing, noticing an unexpected version bump) disappeared entirely. Supply chain attacks already exploit the minutes between a malicious publish and community detection; autonomous agents with install permissions remove even that friction. If you are running agentic workflows, restricting install permissions and treating auto-update as a default-off behaviour is not optional.
 
 ### 5. Lock and Verify Your Dependency Tree
 
@@ -148,25 +150,25 @@ Use a secrets manager (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault) wi
 
 Paul McCarty's group caught the Trivy compromise before CrowdStrike, Wiz, and Socket had published anything. How? Not through better tools: through an intel-sharing network of researchers who communicate directly and quickly. The big vendor platforms caught up later.
 
-This has a practical implication. Follow the communities that do this work: [OpenSourceMalware.com](https://opensourcemalware.com), the [Open Source Security Foundation](https://openssf.org), Endor Labs' blog, and the security advisories for every critical dependency in your tree. Subscribe to the GitHub Security Advisories feed for your language ecosystem. Set up Dependabot alerts and actually triage them. The signal exists; the question is whether you have a pipeline to receive it.
+Follow the communities doing this work: [OpenSourceMalware.com](https://opensourcemalware.com), the [Open Source Security Foundation](https://openssf.org), Endor Labs' blog, and the security advisories for every critical dependency in your tree. Subscribe to the GitHub Security Advisories feed for your language ecosystem. Set up Dependabot alerts and actually triage them. The signal exists; the question is whether you have a pipeline to receive it.
+
+### 8. Run AI Coding Agents in an Isolated Sandbox
+
+All the controls above operate at the policy layer: pin the hash, restrict permissions, check the lockfile. When an AI agent with install permissions is itself the compromised party (as LiteLLM demonstrated), policy controls only hold if the agent is not the vector. The infrastructure layer also has an answer: run the agent in an environment where the blast radius is contained by design, not by convention.
+
+[Docker Sandboxes](https://docs.docker.com/ai/sandboxes) (`sbx`) does exactly that. Each agent runs inside its own microVM with a network proxy that enforces an explicit allow-list. A malicious `preinstall` script attempting to POST harvested credentials to an attacker-controlled domain (like the `audit.checkmarx[.]cx` used in the Bitwarden attack) receives a 403. The exfiltration channel does not exist. The credential handling adds another layer: AI service credentials are never stored inside the VM; the proxy injects them at request time, so an infostealer reads a placeholder, not a real key. Add the `--branch` flag and no agent code reaches production without a human review.
+
+I tested and wrote about this setup in detail in a [dedicated post](https://www.msbiro.net/posts/docker-sandboxes-ai-agents/).
 
 ---
 
 ## A Note on Trust Models
 
-McCarty made one other point in that interview that I keep thinking about. Git was not built with security in mind. It accepts user identity implicitly. You can push a commit to GitHub attributed to Linus Torvalds. The commit history that GitHub surfaces on every contributor's profile is something you can fabricate entirely on your local machine and push without challenge.
+There is one more thread from McCarty's interview worth pulling on. Git was not built with security in mind: you can push a commit attributed to Linus Torvalds with nothing more than a local config change. The forge (GitHub, GitLab, wherever you host) is the implicit trust anchor, and the Bitwarden attack succeeded in part by subverting exactly that anchor through its Trusted Publishing mechanism. [gittuf](https://gittuf.dev/), currently in beta under the OpenSSF Supply Chain Integrity Working Group, is a structural answer to this: it moves security policy into the repository itself, signed and verifiable independently of the forge. Worth watching.
 
-There is a project trying to fix this at the infrastructure level rather than the convention level. [gittuf](https://gittuf.dev/) is a platform-agnostic security layer for Git, incubating under the OpenSSF Supply Chain Integrity Working Group. The core problem it addresses: your repository's security policies, branch protections, and reviewer requirements all live on the forge (GitHub, GitLab, wherever you host). That makes the forge a single point of trust. If the forge is compromised, or if you migrate platforms, those controls either evaporate or require you to blindly trust whatever the new forge says.
+The goal across all of these controls is not zero risk; none of them makes you immune. What they do is raise the cost and complexity of a successful attack enough that you are no longer the easiest target in the room. The software supply chain has been a primary attack surface for years. The incidents of the last few months just make the pattern impossible to keep ignoring.
 
-gittuf moves security policy into the repository itself, signed and verifiable by anyone with access to the repo, independent of any hosting platform. It builds on The Update Framework (TUF) for key management and rotation, handles granular write access rules per branch, tag, or file path, and tracks the full history of policy changes inside the repository.
-
-At [SecurityCon 2026](https://www.youtube.com/watch?v=EwZhvbmaRkk&t=1263s), the project team presented how gittuf addresses exactly the weakness McCarty described: forges as an implicit, unverifiable trust anchor. The project is currently in beta, but it is worth watching closely. The Bitwarden attack succeeded in part because the forge's Trusted Publishing mechanism was the trust anchor, and that anchor was subverted. Decentralising that trust into the repository itself is not a patch; it is a structural rethink.
-
-The trust we place in signed releases, pinned hashes, and verified publishers is not perfect: the Bitwarden attack abused a legitimate publishing mechanism. But each layer of verification raises the cost and complexity of a successful attack. The goal is not zero risk; it is making the operation expensive enough that attackers move toward softer targets.
-
-The software supply chain has been a primary attack surface for years. The incidents of the last few months just make the pattern impossible to keep ignoring. The tools that catch these attacks are not the tools most organisations have deployed. The people who catch these attacks are underfunded and operating at the margins.
-
-That is the threat model. Build your defences accordingly.
+Build your defences accordingly.
 
 ---
 
@@ -178,6 +180,8 @@ That is the threat model. Build your defences accordingly.
 - [Laterstack: EDR, Open Source Malware, and the People Gap (Paul McCarty interview)](https://laterstack.com/edr-open-source-malware-paul-mccarty-interview/)
 - [Cloud Security Newsletter: Supply Chain Attack on Trivy, LiteLLM and Axios](https://www.cloudsecuritynewsletter.com/p/supply-chain-attack-trivy-litellm-axios-appsec-ai-2026)
 - [SentinelOne: How SentinelOne's AI EDR Stops the Axios Attack Autonomously](https://www.sentinelone.com/blog/securing-the-supply-chain-how-sentinelones-ai-edr-stops-the-axios-attack-autonomously/)
+- [SentinelOne: Hypersonic Supply Chain Attacks — One Solution That Didn't Need to Know the Payload](https://www.sentinelone.com/blog/hypersonic-supply-chain-attacks-one-solution-that-didnt-need-to-know-the-payload/)
 - [The Hacker News: Bitwarden CLI Compromised in Ongoing Supply Chain Attack](https://thehackernews.com/2026/04/bitwarden-cli-compromised-in-ongoing.html)
 - [gittuf: Platform-Agnostic Git Security (OpenSSF)](https://gittuf.dev/)
 - [SecurityCon 2026: gittuf, Removing the Forge as a Single Point of Trust](https://www.youtube.com/watch?v=EwZhvbmaRkk&t=1263s)
+- [msbiro.net: Docker Sandboxes — Running AI Agents in YOLO Mode, Safely](https://www.msbiro.net/posts/docker-sandboxes-ai-agents/)
