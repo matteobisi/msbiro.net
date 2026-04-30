@@ -1,8 +1,6 @@
 ---
 title: "Ubuntu 26.04 LTS: What Changes for Security and Container Workloads"
 date: 2026-04-30T07:00:00+01:00
-aliases:
-  - /posts/ubuntu-2604-lts-security-upgrade-golden-master/
 tags: [
   "ubuntu", "linux", "cloud-native", "kubernetes", "containers",
   "cybersecurity", "devops", "golden-master", "cgroup", "post-quantum"
