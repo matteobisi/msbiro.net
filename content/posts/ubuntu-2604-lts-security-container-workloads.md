@@ -1,6 +1,8 @@
 ---
 title: "Ubuntu 26.04 LTS: What Changes for Security and Container Workloads"
 date: 2026-04-30T07:00:00+01:00
+aliases:
+  - /posts/ubuntu-2604-lts-security-upgrade-golden-master/
 tags: [
   "ubuntu", "linux", "cloud-native", "kubernetes", "containers",
   "cybersecurity", "devops", "golden-master", "cgroup", "post-quantum"
@@ -12,7 +14,7 @@ draft: false
 hidemeta: false
 comments: false
 description: "Ubuntu 26.04 LTS 'Resolute Raccoon' just shipped. For teams running RHEL or Ubuntu on servers, this post breaks down what actually changed in security and container/Kubernetes workloads compared to 24.04 LTS, and whether it justifies starting the golden master rebuild now."
-canonicalURL: "https://www.msbiro.net/posts/ubuntu-2604-lts-security-upgrade-golden-master/"
+canonicalURL: "https://www.msbiro.net/posts/ubuntu-2604-lts-security-container-workloads/"
 disableShare: true
 hideSummary: false
 searchHidden: false
@@ -102,4 +104,3 @@ In both cases: **wait for 26.04.1** (expected August 2026) before baselining pro
 
 Ubuntu 26.04 LTS is a meaningful release: post-quantum SSH by default, sudo rewritten in Rust, hardware-backed VM isolation, cgroup v2 exclusive, and kernel 7.0 with Shadow Stack and confidential computing on a stable LTS baseline.  
 The migration is justified; the timeline depends on your team's capacity.
-
