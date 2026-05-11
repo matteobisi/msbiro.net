@@ -1,6 +1,6 @@
 ---
 title: "SentinelOne Purple MCP: A Hands-On Guide to Singularity AI Integration"
-date: 2026-05-08
+date: 2026-05-11
 tags: [
   "cybersecurity", "mcp", "sentinelone", "soc", "ai", "threat-hunting",
   "devsecops", "cloud-native", "kubernetes"
@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Hands-on review of SentinelOne's purple-mcp: how to connect Singularity alerts, vulnerabilities, and threat hunting to Claude Code for faster SOC triage."
