@@ -9,7 +9,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Cloud Native Days Italy 2026 wrapped up in Bologna. A personal recap from one of the organizers: speakers, MCs, sponsors, and a community worth celebrating."
