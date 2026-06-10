@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "A review of Anthropic's Zero Trust for AI Agents eBook: a practical security framework for deploying autonomous AI agents, covering threat modeling for security leaders and an implementation guide for architects and engineers."
