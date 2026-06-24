@@ -37,7 +37,7 @@ editPost:
     appendFilePath: true
 ---
 
-We are in 2026 and I still receive questions from customers and colleagues about why they should adopt a hardened container image catalog, why it matters, and how to justify the investment internally. I hear it from security engineers, from architects, from technical leads at companies that are otherwise doing serious work on their security posture.
+It's 2026 and I still receive questions from customers and colleagues about why they should adopt a hardened container image catalog, why it matters, and how to justify the investment internally. I hear it from security engineers, from architects, from technical leads at companies that are otherwise doing serious work on their security posture.
 
 The honest answer is short: European regulations like DORA and NIS2 require it, and from a purely technological standpoint it is the logical evolution of how we have always managed infrastructure. Both arguments stand independently. Together they leave no room for debate.
 
