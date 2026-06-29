@@ -333,7 +333,7 @@ kubectl exec -n my-namespace my-pod -c istio-proxy -- \
 
 SPIFFE and SVID are not new technology. They are a standardization of X.509 applied to workload identity, the same certificate format used everywhere else, with a URI-based naming convention that suits dynamic infrastructure better than static hostnames.
 
-mTLS was something I understood theoretically for years, but never applied in a real production environment until my current role. It was only when I started working deeply with secrets management that I encountered [SPIFFE and SPIRE](https://spiffe.io/) in practice. Watching a workload receive a short-lived certificate, prove its identity to another service, and have the whole thing rotate transparently every 24 hours without a single manual step — that is when the engineering behind it clicked for me. It solves a genuinely hard problem in a clean way.
+mTLS was something I understood theoretically for years, but never applied in a real production environment until my current role. It was only when I started working deeply with secrets management that I encountered [SPIFFE and SPIRE](https://spiffe.io/) in practice. Watching a workload receive a short-lived certificate, prove its identity to another service, and have the whole thing rotate transparently every 24 hours without a single manual step, that is when the engineering behind it clicked for me. It solves a genuinely hard problem in a clean way.
 
 ---
 
