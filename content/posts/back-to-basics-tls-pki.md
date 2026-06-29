@@ -1,6 +1,6 @@
 ---
 title: "Back to Basics: TLS and PKI from the Ground Up"
-date: 2026-06-28T15:49:50+01:00
+date: 2026-06-29T07:49:50+01:00
 tags: [
   "cybersecurity", "devops", "linux", "open-source", "tutorial",
   "tls", "pki", "kubernetes", "devsecops", "certificates", "openssl",
@@ -9,7 +9,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "TLS and PKI explained from the ground up: what an X.509 certificate actually contains, how the chain of trust works, what happens during a TLS handshake step by step, and how Kubernetes builds a full PKI with kubeadm that most engineers never read. Practical openssl commands throughout."
@@ -35,9 +35,9 @@ editPost:
     appendFilePath: true
 ---
 
-This is the third article in my "Back to Basics" series. The goal of the series is simple: take something that modern engineers interact with daily through abstractions, and explain what is actually happening underneath. In the [first article](https://www.msbiro.net/posts/back-to-basics-sshd-hardening/), I hardened an SSH daemon and explained why the defaults are insecure. In the [second](https://www.msbiro.net/posts/back-to-basics-containers-linux-processes/), I showed that containers are ordinary Linux processes wrapped in namespaces and cgroups. This article applies the same approach to TLS: strip away the abstractions, read the raw structures, and understand what the tooling is doing on your behalf.
+This is the third article in my "Back to Basics" series. The goal is simple: take something modern engineers interact with daily through abstractions, and explain what is actually happening underneath. In the [first article](https://www.msbiro.net/posts/back-to-basics-sshd-hardening/), I hardened an SSH daemon and explained why the defaults are insecure. In the [second](https://www.msbiro.net/posts/back-to-basics-containers-linux-processes/), I showed that containers are ordinary Linux processes wrapped in namespaces and cgroups. This article applies the same approach to TLS: strip away the abstractions, read the raw structures, and understand what the tooling is doing on your behalf.
 
-I have been working with certificates for more than a decade, starting long before Kubernetes existed, when the job was configuring Apache or Nginx, manually concatenating PEM files, and debugging handshake failures with `openssl s_client` at 2am because the intermediate CA was missing from the chain. The tooling has improved enormously since then, but the fundamentals have not changed at all. That is what makes them worth learning once and keeping forever.
+I have been working with certificates for more than a decade, starting long before Kubernetes existed, manually concatenating PEM files and debugging handshake failures with `openssl s_client` at 2am because an intermediate CA was missing from the chain. The tooling has improved enormously since then, but the fundamentals have not changed at all. That is what makes them worth learning once and keeping forever.
 
 Open a terminal, follow the commands as you read, and by the end you will be able to read a certificate by hand, trace a complete chain of trust, watch a TLS handshake happen live, and navigate the Kubernetes PKI without treating it as magic.
 
@@ -45,7 +45,7 @@ Open a terminal, follow the commands as you read, and by the end you will be abl
 
 ## The Foundation: Asymmetric Cryptography
 
-TLS is built on asymmetric cryptography, which means every participant holds two mathematically linked keys: a private key and a public key. The relationship between them is the entire foundation of the system, so it is worth being precise about what each key does.
+TLS is built on asymmetric cryptography, which means every participant holds two mathematically linked keys: a private key and a public key. The relationship between them is the entire foundation of the system.
 
 The **private key** must never leave the machine that generated it. It has two powers: it can decrypt data that was encrypted with the matching public key, and it can create a digital signature that anyone with the public key can verify. Keeping it secret is not optional; it is the single point of failure for the entire trust model.
 
@@ -114,19 +114,19 @@ The **issuer signature** is the critical field. For a self-signed cert, the issu
 
 Self-signed certificates present a fundamental problem: anyone can generate one claiming to be `api.bank.com`. There is no way to distinguish a legitimate cert from a forged one unless you have a prior relationship with the entity that signed it.
 
-The solution is a hierarchy. At the top sits a **Root CA**, a certificate authority whose public key is pre-installed in your operating system or browser. When your browser trusts `CN=DigiCert Global Root CA`, it means the OS vendor has made a deliberate trust decision, typically after a formal audit. The root CA's private key is kept offline, often in a hardware security module in a physically secured facility, because compromising it would undermine trust in every certificate it has ever issued.
+The solution is a hierarchy. At the top sits a **Root CA**, a certificate authority whose public key is pre-installed in your operating system or browser. Root CAs do not sign end-entity certificates directly; they sign **Intermediate CAs**, which perform the day-to-day work of issuing certificates. This limits exposure: if an intermediate CA is compromised, it can be revoked without touching the root.
 
-Root CAs do not sign end-entity certificates directly. They sign **Intermediate CAs**, which perform the day-to-day work of issuing certificates. This design limits exposure: if an intermediate CA is compromised, it can be revoked without touching the root.
+{{< mermaid >}}
+graph TD
+    A["🔐 Root CA<br/><small>Trusted by OS / browser trust store</small>"]
+    B["🏛️ Intermediate CA<br/><small>Signed by Root, day-to-day issuance</small>"]
+    C["🌐 api.example.com<br/><small>Leaf certificate, signed by Intermediate</small>"]
+    A -->|signs| B
+    B -->|signs| C
+{{< /mermaid >}}
 
-The full chain for a public website looks like this:
 
-```
-Root CA  (trusted by OS)
-  └── Intermediate CA  (signed by Root)
-        └── api.example.com  (signed by Intermediate)
-```
-
-When your client receives the leaf certificate for `api.example.com`, it needs to verify the entire chain. It checks that the leaf cert's issuer signature is valid using the intermediate's public key, then checks that the intermediate's issuer signature is valid using the root's public key, and the root is trusted because it is in the system trust store. If any link in this chain is broken, the verification fails.
+When your client receives the leaf certificate for `api.example.com`, it verifies the entire chain: it checks that the leaf cert's issuer signature is valid using the intermediate's public key, then checks that the intermediate's issuer signature is valid using the root's public key. The root is trusted because it is in the system trust store. If any link is broken, verification fails.
 
 You can verify a chain manually:
 
@@ -147,7 +147,7 @@ csplit -z -f cert- chain.pem '/-----BEGIN CERTIFICATE-----/' '{*}'
 openssl x509 -in cert-00 -text -noout | grep -E "Subject:|Issuer:|Not After"
 ```
 
-This chain verification is also exactly what happens when a Java application or a Jenkins server running behind an internal CA throws `PKIX path building failed: unable to find valid certification path to requested target`. The JVM ships with its own trust store (`cacerts`), separate from the OS, and it does not know about your internal CA. The fix is not to disable certificate validation; the fix is to import the internal root CA certificate into the JVM trust store:
+This chain verification is also exactly what happens when a Java application throws `PKIX path building failed: unable to find valid certification path to requested target`. The JVM ships with its own trust store (`cacerts`), separate from the OS, and it does not know about your internal CA. The fix is not to disable certificate validation. The fix is to import the internal root CA certificate into the JVM trust store:
 
 ```bash
 # Import an internal CA certificate into the JVM trust store
@@ -161,13 +161,28 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts \
   -storepass changeit | grep internal-ca
 ```
 
-The same logic applies to any tool with its own trust store: curl uses the OS store, Git uses the OS store, but the JVM, Python's `certifi` bundle, and Node.js each maintain their own. When a service refuses to connect to something protected by an internal cert, the question is always the same: which trust store is this client reading, and does it contain the signing CA?
+The same logic applies to any tool with its own trust store: `curl` and `git` use the OS store, but the JVM, Python's `certifi` bundle, and Node.js each maintain their own. When a service refuses to connect to something protected by an internal cert, the question is always: which trust store is this client reading, and does it contain the signing CA?
 
 ---
 
 ## The TLS Handshake, Step by Step
 
-Understanding the chain of trust makes the TLS handshake readable. What follows is TLS 1.3, the current standard (TLS 1.2 is still common; TLS 1.0 and 1.1 are deprecated and should be disabled everywhere).
+Understanding the chain of trust makes the TLS handshake readable. What follows is TLS 1.3, the current standard.
+
+### TLS 1.3 vs TLS 1.2
+
+TLS 1.2 is still widely deployed and supported, but TLS 1.3 is the version you should be targeting. The most important practical difference is the number of round trips required to establish a connection:
+
+| | TLS 1.2 | TLS 1.3 |
+|---|---|---|
+| Handshake round trips | 2 | 1 (0-RTT for resumption) |
+| Cipher negotiation | Client and server negotiate after hello | Client sends key exchange parameters in ClientHello |
+| Forward secrecy | Optional | Mandatory |
+| Deprecated algorithms | RC4, SHA-1, CBC ciphers still possible | Removed entirely |
+
+This is why you commonly see `ssl_protocols TLSv1.2 TLSv1.3;` in Nginx configs: you keep 1.2 as a fallback for older clients while preferring 1.3 for everything that supports it. TLS 1.0 and 1.1 are deprecated and should be disabled everywhere.
+
+### The Handshake Steps
 
 The handshake establishes three things: mutual agreement on cryptographic algorithms, verification of the server's identity, and generation of shared session keys that neither side knew in advance.
 
@@ -177,7 +192,7 @@ The handshake establishes three things: mutual agreement on cryptographic algori
 
 **Step 3: Server Certificate.** The server sends its certificate chain, starting from the leaf and ending at the intermediate (the root is not sent because the client already has it in the trust store).
 
-**Step 4: Client Verification.** The client verifies: (a) the signature chain is valid, (b) the `notBefore`/`notAfter` dates include today, and (c) the hostname it is connecting to matches one of the certificate's SANs. If any check fails, the handshake aborts here with the familiar error `x509: certificate signed by unknown authority` or `certificate has expired`.
+**Step 4: Client Verification.** The client verifies: (a) the signature chain is valid, (b) the `notBefore`/`notAfter` dates include today, and (c) the hostname it is connecting to matches one of the certificate's SANs. If any check fails, the handshake aborts here.
 
 **Step 5: Key Derivation.** Both sides use the exchanged key material and their random values to independently derive the same session keys. No key is ever transmitted. An eavesdropper who captured the entire handshake cannot compute the session keys without the private key material that never left the server.
 
@@ -263,7 +278,7 @@ Check the expiry of every certificate in the cluster:
 kubeadm certs check-expiration
 ```
 
-The output shows each certificate, how long it has left, and the CA that issued it. By default, kubeadm-issued certificates expire after one year. The cluster CA itself expires after ten years. When the cluster CA expires, every component stops trusting every other component simultaneously, and the cluster goes dark.
+The output shows each certificate, how long it has left, and the CA that issued it. By default, kubeadm-issued certificates expire after one year. The cluster CA itself expires after ten years. When the cluster CA expires, every component stops trusting every other component simultaneously — the cluster goes dark.
 
 Inspect the certificate your `kubectl` client uses to authenticate:
 
@@ -318,13 +333,13 @@ kubectl exec -n my-namespace my-pod -c istio-proxy -- \
 
 SPIFFE and SVID are not new technology. They are a standardization of X.509 applied to workload identity, the same certificate format used everywhere else, with a URI-based naming convention that suits dynamic infrastructure better than static hostnames.
 
-mTLS was something I understood theoretically for years, but never applied in a real production environment until my current role. It was only when I started working deeply with secrets management that I encountered [SPIFFE and SPIRE](https://spiffe.io/) in practice. Watching a workload receive a short-lived certificate, prove its identity to another service, and have the whole thing rotate transparently every 24 hours without a single manual step: that is when the engineering behind it clicked for me. It solves a genuinely hard problem in a clean way.
+mTLS was something I understood theoretically for years, but never applied in a real production environment until my current role. It was only when I started working deeply with secrets management that I encountered [SPIFFE and SPIRE](https://spiffe.io/) in practice. Watching a workload receive a short-lived certificate, prove its identity to another service, and have the whole thing rotate transparently every 24 hours without a single manual step — that is when the engineering behind it clicked for me. It solves a genuinely hard problem in a clean way.
 
 ---
 
 ## What Goes Wrong (and How to Debug It)
 
-**Self-signed certificates in production.** The temptation is to use `--insecure-skip-tls-verify` or equivalent flags to bypass certificate errors. This defeats the entire purpose of TLS: authentication. An attacker on the network can serve any certificate and the client will accept it. Worse, it normalizes bypassing security checks on the team, making it harder to enforce proper certificate management later.
+**Self-signed certificates in production.** The temptation is to use `--insecure-skip-tls-verify` or equivalent flags to bypass certificate errors. This defeats the entire purpose of TLS: authentication. An attacker on the network can serve any certificate and the client will accept it. Worse, it normalises bypassing security checks on the team, making it harder to enforce proper certificate management later.
 
 **Expired certificates.** This is the most common production incident. The fix is monitoring: alert when any certificate has fewer than 30 days of residual validity. cert-manager handles automatic renewal for certificates it manages. For the Kubernetes control plane PKI, use `kubeadm certs check-expiration` in a cron job or integrate it with your monitoring stack.
 
@@ -337,7 +352,7 @@ echo | openssl s_client -connect api.example.com:443 2>/dev/null \
   | xargs -I{} bash -c 'echo $(( ({} - $(date +%s)) / 86400 )) days remaining'
 ```
 
-**SAN mismatch.** The hostname you are connecting to must appear in the certificate's SAN list. A certificate issued for `api.example.com` will not work for `api.example.com:6443` when the client performs strict hostname verification. It will also not work for `10.96.0.1` (the API server's cluster IP) unless that IP is in the SAN as an `IP Address` entry, not just a DNS name. This is a common issue when regenerating Kubernetes API server certificates after changing a cluster's IP ranges.
+**SAN mismatch.** The hostname you are connecting to must appear in the certificate's SAN list. A certificate issued for `api.example.com` will not work for `10.96.0.1` (the API server's cluster IP) unless that IP is included in the SAN as an `IP Address` entry, a DNS name entry alone is not sufficient. This is a common issue when regenerating Kubernetes API server certificates after changing a cluster's IP ranges. Note: TLS clients strip the port before performing SAN matching, so the port number (`6443`) is irrelevant to hostname verification; only the IP or DNS name matters.
 
 ```bash
 # Check what SANs are on the API server certificate
@@ -352,15 +367,19 @@ kubectl get configmap kube-root-ca.crt -n default -o jsonpath='{.data.ca\.crt}' 
   | openssl x509 -text -noout | grep -E "Subject:|Not After"
 ```
 
-**Wildcard certificate abuse.** A wildcard certificate for `*.example.com` covers every subdomain at one level. If the private key is ever exfiltrated, every subdomain is compromised until the certificate is revoked and reissued. For high-value domains, prefer per-service certificates. cert-manager makes this inexpensive.
+**Wildcard certificate abuse.** A wildcard certificate for `*.example.com` covers every subdomain at one level. If the private key is ever exfiltrated, every subdomain is compromised until the certificate is revoked and reissued. For high-value domains, prefer per-service certificates, cert-manager makes this inexpensive.
+
+> **Note on revocation.** Beyond expiry, certificates can also be revoked before their natural end-of-life. This is handled through two mechanisms: **CRL (Certificate Revocation List)** (a periodically published list of revoked serial numbers signed by the CA) and **OCSP (Online Certificate Status Protocol)** (a real-time query/response protocol where clients ask the CA "is this cert still valid?"). **OCSP stapling** is the modern best practice: the server fetches and caches the OCSP response itself and sends it to clients during the TLS handshake, avoiding a round-trip to the CA and improving both performance and privacy. If you are operating an internal CA, check that your CRL distribution points and OCSP endpoints are reachable from all clients, or incidents from revoked certificates will go undetected.
 
 ---
 
 ## Conclusion
 
-TLS is not magic and it is not just a padlock icon. It is asymmetric cryptography, a global hierarchy of certificate authorities, a precise handshake protocol, and a naming system that binds public keys to identities. Every piece of modern infrastructure, from the Kubernetes API server to the connection between your pod's sidecar and the mesh control plane, is built on these same structures.
+TLS is not magic and it is not just a padlock icon. It is asymmetric cryptography, a global hierarchy of certificate authorities, a precise handshake protocol, and a naming system that binds public keys to identities. Every piece of modern infrastructure (from the Kubernetes API server to the connection between your pod's sidecar and the mesh control plane) is built on these same structures.
 
 Once you have read a raw certificate with `openssl x509 -text -noout`, traced a chain of trust manually, and looked inside `/etc/kubernetes/pki/`, the error messages stop being cryptic. You know which link in the chain is broken, you know where to look, and you are not waiting for someone else to explain it.
+
+If the views of this article will be high like the previous 2 of this series, I'll produce a new episode in the future.
 
 ---
 
