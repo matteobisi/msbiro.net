@@ -1,6 +1,6 @@
 ---
 title: "ECB on AI-Enabled Cybersecurity Threats: What Banks Must Do by October 2026"
-date: 2026-07-09T22:52:57+01:00
+date: 2026-07-10T08:30:00+01:00
 tags: [
   "cybersecurity", "artificial-intelligence", "banking-security",
   "ecb", "dora", "operational-resilience", "vulnerability-management",
@@ -10,10 +10,17 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
-description: "The ECB letter on AI-enabled cybersecurity threats explained through a practical action plan using CNAPP, hardened images, SBOMs, faster patching and DORA operational resilience."
+description: "ECB letter on AI-enabled cybersecurity threats: action plan due October 2026, ITRQ deadline extension, CNAPP, hardened images, SBOMs and DORA resilience."
+keywords: [
+  "ECB letter AI cybersecurity threats", "AI-enabled cybersecurity threats banks",
+  "ECB action plan 31 October 2026", "IT Risk Questionnaire deadline extension",
+  "DORA operational resilience", "bank vulnerability patch management",
+  "CNAPP banking security", "hardened container images", "SBOM VEX supply chain",
+  "ESRB frontier AI warning"
+]
 canonicalURL: "https://www.msbiro.net/posts/ecb-ai-enabled-cybersecurity-threats-letter/"
 disableShare: true
 hideSummary: false
@@ -36,13 +43,19 @@ editPost:
     appendFilePath: true
 ---
 
+I have written several times about hardened images, SBOMs and CNAPP on this blog. I am coming back to them once more because this time the push does not come from a vendor or a conference talk, it comes from the ECB. When a supervisor tells bank CEOs to accelerate patching and prove control over their software supply chain, the technologies I keep recommending stop being nice to have and become the evidence you bring to your Joint Supervisory Team. This article connects the letter to that practical toolbox.
+
 ## AI-Enabled Cybersecurity Threats Are Now a Supervisory Priority
 
 On 7 July 2026, the European Central Bank sent a clear message to the CEOs of significant institutions: AI is shortening the time between vulnerability discovery and exploitation, so banks must make their existing security controls work faster.
 
 The [ECB letter on AI-enabled cybersecurity threats](https://www.bankingsupervision.europa.eu/press/letterstobanks/shared/pdf/2026/ssm.2026_letter_on_AI_enabled_cybersecurity_threats.en.pdf) does not define a new class of cyber risk. The vulnerabilities, exposed systems and weak controls are already familiar. AI increases the speed and scale at which attackers can use them.
 
-Each significant institution must assess this change and submit an action plan to its Joint Supervisory Team by **31 October 2026**. The plan needs concrete measures, resources, owners and implementation dates. DORA remains the regulatory foundation.
+Each significant institution must assess this change and submit an action plan to its Joint Supervisory Team by **31 October 2026**. The plan needs concrete measures, resources, owners and implementation dates. DORA remains the regulatory foundation. The JSTs will discuss the plans with each bank and monitor progress, and the ECB will run a horizontal analysis across all submissions to identify trends and share the conclusions with the industry.
+
+The letter did not arrive alone. The European Systemic Risk Board published a [warning on systemic cyber risks stemming from frontier AI models](https://www.esrb.europa.eu/pub/pdf/warnings/esrb.warning260625_on_systemic_cyber_risks_stemming_from_frontier_ai_models~ef424708cf.en.pdf) on the same day. Supervisors are not just worried about individual banks; they see a systemic risk building across the sector.
+
+To let institutions focus on these key areas, the ECB is also extending the deadline for the annual collection of the IT Risk Questionnaire from September 2026 to February 2027. Adjustments to other supervisory activities, such as on-site inspections or deep dives, will be considered case by case through the ongoing dialogue with the JSTs. Less reporting in the short term, in exchange for a credible action plan by October.
 
 The immediate priorities are practical: know the attack surface, accelerate patching, improve monitoring, verify third party readiness and close existing supervisory findings. The longer term work covers defence-in-depth, legacy system replacement, response, recovery and information sharing.
 
@@ -105,6 +118,9 @@ The hardest problem is still ownership. A CNAPP can find an exposed workload and
 
 That is why the letter puts responsibility on management bodies. Faster remediation requires people, modern infrastructure, controlled change paths and measurable risk tolerance. These are funding and governance decisions, not tasks that can be left entirely to the SOC.
 
+The letter ends by pointing at the next disruption: practical quantum computing. A separate ECB letter on post-quantum cryptography is coming, and the message is that migration must start now because it needs sustained, strategic investment over years. Banks sizing their AI action plan budget should leave room for it.
+
 ## Source
 
 * [European Central Bank, "Addressing AI-enabled cybersecurity threats", 7 July 2026 (PDF)](https://www.bankingsupervision.europa.eu/press/letterstobanks/shared/pdf/2026/ssm.2026_letter_on_AI_enabled_cybersecurity_threats.en.pdf)
+* [European Systemic Risk Board, warning on systemic cyber risks stemming from frontier AI models (PDF)](https://www.esrb.europa.eu/pub/pdf/warnings/esrb.warning260625_on_systemic_cyber_risks_stemming_from_frontier_ai_models~ef424708cf.en.pdf)
