@@ -1,6 +1,6 @@
 ---
 title: "In 2026 I Am Still Asked Why You Need a Centralized Secrets Manager"
-date: 2026-07-02T09:30:00+01:00
+date: 2026-07-17T06:30:00+01:00
 tags: [
   "secrets-management", "secrets-manager", "devsecops", "openbao",
   "hashicorp-vault", "dora", "nis2", "compliance", "kubernetes",
@@ -9,7 +9,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Why a centralized secrets manager is non-negotiable in 2026: the operational limits of git-crypt and sealed-secrets style tools, the DORA and NIS2 mandate, and why OpenBao is now the open source secrets manager to adopt."
@@ -39,7 +39,7 @@ editPost:
 
 It's 2026 and I still get the same question from customers and colleagues: we already encrypt our secrets with git-crypt (or SOPS, or sealed-secrets), why do we need a full secrets manager on top of that? I hear it from platform teams that are otherwise mature, from developers who are genuinely trying to do the right thing, and from managers who see a centralized secrets manager as one more piece of infrastructure to buy, run, and justify.
 
-The honest answer is short: encryption at rest inside a Git repository solves confidentiality of the file and leaves the harder problems untouched. European regulations like DORA and NIS2 remove any remaining room for debate. Let me explain each of them.
+The honest answer is short: encryption at rest inside a Git repository solves confidentiality of the file and leaves the harder problems untouched. European regulations like DORA and NIS2 remove any remaining room for debate.
 
 ---
 
@@ -57,7 +57,7 @@ Engineer A runs `git-crypt unlock` on a laptop to debug a deployment issue and, 
 
 When the incident response team asks "who could have accessed this secret, and did anyone actually access it," git-crypt has no answer. Decryption happens locally, offline, with no logging and no interaction with any server. There is no event to query, no timestamp, no IP address, nothing to hand to an auditor or a SOC analyst. The only trail is the Git commit history, which tells you when a file changed, never who read the decrypted content or when.
 
-This is not a hypothetical edge case; it is the structural design of the tool. A few concrete gaps worth naming explicitly:
+This is not a hypothetical edge case; it is the structural design of the tool:
 
 - **No revocation without re-encryption.** Removing a former employee's access with git-crypt means re-encrypting every protected file with a new key and redistributing it to every remaining holder. With a secrets manager, revoking one identity's access is an API call that takes effect immediately, with no impact on anyone else.
 - **No dynamic secrets.** A database password stored in an encrypted file is the same password until someone manually rotates it. A secrets manager can issue a short-lived database credential on demand and revoke it automatically when the lease expires, so a leaked credential has a shelf life measured in hours instead of years.
@@ -100,13 +100,18 @@ The combined scope of DORA and NIS2 covers the overwhelming majority of enterpri
 
 ## OpenBao: The Open Source Secrets Manager to Adopt in 2026
 
-Once the decision to adopt a secrets manager is made, the next question is which one. In 2026, if having a vendor responsible for the software and support is not mandatory for your organization, there is a clear king of the category: OpenBao.
+Once the decision to adopt a secrets manager is made, the next question is which one. In 2026, if a vendor-backed product is not mandatory for your organization, there is a clear king of the category: OpenBao.
 
-[OpenBao](https://openbao.org/) forked the last MPL 2.0 licensed release of HashiCorp Vault after HashiCorp moved Vault to the Business Source License in 2023. It has since developed independently, maintaining broad API compatibility while opening up several capabilities that used to be Vault Enterprise-only, such as built-in namespaces. On governance, OpenBao is not a CNCF project. It began under LF Edge and moved to the [Open Source Security Foundation (OpenSSF) as a Sandbox project in May 2025](https://github.com/openbao/openbao/blob/main/GOVERNANCE.md), where it is governed by a Technical Steering Committee with both individual and corporate members, including contributors from GitLab, SAP, and ControlPlane.
+[OpenBao](https://openbao.org/) forked the last MPL 2.0 licensed release of HashiCorp Vault after HashiCorp moved Vault to the Business Source License in 2023. It has since developed independently, maintaining broad API compatibility while opening up several capabilities that used to be Vault Enterprise-only, such as built-in namespaces. Its rise since the fork has been fast:
 
-France's [Socle Interministériel de Logiciels Libres (SILL)](https://code.gouv.fr/sill/), the official catalog of open source software recommended for the French public administration, dereferenced HashiCorp Vault in August 2023, citing the switch to the BSL as the reason. It is a concrete, government-documented example of an organization walking away from Vault because of the licensing change, exactly the gap OpenBao was created to fill. OpenBao itself is not yet listed in SILL or any comparable official catalog at the time of writing, and it is worth being precise about that rather than overstating it.
+- **August 2023**: HashiCorp relicenses Vault (and its other core products) from MPL 2.0 to the Business Source License, closing off the last fully open source release.
+- **October 2023**: the fork is announced as OpenBao, incubated under the Linux Foundation's LF Edge, with early backing from IBM, SAP, and other contributors who wanted a vendor-neutral, OSI-approved license to continue.
+- **June 2024**: OpenBao's Technical Steering Committee is formally constituted, moving the project from a bootstrap phase into standing open governance.
+- **July 2024**: [OpenBao v2.0.0 ships as the initial GA release](https://openbao.org/blog/release-v2-0-0/), stabilizing the fork and adding features unavailable in Vault's open edition, such as paginated list APIs.
+- **May 2025**: [OpenBao moves from LF Edge to the Open Source Security Foundation (OpenSSF) as a Sandbox project](https://github.com/openbao/openbao/blob/main/GOVERNANCE.md), governed by a Technical Steering Committee with both individual and corporate members, including contributors from GitLab, SAP, and ControlPlane.
+- **2025**: OpenBao is listed in the European Commission's [EU Open Source Software Catalogue](https://interoperable-europe.ec.europa.eu/eu-oss-catalogue/solutions/openbao), a signal of institutional recognition that matters directly for organizations bound by DORA or NIS2 procurement rules.
 
-It is MPL 2.0 licensed with no vendor-controlled relicensing risk, it supports dynamic secrets, leasing, and revocation, the same primitives that address the DORA and NIS2 gaps described above, and it is already running in production at organizations with real compliance obligations. For a team evaluating whether to move beyond encrypted files in Git, or looking for an open source secrets manager that will not face another licensing surprise, OpenBao is a project you can commit to today, not just a candidate to keep watching.
+OpenBao is not a CNCF project, but it is MPL 2.0 licensed with no vendor-controlled relicensing risk, it supports dynamic secrets, leasing, and revocation, the same primitives that address the DORA and NIS2 gaps described above, and it is already running in production at organizations with real compliance obligations. For a team evaluating whether to move beyond encrypted files in Git, or looking for an open source secrets manager that will not face another licensing surprise, OpenBao is a project you can commit to today, not just a candidate to keep watching.
 
 ---
 
@@ -116,6 +121,20 @@ git-crypt, SOPS, and sealed-secrets solve confidentiality for files at rest. The
 
 Neither objection holds up: the operational gaps are structural, not fixable by using the tools more carefully, and under DORA or NIS2 the regulatory objection was never available in the first place.
 
-The conversation about whether to adopt a centralized secrets manager should be over in 2026. What remains is execution: inventorying where credentials currently live, including every encrypted file and every shared key, identifying which ones are effectively unmanaged, and migrating them behind a platform that can answer who accessed what, and when. Start with the credentials that would cause the most damage if leaked, and measure the difference an audit log makes the first time you actually need one.
+The conversation about whether to adopt a centralized secrets manager should be over in 2026. What remains is execution: inventorying where credentials currently live, including every encrypted file and every shared key, identifying which ones are effectively unmanaged, and migrating them behind a platform with a real audit trail. Start with the credentials that would cause the most damage if leaked, and measure the difference that trail makes the first time you actually need one.
+
+---
+
+## References
+
+- [git-crypt](https://github.com/AGWA/git-crypt)
+- [SOPS](https://github.com/getsops/sops)
+- [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)
+- [Digital Operational Resilience Act (Regulation EU 2022/2554)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554)
+- [NIS2 (Directive EU 2022/2555)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022L2555)
+- [OpenBao](https://openbao.org/)
+- [OpenBao v2.0.0 GA release announcement](https://openbao.org/blog/release-v2-0-0/)
+- [OpenBao governance and TSC membership](https://github.com/openbao/openbao/blob/main/GOVERNANCE.md)
+- [OpenBao on the EU Open Source Software Catalogue](https://interoperable-europe.ec.europa.eu/eu-oss-catalogue/solutions/openbao)
 
 ---
