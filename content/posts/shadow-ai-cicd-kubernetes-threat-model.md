@@ -9,7 +9,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Shadow AI turns ungoverned coding assistants and agents into a live threat across CI/CD. A stage-by-stage threat model from developer laptop to Kubernetes pod, with the executive controls and tooling that contain the risk."
