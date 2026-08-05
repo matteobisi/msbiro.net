@@ -1,6 +1,6 @@
 ---
 title: "OWASP GenAI LLM Top 10 2026: What the New Rankings Mean for Security Teams"
-date: 2026-08-04T09:00:00Z
+date: 2026-08-05T07:00:00Z
 tags: [
   "owasp", "genai", "llm", "ai-security", "cybersecurity",
   "appsec", "prompt-injection", "supply-chain", "devsecops",
@@ -9,7 +9,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "OWASP released the GenAI LLM Top 10 2026, the first edition grounded in 7,714 real AI security incidents. Prompt Injection stays at number one. Excessive Agency climbs. Misinformation is the widest gap between what practitioners fear and what the evidence shows."
