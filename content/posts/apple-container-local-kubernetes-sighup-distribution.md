@@ -113,6 +113,8 @@ kubectl -n local-demo port-forward service/local-demo 8080:80
 
 Open `http://127.0.0.1:8080` while the port-forward is running. The demo image is built from a local Containerfile, loaded into the node, and deployed with `imagePullPolicy: Never`. No application registry is involved after the local build.
 
+![AppleContainer K8s](apple-k8s-demo.png)
+
 Use a fully qualified image reference. The importer made the image available to CRI as `docker.io/library/apple-container-local-demo:0.1.0`, while kubelet rejected the equivalent bare name with `ErrImageNeverPull`. Check the node's CRI image store when a local image is not found:
 
 ```bash
@@ -164,6 +166,8 @@ Furyctl completed successfully. The cluster scheduled cert-manager, Forecastle, 
 ```bash
 kubectl -n monitoring port-forward service/grafana 3000:3000
 ```
+
+![AppleContainer Sighup Kuberneetes K8s Grafana](SIGHUP-K8s-grafana.png)
 
 The deployment wrapper removes two systemd-only logging tailers after Furyctl applies the logging module. Those workloads cannot run in this Apple Container node; the remaining logging components, including Fluent Bit, become Ready after the inotify tuning.
 
