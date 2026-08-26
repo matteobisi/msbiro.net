@@ -1,18 +1,18 @@
 ---
-title: "Kubernetes Audit Logs: Designing the Evidence Your SOC Actually Needs"
+title: "Kubernetes Audit Logs and HAProxy Logs for SOC Evidence"
 date: 2026-08-21T09:00:00Z
 tags: [
-  "kubernetes", "audit-logging", "soc", "siem", "devsecops",
-  "cloud-native", "cybersecurity", "cis", "cnapp", "sentinelone",
-  "compliance", "incident-response"
+  "kubernetes", "audit-logging", "haproxy", "ingress-controller",
+  "soc", "siem", "devsecops", "cloud-native", "cnapp",
+  "runtime-security", "incident-response"
 ]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
-description: "How Kubernetes audit logging works, what the defaults leave out, and how to tune the audit policy to collect the evidence a SOC needs without drowning analysts in noise. Includes the CIS Kubernetes Benchmark recommendations and how to ship audit logs to your SIEM."
+description: "Learn how Kubernetes audit logs and HAProxy logs complement CNAPP posture and runtime security to give SOC analysts actionable evidence."
 canonicalURL: "https://www.msbiro.net/posts/kubernetes-audit-logs-soc-evidence/"
 disableShare: true
 hideSummary: false
@@ -25,7 +25,7 @@ ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
     image: "https://www.msbiro.net/social-image.png"
-    alt: "Kubernetes audit logs flowing from the API server to a SIEM for SOC analysts"
+    alt: "Kubernetes audit logs and HAProxy ingress logs flowing to a SIEM for SOC analysts"
     caption: ""
     relative: false
     hidden: true
@@ -35,187 +35,78 @@ editPost:
     appendFilePath: true
 ---
 
-One of the most important topics my team has been following this year is designing and implementing a SOC service for cloud-native workloads at our company. We started with the preventative layer. We designed and tuned a solid set of posture rules enforced by SentinelOne Singularity, covering misconfigurations, risky privileges, and known bad patterns across our clusters. That part is working well.
+One of the most important topics my team has been following this year is designing and implementing a SOC service for cloud-native workloads at [ReeVo](https://www.reevo.it/en/). We started with the preventative layer. We designed and tuned a solid set of posture rules through our CNAPP solution, covering misconfigurations, risky privileges, and known bad patterns across our clusters. The platform also gives us runtime-security capabilities to identify suspicious behaviour as it occurs. That part is working well.
 
-The phase we are in now is the second half of the same problem. Posture tells you what is vulnerable or misconfigured. It does not tell you what happened. For that you need evidence, the raw record of who did what and when, so that a detection has something to attach to and an analyst has something to investigate. We are collecting two streams of evidence into our internal SIEM: the ingress controller logs from HAProxy, and the Kubernetes audit logs from our clusters. The goal is to make both available to our SOC analysts as evidence when SentinelOne raises a detection, as an additional resource when the SIEM itself generates an alert, and as an automated correlation source alongside CNAPP findings.
+The phase we are in now is the second half of the same problem. Posture tells you what is vulnerable or misconfigured. It does not tell you what happened. For that you need evidence, the raw record of who did what and when, so that a detection has something to attach to and an analyst has something to investigate. We are collecting two streams of evidence into our internal SIEM: the ingress controller logs from HAProxy and the Kubernetes audit logs from our clusters. They support CNAPP detections, SIEM alerts, and correlation with posture findings.
 
-This article is about the Kubernetes audit log half of that work. What the audit log is, how it works, what you get by default, and how to tune it so that you collect the evidence that matters while keeping a sane balance between security and the noise that makes a SIEM unusable.
-
----
-
-## Why Audit Logs Are the Missing Half
-
-Posture tools like a CNAPP answer "what could go wrong." They look at a cluster and report that a pod is running as root, or a role has more permissions than it needs. That is a snapshot of risk, and it is enormously valuable, but it is not evidence of an incident.
-
-Audit logs answer "what actually happened." Every request to the Kubernetes API server, every `kubectl apply`, every service account token used to read a secret, every attempt to create a privileged pod, is recorded as an audit event. When a detection fires, the audit log is where you go to reconstruct the sequence that led to it.
-
-The two layers are complementary. SentinelOne tells the analyst that something suspicious happened on a node. The audit log tells the analyst who, what, when, and from where, using which credentials, against which resource. Without the second half, a detection is a headline with no article. Without the first half, the audit log is a firehose with no reason to read it.
+This article is about the evidence strategy behind both streams. We are tuning Kubernetes audit logs for control-plane activity, and defining the advanced HAProxy log fields that give analysts a useful view of internet-facing traffic. The objective is not to collect everything. It is to collect the information that turns a signal into an investigation and, when necessary, an early alert.
 
 ---
 
-## How Kubernetes Audit Logging Works
+## Start With the Service, Not the Alert
 
-Kubernetes audit logging is a feature of the kube-apiserver. It does not require an agent on every node. It does not need a sidecar. It is a first-class part of the control plane, and it works by recording a chronological set of events for every request that reaches the API server.
+It is easy to start a cloud-native security programme by enabling every available integration and turning every interesting signal into an alert. It feels like progress because the dashboard starts to fill up. But an alert alone is not a service. It is only an invitation to investigate.
 
-Each event is built from a handful of dimensions, and understanding them is the whole game:
+The important work happens before that alert reaches the SOC. We need to decide what question the alert should answer, what evidence an analyst will need to make a decision, who owns the next action, and how the result will improve the service over time. Taking time to make those decisions is not a delay in delivery. It is how we avoid creating a noisy service that produces activity without creating confidence.
 
-| Dimension | What it captures |
-| --- | --- |
-| Stage | Where in the request lifecycle the event was recorded |
-| Level | How much detail the event contains |
-| User | Who made the request (username, groups, UID) |
-| Source | Where the request came from (source IP, user agent) |
-| Object | What the request touched (resource, namespace, name) |
-| Verb | What action was attempted (get, list, create, update, delete) |
-| Result | Whether it was allowed or denied |
+This is the approach we are taking. Rather than treating each security capability as an isolated product, we are designing a service in which the capabilities reinforce one another. Posture management identifies the conditions that increase risk. Runtime security identifies behaviour that requires attention. Ingress and audit evidence provide the history and context that make those signals understandable. Together, they give the SOC a path from a finding or alert to an informed response.
 
-The **stages** are the four points in the request lifecycle:
+## Great Signals Still Need Raw Evidence
 
-- `RequestReceived`: the request arrived at the API server.
-- `ResponseStarted`: response headers were sent, before the body completed.
-- `ResponseComplete`: the full response was sent.
-- `Panic`: an unexpected error occurred.
+Our CNAPP solution is a powerful part of this model. It provides evaluated findings and detections, helping us identify relevant risk and focus the SOC on the activity most likely to matter. That assessment is valuable because it reduces the effort required to find a meaningful signal in a complex environment.
 
-Most implementations record at `ResponseComplete`, which captures the final result of the request. Recording at `RequestReceived` as well doubles the volume for little investigative value, which is why you can omit it.
+A SOC analyst will sometimes need more than a pre-evaluated finding. During an investigation, they may need the raw evidence of what was happening in the environment: the request reaching an internet-facing service, the response it received, the workload that served it, and the Kubernetes action that changed the workload or its permissions. The evaluated signal tells the analyst where to look. The raw evidence helps them establish what happened and decide what to do next.
 
-The **levels** are the real tuning knob, and they map to a clear trade-off:
+A useful detection must help an analyst answer four basic questions: what happened, what was affected, who or what initiated the action, and what should happen next. Runtime security and posture management identify suspicious behaviour and exposure. Ingress and audit evidence supply the traffic, identity, timing, and change history needed to answer the remaining questions.
 
-| Level | What you get | Cost |
+## Four Capabilities, One Security Story
+
+We see posture management, runtime security, ingress evidence, and audit evidence as different views of the same environment.
+
+| Capability | The question it helps answer | Its role in the service |
 | --- | --- | --- |
-| `None` | Nothing logged for matching requests | No evidence |
-| `Metadata` | Who, what, when, source, and result. No request or response body. | Low |
-| `Request` | Metadata plus the request body. Not the response. | Medium |
-| `RequestResponse` | Everything, including the response body | High, and risky |
+| Posture management | What could be exposed or misconfigured? | It helps us reduce known risk and prioritise attention. |
+| Runtime security | Is something suspicious happening now? | It gives us timely signals that need investigation or response. |
+| HAProxy ingress logs | What is happening at the internet-facing edge? | They show the requests, clients, responses, and traffic patterns seen by exposed services. |
+| Kubernetes audit logs | What changed, who did it, and when? | They show the control-plane actions, identities, and authorisation context behind a workload. |
 
-The critical insight is that `RequestResponse` is where secrets leak. If you log the response body of a `get` on a Secret, the plaintext secret value lands in your log, which then lives in your SIEM, which is now a bigger and softer target than the cluster ever was. Most policies should never use `RequestResponse` for Secrets, and should use `Metadata` as the default.
+No capability replaces the others. Strong posture reduces the opportunities available to an attacker, but it cannot prove what happened during an incident. Runtime detections provide urgency, but can lack the surrounding context needed for confident triage. HAProxy and Kubernetes audit logs provide complementary evidence, but are most useful when they are collected with a clear investigative purpose.
 
----
+The service becomes stronger when these views can be correlated. A runtime detection involving a workload can be examined alongside its audit history and the ingress requests it served. A posture finding can be prioritised differently when it is associated with unexpected traffic. An ingress event can be linked to the workload and the change that put it in place. The analyst receives a story instead of several disconnected notifications.
 
-## The Defaults: What You Get Out of the Box
+## The Evidence Streams We Are Tuning
 
-Here is the part that surprises people. Kubernetes does not enable audit logging by default.
+Kubernetes audit logs give us the internal control-plane perspective. We tune them to preserve the security-relevant actions, identities, and authorisation decisions that explain how a workload or its access changed. This is particularly important when an investigation needs to establish who created, modified, or granted access to a resource.
 
-A stock cluster, whether it is kubeadm, a kube-apiserver you built yourself, or many managed offerings in their default configuration, records no audit log at all. The kube-apiserver only starts logging when you point it at an audit policy and a destination, neither of which is configured automatically.
+HAProxy gives us the external-facing perspective. We are defining an advanced log schema that retains the security-relevant fields an analyst needs to understand traffic reaching an exposed service. This includes the client source, request method and path, host, response status, request timing, bytes transferred, backend or service selected, and the TLS and connection context where relevant.
 
-The destination can be either of two backends:
+Both streams must be designed deliberately. They should provide enough context to investigate suspicious activity while respecting data-handling boundaries and avoiding the unnecessary collection of sensitive content. The useful question is not whether a field can be logged, but whether it will help an analyst assess risk, reconstruct an incident, or correlate the request with another signal.
 
-- **Log backend**: the kube-apiserver writes audit events to a file on the control plane node (`--audit-log-path`).
-- **Webhook backend**: the kube-apiserver sends audit events as JSON batches to a remote endpoint you control (`--audit-webhook-config-file`), which is the natural integration point for a SIEM.
+HAProxy logs are valuable not only after an alert. They can also create early signals when the traffic profile of an internet-exposed application changes in a meaningful way. A sustained rise in relevant HTTP errors, measured against the normal behaviour of a service, may indicate a failing dependency, an application under stress, a deployment problem, or an attempted attack. The associated raw requests and connection context give the SOC the evidence to distinguish an operational issue from suspicious activity.
 
-Managed clusters handle this differently. EKS sends audit logs to CloudWatch Logs when you enable it. GKE surfaces Kubernetes audit events in Cloud Audit Logs. AKS routes them through Azure Monitor diagnostic settings. Each has its own toggle, and in each case the toggle defaults to off or to a minimal subset. Before you tune a policy, the first job is to confirm the log is being generated at all.
+The same principle applies to changes in client behaviour, unexpected request patterns, or unusual traffic directed at a sensitive endpoint. The goal is not to alert on every error or every rejected request. It is to create high-confidence alerts where a meaningful deviation is supported by the context an analyst needs to act.
 
-The second default problem is volume. When audit logging is turned on with a naive policy that captures everything at `RequestResponse`, the API server can generate enormous amounts of data. Kubernetes is chatty. Kubelets, controllers, and operators continuously list and watch resources. A policy that records every `list` and `watch` at full detail will bury your SIEM and, worse, will bury the one interesting event in a mountain of routine polling.
+## Design the Investigation Before the Collection
 
----
+The right question is not "how much logging can we enable?" It is "what evidence will an analyst need when this type of detection occurs?"
 
-## Designing the Audit Policy
+Starting from the investigation changes the design conversation. We can identify the actions and identities that need to be visible, the information that must be preserved for correlation, and the data that should never be collected because it creates unnecessary risk. Good evidence lets an analyst move from an alert to a defensible conclusion without spending hours searching across unrelated systems.
 
-The audit policy is a YAML file that tells the kube-apiserver what to log. It is evaluated in order, and the first matching rule wins, which means you build it from the most specific rules down to a catch-all default.
+This approach also gives us a practical way to manage noise. Security teams do not need more data for its own sake. Routine activity that adds no investigative value should not obscure the activity that does. The goal is a signal set that is deliberate, explainable, and sustainable for both the platform team and the SOC.
 
-A minimal, useful policy looks like this:
+It is equally important to treat the service as something that will evolve. We should test the evidence available during realistic scenarios, learn where an investigation lacks context, and refine the collection and correlation accordingly. A detection that cannot be explained is not finished. It is feedback for improving the service.
 
-```yaml
-apiVersion: audit.k8s.io/v1
-kind: Policy
-rules:
-  # Secrets and sensitive resources: metadata only, never the body.
-  - level: Metadata
-    resources:
-      - group: ""
-        resources: ["secrets", "configmaps"]
+## What We Are Building
 
-  # High-value, low-volume actions: full request and response.
-  - level: RequestResponse
-    verbs: ["create", "update", "patch", "delete"]
-    resources:
-      - group: ""
-        resources: ["pods", "serviceaccounts", "clusterroles", "rolebindings"]
-      - group: "rbac.authorization.k8s.io"
-        resources: ["roles", "rolebindings", "clusterroles", "clusterrolebindings"]
+For our SOC service, the CNAPP provides the posture and runtime views that help us identify where attention is needed. HAProxy ingress logs add the external-facing request perspective. Kubernetes audit logs add the control-plane actions, identities, and changes behind each workload. Together, they give us evaluated findings and the raw evidence needed to investigate them.
 
-  # Authentication and authorization decisions: request only.
-  - level: Request
-    resources:
-      - group: ""
-        resources: ["tokenreviews", "subjectaccessreviews"]
+Our focus is therefore not simply to enable logging. It is to make the two evidence streams useful in the moments that matter. That means shaping the Kubernetes audit policy and HAProxy log schema around investigations, normalising the information the SOC needs to query, and correlating it with the runtime and posture signals already available.
 
-  # Everything else: metadata, which is enough for reconstruction.
-  - level: Metadata
-```
-
-The thinking behind each tier is simple. Secrets get `Metadata` because the body is the thing you must never store. Mutating actions on security-relevant resources get `RequestResponse` because those are exactly the actions a SOC analyst needs to inspect after an incident. The default catch-all is `Metadata`, because who/what/when/result is enough to reconstruct most investigations without the cost of full bodies.
-
-You can scope rules by user, group, namespace, verb, resource, or non-resource URL. You can add an `omitStages` field to drop `RequestReceived` and halve your volume. You can even exclude the kubelet and controller noise explicitly, though in practice the default `Metadata` catch-all is what keeps the routine traffic from bloating the log.
-
----
-
-## The Balance: Security vs. Noise
-
-The entire art of audit policy design is the balance between evidence and noise, and there are a few rules of thumb that keep you sane.
-
-Log the decisions that matter. The single most valuable thing an audit log records is the authorization result. Every `create`, `update`, `delete`, and every access to a sensitive resource, carries an annotation showing whether it was allowed or denied, and by whom. Denied requests are often more interesting than allowed ones, because they are where reconnaissance and misconfiguration show up first.
-
-Be deliberate about request bodies. Full request bodies are invaluable when investigating a `create pod` that deployed something malicious, and a liability when investigating a `get secret`. Scope body logging to the mutating verbs on security-relevant resources, and keep everything else at metadata.
-
-Exclude the noise sources you already trust. Kubelet heartbeats, controller reconcile loops, and operator watches are constant and predictable. If you find a specific service account or user generating the majority of your events with routine `get` and `list` traffic, exclude or downgrade them explicitly. Your SIEM budget should go to the unexpected, not the routine.
-
-Test against a real incident. The only honest way to know if your policy captures the evidence you need is to rehearse a detection and then ask whether the audit log answered the questions an analyst would ask. If you cannot reconstruct the sequence from the events you collected, the policy is too sparse. If the analyst cannot find the interesting event in the volume, it is too noisy.
-
----
-
-## Industry Standards: The CIS Kubernetes Benchmark
-
-When you tune audit logging, there is a widely accepted baseline to compare against. The CIS Kubernetes Benchmark, which kube-bench and the CNAPP vendors implement, has a set of recommendations for audit logging on the kube-apiserver. The exact section numbers shift between benchmark versions, but the substance has been stable.
-
-The scored recommendations cover:
-
-- Enable audit logging by setting `--audit-log-path` to a valid file.
-- Set `--audit-log-maxage` to retain logs for an appropriate period, commonly 30 days or more.
-- Set `--audit-log-maxbackup` to a sensible retention count, commonly 10.
-- Set `--audit-log-maxsize` to bound individual files, commonly 100 MB, before rotation.
-- Ensure the audit policy is defined and that it does not log full request and response bodies for sensitive resources like Secrets.
-
-The retention recommendations matter because an incident is often discovered days or weeks after the fact. If the log has rotated away, the evidence has rotated away with it. A 30 day window is a reasonable floor, and you should reconcile it against your SIEM's own retention and your organization's compliance obligations.
-
-The final point is the one most worth internalizing. CIS does not merely say "turn on audit logging." It says turn it on, keep enough of it, and do not record secrets. Those three ideas are the whole discipline in miniature.
-
----
-
-## Shipping to the SIEM
-
-Collecting the log is only half of the work. Making it useful to a SOC requires getting it into the SIEM in a form analysts can query and correlate.
-
-The webhook backend is the standard path. The kube-apiserver can batch audit events and POST them to a webhook sink, typically a log shipper or a dedicated collector that normalizes and forwards them. This avoids scraping files off control plane nodes and gives you a steady stream of structured JSON.
-
-The fields you want normalized and indexed are the ones an analyst filters on repeatedly:
-
-- The `user` and `user.groups`, to answer "who."
-- The `verb` and `objectRef.resource`, to answer "what."
-- The `sourceIPs` and `userAgent`, to answer "from where."
-- The `responseStatus.code` and the authorization annotation, to answer "was it allowed."
-- The `requestReceivedTimestamp`, to place the event in a timeline.
-
-The real value appears when these correlate with the rest of your stack. A SentinelOne detection on a node can be enriched with the audit events for the pod that ran on it, which shows who created the pod and with what privileges. An SIEM alert on anomalous network traffic can be enriched with the ingress logs you are already collecting, which shows the request, and the audit logs, which show the deployment behind it. That chain, detection to network to deployment to identity, is exactly the story a SOC analyst needs to go from "something happened" to "here is what happened and who is responsible."
-
----
-
-## What We Are Doing With It
-
-For our SOC service, the audit log is one leg of a three-part evidence chain. The posture rules in SentinelOne give us the standing risk picture. The HAProxy ingress logs give us the external-facing request evidence. The Kubernetes audit logs give us the internal control-plane evidence, the identity and authorization story that ties the other two together.
-
-We ship audit events to the SIEM, normalize the fields an analyst actually queries, and correlate them with SentinelOne detections and CNAPP findings. The posture layer tells us where to look. The audit layer tells us what happened when someone actually touched it.
-
-The lesson of the project so far is that audit logging is not a checkbox. It is a design exercise. The defaults leave it off, the naive configuration drowns you, and the correct configuration is the specific middle ground where you capture the decisions that matter without storing the secrets that would make your log a liability. That balance is the entire job.
+The outcome we want is an exceptional service, not an exceptional number of alerts. A well-crafted alert, supported by the right evidence and connected to the broader security picture, gives an analyst the confidence to act. That is why this combined approach can be a game changer. It turns a security signal into a story that the SOC can understand, validate, and respond to.
 
 ---
 
 ## References
 
 - [Kubernetes Audit Logging documentation](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/)
-- [Kubernetes Audit Policy reference](https://kubernetes.io/docs/reference/config-api/apiserver-audit.v1/)
-- [Kubernetes kube-apiserver reference (audit flags)](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)
-- [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes)
-- [Aqua Security kube-bench](https://github.com/aquasecurity/kube-bench)
-- [Amazon EKS audit log documentation](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
-- [Google Kubernetes Engine audit logging](https://cloud.google.com/kubernetes-engine/docs/concepts/audit-logging)
-- [Azure Kubernetes Service monitoring](https://learn.microsoft.com/en-us/azure/aks/monitor-aks)
+- [HAProxy logging documentation](https://www.haproxy.com/documentation/haproxy-configuration-tutorials/observability/logging/)
