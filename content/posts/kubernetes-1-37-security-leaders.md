@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes 1.37 Security: 3 Stable Advances, 3 Future Signals"
-date: 2026-09-03T22:05:00Z
+date: 2026-09-04T05:05:00Z
 tags: [
   "kubernetes", "security", "cloud-native", "container-security",
   "devsecops", "leadership", "risk-management", "open-source"
@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Kubernetes 1.37 security: three stable advances in workload identity and SELinux, plus three alpha features shaping the future of cloud native security."
