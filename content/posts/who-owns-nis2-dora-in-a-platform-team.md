@@ -18,7 +18,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "NIS2 and DORA fail when only security owns them. A Kubernetes platform RACI, plus the artefacts engineering managers must put on the board."
