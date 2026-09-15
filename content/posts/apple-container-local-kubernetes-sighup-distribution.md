@@ -235,7 +235,7 @@ For local Kubernetes testing today, I would continue to suggest kind or Minikube
 
 The plugin is experimental, but the successful full-profile deployment suggests a solid foundation. Future releases should reduce the current bootstrap, lifecycle, and service-exposure gaps.
 
-I will publish a follow-up article and update the [demo repository](https://github.com/matteobisi/fury-apple-container) when the iptables fallback and publish support are merged, released, and verified in this lab. The follow-up will cover native cluster creation and host-published NodePort or ingress access without the current bootstrap recovery or routine port-forwards.
+The [follow-up article](/posts/apple-container-1-4-1-native-kubernetes-sighup-distribution/) verifies native cluster creation on Container 1.4.1 after replacing an upgrade-retained legacy guest kernel with the recommended Kata kernel. The [demo repository](https://github.com/matteobisi/fury-apple-container) now separates the historical recovery from the current native workflow. Host-published NodePort or ingress access still depends on Apple Container functionality that is outside this kernel fix, so port-forwards remain the portable local access path.
 
 ---
 
