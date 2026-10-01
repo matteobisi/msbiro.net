@@ -66,7 +66,7 @@ Container 1.5.0 removed that assumption (see the fix below), so a retained kerne
 
 ## Install the recommended kernel deliberately
 
-Container provides the appropriate explicit command:
+Container provides an explicit command for exactly this:
 
 ```bash
 container system kernel set --recommended --force
@@ -122,12 +122,6 @@ export FURYCTL_BIN="$PWD/.tools/furyctl/furyctl"
 
 Furyctl completed successfully. The local profile kept Apple Container's kindnet CNI and deployed HAProxy ingress, cert-manager, Loki, Prometheus, Tempo, Forecastle, and the required storage. It still removes the two systemd-only host tailers after the logging module is rendered because that limitation belongs to the node environment, not to the old kernel issue.
 
-One Apple silicon detail surfaced in the tooling around the installation. `furyctl apply` worked, but `furyctl get cluster-info` failed with `bad CPU type in executable`. The installed furyctl was the correct arm64 build.
-
-Its tool cache dated back to September and contained x86_64 mise, kubectl, helm, kustomize, kapp, and yq. The source was a leftover x86_64 furyctl copy in `/usr/local/bin`, installed months earlier through the furyctl docs snippet that defaults to amd64. It had populated the shared cache while Rosetta was still available, and the arm64 furyctl kept reusing those binaries instead of downloading native ones.
-
-Clearing the cache and running `furyctl download dependencies` fetched native arm64 tools, and the verification command then reported the cluster correctly.
-
 ---
 
 ## Evidence from the native run
@@ -142,7 +136,6 @@ The table below summarizes the checks from that run.
 | Storage | Installed local-path and applied the SIGHUP profile | The default StorageClass was present and all distribution PVCs were Bound |
 | Logging | Applied the inotify settings and removed systemd-only tailers | Fluent Bit was Ready with no restarts |
 | SIGHUP Distribution | Ran Furyctl v0.35.1, Distribution v1.35.1 | Apply succeeded, Grafana, Fluent Bit, and HAProxy rollouts completed |
-| furyctl tools | Cleared a stale x86_64 tool cache, ran `download dependencies` | All tools arm64, `get cluster-info` reported the cluster |
 | Monitoring access | Port-forwarded Grafana and Forecastle | Both returned HTTP 200 |
 | Local image flow | Built, tagged, loaded, and deployed a local NGINX image | The demo service returned the expected page through a port-forward |
 
