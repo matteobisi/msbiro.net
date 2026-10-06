@@ -1,6 +1,6 @@
 ---
 title: "About Me - Matteo Bisi"
-date: 2025-06-07T14:03:03+00:00
+date: 2026-10-06T09:00:00+01:00
 # weight: 1
 # aliases: ["/first"]
 tags: ["biography"]
@@ -36,15 +36,15 @@ editPost:
 ---
 Hello, I'm Matteo Bisi.
 
-I'm a DevSecOps Team Leader currently living in Galway, Ireland, but originally from Italy.  
-With a passion for both technology and teamwork, I lead my team in building and securing cloud-native infrastructures using both open source and enterprise tools.  
+I'm a DevSecOps Team Leader currently living in Trim, Ireland, but originally from Italy.
+I lead my team in building and securing cloud native infrastructures using both open source and enterprise tools, with a focus on technology and teamwork.
 
-My journey has taken me across different roles, giving me a unique perspective on how diverse teams collaborate and innovate.  
-I'm passionate about empowering my teams to achieve excellence, guiding them through complex projects while ensuring security remains at the forefront of everything we deliver. My focus is on building high-performing teams that can navigate technical challenges with confidence and deliver exceptional results.  
+My journey across different roles gave me a practical view of how diverse teams collaborate and innovate.
+I focus on empowering teams to achieve excellence, guiding them through complex projects while keeping security at the forefront of everything we deliver, and building high performing teams that navigate technical challenges with confidence.
 
-Outside of work, I enjoy exploring the beautiful Irish countryside, planning my next family trip, and cooking Italian recipes.
+Outside of work, I enjoy exploring the Irish countryside, planning my next family trip, and cooking Italian recipes.
 
-Through this blog, I hope to share insights, best practices, and lessons learned from my experiences leading DevSecOps teams. You can find more information about my working activities on my [LinkedIn profile](https://www.linkedin.com/in/matteobisi).
+Through this blog, I hope to share insights, best practices, and lessons learned from my experiences leading DevSecOps teams. I'm also one of the organizers of [Cloud Native Days Italy](https://cloudnativedaysitaly.org/), where I help grow the Italian cloud native community. You can find more about my work on my [LinkedIn profile](https://www.linkedin.com/in/matteobisi).
 
 My previous blogs about collaboration solutions are available here:
 
