@@ -1,6 +1,6 @@
 ---
 title: "You Built and Signed Your SBOM. Now What? Store, Verify, Manage"
-date: 2026-10-01T09:00:00+02:00
+date: 2026-10-06T06:50:00+02:00
 tags: [
   "cybersecurity", "supply-chain-security", "SBOM",
   "open-source", "cloud-native", "devsecops", "sigstore", "kubernetes"
@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "SBOMs fail when we abandon them after signing. Where to store your SBOM, how to verify it is real, and how to manage retention and continuous scanning with FOSS tooling."
@@ -34,7 +34,7 @@ editPost:
     appendFilePath: true
 ---
 
-Javier Martinez published a sharp piece on September 24, 2026: [Why are SBOMs failing to stop supply chain attacks?](https://www.sysdig.com/blog/why-are-sboms-failing-to-stop-supply-chain-attacks) I agree with his analysis and I recommend reading it before continuing here.
+Javier Martinez published a sharp piece on September 24, 2026: [Why are SBOMs failing to stop supply chain attacks?](https://www.sysdig.com/blog/why-are-sboms-failing-to-stop-supply-chain-attacks) I agree with his analysis. I recommend reading it before continuing here.
 
 ## TLDR of the Sysdig Article
 
@@ -47,7 +47,7 @@ On paper it closes most supply chain vectors. In practice it does not, for four 
 3. Vulnerabilities change over time. A scan is a timestamp. New CVEs land daily, so an SBOM that embeds a vulnerability list goes stale fast unless a CNAPP keeps the SBOM stored and re-evaluates it against fresh intelligence without rescanning the image.
 4. Internal threats. XZ Utils in 2024 showed the limit. A trusted insider can ship malicious code that no static scanner catches. You need execution analysis, code review discipline and, carefully applied, AI assisted detection in the pipeline.
 
-His conclusion is pragmatic. SBOMs remain the standard interchange format between CNAPP components, every link in the chain should check and attest, and since this is voluntary we will likely need regulation to make it stick. Start inside your own perimeter now.
+His conclusion is pragmatic. SBOMs remain the standard interchange format between CNAPP components, and every link in the chain should check and attest. He frames this as voluntary and likely in need of regulation to stick, which reflects the US context. In the EU that regulation already exists in the CRA. It requires manufacturers to create a machine readable SBOM for at least top level dependencies, keep it in the technical documentation and provide it to market surveillance on request. Start inside your own perimeter now, because for products placed on the EU market this is becoming a conformity requirement, not an option.
 
 I agree with all of it. The part I think is missing is what happens the minute after you did everything right. You generated the SBOM at the right time, you signed it. What now? In my experience this is where most programs die. The SBOM sits in a CI artifact bucket nobody queries, nobody verifies the signature at deploy time, nobody rescans it six months later when OpenSSL burns again.
 
@@ -111,13 +111,12 @@ Harbor deserves a special mention for platform teams. It keeps the SBOM next to 
 
 ### 2. In an inventory, for search over time
 
-Referrers answer "is this image valid right now". They do not answer "which of my 800 services ships log4j 2.14" at 2 AM. For that you need an SBOM repository that indexes every build.
+Referrers answer "is this image valid right now". They do not answer "which of my 800 services ships Log4j 2.14" at 2 AM. For that you need an SBOM repository that indexes every build.
 
 FOSS options I would shortlist:
 
 - [OWASP Dependency-Track](https://dependencytrack.org/): upload every CI SBOM via API, it correlates with NVD, GitHub Advisories and OSV, tracks VEX, and keeps historical portfolio views per project version
-- [GUAC (Graph for Understanding Artifact Composition)](https://guac.sh/) (OpenSSF): ingests SBOMs plus SLSA, VEX andScorecard data into a graph so you can traverse "image depends on package affected by CVE"
-- [Trustification](https://github.com/trustification/trustification) (Red Hat, CNCF sandbox interest): SBOM plus VEX plus CVE aggregation with API first design
+- [GUAC (Graph for Understanding Artifact Composition)](https://guac.sh/) (OpenSSF, includes [Trustify](https://github.com/guacsec/trustify) contributed by Red Hat, formerly Trustification): ingests SBOMs plus SLSA, VEX and Scorecard data into a graph so you can traverse "image depends on package affected by CVE", with Trustify as searchable backend for SBOM and advisory metadata with API first design
 - Plain immutable object storage (S3 with Object Lock, GCS) as legal archive behind the above, keyed by `artifact digest / sbom format version / generator version`
 
 Push on every build, not only on release. Tag each upload with project, version, git SHA, image digest, builder identity and pipeline URL. Without those fields your SBOM lake becomes unqueryable in weeks.
@@ -155,7 +154,7 @@ An SBOM is a living record. If you treat it as a PDF attached to a release ticke
 Keep the SBOM at least as long as the artifact is supported or deployed, plus your legal hold. Practical anchors:
 
 - Internal services: retain SBOM for image digest lifetime plus 12 months after last deployment, so post mortems can reconstruct exposure
-- Regulated or sold software: the EU Cyber Resilience Act requires technical documentation retention for 10 years after placing on the market, SBOMs fall into that evidence bundle, US EO 14028 and CISA guidance push federal suppliers toward machine readable SBOM delivery and storage
+- Regulated or sold software: the EU Cyber Resilience Act requires technical documentation retention for 10 years after placing on the market, with SBOMs in that evidence bundle. In the US, EO 14028 and CISA guidance push federal suppliers toward machine readable SBOM delivery and storage
 - Immutable archive: WORM storage with hash chaining, so auditors and customers can verify you did not rewrite history after a CVE
 
 Dependency-Track keeps project versions forever by default. Define an archival policy (for example, keep every release SBOM, purge per commit CI SBOMs after 180 days) or your database and NVD sync jobs will slow down.
@@ -203,9 +202,9 @@ This is intentionally boring technology. Every component is maintained, document
 
 ## Closing Thought
 
-Martinez ends with regulation, and I share that view, because voluntary attestations leave gaps that attackers already exploit. Regulation will force broader generation and better tool defaults.
+Martinez ends with a call for regulation, and for a US audience that makes sense. For readers in the EU, that future is already scheduled. The CRA makes SBOM generation, vulnerability handling and 10 year retention a legal duty, with reporting duties applying since September 2026 and full applicability from December 2027. NIS2 and DORA add indirect pressure through supply chain and third party risk duties, even if they do not mandate SBOMs by name. Regulation will therefore not only broaden generation, it will set the baseline for tool defaults and enforcement.
 
-Even before that arrives, the operational gap is ours to close. A signed SBOM nobody stores, verifies and re-evaluates is compliance theater. A signed SBOM stored with the artifact, mirrored in a searchable inventory, verified at admission and rescanned daily becomes what it was meant to be, a trust anchor you can query during an incident instead of a file you attach to a ticket.
+Even with that baseline, the operational gap is ours to close. A signed SBOM nobody stores, verifies and re-evaluates is compliance theater. A signed SBOM stored with the artifact, mirrored in a searchable inventory, verified at admission and rescanned daily becomes what it was meant to be, a trust anchor you can query during an incident instead of a file you attach to a ticket.
 
 Build it at the right time, sign it with a short lived identity, keep it where both the cluster and the analyst can find it, assume it is guilty until verification says otherwise, and plan to live with it for years. That discipline turns SBOMs from paperwork into detection and response leverage.
 
@@ -214,12 +213,9 @@ Build it at the right time, sign it with a short lived identity, keep it where b
 ## References
 
 - Javier Martinez, Sysdig: [Why are SBOMs failing to stop supply chain attacks?](https://www.sysdig.com/blog/why-are-sboms-failing-to-stop-supply-chain-attacks)
-- OpenSSF: [Improving Risk Management Decisions with SBOM Data](https://openssf.org/blog/2025/09/18/improving-risk-management-decisions-with-sbom-data-a-new-whitepaper-from-the-openssf-sbom-everywhere-sig/), see also my summary [Understanding the Power of SBOMs](https://www.msbiro.net/posts/openssf-whitepaper-sbom-improving-risk-management/)
-- NTIA / CISA: [SBOM minimum elements and formats (SPDX, CycloneDX)](https://www.cisa.gov/sbom)
-- SLSA framework: [Provenance and build levels](https://slsa.dev/)
 - Sigstore docs: [Cosign, Fulcio, Rekor, policy-controller](https://docs.sigstore.dev/)
 - OCI spec: [Referrers API](https://specs.opencontainers.org/image-spec/docs-spec-guidance/#referrers)
-- FOSS inventory: [Dependency-Track](https://dependencytrack.org/), [GUAC](https://guac.sh/), [Trustification](https://github.com/trustification/trustification), [Harbor](https://goharbor.io/)
+- FOSS inventory: [Dependency-Track](https://dependencytrack.org/), [GUAC including Trustify](https://guac.sh/), [Harbor](https://goharbor.io/)
 - Verification on Kubernetes: [Ratify](https://github.com/deislabs/ratify), [Kyverno](https://kyverno.io/), [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper)
 - VEX and exchange: [OpenVEX spec and vexctl](https://github.com/openvex/openvex), [bomctl](https://github.com/bomctl/bomctl), [protobom](https://github.com/protobom/protobom)
-- Related on this blog: [Supply Chain Attacks Won't Stop: 8 Controls](https://www.msbiro.net/posts/supply-chain-attack-prevention-8-controls/), [Evaluating OSS Security: S2C2F](https://www.msbiro.net/posts/evaluating-oss-security-fresh-editor-s2c2f/)
+- Related on this blog: [Supply Chain Attacks Won't Stop: 8 Controls](https://www.msbiro.net/posts/supply-chain-attack-prevention-8-controls/)
