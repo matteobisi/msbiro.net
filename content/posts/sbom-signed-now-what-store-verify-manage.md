@@ -137,7 +137,7 @@ First, signature and provenance verification. At admission time, verify Cosign s
 
 Example Kyverno intent in plain language: allow only `ghcr.io/acme/*` digests signed by our CI OIDC identity with a CycloneDX attestation present. Anything else stays Pending.
 
-Second, independent regeneration. For critical base images and golden paths, rebuild the SBOM yourself with Syft or Trivy in your pipeline and diff it against the vendor SBOM using `bomctl diff` or Dependency-Track upload in a staging project. Drift means either tool divergence (common across ecosystems) or tampering (rare but high signal). I run this check on base image updates and on every third party image promotion from `quarantine` to `trusted` in Harbor.
+Second, independent regeneration. For critical base images and golden paths, rebuild the SBOM yourself with Syft or Trivy in your pipeline and diff it against the vendor SBOM using `cyclonedx diff sbom-vendor.json sbom-regen.json --component-versions` or Dependency-Track upload in a staging project. Drift means either tool divergence (common across ecosystems) or tampering (rare but high signal). I run this check on base image updates and on every third party image promotion from `quarantine` to `trusted` in Harbor.
 
 Third, transparency and revocation. Verify Rekor entry timestamp, check Fulcio issuer matches your builder (for example `https://token.actions.githubusercontent.com` with your repo identity), and enforce expiry. Short lived certs reduce key theft windows, but you still need a revocation story for compromised builders. That is rotation of builder identity, blocking old digests at admission, and publishing a VEX statement that marks affected artifacts.
 
