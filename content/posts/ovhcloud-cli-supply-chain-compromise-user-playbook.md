@@ -1,6 +1,6 @@
 ---
 title: "OVHcloud CLI Supply Chain Compromise: A User Playbook"
-date: 2026-10-20T09:00:00+02:00
+date: 2026-10-21T07:00:00+02:00
 tags: [
   "supply-chain", "supply-chain-security", "cybersecurity", "devsecops",
   "open-source", "github", "incident-response", "ovhcloud", "malware", "cli"
@@ -16,7 +16,7 @@ keywords: [
   "OVHcloud CLI supply chain", "ovhcloud-cli compromise", "GitHub release malware",
   "CLI credential stealer", "GlassWorm OVHcloud", "how to check ovhcloud-cli",
   "supply chain incident response", "poisoned CLI playbook", "developer laptop secrets",
-  "pin SHA-256 CLI install"
+  "pin SHA-256 CLI install", "verify release binary provenance", "reproducible builds"
 ]
 canonicalURL: "https://www.msbiro.net/posts/ovhcloud-cli-supply-chain-compromise-user-playbook/"
 disableShare: true
@@ -43,6 +43,8 @@ editPost:
 On 19 October 2026, a supply chain compromise replaced GitHub release binaries of the official OVHcloud CLI (`ovhcloud-cli`) with a credential stealer for about ninety minutes. Anyone who installed from GitHub, Homebrew, or the project's install script in that window could have received malware instead of a cloud tool. The source repository was clean. The build pipeline was clean. The files on the release page were not.
 
 [OpenSourceMalware reconstructed the incident](https://opensourcemalware.com/blog/glassworm-hacks-ovh-clouds-cli-tool): timeline, how the assets were swapped, how the malicious build was identified, GlassWorm indicators, hashes. OVHcloud published a [security advisory](https://github.com/ovh/ovhcloud-cli/security/advisories/GHSA-862f-55f5-vmvw) the next day, pulled the bad files the same afternoon, and shipped a clean immutable v0.16.0.
+
+*Updated 21 October 2026: added a section on clean source vs. poisoned release binaries, and why a pinned hash only helps if you verified what you pinned. Thanks to a reader on LinkedIn for pointing out the gap.*
 
 The rest of 2026 looks like this too. Bitwarden, Trivy, Axios, LiteLLM, Notepad++, now a cloud CLI. A trusted install path, a short window, a payload that reads the laptop, then a scramble to rotate secrets nobody had listed. What I want on the desk now is a first-hour sequence, because the next name will be different.
 
@@ -81,7 +83,7 @@ Revoke sessions, not just passwords. A password reset that leaves an active refr
 
 ### Rebuild the laptop within a day
 
-Rebuild the machine from scratch. A laptop that ran an unknown payload under your user account is not a machine you clean. Restore data from a backup you trust, and re-issue credentials rather than bringing the old ones back. Install the replacement against a hash you did not take from the same page that served the first file.
+Rebuild the machine from scratch. A laptop that ran an unknown payload under your user account is not a machine you clean. Restore data from a backup you trust, and re-issue credentials rather than bringing the old ones back. Install the replacement against a digest you verified independently of the page that served the first file (see the next sections).
 
 ### Write the timeline within a week
 
@@ -89,11 +91,24 @@ Write the timeline while you still remember it, including the parts you could no
 
 ---
 
+## Clean source, poisoned binary: verify before you pin
+
+Clean source, like the OVH cli case, does not mean a clean binary. In this case the repository and the tags were fine; the attacker replaced the files on the release page, including `checksums.txt`, so the published hashes matched the malware. Reading the code or checking the hash next to the download told you nothing.
+
+That also limits what pinning can do. A pinned SHA-256 guarantees you keep getting the same bytes, not that those bytes were good. If you record the hash of a file you downloaded inside the window, you pin the malware. Pin only what you verified, against something the attacker could not also write to:
+
+1. **Rebuild and compare.** Build the tagged source and compare digests. Works only when the project builds reproducibly, but it is the only check that ties the binary to source you can read.
+2. **Verify build provenance.** An attestation (SLSA, GitHub artifact attestations, Sigstore) is signed by the CI workflow and records the digest, the commit, and the workflow that built it. A file uploaded by hand cannot carry a valid one. Check the expected repository and workflow, not just "is it signed", e.g. `gh attestation verify <file> --repo owner/tool`. It does not help if the pipeline itself is compromised, and it only exists if the project publishes it. If a tool that holds your keys does not, ask for it.
+3. **Use an independent channel.** A package manager that builds from source or checks source hashes on its own (for Go tools, `go install` with the Go checksum database), or a digest you recorded before the incident.
+4. **`checksums.txt` on the same page.** Catches a broken download, not an attacker with write access to the release.
+
+Then pin: in CI, check downloaded CLIs against a SHA-256 stored in your repository and fail on mismatch; pin images by `@sha256:` and GitHub Actions by commit SHA; make every upgrade a reviewed change of digest, verified as above. Pinning catches a file that changes after you trusted it, which is how this one was caught: a CI job with a hash recorded before the swap failed. Provenance catches a file the project never built. You want both.
+
+---
+
 ## Reduce exposure before the next poisoned CLI
 
-A checksum next to the download helps against a corrupted file. It helps less when the same write access can replace `checksums.txt`. The person who caught this one had pinned the hash in their own CI. Record the hash of what you audited and check it on every install. A version number is a pointer that can be moved.
-
-Upgrade tools that hold keys as a decision, not as background noise. Prefer signed artifacts, attestations, or a package manager that enforces hashes. Keep less to steal: short-lived credentials through single sign-on, scoped keys with an expiry, no long-lived secrets in dotfiles on the laptop you also browse from. If a single binary can read your entire cloud access, the release page is not your weakest link.
+Upgrade tools that hold keys as a decision, not as background noise. Keep less to steal: short-lived credentials through single sign-on, scoped keys with an expiry, no long-lived secrets in dotfiles on the laptop you also browse from. If a single binary can read your entire cloud access, the release page is not your weakest link.
 
 Watch the release pages of the tools that hold keys the way you already watch CVEs. The payload in this incident went after VS Code, Cursor, Claude, OpenCode, cloud CLIs, SSH, Terraform, and kubeconfigs. That list is the machine we actually use. I covered pipelines and registries in [Supply Chain Attacks Won't Stop](/posts/supply-chain-attack-prevention-8-controls/), and the workstation in [Shift Left Starts in the IDE](/posts/shift-left-starts-in-the-ide/).
 
@@ -101,7 +116,7 @@ Watch the release pages of the tools that hold keys the way you already watch CV
 
 ## Takeaways
 
-You will not catch every supply chain hit in time. Pin what you install, keep fewer long-lived secrets within reach of one program, and have a rotation order plus a clean device ready before you need them.
+You will not catch every supply chain hit in time. Verify what you install against the build, not the release page, then pin it. Keep fewer long-lived secrets within reach of one program, and have a rotation order plus a clean device ready before you need them.
 
 The difference between a bad afternoon and a company-wide incident is rarely the sophistication of the malware. It is how much a single program could read, and how quickly you could revoke it.
 
@@ -112,5 +127,8 @@ The difference between a bad afternoon and a company-wide incident is rarely the
 - [OpenSourceMalware: Glassworm Hacks OVHcloud's CLI Tool](https://opensourcemalware.com/blog/glassworm-hacks-ovh-clouds-cli-tool) (full incident analysis)
 - [OVHcloud security advisory GHSA-862f-55f5-vmvw](https://github.com/ovh/ovhcloud-cli/security/advisories/GHSA-862f-55f5-vmvw)
 - [ovh/ovhcloud-cli issue #300](https://github.com/ovh/ovhcloud-cli/issues/300)
+- [SLSA: Supply-chain Levels for Software Artifacts](https://slsa.dev/)
+- [Reproducible Builds](https://reproducible-builds.org/)
+- [GitHub CLI: gh attestation verify](https://cli.github.com/manual/gh_attestation_verify)
 - [msbiro.net: Supply Chain Attacks Won't Stop, 8 Controls to Reduce Your Exposure](https://www.msbiro.net/posts/supply-chain-attack-prevention-8-controls/)
 - [msbiro.net: Shift Left Starts in the IDE](https://www.msbiro.net/posts/shift-left-starts-in-the-ide/)
