@@ -1,6 +1,6 @@
 baseURL: https://www.msbiro.net/
 locale: en-us
-title: "Cloud Native & Open Source: A Team Lead’s Working Journal"
+title: "Cloud Native Security & Open Source: A Team Lead’s Working Journal"
 theme: ["PaperMod"]
 
 enableRobotsTXT: true
@@ -84,7 +84,7 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Cloud Native & Open Source: A Team Lead’s Working Journal \U0001F4BB"
+    Title: "Cloud Native Security & Open Source: A Team Lead’s Working Journal \U0001F4BB"
     Content: A team lead’s perspective on building and managing modern, open technology.
 
   socialIcons:

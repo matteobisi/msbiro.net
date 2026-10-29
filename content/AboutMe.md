@@ -36,7 +36,7 @@ editPost:
 ---
 Hello, I'm Matteo Bisi.
 
-I'm a DevSecOps Team Leader currently living in Trim, Ireland, but originally from Italy.
+I'm a Cloud Native Security Team Leader currently living in Trim, Ireland, but originally from Italy.
 I lead my team in building and securing cloud native infrastructures using both open source and enterprise tools, with a focus on technology and teamwork.
 
 My journey across different roles gave me a practical view of how diverse teams collaborate and innovate.
