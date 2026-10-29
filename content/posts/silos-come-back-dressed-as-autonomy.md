@@ -69,6 +69,8 @@ The old silo was a wall. The new one is a door. The team walks through it, close
 
 The label does not save you. You can call a team cloud native security, platform security or DevSecOps, and the silo survives all three names. Renaming a team is not an operating model.
 
+Autonomy is not automatically a silo. A team that owns its domain and can make its own decisions is what good engineering looks like, and sometimes that autonomy works exactly as intended. The silo appears when autonomy turns into self-sufficiency: the team stops checking who else holds a piece of the answer, reinvents the wheel, and forgets to involve the team that already has it. That is where the time goes. Collaboration and trust between teams are what keep the difference visible.
+
 Three things make the new silo likely.
 
 The first is a deadline. NIS2 and DORA turn a general sense that security matters into a date in a shared calendar. A date creates urgency, and urgency rewards the fastest visible action. Buying and deploying a tool is visible. Writing the policy baseline, deciding what to block, defining the exception path and agreeing who verifies it are slower work and less photogenic. So the tool ships first and the definition of done arrives late.
