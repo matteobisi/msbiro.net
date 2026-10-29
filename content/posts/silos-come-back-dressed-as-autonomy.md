@@ -21,7 +21,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Silos return dressed as autonomy. A cloud native security leader on the episode that taught him the difference between ownership and isolation, and what to fix before the next deadline."
+description: "Silos can return dressed as autonomy. An engineering leadership perspective on the difference between ownership and isolation, and how trust and collaboration help teams deliver."
 canonicalURL: "https://www.msbiro.net/posts/silos-come-back-dressed-as-autonomy/"
 disableShare: true
 hideSummary: false
@@ -44,21 +44,21 @@ editPost:
     appendFilePath: true
 ---
 
-A regulation lands with a date, and a team decides to solve its part directly.
+A deadline creates pressure, and a team decides to solve its part of the problem directly.
 
-That sentence is the article in miniature. Here is the episode. I lead a cloud native security team, and a department in a regulated programme had a NIS2 deadline, capable engineers and a strong sense that asking for help would cost them a sprint. They picked a runtime security tool, deployed it themselves and moved on.
+I once saw this play out in a security initiative. The team had capable engineers, a clear objective and a reasonable concern that asking for help might slow them down. They selected a runtime security tool and got it deployed, expecting that to move the work forward.
 
-Two months later, the deadline was missed. The tool was not the failure. Nobody had established the security policy baseline that tells a runtime tool what normal looks like and what must be blocked. The team that could have written it was never called.
+The missing piece was not the tool. It was the security policy baseline that defines what normal looks like and what should be blocked. That baseline needed input from another team, but the dependency was not surfaced early enough.
 
-When we spoke afterwards, nobody was defensive. The answer was "we had it under control". In a narrow sense, they did. They had a tool, a dashboard and a plan. What they did not have was the definition that makes the tool mean anything, and a reason to believe we would answer quickly if they asked.
+Looking back, the decision made sense from one perspective: the team had a task to deliver and wanted to keep momentum. They had a tool, a dashboard and a plan. What was missing was the shared definition that would make the tool effective, and confidence that asking for help would lead to a timely answer.
 
-In the last two years I have heard "we can handle this ourselves" more often than "that is not my job". The old silo was easy to spot because it was absent. The new one shows up, ships something and calls that ownership.
+In engineering, "we can handle this ourselves" can sound like a healthy sense of ownership. The old silo was easy to spot because it was absent. The newer version shows up, makes progress and can unintentionally leave a gap in the conversation.
 
-I am not writing this to argue that teams should ask security for permission. I am writing it because silos that look like autonomy survive longer, and because security teams often make going alone the rational choice.
+This is not an argument for teams to ask security for permission. It is a reminder that autonomy works best when teams can act independently and still reach the people who hold part of the answer. Security teams also have a responsibility to make that collaboration easy, responsive and useful.
 
 ## The new version of the silo
 
-The old silo was a wall. The new one is a door. The team walks through it, closes it behind them and reports progress. Both leave a gap in the conversation, but only the new one looks like progress.
+The old silo was a wall. The newer one can be a door that closes without anyone noticing: the team keeps moving and reports progress, but a key conversation never happens. Both create gaps in understanding, though only one may look like progress at first.
 
 | Signal | Old silo | New silo |
 | --- | --- | --- |
@@ -67,21 +67,21 @@ The old silo was a wall. The new one is a door. The team walks through it, close
 | Failure mode | Work never starts | Work starts, then stalls at the missing piece |
 | Cost | Late, visibly | Late, after looking like progress |
 
-The label does not save you. You can call a team cloud native security, platform security or DevSecOps, and the silo survives all three names. Renaming a team is not an operating model.
+The label alone does not solve it. You can call a team cloud native security, platform security or DevSecOps, but collaboration still depends on how people work together. Renaming a team is not an operating model.
 
 Autonomy is not automatically a silo. A team that owns its domain and can make its own decisions is what good engineering looks like, and sometimes that autonomy works exactly as intended. The silo appears when autonomy turns into self-sufficiency: the team stops checking who else holds a piece of the answer, reinvents the wheel, and forgets to involve the team that already has it. That is where the time goes. Collaboration and trust between teams are what keep the difference visible.
 
 Three things make the new silo likely.
 
-The first is a deadline. NIS2 and DORA turn a general sense that security matters into a date in a shared calendar. A date creates urgency, and urgency rewards the fastest visible action. Buying and deploying a tool is visible. Writing the policy baseline, deciding what to block, defining the exception path and agreeing who verifies it are slower work and less photogenic. So the tool ships first and the definition of done arrives late.
+The first is a deadline. Regulatory requirements such as NIS2 and DORA can make security outcomes time-sensitive. Urgency often rewards visible progress: a tool deployed, a dashboard available, a milestone marked complete. Agreeing on expected behaviour, exception handling and verification may be less visible, but it matters just as much. A useful question at the start is whether the team has defined success beyond implementation.
 
-The second is that security can look like an approval queue. If every question to my team creates a review, a list of objections and a two-week wait, then a well-run engineering team is behaving rationally when it routes around us. I have written before that security becomes a bottleneck when it sits inside routine implementation decisions. The consequence is predictable: teams learn that talking to security is how work dies. Autonomy then becomes the polite name for avoidance.
+The second is that security can look like an approval queue. If every question to a security team creates a review, a list of objections and a long wait, a well-run engineering team may reasonably try to work around it. Security becomes a bottleneck when it sits inside routine implementation decisions. The lesson for security teams is just as important: make guidance easy to find, provide a clear contact and respond while the work is still moving. Otherwise, autonomy can become a polite name for avoidance.
 
-The third is that we reward the wrong moment. A team that ships something alone gets a demo, a dashboard and a mention in the programme update. A team that asks early gets no visible credit, because the value shows up later as a problem that did not happen. If the organisation only measures what shipped, it will keep producing teams that skip the conversation.
+The third is what we choose to recognise. Shipping independently is easy to demonstrate. An early conversation that prevents rework is harder to measure, because its value may be a problem that never occurs. Leaders can help by recognising both delivery and the collaboration that makes delivery sustainable.
 
-The failure that follows is not the tool failing. It is the tool succeeding at something nobody defined.
+The risk is not always a tool failing. Sometimes it is a tool working as configured without a shared understanding of what it is supposed to achieve.
 
-Runtime detection without a policy baseline produces alerts with no notion of normal. Admission control without an exception process becomes a gate teams disable on a Friday. A detection pipeline without a log retention decision produces evidence nobody can use. In the episode, the platform looked more secure and could not answer the simplest question an auditor asks: what did you decide was unacceptable, and where is that written down?
+The same pattern appears across security engineering. Runtime detection needs an agreed baseline for interpreting alerts. Admission controls need a workable exception process. Detection pipelines need retention and ownership decisions if their evidence is to remain useful. These are general design dependencies, not shortcomings of any particular team or product. A useful test is whether everyone can answer: what outcome are we trying to achieve, and how will we verify it?
 
 A baseline is not a policy document. It is a short, testable answer to a small set of questions:
 
@@ -91,7 +91,7 @@ A baseline is not a policy document. It is a short, testable answer to a small s
 - Who can approve an exception, and when does it expire?
 - Which logs are retained, for how long, and who reads them? The [audit log work for SOC evidence](/posts/kubernetes-audit-logs-soc-evidence/) is the same split in practice.
 
-Then the self-inflicted part, which is the one security leaders dislike hearing. If my team makes a baseline hard to find, a decision slow to get and an exception expensive to approve, we are not protecting autonomy. We are manufacturing the conditions for a shadow programme.
+Security leaders have a part to play, too. When guidance is difficult to find, decisions take too long or exceptions are cumbersome, teams have an incentive to work around the process. Making support accessible is one practical way to protect both autonomy and shared standards.
 
 The [ownership I keep asking engineers for](/posts/from-delegation-to-ownership-how-to-keep-engineers-motivated/) only works when the people asking for it also have a cheap way to pull in the people who hold the missing piece. That trade is made by the manager who owns the roadmap, which is why I keep saying [engineering managers are the real culture](/posts/engineering-managers-culture-cto-force-multiplier/).
 
@@ -120,13 +120,13 @@ A silo is not a team that stopped asking permission. It is a team that stopped a
 
 Avoiding the next silo is easier than this article makes it sound. Do not reinvent the wheel. Ask the team that already owns the answer.
 
-In the episode, the baseline did not exist yet, but the team that knew how to write it did. One conversation at kick-off would have been enough. The rest of the fix is keeping that conversation cheap: a baseline teams can find, a contact who answers in the same sprint, and an exception with an owner and an expiry date.
+Often, the expertise needed to define a missing requirement already exists somewhere in the organisation. An early conversation can reveal that dependency before it becomes rework. The practical fix is to make collaboration easy: discoverable guidance, a responsive contact and an exception process with clear ownership and an expiry date.
 
-If a dependency has no owner or no date, the team is not autonomous yet. It is alone. I check those three things with the engineering manager at kick-off and again when the first sprint slips.
+A simple habit at kick-off is to ask who owns each dependency, when an answer is needed and how the team can get help. Revisiting those questions as the work progresses makes autonomy more resilient.
 
-If the deadline is still missed, I try not to start with who ignored the process. I ask what made going alone the rational choice. Was the baseline findable, and was the contact responsive? Was there capacity to do it properly, and did anyone with authority decide the trade? That separates a team that made a mistake from a system that keeps making the mistake for them.
+When work stalls, it is more useful to ask what made going alone seem like the best option than to start by assigning blame. Was guidance easy to find? Could the right people respond in time? Was there capacity to do the work properly, and were trade-offs made by someone with the right authority? These questions help teams improve the way they work together.
 
-The old silo said "that is not my job" and left the room. The new one says "we have got this" and closes the door. Both leave an outcome nobody can fully see. Autonomy is real when a team can act and still knows where the rest of the answer lives; a silo is what remains when that link costs more than it should.
+The old silo said "that is not my job" and left the room. The newer one says "we have got this" and may forget to open the conversation. Both can leave gaps that no one intended. Autonomy works best when a team can act, knows where the rest of the answer lives, and can reach the people who have it without unnecessary friction. Trust and collaboration are not the opposite of ownership; they are what make it sustainable.
 
 ## References
 
