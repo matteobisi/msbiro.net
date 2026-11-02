@@ -1,11 +1,7 @@
 ---
 title: "SIGHUP Secure Containers: how do you choose the oci base image for your workload?"
 date: 2023-04-13T12:30:03+00:00
-tags: [
-  "ssc", "secure containers", "security", "supply-chain",
-  "container security", "container base images", "devsecops",
-  "vulnerability management", "container catalog", "linux containers", "slas"
-]
+tags: ["cybersecurity", "supply-chain-security", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

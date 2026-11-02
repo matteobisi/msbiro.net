@@ -1,7 +1,7 @@
 ---
 title: "External Secrets Operator Team needs help!"
 date: 2025-08-15T02:30:03+00:00
-tags: ["kubernetes", "external-secrets", "open-source", "devsecops", "foss", "community", "golang", "security", "operator"]
+tags: ["kubernetes", "secrets-management", "open-source", "devsecops", "golang", "cybersecurity"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

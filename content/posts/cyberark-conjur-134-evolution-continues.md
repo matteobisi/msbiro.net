@@ -1,10 +1,7 @@
 ---
 title: "CyberArk Conjur 13.4 – The Evolution Continues"
 date: 2024-10-09T07:30:03+00:00
-tags: [
-  "cyberark", "conjur", "13.4",
-  "secrets-management", "release", "automation", "dynamic-configuration", "external-secrets-operator", "enterprise-security"
-]
+tags: ["secrets-management"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

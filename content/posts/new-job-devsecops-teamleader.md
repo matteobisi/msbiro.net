@@ -1,11 +1,7 @@
 ---
 title: "I've started a new journey as DevSecOps Team Leader"
 date: 2022-05-25T11:30:03+00:00
-tags: [
-  "cloudnative", "newjob", "devsecops", "security",
-  "leadership", "team-lead", "cloud-native-security",
-  "infrastructure-security", "secrets-management", "cyberark", "container-security"
-]
+tags: ["cloud-native", "devsecops", "cybersecurity", "leadership", "secrets-management", "container-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

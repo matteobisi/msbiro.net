@@ -1,11 +1,7 @@
 ---
 title: "Troubleshooting CyberArk Conjur Follower Setup and Postgres Connectivity"
 date: 2022-11-21T11:23:03+00:00
-tags: [
-  "conjur", "follower", "postgres", "troubleshooting",
-  "cyberark", "database-connection", "replication",
-  "network-issues", "container-debugging", "ssl-certificates", "devops"
-]
+tags: ["secrets-management", "troubleshooting", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

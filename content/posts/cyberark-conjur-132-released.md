@@ -1,10 +1,7 @@
 ---
 title: "CyberArk Conjur 13.2 Released: Another Step in the Right Direction"
 date: 2024-02-01T12:30:03+00:00
-tags: [
-  "cyberark", "conjur", "13.2",
-  "secrets-management", "release", "resiliency", "csi-driver", "vault-synchronizer", "kubernetes", "openshift"
-]
+tags: ["secrets-management", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

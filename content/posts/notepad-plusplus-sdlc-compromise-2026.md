@@ -1,9 +1,7 @@
 ---
 title: "When Your Update System Becomes the Attack Vector: The Notepad++ Supply Chain Compromise"
 date: 2026-02-03T22:00:00Z
-tags: [
-  "cybersecurity", "supply-chain", "devsecops", "sdlc", "threat-modeling", "open-source", "security", "apt"
-]
+tags: ["cybersecurity", "supply-chain-security", "devsecops", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

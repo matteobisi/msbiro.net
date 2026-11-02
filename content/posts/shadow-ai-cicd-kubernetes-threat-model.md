@@ -1,11 +1,7 @@
 ---
 title: "Shadow AI in CI/CD: Threat-Modelling Laptop to Kubernetes"
 date: 2026-07-27
-tags: [
-  "shadow-ai", "ai-security", "ai-agents", "mcp", "prompt-injection",
-  "cicd-security", "supply-chain-security", "kubernetes",
-  "devsecops", "cloud-native", "security"
-]
+tags: ["ai-security", "supply-chain-security", "kubernetes", "devsecops", "cloud-native", "cybersecurity"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

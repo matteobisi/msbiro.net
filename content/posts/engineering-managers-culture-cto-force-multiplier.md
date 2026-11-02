@@ -1,17 +1,7 @@
 ---
 title: "Engineering Managers Are Your Real Culture: Why CTOs Must Invest in Middle Management"
 date: 2026-06-21T16:30:00+01:00
-tags: [
-  "leadership",
-  "engineering management",
-  "engineering leadership",
-  "middle management",
-  "team culture",
-  "cto",
-  "people management",
-  "psychological safety",
-  "tech leadership"
-]
+tags: ["leadership"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

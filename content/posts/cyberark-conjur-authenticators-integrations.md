@@ -1,11 +1,7 @@
 ---
 title: "CyberArk Conjur, authenticators and integrations"
 date: 2022-08-22T10:26:03+00:00
-tags: [
-  "conjur", "authenticators", "spiffe", "integrations",
-  "cybersecurity", "secrets-management", "kubernetes", "cloud-native",
-  "mtls", "identity", "devops", "open-source"
-]
+tags: ["secrets-management", "cybersecurity", "kubernetes", "cloud-native", "devsecops", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

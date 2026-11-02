@@ -2,7 +2,7 @@
 title: "LDAP: A Nostalgic Dive into Authentication and Why It's Still Kicking in 2025"
 date: 2025-11-22T15:37:05Z
 draft: false
-tags: ["ldap", "authentication", "iam", "activedirectory", "devsecops", "2025"]
+tags: ["devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

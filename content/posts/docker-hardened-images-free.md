@@ -1,9 +1,7 @@
 ---
 title: "Docker Hardened Images Are Now Free and Open Source"
 date: 2025-12-18T09:00:00+01:00
-tags: [
-  "docker", "security", "supply-chain", "hardened-images", "open-source", "mcp"
-]
+tags: ["container-security", "cybersecurity", "supply-chain-security", "open-source", "ai-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

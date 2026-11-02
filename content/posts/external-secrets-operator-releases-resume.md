@@ -1,20 +1,7 @@
 ---
 title: "External Secrets Operator: Releases Resume and Governance Matures"
 date: 2025-09-14T22:51:03+00:00
-tags: [
-  "external-secrets-operator",
-  "kubernetes",
-  "secrets-management",
-  "devsecops",
-  "security",
-  "open-source",
-  "governance",
-  "community",
-  "maintainers",
-  "releases",
-  "contributing",
-  "cncf"
-]
+tags: ["kubernetes", "secrets-management", "devsecops", "cybersecurity", "open-source", "compliance", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

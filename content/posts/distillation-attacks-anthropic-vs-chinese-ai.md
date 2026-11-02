@@ -1,7 +1,7 @@
 ---
 title: "How Distillation Attacks Are Reshaping the Global AI Landscape"
 date: 2026-02-23
-tags: ["ai", "cybersecurity", "anthropic", "distillation", "geopolitics"]
+tags: ["ai-security", "cybersecurity"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,10 +1,7 @@
 ---
 title: "OVHcloud CLI Supply Chain Compromise: A User Playbook"
 date: 2026-10-21T07:00:00+02:00
-tags: [
-  "supply-chain", "supply-chain-security", "cybersecurity", "devsecops",
-  "open-source", "github", "incident-response", "ovhcloud", "malware", "cli"
-]
+tags: ["supply-chain-security", "cybersecurity", "devsecops", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

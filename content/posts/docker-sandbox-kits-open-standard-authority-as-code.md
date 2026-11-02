@@ -1,11 +1,7 @@
 ---
 title: "Docker Sandbox Kits: An Open Standard for Authority as Code"
 date: 2026-10-13T00:00:00Z
-tags: [
-  "docker", "sandbox-kit", "authority-as-code", "open-standard",
-  "workload-security", "security", "container-security", "devsecops",
-  "cncf", "oci", "ai-agents", "supply-chain"
-]
+tags: ["container-security", "cybersecurity", "devsecops", "cloud-native", "ai-security", "supply-chain-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

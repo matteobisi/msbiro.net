@@ -1,10 +1,7 @@
 ---
 title: "GitHub Copilot: The High-ROI Multi-Model Powerhouse"
 date: 2026-03-17T10:00:00Z
-tags: [
-  "github-copilot", "AI", "devops", "spec-kit",
-  "openai", "anthropic", "github", "kubecon"
-]
+tags: ["ai-security", "devsecops", "conference"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

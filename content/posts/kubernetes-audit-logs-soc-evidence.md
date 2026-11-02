@@ -1,11 +1,7 @@
 ---
 title: "Kubernetes Audit Logs and HAProxy Logs for SOC Evidence"
 date: 2026-08-26T13:00:00Z
-tags: [
-  "kubernetes", "audit-logging", "haproxy", "ingress-controller",
-  "soc", "siem", "devsecops", "cloud-native", "cnapp",
-  "runtime-security", "incident-response"
-]
+tags: ["kubernetes", "devsecops", "cloud-native", "container-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

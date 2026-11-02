@@ -1,11 +1,7 @@
 ---
 title: "KCD 2024 Italy Announced – Bologna, 20 June 2024"
 date: 2024-01-17T11:44:03+00:00
-tags: [
-  "kcd", "italy", "community", "events",
-  "kubernetes", "cloud-native", "conference",
-  "bologna", "cncf", "developer community"
-]
+tags: ["open-source", "conference", "kubernetes", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

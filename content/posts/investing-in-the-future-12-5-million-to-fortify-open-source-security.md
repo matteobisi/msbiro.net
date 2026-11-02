@@ -1,11 +1,7 @@
 ---
 title: "Investing in the Future: $12.5 Million to Fortify Open Source Security"
 date: 2026-03-20T05:45:00+00:00
-tags: [
-  "openssf", "security", "open-source", "AI",
-  "cybersecurity", "LinuxFoundation", "Alpha-Omega",
-  "Microsoft", "Google", "AWS", "GitHub", "SupplyChain"
-]
+tags: ["open-source", "cybersecurity", "ai-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

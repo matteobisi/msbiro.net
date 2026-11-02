@@ -1,20 +1,7 @@
 ---
 title: "Who Owns NIS2 and DORA in a Platform Team"
 date: 2026-09-10T05:00:00+01:00
-tags: [
-  "leadership",
-  "engineering management",
-  "devsecops",
-  "compliance",
-  "cybersecurity",
-  "NIS2",
-  "DORA",
-  "eu-regulation",
-  "kubernetes",
-  "platform-engineering",
-  "cloud-native",
-  "RACI"
-]
+tags: ["leadership", "devsecops", "compliance", "cybersecurity", "kubernetes", "platform-engineering", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,7 +1,7 @@
 ---
 title: "Understanding the Power of SBOMs: Insights from OpenSSF's White Paper"
 date: 2025-10-03T16:30:03+00:00
-tags: ["OpenSSF", "Software Bill of Materials", "SBOM", "Software Supply Chain Security", "Cloud Native Security", "DevSecOps", "Vulnerability Management", "Open Source Security", "SBOM Use Cases", "Security Tooling", "SPDX", "CycloneDX", "SBOM Tooling", "Cloud Native"]
+tags: ["open-source", "supply-chain-security", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

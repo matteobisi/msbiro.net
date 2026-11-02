@@ -1,10 +1,7 @@
 ---
 title: "From Dev to Prod: Making Distroless Images Your Default "
 date: 2025-06-17T10:10:03+00:00
-tags: [
-  "distroless", "containers", "cdebug", "docker debug", "container security",
-  "devsecops", "kubernetes debugging", "ephemeral containers", "multi-stage builds", "container runtime"
-]
+tags: ["container-security", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

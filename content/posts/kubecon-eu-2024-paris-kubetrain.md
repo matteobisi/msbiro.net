@@ -1,11 +1,7 @@
 ---
 title: "KubeCon EU 2024 Paris – Exploring the Kubetrain Initiative"
 date: 2023-11-10T06:30:03+00:00
-tags: [
-  "kubecon", "kubetrain", "kubecon-eu", "paris",
-  "cloud-native", "sustainability", "green-travel",
-  "community", "networking", "linux-foundation"
-]
+tags: ["conference", "cloud-native", "open-source", "networking"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

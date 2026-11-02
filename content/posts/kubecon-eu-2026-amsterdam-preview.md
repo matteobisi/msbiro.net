@@ -1,10 +1,7 @@
 ---
 title: "Amsterdam Bound: Gearing Up for KubeCon EU 2026"
 date: 2026-03-04T10:00:00+00:00
-tags: [
-  "kubecon", "amsterdam", "reevo", "community",
-  "kubernetes", "cloud-native", "networking", "cybersecurity"
-]
+tags: ["conference", "open-source", "kubernetes", "cloud-native", "networking", "cybersecurity"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,10 +1,7 @@
 ---
 title: "cryptsetup: How to Protect Entire Disks or USB Keys – Notes on technical_notebook"
 date: 2024-07-15T18:30:03+00:00
-tags: [
-  "cryptsetup", "encryption", "oss", "technical_notebook",
-  "disk-encryption", "luks", "usb-security", "linux", "data-protection"
-]
+tags: ["open-source", "linux"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

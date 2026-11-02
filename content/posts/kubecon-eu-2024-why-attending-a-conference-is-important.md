@@ -1,11 +1,7 @@
 ---
 title: "KubeCon 2024: Why Attending a Conference Is Important and Some Useful Resources"
 date: 2024-03-15T05:30:03+00:00
-tags: [
-  "kubecon", "community", "events",
-  "kubernetes", "cloud-native", "cncf",
-  "conference", "networking", "professional-development", "open-source"
-]
+tags: ["conference", "open-source", "kubernetes", "cloud-native", "networking"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

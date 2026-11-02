@@ -1,23 +1,7 @@
 ---
 title: "From Senior System Engineer to Team Leader: My Journey and Key Leadership Principles"
 date: 2025-07-16T06:34:03+00:00
-tags: [
-  "working journey",
-  "team leader",
-  "leadership",
-  "team",
-  "career development",
-  "engineering management",
-  "remote leadership",
-  "tech leadership",
-  "people management",
-  "personal growth",
-  "team culture",
-  "remote work",
-  "engineering teams",
-  "servant leadership",
-  "career journey"
-]
+tags: ["leadership"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

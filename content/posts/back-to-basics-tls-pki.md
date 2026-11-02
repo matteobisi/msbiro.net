@@ -1,11 +1,7 @@
 ---
 title: "Back to Basics: TLS and PKI from the Ground Up"
 date: 2026-06-29T07:49:50+01:00
-tags: [
-  "cybersecurity", "devops", "linux", "open-source", "tutorial",
-  "tls", "pki", "kubernetes", "devsecops", "certificates", "openssl",
-  "x509", "mtls", "certificate-authority"
-]
+tags: ["cybersecurity", "devsecops", "linux", "open-source", "troubleshooting", "networking", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,11 +1,7 @@
 ---
 title: "The EU Cyber Resilience Act: A Practical Roadmap"
 date: 2026-08-20T06:00:00Z
-tags: [
-  "cybersecurity", "devsecops", "CRA", "eu-regulation", "compliance",
-  "sbom", "supply-chain-security", "vulnerability-management",
-  "cyber-resilience-act", "product-security", "open-source-security"
-]
+tags: ["cybersecurity", "devsecops", "compliance", "supply-chain-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

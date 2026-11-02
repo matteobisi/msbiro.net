@@ -1,7 +1,7 @@
 ---
 title: "Apple container announced"
 date: 2025-06-10T14:30:03+00:00
-tags: ["apple", "container", "container runtime", "macos26", "virtualization", "developer tools", "rosetta2", "oci-compliant", "apple-silicon"]
+tags: ["container-security", "linux"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,10 +1,7 @@
 ---
 title: "Runc Container Breakout Vulnerabilities"
 date: 2025-11-07T06:45:00+00:00
-tags: [
-  "cloud-native", "kubernetes", "cybersecurity",
-  "open-source", "devops", "containers", "runc"
-]
+tags: ["cloud-native", "kubernetes", "cybersecurity", "open-source", "devsecops", "container-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

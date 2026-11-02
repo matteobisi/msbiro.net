@@ -1,11 +1,7 @@
 ---
 title: "Resolving 'Operation Not Permitted' for CyberArk Conjur Cloud CLI on macOS"
 date: 2025-01-17T16:20:03+00:00
-tags: [
-  "conjur cloud", "conjur cli", "macos",
-  "cybersecurity", "saas", "cli-tools",
-  "macos-security", "troubleshooting", "devops"
-]
+tags: ["cybersecurity", "troubleshooting", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

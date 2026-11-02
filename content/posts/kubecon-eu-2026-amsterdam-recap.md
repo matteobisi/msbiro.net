@@ -1,11 +1,7 @@
 ---
 title: "KubeCon EU 2026: Community, Connections, and a New Hat"
 date: 2026-03-30T14:00:00+00:00
-tags: [
-  "kubecon", "amsterdam", "reevo", "sighup", "community",
-  "kubernetes", "cloud-native", "cncf", "networking",
-  "cloud-native-days-italy", "ai", "conference"
-]
+tags: ["conference", "open-source", "kubernetes", "cloud-native", "networking", "ai-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

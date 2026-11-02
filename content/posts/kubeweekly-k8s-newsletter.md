@@ -1,11 +1,7 @@
 ---
 title: "KubeWeekly – Get Weekly Kubernetes News in Your Inbox"
 date: 2024-01-25T11:30:03+00:00
-tags: [
-  "kubeweekly", "cncf", "newsletter", "community",
-  "kubernetes", "cloud-native", "open-source",
-  "ecosystem", "devops", "tech-newsletter"
-]
+tags: ["cloud-native", "open-source", "kubernetes", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

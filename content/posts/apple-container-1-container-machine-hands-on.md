@@ -1,11 +1,7 @@
 ---
 title: "Apple container 1.0 and container machine: hands-on security test"
 date: 2026-06-12T09:45:00+01:00
-tags: [
-  "apple", "apple-container", "container-machine", "macos", "macos26",
-  "virtualization", "container-security", "developer-tools", "linux",
-  "systemd", "cloud-native", "devsecops"
-]
+tags: ["linux", "container-security", "cloud-native", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

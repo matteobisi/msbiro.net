@@ -1,11 +1,7 @@
 ---
 title: "In 2026 I Am Still Asked Why You Need a Hardened Container Image Catalog"
 date: 2026-06-24T09:30:00+01:00
-tags: [
-  "supply-chain-security", "hardened-images", "containers", "devsecops",
-  "dora", "nis2", "compliance", "kubernetes", "container-security",
-  "cybersecurity", "cloud-native", "distroless", "alpine", "sbom", "slsa"
-]
+tags: ["supply-chain-security", "container-security", "devsecops", "compliance", "kubernetes", "cybersecurity", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

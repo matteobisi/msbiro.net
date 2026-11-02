@@ -1,7 +1,7 @@
 ---
 title: "Urgent: Zero-Day CVEs Found in Two Major Secrets Managers — Have You Updated Yet?"
 date: 2025-08-11T12:39:03+00:00
-tags: ["cybersecurity", "zero-day", "CVE", "secrets manager", "CyberArk", "HashiCorp", "software update", "vulnerability management"]
+tags: ["cybersecurity", "secrets-management"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

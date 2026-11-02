@@ -1,11 +1,7 @@
 ---
 title: "KCD Italy Will Return in 2025 with a New Name"
 date: 2024-12-05T18:33:03+00:00
-tags: [
-  "kcd", "italy", "community", "events",
-  "cloud-native", "cncf", "kubernetes",
-  "conference", "bologna", "cloud-native-days", "tech-community"
-]
+tags: ["open-source", "conference", "cloud-native", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,10 +1,7 @@
 ---
 title: "Testing GSD: From a Docs-Only Repo to Working Go Code in One Session"
 date: 2026-04-13T05:32:00Z
-tags: [
-  "devops", "devsecops", "AI", "spec-driven-development",
-  "golang", "sbom", "supply-chain-security", "open-source", "github-copilot"
-]
+tags: ["devsecops", "ai-security", "golang", "supply-chain-security", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

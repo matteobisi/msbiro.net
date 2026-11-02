@@ -1,11 +1,7 @@
 ---
 title: "The Value of Community Contributions: Exploring CNCF and OpenSSF"
 date: 2023-11-01T16:44:03+00:00
-tags: [
-  "community", "cncf", "openssf", "contribution",
-  "open-source", "cloud-native", "security",
-  "ecosystem", "volunteer", "professional-growth", "linux-foundation"
-]
+tags: ["open-source", "cloud-native", "cybersecurity"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

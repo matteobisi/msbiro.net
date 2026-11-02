@@ -1,10 +1,7 @@
 ---
 title: "Cloud Native Days Italy 2027: Building the Community, Together"
 date: 2026-11-02
-tags: [
-  "cloud-native", "kubernetes", "open-source",
-  "devops", "community", "events"
-]
+tags: ["cloud-native", "kubernetes", "open-source", "devsecops", "conference"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,11 +1,7 @@
 ---
 title: "OWASP GenAI LLM Top 10 2026: What the New Rankings Mean for Security Teams"
 date: 2026-08-05T07:00:00Z
-tags: [
-  "owasp", "genai", "llm", "ai-security", "cybersecurity",
-  "appsec", "prompt-injection", "supply-chain", "devsecops",
-  "vulnerability-management", "threat-modeling"
-]
+tags: ["ai-security", "cybersecurity", "supply-chain-security", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,11 +1,7 @@
 ---
 title: "In 2026 I Am Still Asked Why You Need a Centralized Secrets Manager"
 date: 2026-07-17T06:30:00+01:00
-tags: [
-  "secrets-management", "secrets-manager", "devsecops", "openbao",
-  "hashicorp-vault", "dora", "nis2", "compliance", "kubernetes",
-  "cybersecurity", "cloud-native", "git-crypt", "sops", "audit-logging", "cncf"
-]
+tags: ["secrets-management", "devsecops", "compliance", "kubernetes", "cybersecurity", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

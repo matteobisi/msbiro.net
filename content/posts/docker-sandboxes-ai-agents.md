@@ -1,10 +1,7 @@
 ---
 title: "Docker Sandboxes: Running AI Agents in YOLO Mode, Safely"
 date: 2026-04-07T12:22:00Z
-tags: [
-  "docker", "ai-agents", "security", "container-security", "devsecops",
-  "github-copilot", "microvm", "sandbox", "cloud-native", "developer-tools"
-]
+tags: ["container-security", "ai-security", "cybersecurity", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

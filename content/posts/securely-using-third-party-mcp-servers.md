@@ -1,9 +1,7 @@
 ---
 title: "Securely Working with Third-Party MCP Servers"
 date: 2025-11-17
-tags: [
-  "cybersecurity", "open-source", "devsecops", "mcp", "owasp"
-]
+tags: ["cybersecurity", "open-source", "devsecops", "ai-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

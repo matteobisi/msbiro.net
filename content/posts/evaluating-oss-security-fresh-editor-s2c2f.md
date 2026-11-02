@@ -1,11 +1,7 @@
 ---
 title: "Evaluating Oss Security Fresh Editor s2c2f"
 date: 2025-12-27T16:37:11Z
-tags: [
-  "openssh", "supply-chain-security", "s2c2f", "fresh-editor", 
-  "rust", "devsecops", "openssf", "scorecard", "semgrep", 
-  "cargo-audit", "sbom", "oss-security", "kubernetes"
-]
+tags: ["supply-chain-security", "devsecops", "open-source", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

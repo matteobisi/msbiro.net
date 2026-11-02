@@ -1,11 +1,7 @@
 ---
 title: "KubeCon EU 2025 London"
 date: 2025-02-21T09:30:03+00:00
-tags: [
-  "kubecon", "community", "events", "london",
-  "kubernetes", "cloud-native", "cncf",
-  "conference", "sponsorship", "networking", "tech-community"
-]
+tags: ["conference", "open-source", "kubernetes", "cloud-native", "networking"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

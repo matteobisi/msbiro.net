@@ -1,10 +1,7 @@
 ---
 title: "Apple Container 1.5.0: Native Kubernetes for SIGHUP Distribution"
 date: 2026-10-01T12:00:00+01:00
-tags: [
-  "apple-container", "kubernetes", "kubeadm", "devops",
-  "apple-silicon", "sighup-distribution", "furyctl", "cloud-native"
-]
+tags: ["linux", "kubernetes", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

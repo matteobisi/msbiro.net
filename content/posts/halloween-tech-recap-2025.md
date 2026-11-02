@@ -1,7 +1,7 @@
 ---
 title: "A Halloween Tech Recap: Gearing Up for the Final Sprint of 2025"
 date: 2025-10-28T10:00:00+00:00
-tags: ["halloween", "recap", "career", "reevo", "sighup", "cloud-native", "cybersecurity", "community", "kubecon", "sentinelone", "hashicorp", "cnapp", "cicd", "cloud-native-days-italy"]
+tags: ["leadership", "cloud-native", "cybersecurity", "open-source", "conference", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

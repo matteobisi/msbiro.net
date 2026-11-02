@@ -1,12 +1,7 @@
 ---
 title: "ECB on AI-Enabled Cybersecurity Threats: What Banks Must Do by October 2026"
 date: 2026-07-10T08:30:00+01:00
-tags: [
-  "cybersecurity", "artificial-intelligence", "banking-security",
-  "ecb", "dora", "operational-resilience", "vulnerability-management",
-  "patch-management", "third-party-risk", "zero-trust", "supply-chain",
-  "cnapp", "hardened-images", "sbom"
-]
+tags: ["cybersecurity", "compliance", "supply-chain-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

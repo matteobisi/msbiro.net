@@ -1,10 +1,7 @@
 ---
 title: "Beyond CVE Scanning: The Case for a Hardened Container Image Catalog"
 date: 2025-11-29T10:00:00Z
-tags: [
-  "devsecops", "security", "supply-chain-security", "containers", 
-  "docker", "kubernetes", "dora", "nis2", "chainguard"
-]
+tags: ["devsecops", "cybersecurity", "supply-chain-security", "container-security", "kubernetes", "compliance"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

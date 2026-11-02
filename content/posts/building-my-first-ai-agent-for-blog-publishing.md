@@ -1,10 +1,7 @@
 ---
 title: "Building My First AI Agent for Blog Publishing"
 date: 2025-11-09T16:11:07Z
-tags: [
-  "ai", "automation", "devops", "open-source", 
-  "productivity", "hugo", "cli"
-]
+tags: ["ai-security", "devsecops", "open-source", "blogging"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
