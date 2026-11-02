@@ -8,7 +8,7 @@ tags: [
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Cloud Native Days Italy returns to Bologna on 20 May 2027. Discover why community-driven events matter and how sponsors can help bring the Italian cloud-native community together."
