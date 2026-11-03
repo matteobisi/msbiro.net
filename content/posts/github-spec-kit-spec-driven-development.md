@@ -1,10 +1,7 @@
 ---
 title: "GitHub Spec-Kit: Why Structured AI Development Beats Vibe Coding"
 date: 2026-01-21T09:23:27Z
-tags: [
-  "devops", "devsecops", "AI", "spec-driven-development",
-  "open-source", "compliance", "github", "spec-kit"
-]
+tags: ["devsecops", "ai-security", "open-source", "compliance"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

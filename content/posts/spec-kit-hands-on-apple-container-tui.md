@@ -1,10 +1,7 @@
 ---
 title: "Testing Spec-Kit: Building a Functional Container TUI in 2.5 Hours"
 date: 2026-02-12T00:00:00Z
-tags: [
-  "devops", "devsecops", "AI", "spec-driven-development",
-  "golang", "tui", "apple-container", "spec-kit", "open-source"
-]
+tags: ["devsecops", "ai-security", "golang", "linux", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

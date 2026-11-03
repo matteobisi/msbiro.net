@@ -1,10 +1,7 @@
 ---
 title: "When Evaluating the Security of Your Project, Start With the Placeholder"
 date: 2026-09-29
-tags: [
-  "cybersecurity", "devsecops", "supply-chain-security",
-  "ai-agents", "mcp", "threat-modeling", "vulnerability-management"
-]
+tags: ["cybersecurity", "devsecops", "supply-chain-security", "ai-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

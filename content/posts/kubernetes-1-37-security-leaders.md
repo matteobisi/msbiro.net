@@ -1,10 +1,7 @@
 ---
 title: "Kubernetes 1.37 Security: 3 Stable Advances, 3 Future Signals"
 date: 2026-09-04T05:05:00Z
-tags: [
-  "kubernetes", "security", "cloud-native", "container-security",
-  "devsecops", "leadership", "risk-management", "open-source"
-]
+tags: ["kubernetes", "cybersecurity", "cloud-native", "container-security", "devsecops", "leadership", "compliance", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

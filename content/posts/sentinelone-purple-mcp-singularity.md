@@ -1,10 +1,7 @@
 ---
 title: "SentinelOne Purple MCP: A Hands-On Guide to Singularity AI Integration"
 date: 2026-05-11
-tags: [
-  "cybersecurity", "mcp", "sentinelone", "soc", "ai", "threat-hunting",
-  "devsecops", "cloud-native", "kubernetes"
-]
+tags: ["cybersecurity", "ai-security", "devsecops", "cloud-native", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

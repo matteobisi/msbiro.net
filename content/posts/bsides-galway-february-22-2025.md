@@ -1,10 +1,7 @@
 ---
 title: "Security Conference – BSides Galway, February 22nd, 2025"
 date: 2024-11-17T13:30:03+00:00
-tags: [
-  "bsides", "galway", "events", "community", "security",
-  "cybersecurity", "conference", "infosec", "networking", "university-of-galway"
-]
+tags: ["conference", "open-source", "cybersecurity", "networking"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

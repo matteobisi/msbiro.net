@@ -1,10 +1,7 @@
 ---
 title: "You Built and Signed Your SBOM. Now What? Store, Verify, Manage"
 date: 2026-10-06T06:50:00+02:00
-tags: [
-  "cybersecurity", "supply-chain-security", "SBOM",
-  "open-source", "cloud-native", "devsecops", "sigstore", "kubernetes"
-]
+tags: ["cybersecurity", "supply-chain-security", "open-source", "cloud-native", "devsecops", "container-security", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

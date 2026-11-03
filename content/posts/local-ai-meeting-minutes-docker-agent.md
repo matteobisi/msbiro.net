@@ -1,11 +1,7 @@
 ---
 title: "Local AI Meeting Minutes with Docker Model Runner and Docker Agent: No Cloud, No Leaks"
 date: 2026-07-06T12:00:00Z
-tags: [
-  "docker", "docker-agent", "docker-model-runner", "local-llm", "ai-agents",
-  "meeting-minutes", "speech-to-text", "diarization", "privacy", "devsecops",
-  "apple-silicon", "gguf", "qwen"
-]
+tags: ["container-security", "ai-security", "devsecops", "linux"]
 keywords: [
   "local AI meeting minutes", "Docker Model Runner", "Docker Agent",
   "private meeting transcription", "on-device speech to text", "local LLM Apple Silicon",

@@ -1,10 +1,7 @@
 ---
 title: "Athena Coalition: Coordinated Open Source Defense in the AI Vulnerability Era"
 date: 2026-06-16T10:14:00+01:00
-tags: [
-  "open-source", "supply-chain-security", "devsecops",
-  "cybersecurity", "ai", "chainguard", "docker"
-]
+tags: ["open-source", "supply-chain-security", "devsecops", "cybersecurity", "ai-security", "container-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

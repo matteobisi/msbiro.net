@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes 1.36: The Release That Said Goodbye to Ingress NGINX"
 date: 2026-04-21T12:35:00Z
-tags: ["kubernetes", "security", "selinux", "ingress", "gateway-api", "cloud-native", "containers", "devops", "open-source"]
+tags: ["kubernetes", "cybersecurity", "cloud-native", "container-security", "devsecops", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,10 +1,7 @@
 ---
 title: "Linux 7.0: What Platform and Security Leaders Should Know"
 date: 2026-04-16T10:11:00Z
-tags: [
-  "linux-kernel", "linux", "security", "cloud-native",
-  "container-security", "kubernetes", "devsecops", "leadership", "open-source"
-]
+tags: ["linux", "cybersecurity", "cloud-native", "container-security", "kubernetes", "devsecops", "leadership", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

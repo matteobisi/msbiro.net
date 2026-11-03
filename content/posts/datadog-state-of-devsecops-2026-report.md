@@ -1,10 +1,7 @@
 ---
 title: "The Exploitability Gap: Insights from Datadog’s State of DevSecOps 2026"
 date: 2026-03-06T09:00:00Z
-tags: [
-  "cloud-native", "kubernetes", "cybersecurity",
-  "devsecops", "datadog", "containers", "supply-chain"
-]
+tags: ["cloud-native", "kubernetes", "cybersecurity", "devsecops", "container-security", "supply-chain-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

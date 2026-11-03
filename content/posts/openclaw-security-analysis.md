@@ -1,10 +1,7 @@
 ---
 title: "ClawdBot → MoltBot → OpenClaw: A Case Study in Confusion Attacks and Security Risks"
 date: 2026-01-31T01:44:33Z
-tags: [
-  "cybersecurity", "supply-chain-security", "ai", 
-  "devsecops", "threat-analysis", "open-source"
-]
+tags: ["cybersecurity", "supply-chain-security", "ai-security", "devsecops", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

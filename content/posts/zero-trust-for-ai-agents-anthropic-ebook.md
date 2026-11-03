@@ -1,10 +1,7 @@
 ---
 title: "Zero Trust for AI Agents: Why Anthropic's New eBook Should Be on Your Reading List"
 date: 2026-06-10T06:42:27+01:00
-tags: [
-  "zero-trust", "ai-agents", "agentic-ai", "anthropic", "cybersecurity",
-  "mcp", "prompt-injection", "supply-chain", "devsecops", "cloud-native"
-]
+tags: ["cybersecurity", "ai-security", "supply-chain-security", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,10 +1,7 @@
 ---
 title: "Supply Chain Attacks Won't Stop: 8 Controls to Reduce Your Exposure"
 date: 2026-04-26T12:00:00+01:00
-tags: [
-  "cybersecurity", "supply-chain-security", "devsecops",
-  "open-source", "devops", "github-actions", "npm"
-]
+tags: ["cybersecurity", "supply-chain-security", "devsecops", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

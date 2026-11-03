@@ -1,7 +1,7 @@
 ---
 title: "My New Role with Cloud Native Days Italy"
 date: 2025-09-25T00:02:03+00:00
-tags: ["cloud native", "event organizer", "Italy", "Bologna", "tech community", "2026 events", "Cloud Native Days Italy", "community work", "IT conferences", "professional development"]
+tags: ["cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

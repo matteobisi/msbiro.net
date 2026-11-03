@@ -1,20 +1,7 @@
 ---
 title: "Silos Come Back Dressed as Autonomy"
 date: 2026-10-29T08:00:00Z
-tags: [
-  "security-leadership",
-  "leadership",
-  "engineering-leadership",
-  "cloud-native-security",
-  "devsecops",
-  "cybersecurity",
-  "governance",
-  "risk-management",
-  "silos",
-  "autonomy",
-  "NIS2",
-  "DORA"
-]
+tags: ["leadership", "devsecops", "cybersecurity", "compliance"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

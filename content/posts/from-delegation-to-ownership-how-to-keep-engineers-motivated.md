@@ -1,17 +1,7 @@
 ---
 title: "From Delegation to Ownership: How to Keep Engineers Motivated"
 date: 2026-01-09T09:00:00+00:00
-tags: [
-  "leadership",
-  "engineering management",
-  "team culture",
-  "motivation",
-  "people management",
-  "career growth",
-  "remote work",
-  "mentorship",
-  "ownership"
-]
+tags: ["leadership"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

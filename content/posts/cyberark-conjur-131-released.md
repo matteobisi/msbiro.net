@@ -1,10 +1,7 @@
 ---
 title: "CyberArk Conjur 13.1 Released"
 date: 2023-12-07T08:30:03+00:00
-tags: [
-  "cyberark", "conjur", "13.1",
-  "secrets-management", "release", "resiliency", "security", "vault-synchronizer", "kubernetes"
-]
+tags: ["secrets-management", "cybersecurity", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

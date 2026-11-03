@@ -1,10 +1,7 @@
 ---
 title: "AI CLI Standardization: From Tool Lock-in to Portability"
 date: 2026-02-06T06:38:56Z
-tags: [
-  "AI", "devops", "devsecops", "CLI", "standardization",
-  "open-source", "best-practices", "AGENTS.md"
-]
+tags: ["ai-security", "devsecops", "open-source"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,9 +1,7 @@
 ---
 title: "Back to Basics: My Opinionated 2025 sshd_config Hardening"
 date: 2025-12-03T16:03:07Z
-tags: [
-  "cybersecurity", "devops", "linux", "open-source", "tutorial", "ssh_config", "devsecops", "openssh"
-]
+tags: ["cybersecurity", "devsecops", "linux", "open-source", "troubleshooting"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

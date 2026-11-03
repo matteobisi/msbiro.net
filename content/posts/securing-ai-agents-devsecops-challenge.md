@@ -1,10 +1,7 @@
 ---
 title: "The Challenge of Securing AI Agents: A DevSecOps Perspective"
 date: 2026-02-17
-tags: [
-  "cybersecurity", "devsecops", "ai", "agentic-ai", "mcp", "openclaw",
-  "cloud-native", "shadow-ai"
-]
+tags: ["cybersecurity", "devsecops", "ai-security", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

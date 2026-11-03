@@ -1,10 +1,7 @@
 ---
 title: "CyberArk Impact 2022 World Tour – Will You Be There?"
 date: 2022-09-21T19:30:03+00:00
-tags: [
-  "cyberark", "impact", "conference",
-  "event", "world-tour", "infosec", "security-conference", "networking", "milan"
-]
+tags: ["secrets-management", "conference", "cybersecurity", "networking"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

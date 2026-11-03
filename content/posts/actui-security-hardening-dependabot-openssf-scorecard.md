@@ -1,11 +1,7 @@
 ---
 title: "Hardening ACTUI: Dependabot and OpenSSF Scorecard for a Side Project"
 date: 2026-04-02T08:00:00Z
-tags: [
-  "devops", "devsecops", "security", "open-source",
-  "github", "openssf", "dependabot", "apple-container",
-  "spec-kit", "golang", "github-actions"
-]
+tags: ["devsecops", "cybersecurity", "open-source", "linux", "golang"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

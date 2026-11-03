@@ -1,12 +1,7 @@
 ---
 title: "OpenSSF - Open Source Project Security Baseline"
 date: 2025-02-26T11:30:03+00:00
-tags: [
-  "openssf", "security", "posture",
-  "open-source-security", "software-security",
-  "project-security", "security-baseline",
-  "cybersecurity", "software-maintainers"
-]
+tags: ["open-source", "cybersecurity"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

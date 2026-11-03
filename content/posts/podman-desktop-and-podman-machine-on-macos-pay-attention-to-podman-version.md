@@ -1,12 +1,7 @@
 ---
 title: "macOS, Podman Desktop and the Podman Machine: Pay Close Attention to the Podman Version"
 date: 2025-01-10T11:30:03+00:00
-tags: [
-  "podman", "podman desktop", "podman machine",
-  "container", "container runtime", "macos",
-  "virtualization", "container management",
-  "compatibility", "troubleshooting", "developer tools"
-]
+tags: ["container-security", "linux", "troubleshooting"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

@@ -1,10 +1,7 @@
 ---
 title: "CyberArk Conjur 13 has been released."
 date: 2023-06-06T18:30:03+00:00
-tags: [
-  "conjur", "cyberark", "13.0",
-  "secrets-management", "release", "oidc", "data-segregation", "observability", "kubernetes"
-]
+tags: ["secrets-management", "observability", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

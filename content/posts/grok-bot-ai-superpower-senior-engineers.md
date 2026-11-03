@@ -1,11 +1,7 @@
 ---
 title: "Grok Bot: An AI Superpower for Senior Engineers"
 date: 2026-09-02T13:35:14+01:00
-tags: [
-  "AI", "Grok Bot", "SpaceXAI", "AI agents",
-  "coding agents", "engineering management",
-  "engineering leadership", "software engineering"
-]
+tags: ["ai-security", "leadership"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

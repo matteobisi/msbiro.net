@@ -1,7 +1,7 @@
 ---
 title: "2025 CWE Top 25: Mitre's Critical Software Weakness Rankings and Trends"
 date: 2025-12-17T05:19:07Z
-tags: ["cybersecurity", "devsecops", "cwe", "cve", "mitre", "cloud-native", "kubernetes-security", "vulnerability-management"]
+tags: ["cybersecurity", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

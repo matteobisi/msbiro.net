@@ -1,10 +1,7 @@
 ---
 title: "Apple Container Kubernetes on macOS: A SIGHUP Distribution Lab"
 date: 2026-08-16T17:00:00Z
-tags: [
-  "apple-container", "kubernetes", "kubeadm", "devops",
-  "apple-silicon", "sighup-distribution", "furyctl", "cloud-native"
-]
+tags: ["linux", "kubernetes", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

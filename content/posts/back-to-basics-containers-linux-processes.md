@@ -1,12 +1,7 @@
 ---
 title: "Back to Basics: Why Containers Are Just Fancy Linux Processes"
 date: 2026-02-20T06:31:29Z
-tags: [
-  "cloud-native", "kubernetes", "cybersecurity",
-  "open-source", "devops", "containers", "linux",
-  "processes", "permissions", "security-context",
-  "namespaces", "cgroups"
-]
+tags: ["cloud-native", "kubernetes", "cybersecurity", "open-source", "devsecops", "container-security", "linux"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

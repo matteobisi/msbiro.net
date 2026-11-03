@@ -1,11 +1,7 @@
 ---
 title: "Resolving Podman Log Rotation Issues in CyberArk Conjur Container 12.9 Deployments"
 date: 2023-05-24T17:30:03+00:00
-tags: [
-  "conjur", "cyberark", "podman", "12.9",
-  "container-runtime", "log-rotation", "security",
-  "container-management", "troubleshooting", "devops"
-]
+tags: ["secrets-management", "cybersecurity", "troubleshooting", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

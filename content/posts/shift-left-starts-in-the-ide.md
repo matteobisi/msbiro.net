@@ -1,10 +1,7 @@
 ---
 title: "Shift Left Starts in the IDE: VS Code Security in 2026"
 date: 2026-09-15T05:05:55+01:00
-tags: [
-  "cybersecurity", "devsecops", "developer-security",
-  "supply-chain-security", "vscode", "shift-left", "malware", "threat-intelligence"
-]
+tags: ["cybersecurity", "devsecops", "supply-chain-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

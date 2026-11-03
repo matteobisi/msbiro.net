@@ -1,11 +1,7 @@
 ---
 title: "Fresh Start: Moving My Blog from Blogger to Hugo"
 date: 2025-06-07T09:30:03+00:00
-tags: [
-  "announcement", "blog", "hugo",
-  "papermod", "migration", "cloudflare-pages",
-  "github-pages", "static-site-generator", "blogging"
-]
+tags: ["blogging"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

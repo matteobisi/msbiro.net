@@ -1,11 +1,7 @@
 ---
 title: "CyberArk Conjur - why you (probably) need an enterprise secrets manager"
 date: 2022-07-19T16:30:03+00:00
-tags: [
-  "conjur", "introduction", "secrets manager",
-  "enterprise-security", "cloud-native", "secrets-management",
-  "cybersecurity", "devsecops", "password-management"
-]
+tags: ["secrets-management", "cloud-native", "cybersecurity", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

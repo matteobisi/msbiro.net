@@ -1,7 +1,7 @@
 ---
 title: "Cloud Native Days Italy 2026: The Journey Continues"
 date: 2026-01-29T11:48:00+00:00
-tags: ["cloud native", "event organizer", "Italy", "Bologna", "tech community", "2026 events", "Cloud Native Days Italy", "community work", "IT conferences", "sponsorship", "CFP"]
+tags: ["cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

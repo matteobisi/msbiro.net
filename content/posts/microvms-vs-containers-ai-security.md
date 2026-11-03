@@ -1,12 +1,7 @@
 ---
 title: "MicroVMs vs Containers for AI Agents: ECB Cybersecurity Guide"
 date: 2026-09-21T06:29:45+01:00
-tags: [
-  "cloud-native", "cybersecurity", "open-source", "virtualization",
-  "microvm", "firecracker", "kata-containers", "ai-agents",
-  "container-security", "platform-engineering", "ecb", "banking-security",
-  "operational-resilience"
-]
+tags: ["cloud-native", "cybersecurity", "open-source", "linux", "ai-security", "container-security", "platform-engineering"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

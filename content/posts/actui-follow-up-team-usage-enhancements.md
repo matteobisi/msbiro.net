@@ -1,10 +1,7 @@
 ---
 title: "ACTUI Follow-Up: Submenus and Image Management"
 date: 2026-02-27T06:00:00Z
-tags: [
-  "devops", "AI", "spec-driven-development",
-  "golang", "tui", "apple-container", "spec-kit"
-]
+tags: ["devsecops", "ai-security", "golang", "linux"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

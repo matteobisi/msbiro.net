@@ -1,11 +1,7 @@
 ---
 title: "How Is It Possible to Make Both Developers and Security Officers Happy? Try Snyk!"
 date: 2023-01-13T16:23:03+00:00
-tags: [
-  "snyk", "sast", "sca", "supply-chain",
-  "application-security", "devsecops", "vulnerability-management",
-  "secure-development", "code-quality", "ci-cd", "security-automation"
-]
+tags: ["supply-chain-security", "devsecops", "cybersecurity"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

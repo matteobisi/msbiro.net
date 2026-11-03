@@ -1,11 +1,7 @@
 ---
 title: "CyberArk Conjur: A Quick Overview of Architecture and System Requirements"
 date: 2022-07-24T11:40:03+00:00
-tags: [
-  "conjur", "cyberark", "secrets manager",
-  "enterprise-security", "architecture", "system-requirements",
-  "high-availability", "kubernetes", "docker", "podman", "container-runtime"
-]
+tags: ["secrets-management", "kubernetes", "container-security"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

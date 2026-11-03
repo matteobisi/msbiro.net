@@ -1,11 +1,7 @@
 ---
 title: "From Manual to GitOps: Simplifying Grafana Dashboard Configuration with Git Sync"
 date: 2025-05-12T11:34:03+00:00
-tags: [
-  "grafana", "dashboard", "gitops",
-  "git-sync", "observability-as-code", "ci-cd",
-  "version-control", "grafana-12", "monitoring", "devops"
-]
+tags: ["devsecops", "observability"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

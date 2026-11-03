@@ -1,10 +1,7 @@
 ---
 title: "August 2026 Countdown: Are Your K8s AI Workloads EU AI Act Ready?"
 date: 2026-03-16T04:00:00Z
-tags: [
-  "EU-AI-Act", "kubernetes", "cybersecurity",
-  "AI-compliance", "devsecops", "governance"
-]
+tags: ["kubernetes", "cybersecurity", "devsecops", "compliance"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

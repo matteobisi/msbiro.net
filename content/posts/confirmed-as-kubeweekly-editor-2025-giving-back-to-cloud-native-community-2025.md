@@ -1,10 +1,7 @@
 ---
 title: "Confirmed as KubeWeekly Editor: Giving Back to the Cloud-Native Community in 2025"
 date: 2025-01-09T08:30:03+00:00
-tags: [
-  "kubeweekly", "community", "cncf",
-  "kubernetes", "cloud-native", "newsletter", "open-source", "editorial", "k8s"
-]
+tags: ["open-source", "cloud-native", "kubernetes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

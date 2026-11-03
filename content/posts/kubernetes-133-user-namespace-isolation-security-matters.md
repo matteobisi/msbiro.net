@@ -1,11 +1,7 @@
 ---
 title: "Securing Kubernetes 1.33 Pods: The Impact of User Namespace Isolation"
 date: 2025-05-16T09:30:03+00:00
-tags: [
-  "kubernetes", "hostUsers", "security", "isolation",
-  "user-namespaces", "pod-security", "container-security",
-  "devsecops", "linux-kernel", "container-runtime", "namespace-isolation"
-]
+tags: ["kubernetes", "cybersecurity", "container-security", "devsecops"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

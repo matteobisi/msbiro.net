@@ -1,17 +1,7 @@
 ---
 title: "Career Ladders That Engineers Do Not Game"
 date: 2026-09-28T08:00:00+01:00
-tags: [
-  "leadership",
-  "engineering management",
-  "career growth",
-  "leveling",
-  "career ladder",
-  "performance management",
-  "team culture",
-  "people management",
-  "hiring"
-]
+tags: ["leadership"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false

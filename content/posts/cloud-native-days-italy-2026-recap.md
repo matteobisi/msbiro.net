@@ -1,11 +1,7 @@
 ---
 title: "Cloud Native Days Italy 2026: A Wrap-Up from Bologna"
 date: 2026-05-22T06:29:04+01:00
-tags: [
-  "cloud-native", "community", "events", "bologna",
-  "kubernetes", "cncf", "conference", "cloud-native-days-italy",
-  "open-source", "networking", "tech-community", "organizer"
-]
+tags: ["cloud-native", "open-source", "conference", "kubernetes", "networking"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
