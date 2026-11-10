@@ -136,6 +136,10 @@ container cluster write-config --name sighup-local \
 kubectl config use-context sighup-local
 ```
 
+A second kubeconfig trap appeared later, while I was testing multi-worker clusters. `container cluster create` writes the new context to the file named by `$KUBECONFIG`, not only to `~/.kube/config`. Because the lab variable was exported, creating a throwaway cluster merged its context into the lab kubeconfig and selected it. Deleting the cluster removed it from `~/.kube/config` but left the dangling context behind, still marked current, so `kubectl` kept dialling a port that no longer existed. The same two commands above clear it.
+
+That behaviour is worth a note in any lab guide that exports `KUBECONFIG` early: creation and deletion do not fully own the file they touch.
+
 The new listing output is worth showing, because it changed shape:
 
 ```text
@@ -199,6 +203,8 @@ The `container exec` path for applying them still works. That was my main concer
 $ container start sighup-local
 Error: container with ID sighup-local not found
 ```
+
+Cluster nodes are also absent from `container list` now, so `container cluster ls --nodes` is the only supported way to inspect them.
 
 With storage and sysctls in place, Furyctl 0.36.1 applied the profile with SIGHUP Distribution v1.36.0 and reported success. The result:
 
