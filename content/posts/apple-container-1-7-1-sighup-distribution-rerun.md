@@ -31,11 +31,11 @@ editPost:
     appendFilePath: true
 ---
 
-The [SIGHUP blog article](https://blog.sighup.io/how-to-test-sighup-distribution-locally-with-apples-container-kubernetes-plugin/) I wrote about running SIGHUP Distribution locally with Apple's container Kubernetes plugin was published on 9 November 2026. It was verified with Container 1.4.1, Kubernetes v1.35.5, Furyctl v0.35.1, and Distribution v1.35.1.
+In October I published a [follow-up](/posts/apple-container-1-5-0-native-kubernetes-sighup-distribution/) confirming that Apple Container 1.5.0 creates the Kubernetes cluster natively and that SIGHUP Distribution installs on top of it. That post was verified with Container 1.5.0, Kubernetes v1.35.5, Furyctl v0.35.1, and Distribution v1.35.1.
 
-By the time it went live, Container was already at 1.7.1.
+Container is now at 1.7.1.
 
-This is a short follow-up, not another long walkthrough. The Kubernetes plugin is still experimental, and the maintainers are still reshaping its CLI from release to release. Some of what I published a few weeks ago no longer matches the tool. The good news is that the approach still works, and the full reproducible material lives in the [fury-apple-container repository](https://github.com/matteobisi/fury-apple-container) if you want to run it end to end.
+This is another short follow-up, not a walkthrough. The Kubernetes plugin is still experimental, and the maintainers are still reshaping its CLI from release to release. Some of what I documented a few weeks ago no longer matches the tool. The good news is that the approach still works, and the full reproducible material lives in the [fury-apple-container repository](https://github.com/matteobisi/fury-apple-container) if you want to run it end to end.
 
 I rebuilt the lab on Container 1.7.1 to confirm that, and everything below comes from that run.
 
@@ -43,7 +43,7 @@ I rebuilt the lab on Container 1.7.1 to confirm that, and everything below comes
 
 ## The CLI is still moving
 
-The command namespace changed in 1.6.1. `container k8s` is now `container cluster`, with no alias, so every command in the published article, and in my [first](https://www.msbiro.net/posts/apple-container-local-kubernetes-sighup-distribution/) and [second](https://www.msbiro.net/posts/apple-container-1-5-0-native-kubernetes-sighup-distribution/) lab posts, returns an error:
+The command namespace changed in 1.6.1. `container k8s` is now `container cluster`, with no alias, so every command in my [first](/posts/apple-container-local-kubernetes-sighup-distribution/) and [second](/posts/apple-container-1-5-0-native-kubernetes-sighup-distribution/) lab posts returns an error:
 
 ```text
 $ container k8s --help
@@ -110,7 +110,7 @@ export FURYCTL_BIN="$PWD/.tools/furyctl/furyctl"
 ./scripts/deploy-sighup-distribution.sh
 ```
 
-If you are following the SIGHUP article as written, replace `container k8s` with `container cluster` throughout, drop the `load-image` step in favour of `--shared-image-store`, pin the node image to `kindest/node:v1.36.4` for Distribution v1.36.0, and expect Kata 4.3.1 as the recommended kernel. The structure of the walkthrough holds up, which says something about the approach even if the commands keep moving.
+If you are following my earlier posts as written, replace `container k8s` with `container cluster` throughout, drop the `load-image` step in favour of `--shared-image-store`, pin the node image to `kindest/node:v1.36.4` for Distribution v1.36.0, and expect Kata 4.3.1 as the recommended kernel. The structure of the walkthrough holds up, which says something about the approach even if the commands keep moving.
 
 The plugin is still experimental, and that is the honest summary. Each release removes a workaround I documented in the previous one, and each release adds a new detail to track. It works well enough for a disposable local evaluation environment, and I would still point someone to minikube first if they only need a cluster up quickly.
 
@@ -118,7 +118,6 @@ The plugin is still experimental, and that is the honest summary. Each release r
 
 ## Sources
 
-- [How to test SIGHUP Distribution locally with Apple's container Kubernetes Plugin (SIGHUP blog)](https://blog.sighup.io/how-to-test-sighup-distribution-locally-with-apples-container-kubernetes-plugin/)
 - [Apple Container 1.7.1 release](https://github.com/apple/container/releases/tag/1.7.1)
 - [Apple Container 1.6.1 release, rename to `container cluster`](https://github.com/apple/container/releases/tag/1.6.1)
 - [Shared image store pull request, #2437](https://github.com/apple/container/pull/2437)
@@ -127,3 +126,5 @@ The plugin is still experimental, and that is the honest summary. Each release r
 - [SIGHUP Distribution v1.36.0 release](https://github.com/sighupio/distribution/releases/tag/v1.36.0)
 - [fury-apple-container lab repository](https://github.com/matteobisi/fury-apple-container)
 - [Apple Container TUI (ACTUI)](https://github.com/matteobisi/apple-container-tui)
+- [First lab post: Apple Container Kubernetes on macOS](/posts/apple-container-local-kubernetes-sighup-distribution/)
+- [Second post: Apple Container 1.5.0 native Kubernetes](/posts/apple-container-1-5-0-native-kubernetes-sighup-distribution/)
