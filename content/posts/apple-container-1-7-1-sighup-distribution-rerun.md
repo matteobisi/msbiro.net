@@ -1,5 +1,5 @@
 ---
-title: "Apple Container 1.7.1: Rerunning the SIGHUP Distribution Lab After Four Releases"
+title: "Apple Container 1.7.1: A Short Follow-Up on the SIGHUP Distribution Lab"
 date: 2026-11-10T09:00:00Z
 tags: ["linux", "kubernetes", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
@@ -8,7 +8,7 @@ TocOpen: false
 draft: true
 hidemeta: false
 comments: false
-description: "Apple Container renamed its Kubernetes plugin, removed load-image, and moved the recommended kernel again. I reran the full SIGHUP Distribution lab on 1.7.1 to see what still holds."
+description: "Apple Container maintainers keep changing the Kubernetes CLI. The SIGHUP Distribution lab still works on 1.7.1, but the commands and a couple of habits need to change."
 canonicalURL: "https://www.msbiro.net/posts/apple-container-1-7-1-sighup-distribution-rerun/"
 disableShare: true
 hideSummary: false
@@ -21,8 +21,8 @@ ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
     image: "https://www.msbiro.net/social-image.png"
-    alt: "Apple Container 1.7.1 and SIGHUP Distribution rerun"
-    caption: "Apple Container 1.7.1 Kubernetes and SIGHUP Distribution v1.36.0"
+    alt: "Apple Container 1.7.1 follow-up on the SIGHUP Distribution lab"
+    caption: "Apple Container 1.7.1 and SIGHUP Distribution v1.36.0"
     relative: false
     hidden: true
 editPost:
@@ -31,252 +31,70 @@ editPost:
     appendFilePath: true
 ---
 
-My colleagues published [How to test SIGHUP Distribution locally with Apple's container Kubernetes Plugin](https://blog.sighup.io/how-to-test-sighup-distribution-locally-with-apples-container-kubernetes-plugin/) on 9 November 2026. I wrote that walkthrough, and it was verified with Container 1.4.1, Kubernetes v1.35.5, Furyctl v0.35.1, and SIGHUP Distribution v1.35.1.
+The [SIGHUP blog article](https://blog.sighup.io/how-to-test-sighup-distribution-locally-with-apples-container-kubernetes-plugin/) I wrote about running SIGHUP Distribution locally with Apple's container Kubernetes plugin was published on 9 November 2026. It was verified with Container 1.4.1, Kubernetes v1.35.5, Furyctl v0.35.1, and Distribution v1.35.1.
 
-By the time it went live, Container was at 1.7.1. Four releases landed between the verification and the publication, and every one of them touched the Kubernetes plugin. The command namespace changed, a subcommand disappeared, the recommended guest kernel moved, and the way locally built images reach a cluster node was replaced.
+By the time it went live, Container was already at 1.7.1.
 
-That makes the published article outdated in places, and it makes my [first](https://www.msbiro.net/posts/apple-container-local-kubernetes-sighup-distribution/) and [second](https://www.msbiro.net/posts/apple-container-1-5-0-native-kubernetes-sighup-distribution/) lab posts outdated too. Rather than patch three documents from memory, I rebuilt the whole lab on Container 1.7.1 with SIGHUP Distribution v1.36.0, and this is the verified result.
+This is a short follow-up, not another long walkthrough. The Kubernetes plugin is still experimental, and the maintainers are still reshaping its CLI from release to release. Some of what I published a few weeks ago no longer matches the tool. The good news is that the approach still works, and the full reproducible material lives in the [fury-apple-container repository](https://github.com/matteobisi/fury-apple-container) if you want to run it end to end.
 
-Everything below comes from a single run on an Apple silicon Mac with macOS 27.2, 10 CPUs, and 32 GB of memory. Nothing here is inferred from release notes alone.
+I rebuilt the lab on Container 1.7.1 to confirm that, and everything below comes from that run.
 
 ---
 
-## What changed in the plugin
+## The CLI is still moving
 
-The rename is the part that breaks existing scripts immediately. `container k8s` became `container cluster` in 1.6.1. There is no alias, so every command in the published walkthrough and in both of my posts returns an error:
+The command namespace changed in 1.6.1. `container k8s` is now `container cluster`, with no alias, so every command in the published article, and in my [first](https://www.msbiro.net/posts/apple-container-local-kubernetes-sighup-distribution/) and [second](https://www.msbiro.net/posts/apple-container-1-5-0-native-kubernetes-sighup-distribution/) lab posts, returns an error:
 
 ```text
 $ container k8s --help
 Error: unknown command 'k8s'
 ```
 
-The current surface is smaller than the old one:
+Beyond the rename, the plugin lost and gained pieces in the same window:
 
-```text
-$ container cluster --help
-SUBCOMMANDS:
-  create         Create and start a local Kubernetes cluster and optional worker nodes
-  delete, rm     Delete a Kubernetes cluster and its nodes
-  list, ls       List clusters
-  write-config   Write the cluster context to a Kubernetes configuration file
-```
-
-The rest of the changes are summarized below, with the release that introduced each one.
-
-| Change | Release | Effect on the lab |
-| --- | --- | --- |
-| `container k8s` renamed to `container cluster` | 1.6.1 | Every script and every published command needed rewriting |
-| Multi-worker clusters, `--cni NONE` | 1.6.0 | New capability, nothing in the lab depended on it |
-| `load-image` removed, replaced by `--shared-image-store` on create | 1.7.1 | The local image workflow lost its import step |
-| `cluster list` shows one row per cluster, `--nodes` for the per-node view | 1.7.1 | Parsing and documentation changed |
-| Container lifecycle commands refuse cluster nodes | 1.7.1 | `container start` on a node now fails |
-| Workers can be sized per group with `--workers count=,cpus=,memory=` | 1.7.1 | New capability |
-| Recommended kernel moves to Kata 4.3.1, `vmlinux-6.18.56-208-debug` | 1.7.1 | Kernel remediation needed again |
-
-The `start` removal I documented in the 1.5.0 post still stands. There is no `container cluster start` either, so a stopped node is deleted and recreated, not resumed.
-
----
-
-## The kernel moved again, and the host did not
-
-The 1.5.0 post ended with a recommendation: run `container system kernel set --recommended --force` deliberately, because an application upgrade does not move the selected guest kernel forward.
-
-That is still true, and it applied again. Before I changed anything for this run, the host was still on the kernel the 1.5.0 lab installed:
-
-```text
-$ readlink "$HOME/Library/Application Support/com.apple.container/kernels/default.kernel-arm64"
-.../kernels/vmlinux-6.18.35-197-debug
-```
-
-The `kernels/` directory held only `vmlinux-6.12.28-153` and `vmlinux-6.18.35-197-debug`. The 1.7.1 recommended kernel, Kata 4.3.1 on `vmlinux-6.18.56-208-debug`, was not on disk at all, and a cluster created in that state reported kernel `6.18.35`.
-
-The remediation is the same command, with a different result:
-
-```bash
-container system kernel set --recommended --force
-```
-
-It downloaded Kata 4.3.1 and created `vmlinux-6.18.56-208-debug` together with a new `default.kernel-arm64` symlink. A node created afterwards reported `6.18.56`. The `--force` flag still replaces the selected default, so it remains a conscious choice on a host that depends on a custom kernel.
-
-Two upgrades, the same retention behaviour, two different kernel versions. If there is one habit worth keeping from this series, it is to check the effective default kernel after every Container upgrade rather than assuming the recommended one is in use.
-
----
-
-## Rebuilding the lab on 1.7.1
-
-I deleted the orphaned node from the 1.5.0 lab first. It had an interesting symptom: it appeared in `container list` but not in `container cluster list`, because it was created before the rename and the cluster metadata no longer matched. `container delete` removed it without complaint.
-
-The cluster creation itself needed no workaround:
-
-```bash
-container cluster create \
-  --name sighup-local \
-  --cpus 6 \
-  --memory 16g \
-  --node-image docker.io/kindest/node:v1.36.4 \
-  --shared-image-store
-```
-
-It completed in 40 seconds. The node came up Ready on Kubernetes v1.36.4 with containerd 2.3.4 and kernel `6.18.56`.
-
-The node image is pinned on purpose. Apple still defaults to `kindest/node:v1.35.5`, but SIGHUP Distribution v1.36.0 supports Kubernetes 1.36, so pinning `v1.36.4` keeps the cluster and the distribution on the same minor version. The `--node-image` flag is not new, it existed back in 1.5.0, but it matters more now that the distribution has moved to 1.36.
-
-One gotcha cost me a minute. The `.state/sighup-local.kubeconfig` left over from the September lab still pointed at the deleted cluster's certificate authority:
-
-```text
-Unable to connect to the server: tls: failed to verify certificate:
-x509: certificate signed by unknown authority
-```
-
-Rewriting it fixed the problem, and any script that reuses a fixed kubeconfig path should do the same after recreating a cluster:
-
-```bash
-container cluster write-config --name sighup-local \
-  --kubeconfig "$PWD/.state/sighup-local.kubeconfig"
-kubectl config use-context sighup-local
-```
-
-A second kubeconfig trap appeared later, while I was testing multi-worker clusters. `container cluster create` writes the new context to the file named by `$KUBECONFIG`, not only to `~/.kube/config`. Because the lab variable was exported, creating a throwaway cluster merged its context into the lab kubeconfig and selected it. Deleting the cluster removed it from `~/.kube/config` but left the dangling context behind, still marked current, so `kubectl` kept dialling a port that no longer existed. The same two commands above clear it.
-
-That behaviour is worth a note in any lab guide that exports `KUBECONFIG` early: creation and deletion do not fully own the file they touch.
-
-The new listing output is worth showing, because it changed shape:
-
-```text
-$ container cluster ls
-NAME          NODES  K8S VERSION  STATE
-sighup-local  1      v1.36.4      running
-
-$ container cluster ls --nodes
-CLUSTER       NODE          ROLE                  STATE    CPUS  MEMORY  ADDR          PORTS
-sighup-local  sighup-local  control-plane,worker  running  6     16 GB   192.168.64.5  6445->6443
-```
-
-The plugin still publishes only the Kubernetes API to macOS. There is no service load balancer, so `kubectl port-forward` remains the portable way to reach anything inside the cluster.
-
----
-
-## The local image workflow got simpler
-
-The old workflow required a fully qualified name, a separate `load-image` step, and `imagePullPolicy: Never`. It was documented in my first post with a specific failure case: a bare image name was rejected with `ErrImageNeverPull`.
-
-On 1.7.1, `load-image` is gone. `--shared-image-store` at creation time lets cluster nodes read Apple's local image store directly, so the import step disappears:
-
-```bash
-container build -t docker.io/library/apple-container-local-demo:0.1.0 \
-  --file demo/Containerfile demo
-kubectl apply -f manifests/local-demo.yaml
-```
-
-The pod came up Ready with no registry access, and the service returned the expected page through a port-forward.
-
-The fully qualified name requirement is gone as well. I tested it explicitly, with a bare tag and `imagePullPolicy: IfNotPresent`:
-
-```bash
-container build -t shortname-demo:dev --file demo/Containerfile demo
-kubectl -n local-demo run shortname --image=shortname-demo:dev \
-  --image-pull-policy=IfNotPresent --restart=Never
-```
-
-The pod started, and the event log said the image was already present on the machine and accessible to the pod. That removes a small but recurring source of confusion for anyone who followed the earlier posts.
-
----
-
-## SIGHUP Distribution v1.36.0 on the new cluster
-
-Two local requirements from the previous runs survived the version changes.
-
-Apple Container still creates no default StorageClass, so Rancher's local-path provisioner is still required. The node image now preloads `local-path-provisioner` and `local-path-helper` images, but it does not deploy them, so the storage class still has to be installed and marked default explicitly.
-
-The logging profile still needs more inotify capacity than the node provides. The defaults before tuning were:
-
-```text
-fs.inotify.max_user_instances = 128
-fs.inotify.max_user_watches = 130278
-```
-
-The watches value scales with node memory, and a 16 GB node got a much higher default than the 4 GB node I probed, but `max_user_instances` stayed at 128 regardless of size. Since Fluent Bit needs an instance per watched pattern, the SIGHUP recommendation of `8192` instances and `524288` watches is still the right starting point.
-
-The `container exec` path for applying them still works. That was my main concern about the 1.7.1 lifecycle restriction, and it turned out to be a non-issue: the filter covers `start`, `stop`, `kill`, and `delete`, not `exec`. What it does break is addressing a node as a container:
-
-```text
-$ container start sighup-local
-Error: container with ID sighup-local not found
-```
-
-Cluster nodes are also absent from `container list` now, so `container cluster ls --nodes` is the only supported way to inspect them.
-
-With storage and sysctls in place, Furyctl 0.36.1 applied the profile with SIGHUP Distribution v1.36.0 and reported success. The result:
-
-| Area | Observed result |
+| Change | Release |
 | --- | --- |
-| Cluster | One Ready node, Kubernetes v1.36.4, kernel `6.18.56`, containerd 2.3.4 |
-| Distribution | v1.36.0 applied with Furyctl v0.36.1 |
-| Workloads | 58 pods running, no restarts, across cert-manager, forecastle, ingress-haproxy, local-path-storage, logging, monitoring, tracing |
-| Storage | 16 PVCs Bound through the default `local-path` class |
-| Ingress | HAProxy ingress rolled out as a DaemonSet |
-| Logging | Fluent Bit Ready with no restarts after the inotify tuning |
-| Grafana | `http://127.0.0.1:3000/login` returned HTTP 200 |
-| Forecastle | `http://127.0.0.1:18081/` returned HTTP 200 |
-| Local image | Pod Ready from the shared image store, service returned HTTP 200 |
+| `container k8s` renamed to `container cluster` | 1.6.1 |
+| Multi-worker clusters, `--cni NONE` | 1.6.0 |
+| `load-image` removed in favour of `--shared-image-store` at creation | 1.7.1 |
+| `cluster list` shows one row per cluster, `--nodes` for the per-node view | 1.7.1 |
+| Container lifecycle commands refuse cluster nodes | 1.7.1 |
+| Per-group worker sizing with `--workers count=,cpus=,memory=` | 1.7.1 |
+| Recommended kernel moves to Kata 4.3.1 | 1.7.1 |
 
-The deployment helper still removes the two systemd-only host tailers, `systemd-common` and `systemd-etcd`, because they cannot run inside a container node. That limitation belongs to the environment, not to the Container version, and I do not expect it to change.
+The practical effect is smaller than the list suggests. The lab scripts needed the command renames, and the local image workflow lost an entire step: `--shared-image-store` lets cluster nodes read Apple's local image store directly, so there is no import command and no fully qualified name requirement any more. I deployed a bare `shortname-demo:dev` with `imagePullPolicy: IfNotPresent` and it started, where the earlier releases refused the equivalent bare name.
 
----
-
-## What still does not work
-
-The honest list is shorter than it was, but it is not empty.
-
-A stopped cluster cannot be restarted. There is no `container cluster start`, and a node's internal address is not stable across a stop and start, so recreating the cluster is the only supported path. That discards all node-local data, including the distribution.
-
-There is still no service load balancer. `kubectl port-forward` is the way in.
-
-There is still no default StorageClass. One extra script step, every time.
-
-And there is a new, unrelated warning I hit on this run: the kubectl client on the Mac is 1.34.1 while the cluster server is 1.36.4, which exceeds the supported version skew. That is my client being old, not a Container problem, but it is worth checking before you interpret version-sensitive output.
-
-My own sysctl and storage scripts remain necessary, which is a reasonable indicator that these are environment constraints rather than bugs waiting to be fixed.
+The lifecycle restriction is worth knowing before you go looking for a cluster. `container start sighup-local` now returns `container with ID sighup-local not found`, and nodes no longer appear in `container list`. Use `container cluster ls --nodes` instead. Node-level `container exec` still works, which matters because the lab still needs it to apply the inotify settings for Fluent Bit.
 
 ---
 
-## ACTUI now follows the 1.7.1 surface
+## Still working, with two habits
 
-I maintain [ACTUI](https://github.com/matteobisi/apple-container-tui), a keyboard-first terminal UI for Apple Container. It is a proof of concept, and it is also my main way of driving the CLI day to day.
+The rerun used Kubernetes v1.36.4, SIGHUP Distribution v1.36.0, and Furyctl 0.36.1. Furyctl applied the local profile and reported success. All 58 pods were running with no restarts, all 16 PVCs were bound through the default `local-path` class, and both Grafana and Forecastle answered HTTP 200 through a port-forward.
 
-Every Container release that changes the CLI breaks a TUI that shells out to it, so I updated ACTUI to 1.7.1 as well. The Kubernetes view follows the new command set:
+Two things still need attention, and both are old friends by now.
 
-- Cluster list renders the one-row-per-cluster shape, with a key to toggle the per-node detail from `cluster ls --nodes`
-- No `load-image` action is offered anywhere, since the command no longer exists
-- Cluster creation exposes the shared image store, the node image, the CNI choice, and per-group worker sizing
-- Command previews show the exact 1.7.1 command before anything runs, and dry-run mode still blocks execution
+The recommended guest kernel does not follow an application upgrade. My host was still on the 1.5.0 kernel, `vmlinux-6.18.35-197-debug`, while 1.7.1 recommends Kata 4.3.1 on `vmlinux-6.18.56-208-debug`. The new kernel was not even on disk. `container system kernel set --recommended --force` fixes it, and this is the second time the same behaviour has shown up across this series.
 
-The repository is at [github.com/matteobisi/apple-container-tui](https://github.com/matteobisi/apple-container-tui). It is a separate project from the SIGHUP lab, but the two are complementary: the lab is the reproducible evidence, and the TUI is the day-to-day interface.
+Apple Container still creates no default StorageClass, so Rancher's local-path provisioner remains a required step. The node image now preloads the provisioner images without deploying them, which is a useful hint and not yet a fix.
 
----
-
-## Corrections for the published SIGHUP article
-
-If you are following the SIGHUP blog post as written, these are the commands and values that need to change for Container 1.6.1 and later. The structure of the walkthrough is still correct, which is a good sign, since the underlying approach survived four releases.
-
-| Published | Current |
-| --- | --- |
-| `container k8s create` | `container cluster create` |
-| `container k8s write-config` | `container cluster write-config` |
-| `container k8s delete` | `container cluster delete` |
-| `container k8s load-image` with a fully qualified name | `--shared-image-store` on `cluster create` |
-| Kata 3.32.0, kernel `6.18.35` | Kata 4.3.1, `vmlinux-6.18.56-208-debug`, kernel `6.18.56` |
-| `kindest/node:v1.35.5` | `kindest/node:v1.36.4` for Distribution v1.36.0 |
-| Furyctl 0.35.1, Distribution v1.35.1 | Furyctl 0.36.1, Distribution v1.36.0 |
-| local-path provisioner v0.0.34 | v0.0.37 |
-
-Two prose corrections matter as much as the commands. The article says the kernel edge case affects hosts upgraded from a pre-1.0 installation; that is no longer the whole story, because the same retention now applies to a host upgraded from 1.5.0 to 1.7.1. And the image workflow paragraph that explains the fully qualified name requirement should be deleted, not edited, because the requirement is gone.
+There is also a kubeconfig detail I hit while testing multi-worker clusters. `container cluster create` writes to the file named by `$KUBECONFIG`, not only to `~/.kube/config`, and deleting a cluster does not clean up contexts it created elsewhere. If your lab exports `KUBECONFIG` early, rewrite the file with `container cluster write-config` and reselect the context after any cluster churn. Otherwise `kubectl` keeps dialling a port that no longer exists, or fails against a certificate authority from a cluster you deleted.
 
 ---
 
-## The current workflow
+## ACTUI keeps pace
 
-For an Apple silicon Mac on Container 1.7.1, the sequence is unchanged in shape and different in detail:
+[ACTUI](https://github.com/matteobisi/apple-container-tui) is my keyboard-first terminal UI for Apple Container, and it is the tool I use every day to drive this lab. A TUI that shells out to a CLI inherits every breaking change in it, so the 1.7.1 release was work for that project too.
+
+I am still evolving ACTUI with [GitHub spec-kit](https://github.com/github/spec-kit) and my personal Command Code GOAT subscription. Each Apple Container release becomes a spec, the spec drives the plan and the tasks, and the implementation lands against a documented contract instead of a mental note. That workflow is the reason the TUI kept up with four Container releases without losing the command previews, the dry-run mode, or the safe delete confirmations along the way.
+
+On the Kubernetes side, ACTUI now renders the one-row-per-cluster list with a per-node detail toggle, offers no `load-image` action because the command no longer exists, and exposes the shared image store, node image, CNI choice, and per-group worker sizing at creation time.
+
+---
+
+## Where to go for the full walkthrough
+
+I am not republishing the whole guide here. The complete, verified sequence, the profile, the scripts, and the evidence journal are in the [fury-apple-container repository](https://github.com/matteobisi/fury-apple-container):
 
 ```bash
 git clone https://github.com/matteobisi/fury-apple-container.git
@@ -292,9 +110,9 @@ export FURYCTL_BIN="$PWD/.tools/furyctl/furyctl"
 ./scripts/deploy-sighup-distribution.sh
 ```
 
-The [lab repository](https://github.com/matteobisi/fury-apple-container) is updated for 1.7.1, including the command renames, the shared image store, the pinned node image, and a release-by-release table of what changed. The verification journal records the evidence behind every row above, and the Container 1.2.2 recovery stays archived under `legacy/` as history.
+If you are following the SIGHUP article as written, replace `container k8s` with `container cluster` throughout, drop the `load-image` step in favour of `--shared-image-store`, pin the node image to `kindest/node:v1.36.4` for Distribution v1.36.0, and expect Kata 4.3.1 as the recommended kernel. The structure of the walkthrough holds up, which says something about the approach even if the commands keep moving.
 
-The pattern across this series is consistent. Each Container release removes a workaround I documented in the previous one, which is a good trade. The two constants are the guest kernel not following an upgrade and the missing default StorageClass, and both are explicit, one-line fixes once you know about them.
+The plugin is still experimental, and that is the honest summary. Each release removes a workaround I documented in the previous one, and each release adds a new detail to track. It works well enough for a disposable local evaluation environment, and I would still point someone to minikube first if they only need a cluster up quickly.
 
 ---
 
@@ -303,14 +121,9 @@ The pattern across this series is consistent. Each Container release removes a w
 - [How to test SIGHUP Distribution locally with Apple's container Kubernetes Plugin (SIGHUP blog)](https://blog.sighup.io/how-to-test-sighup-distribution-locally-with-apples-container-kubernetes-plugin/)
 - [Apple Container 1.7.1 release](https://github.com/apple/container/releases/tag/1.7.1)
 - [Apple Container 1.6.1 release, rename to `container cluster`](https://github.com/apple/container/releases/tag/1.6.1)
-- [Apple Container 1.6.0 release, multi-worker clusters](https://github.com/apple/container/releases/tag/1.6.0)
 - [Shared image store pull request, #2437](https://github.com/apple/container/pull/2437)
-- [Cluster list redesign pull request, #2451](https://github.com/apple/container/pull/2451)
 - [Lifecycle commands exclude cluster nodes, #2462](https://github.com/apple/container/pull/2462)
 - [Apple Container Kubernetes node-preparation failure, #2120](https://github.com/apple/container/issues/2120)
 - [SIGHUP Distribution v1.36.0 release](https://github.com/sighupio/distribution/releases/tag/v1.36.0)
-- [SIGHUP Distribution on Minikube](https://docs.sighup.io/docs/getting-started/distro-on-minikube)
 - [fury-apple-container lab repository](https://github.com/matteobisi/fury-apple-container)
 - [Apple Container TUI (ACTUI)](https://github.com/matteobisi/apple-container-tui)
-- [First lab post: Apple Container Kubernetes on macOS](/posts/apple-container-local-kubernetes-sighup-distribution/)
-- [Second post: Apple Container 1.5.0 native Kubernetes](/posts/apple-container-1-5-0-native-kubernetes-sighup-distribution/)
