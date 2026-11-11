@@ -78,9 +78,9 @@ There is also a kubeconfig detail I hit while testing multi-worker clusters. `co
 
 ## ACTUI keeps pace
 
-[ACTUI](https://github.com/matteobisi/apple-container-tui) is my keyboard-first terminal UI for Apple Container, and it is the tool I use every day to drive this lab. A TUI that shells out to a CLI inherits every breaking change in it, so the 1.7.1 release was work for that project too.
+[ACTUI](https://github.com/matteobisi/apple-container-tui) is a keyboard-first terminal UI for Apple Container. I built it for pleasure: I did not want to keep looking up the CLI syntax, and I wanted to play with spec-driven development on something real. A TUI that shells out to a CLI inherits every breaking change in it, so the 1.7.1 release was work for that project too.
 
-I am still evolving ACTUI with [GitHub spec-kit](https://github.com/github/spec-kit) and my personal Command Code GOAT subscription. Each Apple Container release becomes a spec, the spec drives the plan and the tasks, and the implementation lands against a documented contract instead of a mental note. That workflow is the reason the TUI kept pace with each of these Container releases without losing the command previews, the dry-run mode, or the safe delete confirmations along the way.
+That is where [GitHub spec-kit](https://github.com/github/spec-kit) and my personal Command Code GOAT subscription come in. Each Apple Container release becomes a spec, the spec drives the plan and the tasks, and the implementation lands against a documented contract instead of a mental note. The workflow is why the TUI kept pace with each of these Container releases without losing the command previews, the dry-run mode, or the safe delete confirmations along the way.
 
 On the Kubernetes side, ACTUI now renders the one-row-per-cluster list with a per-node detail toggle, and it offers no `load-image` action because the command no longer exists. Cluster creation exposes the shared image store, node image, CNI choice, and per-group worker sizing.
 
