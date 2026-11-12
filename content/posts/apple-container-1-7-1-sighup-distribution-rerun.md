@@ -1,11 +1,11 @@
 ---
 title: "Apple Container 1.7.1: A Short Follow-Up on the SIGHUP Distribution Lab"
-date: 2026-11-10T09:00:00Z
+date: 2026-11-12T09:00:00Z
 tags: ["linux", "kubernetes", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Apple Container maintainers keep changing the Kubernetes CLI. The SIGHUP Distribution lab still works on 1.7.1, but the commands and a few habits need to change."
