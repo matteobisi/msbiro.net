@@ -1,6 +1,6 @@
 ---
 title: "Apple Container 1.7.1: A Short Follow-Up on the SIGHUP Distribution Lab"
-date: 2026-11-12T09:00:00Z
+date: 2026-11-12T06:00:00Z
 tags: ["linux", "kubernetes", "devsecops", "cloud-native"]
 author: "Matteo Bisi"
 showToc: true
