@@ -1,11 +1,11 @@
 ---
 title: "Docker Sandboxes Kits: Running the Command Code TUI Inside a microVM"
-date: 2026-11-18T06:00:00Z
+date: 2026-11-18T08:50:00Z
 tags: ["container-security", "ai-security", "devsecops", "ai-agents", "docker-sandboxes"]
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Docker Sandboxes ships templates for a catalogue of coding agents, but Command Code is not one of them. I built a v3 kit from scratch, installed the cmd TUI in a Node image, injected the API key through the host proxy, and ran it inside a microVM."
@@ -433,21 +433,43 @@ Docker Hardened Images were the other candidate. I built the same kit on `dhi.io
 
 ---
 
-## Publishing
+## Sharing it with your team
 
-A local directory is a valid kit reference, which is all you need while iterating. To share the kit, use the descriptor as the build file:
+A local directory is all you need while iterating. For a team, publish the kit as an image to a private registry. Teammates then pull it like any other kit and don't need to build anything. With GitHub Container Registry:
 
 ```bash
+echo "$GHCR_TOKEN" | docker login ghcr.io -u <USER> --password-stdin
+
 docker buildx build ./command-code \
   --file ./command-code/command-code.yaml \
+  --build-arg version=1.89.3 \
   --platform linux/arm64,linux/amd64 \
-  --tag docker.io/<NAMESPACE>/command-code:1.0.0 \
+  --tag ghcr.io/<ORG>/command-code:1.89.3 \
   --push
-
-sbx run --name command-code-hub docker.io/<NAMESPACE>/command-code:1.0.0 ~/projects/hello-cmd
 ```
 
-Pin the tag. Approvals are checked against the published descriptor, so if a later version adds a domain or a credential, `sbx` asks again before applying it. Command Code ships as an `UNLICENSED` npm package, so read its terms before pushing an image that contains it to a public registry. I haven't pushed one.
+The descriptor is the build file, and `--build-arg` takes the kit argument name, `version`, not the Dockerfile `ARG`. The version is baked in at publish, so I tag the image with it. Updating the team means publishing a new tag.
+
+Each teammate sets up three things once: allow the registry as a kit source, store pull credentials for it, and store their own Command Code key:
+
+```bash
+sbx settings set kit.allowedSources '["docker.io/","ghcr.io/<ORG>/"]'
+
+gh auth refresh -s read:packages
+gh auth token | sbx secret set --registry ghcr.io --password-stdin
+
+sbx secret set commandcode
+```
+
+The first step is easy to miss: by default `sbx` pulls remote kits only from Docker Hub. The setting replaces the whole list, so keep `docker.io/` in it. The registry credential stays on the host and is used only to pull. After that, they run the kit by reference from any directory and approve the credential prompt on first create:
+
+```bash
+sbx run --name my-app ghcr.io/<ORG>/command-code:1.89.3 ~/projects/my-app
+```
+
+Approvals are checked against the published descriptor. If a later tag adds a domain or a credential, `sbx` asks again. To prove who published an image, `sbx kit sign --key cosign.key <ref>` signs it, and teammates check it with `sbx kit verify --key cosign.pub <ref>`.
+
+Command Code ships as an `UNLICENSED` npm package, so check its terms before you distribute an image that contains it, even internally. If that is a concern, share the source instead. Allow `github.com/<ORG>/` as a kit source and run a Git reference such as `"git+https://github.com/<ORG>/docker-sbx-command-code-kit.git#ref=<COMMIT>&dir=command-code"`. Each teammate then builds the kit locally, and no image is redistributed. The repository's [sharing guide](https://github.com/matteobisi/docker-sbx-command-code-kit/blob/main/docs/sharing.md) has both paths step by step.
 
 ---
 
@@ -459,7 +481,7 @@ Pin the tag. Approvals are checked against the published descriptor, so if a lat
 - **Updates are rebuilds, not edits.** Recreate the sandbox with `--kit-arg version=x.y.z`; the Dockerfile stays the same.
 - **Spend effort on the dependency tree, not the base.** A hardened base barely moved the numbers.
 
-Some caveats. This kit is mine, not Docker's: the service name and network rules are my choices, and nobody has audited them. The kit format went from v1 to v3 in under a year, and the `kit` subcommands are still experimental. And organization governance can override your allow list without telling you.
+Some caveats. This kit is mine, not Docker's: the service name and network rules are my choices, and nobody has audited them. Docker documents kits as Early Access, the format went from v1 to v3 in under a year, and the `kit` subcommands are still experimental. And organization governance can override your allow list without telling you.
 
 Even so, Command Code now runs in a microVM on my machine. It talks to one domain, can't reach any host credentials, and doesn't stop to ask permission. That's a better default than running it directly.
 
@@ -478,6 +500,9 @@ Even so, Command Code now runs in a microVM on my machine. It talks to one domai
 - [Build an agent workload](https://docs.docker.com/ai/sandboxes/customize/author/build-an-agent/)
 - [Base images](https://docs.docker.com/ai/sandboxes/customize/author/base-images/)
 - [Manage credentials](https://docs.docker.com/ai/sandboxes/configuration/credentials/)
+- [Build and distribute kits](https://docs.docker.com/ai/sandboxes/customize/author/distribute/)
+- [Use kits](https://docs.docker.com/ai/sandboxes/customize/use-kits/)
+- [Sandbox settings](https://docs.docker.com/ai/sandboxes/configuration/settings/)
 - [Docker Sandbox Kit Specification v3](https://github.com/docker/sandbox-kit-spec/blob/main/docs/spec/SPEC-v3.md)
 - [Command Code documentation](https://commandcode.ai/docs)
 - [Docker Hardened Images](https://docs.docker.com/dhi/)
