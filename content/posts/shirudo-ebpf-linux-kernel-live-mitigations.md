@@ -5,7 +5,7 @@ tags: ["linux", "container-security", "cybersecurity", "devsecops", "ai-security
 author: "Matteo Bisi"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Cisco and OpenAI recently announced Shirudo, an eBPF-based security platform for Linux. This article looks at how signed upatches, TPM attestation, and pull-based delivery can help defenders react faster when AI compresses the vulnerability discovery timeline."
@@ -100,7 +100,9 @@ Shirudo also does not defend against a compromised kernel, BPF verifier, TPM, or
 
 This is the part I would put in front of every infrastructure leader early in the conversation. Shirudo is promising, but it is not something you casually install on every existing Linux server next Monday.
 
-The documentation is clear: production targets require a Linux kernel with the signed-loader ABI and Shirudo kernel patches, plus TPM 2.0. The project is pre-release. It runs on a bpf-next development kernel with specific capabilities and patches; a release number alone is not enough to know whether a kernel is compatible. In other words, current mainstream production fleets will likely not be ready out of the box.
+The documentation is clear: production targets require a Linux kernel with the signed-loader ABI and Shirudo kernel patches, plus TPM 2.0. The project is still pre-release, but there are already early practical experiments, such as [Second Security's Shirudo walkthrough](https://second.security/shirudo/), that show how the workflow can be explored today.
+
+The compatibility bar is still high. Shirudo currently runs on a bpf-next development kernel with specific capabilities and patches; a release number alone is not enough to know whether a kernel is compatible. In other words, most mainstream production fleets will likely not be ready out of the box.
 
 That does not make Shirudo irrelevant. It makes adoption a roadmap decision. The right question is not "can we deploy this everywhere now?" The better question is "where could this model fit first, and what would we need to change in our Linux baseline, boot process, and attestation model to benefit from it?"
 
